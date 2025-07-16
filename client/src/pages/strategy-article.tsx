@@ -267,7 +267,7 @@ export default function StrategyArticle() {
             <div className="space-y-8 mb-8">
               <div>
                 <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                  ✅ They build on facts, not politics
+                  They build on facts, not politics
                 </h3>
                 <p className="text-lg text-gray-700 mb-4">
                   The best leaders start strategy conversations with clear insight about what's actually changing in their market, which trends they're underestimating, and where they have real competitive advantage.
@@ -279,7 +279,7 @@ export default function StrategyArticle() {
 
               <div>
                 <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                  ✅ They commit to bold moves
+                  They commit to bold moves
                 </h3>
                 <p className="text-lg text-gray-700 mb-4">
                   Top performers don't hedge. They bet on transformative shifts:
@@ -305,7 +305,7 @@ export default function StrategyArticle() {
 
               <div>
                 <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                  ✅ They make strategy everyone's job
+                  They make strategy everyone's job
                 </h3>
                 <p className="text-lg text-gray-700 mb-4">
                   In great companies, strategy isn't owned by the C-suite alone. It's translated into initiatives with clear owners, funded properly, and built into performance reviews, operating models, and hiring plans.
@@ -314,7 +314,7 @@ export default function StrategyArticle() {
 
               <div>
                 <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                  ✅ They test, adapt, and evolve
+                  They test, adapt, and evolve
                 </h3>
                 <p className="text-lg text-gray-700 mb-4">
                   Great strategy isn't static. Top companies document their assumptions clearly, track signals to test those assumptions, and adapt quickly when the market shifts.
@@ -338,20 +338,20 @@ export default function StrategyArticle() {
                 <h4 className="font-serif text-xl font-bold text-gray-900 mb-4">
                   In stable markets, Champions:
                 </h4>
-                <ul className="text-gray-700 space-y-2">
-                  <li>• Seek disruption proactively</li>
-                  <li>• Use bold bets to shake up entrenched players</li>
-                  <li>• Move fast to exploit predictable dynamics</li>
+                <ul className="text-gray-700 space-y-2 list-disc list-inside">
+                  <li>Seek disruption proactively</li>
+                  <li>Use bold bets to shake up entrenched players</li>
+                  <li>Move fast to exploit predictable dynamics</li>
                 </ul>
               </div>
               <div className="bg-red-50 p-6 rounded-lg border border-red-200">
                 <h4 className="font-serif text-xl font-bold text-gray-900 mb-4">
                   In volatile markets, Champions:
                 </h4>
-                <ul className="text-gray-700 space-y-2">
-                  <li>• Prioritize alignment and speed over perfection</li>
-                  <li>• Double down on risk management</li>
-                  <li>• Use scenario planning and assumption testing constantly</li>
+                <ul className="text-gray-700 space-y-2 list-disc list-inside">
+                  <li>Prioritize alignment and speed over perfection</li>
+                  <li>Double down on risk management</li>
+                  <li>Use scenario planning and assumption testing constantly</li>
                 </ul>
               </div>
             </div>
