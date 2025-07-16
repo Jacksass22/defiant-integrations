@@ -127,7 +127,7 @@ export function Navigation() {
   return (
     <nav className="bg-gray-900 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 py-2">
           {/* Menu Icon and Logo */}
           <div className="flex items-center space-x-4">
             <button 
@@ -146,30 +146,23 @@ export function Navigation() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-10">
             <MegaMenu title="Industries" sections={industriesData} />
             <MegaMenu title="Capabilities" sections={capabilitiesData} />
-            <Link href="/insights" className="text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/insights" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
               Featured Insights
             </Link>
-            <Link href="/locations" className="text-white hover:text-blue-400 transition-colors font-medium">
-              Locations
-            </Link>
-            <Link href="/careers" className="text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/careers" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
               Careers
             </Link>
             <MegaMenu title="About Us" sections={aboutData} />
-            <Link href="/blog" className="text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/blog" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
               Defiant Integration Blog
             </Link>
           </div>
           
-          {/* Right Side - Sign In, Subscribe, Search */}
+          {/* Right Side - Subscribe, Search */}
           <div className="hidden lg:flex items-center space-x-6">
-            <Link href="/signin" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
-              Sign In
-            </Link>
-            <span className="text-gray-400">|</span>
             <Link href="/subscribe" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
               Subscribe
             </Link>
@@ -186,7 +179,7 @@ export function Navigation() {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-gray-800 border-t border-gray-700">
-          <div className="px-4 py-6 space-y-4">
+          <div className="px-6 py-8 space-y-6">
             <Link href="/industries" className="block text-white hover:text-blue-400 transition-colors font-medium">
               Industries
             </Link>
@@ -195,9 +188,6 @@ export function Navigation() {
             </Link>
             <Link href="/insights" className="block text-white hover:text-blue-400 transition-colors font-medium">
               Featured Insights
-            </Link>
-            <Link href="/locations" className="block text-white hover:text-blue-400 transition-colors font-medium">
-              Locations
             </Link>
             <Link href="/careers" className="block text-white hover:text-blue-400 transition-colors font-medium">
               Careers
@@ -208,10 +198,7 @@ export function Navigation() {
             <Link href="/blog" className="block text-white hover:text-blue-400 transition-colors font-medium">
               Defiant Integration Blog
             </Link>
-            <div className="pt-4 border-t border-gray-700">
-              <Link href="/signin" className="block text-white hover:text-blue-400 transition-colors font-medium mb-2">
-                Sign In
-              </Link>
+            <div className="pt-6 border-t border-gray-700">
               <Link href="/subscribe" className="block text-white hover:text-blue-400 transition-colors font-medium">
                 Subscribe
               </Link>
