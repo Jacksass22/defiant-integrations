@@ -88,13 +88,13 @@ export default function Home() {
             <div className="bg-gray-50 p-16 min-h-[500px] flex items-center">
               <div>
                 <h2 className="font-serif text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                  We're all techies now: Digital skill-building for the future
+                  The Digital Edge: Empowering Every Employee for the Tech-Driven Future
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Digital upskilling is not just for tech teams anymore—it can help all employees thrive and make companies more competitive. Here's how your organization can get started.
+                  Developing digital fluency isn't just for engineers—it's a strategic advantage for every team. From marketing to operations, building these skills helps people perform better and companies move faster. Here's how you can lead the shift.
                 </p>
                 <button className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
-                  <span>Unlock growth through upskilling</span>
+                  <span>Start your digital enablement journey</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
