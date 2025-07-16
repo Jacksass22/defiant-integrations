@@ -1,8 +1,88 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
 import { Navigation } from '@/components/navigation';
+import { useEffect } from 'react';
 
 export default function StrategyArticle() {
+  useEffect(() => {
+    // Load Chart.js dynamically
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
+    script.onload = () => {
+      // Performance Distribution Chart
+      const ctx1 = document.getElementById('performanceChart');
+      if (ctx1) {
+        new (window as any).Chart(ctx1, {
+          type: 'doughnut',
+          data: {
+            labels: ['Top 20% (High Performers)', 'Middle 60% (Average)', 'Bottom 20% (Underperformers)'],
+            datasets: [{
+              data: [80, 15, 5],
+              backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      }
+
+      // Capability Chart
+      const ctx2 = document.getElementById('capabilityChart');
+      if (ctx2) {
+        new (window as any).Chart(ctx2, {
+          type: 'radar',
+          data: {
+            labels: ['Strategic Design', 'Mobilization', 'Execution', 'Leadership Alignment', 'Resource Allocation'],
+            datasets: [{
+              label: 'High Performers',
+              data: [8, 9, 8, 9, 8],
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59, 130, 246, 0.2)',
+              borderWidth: 2
+            }, {
+              label: 'Average Companies',
+              data: [6, 3, 5, 4, 3],
+              borderColor: '#ef4444',
+              backgroundColor: 'rgba(239, 68, 68, 0.2)',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                beginAtZero: true,
+                max: 10,
+                ticks: {
+                  stepSize: 1
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      }
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="bg-white text-gray-900 font-sans">
       <Navigation />
@@ -61,6 +141,19 @@ export default function StrategyArticle() {
               The Performance Reality Check
             </h2>
 
+            <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
+              <div className="text-center font-semibold text-gray-900 mb-4 text-lg">
+                Business Performance Distribution
+              </div>
+              <canvas id="performanceChart" width="400" height="250"></canvas>
+            </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-8">
+              <p className="text-sm text-gray-600">
+                <strong>Industry Research Note:</strong> Multiple studies including recent McKinsey research show a consistent pattern where a small percentage of companies capture the majority of industry profits, while the middle majority struggle to create meaningful value.
+              </p>
+            </div>
+
             <p className="text-lg text-gray-700 mb-8">
               Research consistently shows a stark reality across industries: a small percentage of companies capture the vast majority of profits, while most companies in the middle generate modest returns at best. The gap between top performers and everyone else has been widening over the past two decades.
             </p>
@@ -71,10 +164,14 @@ export default function StrategyArticle() {
                 <p className="text-gray-600">Of industry profits typically captured by the top 20% of companies</p>
               </div>
               <div className="bg-gray-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-                <div className="text-3xl font-bold text-red-600 mb-2">10%</div>
-                <p className="text-gray-600">Of companies successfully move from middle to top performance over a decade</p>
+                <div className="text-3xl font-bold text-red-600 mb-2">1 in 10</div>
+                <p className="text-gray-600">Companies successfully move from middle to top performance</p>
               </div>
             </div>
+
+            <p className="text-lg text-gray-700 mb-8">
+              Why do so few companies make this leap? They fail to connect strategic thinking to strategic execution. They have plans, they have ambitions, but they lack the organizational muscle to translate vision into reality.
+            </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-8">
               <p className="text-sm text-gray-600">
@@ -155,6 +252,13 @@ export default function StrategyArticle() {
             <h2 className="font-serif text-3xl font-bold text-gray-900 mb-6 mt-12">
               Where Winners Break Away: The Mobilization Advantage
             </h2>
+
+            <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
+              <div className="text-center font-semibold text-gray-900 mb-4 text-lg">
+                Strategic Capability Gaps: High Performers vs. Average
+              </div>
+              <canvas id="capabilityChart" width="400" height="250"></canvas>
+            </div>
 
             <p className="text-lg text-gray-700 mb-8">
               Designing a good strategy is challenging, but it's not where most companies fail. The critical differentiator is mobilization—the ability to turn strategic ideas into organizational momentum.

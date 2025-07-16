@@ -108,7 +108,7 @@ export default function Home() {
                   <div className="absolute inset-4 sm:inset-8 lg:inset-12 bg-blue-300 rounded-full opacity-60"></div>
                   <div className="absolute inset-6 sm:inset-12 lg:inset-16 bg-blue-200 rounded-full opacity-80"></div>
                   <div className="absolute inset-8 sm:inset-16 lg:inset-20 bg-white rounded-full flex items-center justify-center">
-                    <div className="text-xl sm:text-2xl">👥</div>
+                    <div className="text-xl sm:text-2xl text-blue-600 font-bold">AI</div>
                   </div>
                 </div>
                 <div className="text-white text-base sm:text-lg font-medium">
@@ -175,7 +175,7 @@ export default function Home() {
             {/* Featured Article */}
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                <div className="text-white text-4xl sm:text-6xl">🌍</div>
+                <div className="text-white text-2xl sm:text-3xl font-bold">INNOVATION</div>
               </div>
               <div className="p-6 sm:p-8">
                 <div className="text-sm text-gray-500 mb-2">July 9, 2025</div>
@@ -194,7 +194,7 @@ export default function Home() {
             {/* Second Article */}
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
-                <div className="text-white text-4xl sm:text-6xl">🚀</div>
+                <div className="text-white text-2xl sm:text-3xl font-bold">FUTURE</div>
               </div>
               <div className="p-6 sm:p-8">
                 <div className="text-sm text-gray-500 mb-2">July 8, 2025</div>
