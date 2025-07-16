@@ -20,21 +20,21 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center space-x-1 text-charcoal hover:text-electric-blue transition-colors font-medium">
+      <button className="flex items-center space-x-1 text-white hover:text-blue-400 transition-colors font-medium">
         <span>{title}</span>
         <ChevronDown className="w-4 h-4" />
       </button>
       
-      <div className={`mega-menu absolute top-full left-0 w-screen max-w-6xl bg-white border border-gray-200 rounded-lg shadow-2xl mt-2 z-50 ${isOpen ? 'active' : ''}`}>
+      <div className={`mega-menu absolute top-full left-0 w-screen max-w-6xl bg-gray-800 border border-gray-700 shadow-2xl mt-2 z-50 ${isOpen ? 'active' : ''}`}>
         <div className="p-8">
           <div className={`grid grid-cols-${Math.min(sections.length, 4)} gap-8`}>
             {sections.map((section, index) => (
               <div key={index}>
-                <h3 className="font-serif text-lg font-semibold text-navy mb-4">{section.title}</h3>
+                <h3 className="font-serif text-lg font-semibold text-white mb-4">{section.title}</h3>
                 <ul className="space-y-2 text-sm">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex}>
-                      <a href="#" className="hover:text-electric-blue transition-colors">
+                      <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                         {item}
                       </a>
                     </li>

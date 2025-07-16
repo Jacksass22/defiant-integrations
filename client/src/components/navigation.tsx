@@ -125,36 +125,39 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white/95 backdrop-blur-md fixed w-full top-0 z-50 border-b border-gray-100">
+    <nav className="bg-gray-900 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-serif font-bold text-navy">
-              Defiant <span className="text-electric-blue">Integrations</span>
+            <div className="text-xl font-serif font-bold text-white">
+              Defiant <span className="text-blue-400">Integrations</span>
             </div>
           </Link>
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <MegaMenu title="Industries" sections={industriesData} />
-            <MegaMenu title="Insights & Research" sections={insightsData} />
-            <Link href="/case-studies" className="text-charcoal hover:text-electric-blue transition-colors font-medium">
-              Case Studies
+            <MegaMenu title="Capabilities" sections={insightsData} />
+            <Link href="/insights" className="text-white hover:text-blue-400 transition-colors font-medium">
+              Featured Insights
             </Link>
             <MegaMenu title="About Us" sections={aboutData} />
-            <Link href="/careers" className="text-charcoal hover:text-electric-blue transition-colors font-medium">
+            <Link href="/careers" className="text-white hover:text-blue-400 transition-colors font-medium">
               Careers
             </Link>
-            <Link href="/contact" className="text-charcoal hover:text-electric-blue transition-colors font-medium">
+            <Link href="/contact" className="text-white hover:text-blue-400 transition-colors font-medium">
               Contact
             </Link>
           </div>
           
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Link href="/contact" className="bg-electric-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-              Start Your Transformation
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <Link href="/signin" className="text-white hover:text-blue-400 transition-colors font-medium">
+              Sign In
+            </Link>
+            <Link href="/subscribe" className="text-white hover:text-blue-400 transition-colors font-medium">
+              Subscribe
             </Link>
           </div>
           
