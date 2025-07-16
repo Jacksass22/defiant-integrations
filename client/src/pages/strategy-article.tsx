@@ -1,109 +1,69 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
 import { Navigation } from '@/components/navigation';
-import { useEffect } from 'react';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler } from 'chart.js';
+import { Doughnut, Radar } from 'react-chartjs-2';
+
+// Register Chart.js components
+ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler);
 
 export default function StrategyArticle() {
-  useEffect(() => {
-    let chartInstances: any[] = [];
+  // Chart data for performance distribution
+  const performanceChartData = {
+    labels: ['Top 20% (High Performers)', 'Middle 60% (Average)', 'Bottom 20% (Underperformers)'],
+    datasets: [{
+      data: [80, 15, 5],
+      backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
+      borderWidth: 0
+    }]
+  };
 
-    // Check if Chart.js is already loaded
-    if ((window as any).Chart) {
-      initializeCharts();
-    } else {
-      // Load Chart.js dynamically
-      const script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
-      script.onload = () => {
-        initializeCharts();
-      };
-      document.head.appendChild(script);
-    }
-
-    function initializeCharts() {
-      // Destroy existing charts if they exist
-      (window as any).Chart?.getChart('performanceChart')?.destroy();
-      (window as any).Chart?.getChart('capabilityChart')?.destroy();
-
-      // Performance Distribution Chart
-      const ctx1 = document.getElementById('performanceChart') as HTMLCanvasElement;
-      if (ctx1) {
-        const chart1 = new (window as any).Chart(ctx1, {
-          type: 'doughnut',
-          data: {
-            labels: ['Top 20% (High Performers)', 'Middle 60% (Average)', 'Bottom 20% (Underperformers)'],
-            datasets: [{
-              data: [80, 15, 5],
-              backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
-              borderWidth: 0
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: 'bottom'
-              }
-            }
-          }
-        });
-        chartInstances.push(chart1);
-      }
-
-      // Capability Chart
-      const ctx2 = document.getElementById('capabilityChart') as HTMLCanvasElement;
-      if (ctx2) {
-        const chart2 = new (window as any).Chart(ctx2, {
-          type: 'radar',
-          data: {
-            labels: ['Strategic Design', 'Mobilization', 'Execution', 'Leadership Alignment', 'Resource Allocation'],
-            datasets: [{
-              label: 'High Performers',
-              data: [8, 9, 8, 9, 8],
-              borderColor: '#3b82f6',
-              backgroundColor: 'rgba(59, 130, 246, 0.2)',
-              borderWidth: 2
-            }, {
-              label: 'Average Companies',
-              data: [6, 3, 5, 4, 3],
-              borderColor: '#ef4444',
-              backgroundColor: 'rgba(239, 68, 68, 0.2)',
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              r: {
-                beginAtZero: true,
-                max: 10,
-                ticks: {
-                  stepSize: 1
-                }
-              }
-            },
-            plugins: {
-              legend: {
-                position: 'bottom'
-              }
-            }
-          }
-        });
-        chartInstances.push(chart2);
+  const performanceChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom' as const
       }
     }
+  };
 
-    // Cleanup function
-    return () => {
-      chartInstances.forEach(chart => {
-        if (chart) {
-          chart.destroy();
+  // Chart data for capability gaps
+  const capabilityChartData = {
+    labels: ['Strategic Design', 'Mobilization', 'Execution', 'Leadership Alignment', 'Resource Allocation'],
+    datasets: [{
+      label: 'High Performers',
+      data: [8, 9, 8, 9, 8],
+      borderColor: '#3b82f6',
+      backgroundColor: 'rgba(59, 130, 246, 0.2)',
+      borderWidth: 2
+    }, {
+      label: 'Average Companies',
+      data: [6, 3, 5, 4, 3],
+      borderColor: '#ef4444',
+      backgroundColor: 'rgba(239, 68, 68, 0.2)',
+      borderWidth: 2
+    }]
+  };
+
+  const capabilityChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: 10,
+        ticks: {
+          stepSize: 1
         }
-      });
-    };
-  }, []);
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'bottom' as const
+      }
+    }
+  };
 
   return (
     <div className="bg-white text-gray-900 font-sans">
@@ -167,7 +127,9 @@ export default function StrategyArticle() {
               <div className="text-center font-semibold text-gray-900 mb-4 text-lg">
                 Business Performance Distribution
               </div>
-              <canvas id="performanceChart" width="400" height="250"></canvas>
+              <div className="h-64">
+                <Doughnut data={performanceChartData} options={performanceChartOptions} />
+              </div>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-8">
@@ -279,7 +241,9 @@ export default function StrategyArticle() {
               <div className="text-center font-semibold text-gray-900 mb-4 text-lg">
                 Strategic Capability Gaps: High Performers vs. Average
               </div>
-              <canvas id="capabilityChart" width="400" height="250"></canvas>
+              <div className="h-64">
+                <Radar data={capabilityChartData} options={capabilityChartOptions} />
+              </div>
             </div>
 
             <p className="text-lg text-gray-700 mb-8">
