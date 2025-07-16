@@ -25,16 +25,16 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
         <ChevronDown className="w-4 h-4" />
       </button>
       
-      <div className={`mega-menu absolute top-full left-0 w-screen max-w-6xl bg-gray-800 border border-gray-700 shadow-2xl mt-2 z-50 ${isOpen ? 'active' : ''}`}>
-        <div className="p-8">
-          <div className={`grid grid-cols-${Math.min(sections.length, 4)} gap-8`}>
+      <div className={`mega-menu absolute top-full left-0 w-[800px] bg-gray-800 border border-gray-700 shadow-2xl mt-2 z-50 ${isOpen ? 'active' : ''}`}>
+        <div className="p-6">
+          <div className="grid grid-cols-2 gap-6">
             {sections.map((section, index) => (
               <div key={index}>
-                <h3 className="font-serif text-lg font-semibold text-white mb-4">{section.title}</h3>
-                <ul className="space-y-2 text-sm">
+                <h3 className="font-serif text-base font-semibold text-white mb-3">{section.title}</h3>
+                <ul className="space-y-1.5 text-sm">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex}>
-                      <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
+                      <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors block py-1">
                         {item}
                       </a>
                     </li>

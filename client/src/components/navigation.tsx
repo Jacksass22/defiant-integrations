@@ -5,7 +5,7 @@ import { MegaMenu } from './mega-menu';
 
 const industriesData = [
   {
-    title: "🔧 Trades & Home Services",
+    title: "Trades & Home Services",
     items: [
       "HVAC",
       "Plumbing", 
@@ -19,7 +19,7 @@ const industriesData = [
     ]
   },
   {
-    title: "🍽️ Consumer & Lifestyle",
+    title: "Consumer & Lifestyle",
     items: [
       "Restaurants & Cafés",
       "Beauty Salons & Spas",
@@ -30,7 +30,7 @@ const industriesData = [
     ]
   },
   {
-    title: "🛍️ Retail & Product",
+    title: "Retail & Product",
     items: [
       "Brick-and-Mortar Retail",
       "E-commerce Brands",
@@ -40,7 +40,7 @@ const industriesData = [
     ]
   },
   {
-    title: "💼 Professional Services",
+    title: "Professional Services",
     items: [
       "Real Estate Agencies",
       "Law Firms",
