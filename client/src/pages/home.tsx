@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
+import { Link } from 'wouter';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 
 export default function Home() {
@@ -71,10 +72,10 @@ export default function Home() {
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                   Only one in five companies believe they meet the bar for high-quality strategy. What do these strategy champions have in common? They excel at designing bold strategies—and are even better at mobilizing their organizations to execute them.
                 </p>
-                <button className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
+                <Link href="/strategy-article" className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
                   <span>Mobilize your organization for success</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
