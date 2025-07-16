@@ -13,8 +13,8 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <h1 className="font-serif text-6xl lg:text-8xl font-bold mb-16 text-white leading-tight">
               What's your next<br />
-              <span className="text-white">brilliant</span><br />
-              <span className="text-white">move?</span>
+              <span className="text-white">intelligent</span><br />
+              <span className="text-white">breakthrough?</span>
             </h1>
             <div className="mt-16">
               <button className="bg-white text-gray-900 px-12 py-4 text-lg font-medium hover:bg-gray-100 transition-all inline-flex items-center space-x-2">
