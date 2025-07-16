@@ -67,13 +67,13 @@ export default function Home() {
             <div className="bg-gray-50 p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center">
               <div>
                 <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                  How Strategy Champions win
+                  Why Most Strategies Fail—And How the Best Beat the Odds
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                   Only one in five companies believe they meet the bar for high-quality strategy. What do these strategy champions have in common? They excel at designing bold strategies—and are even better at mobilizing their organizations to execute them.
                 </p>
                 <Link href="/strategy-article" className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
-                  <span>Mobilize your organization for success</span>
+                  <span>Build a Strategy That Actually Delivers</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
