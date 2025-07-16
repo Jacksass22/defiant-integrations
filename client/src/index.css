@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(210, 22%, 22%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 22%, 22%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(210, 22%, 22%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(210, 40%, 98%);
+  --secondary-foreground: hsl(210, 22%, 22%);
+  --accent: hsl(210, 40%, 98%);
+  --accent-foreground: hsl(210, 22%, 22%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(210, 22%, 22%);
+  --radius: 0.5rem;
+
+  /* Custom Defiant Integrations Colors */
+  --navy: hsl(210, 29%, 16%);
+  --charcoal: hsl(210, 19%, 24%);
+  --electric-blue: hsl(207, 90%, 54%);
+  --cyan-accent: hsl(187, 100%, 42%);
+  --light-gray: hsl(210, 40%, 98%);
+  --medium-gray: hsl(220, 13%, 69%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 4%, 16%);
+  --muted-foreground: hsl(240, 5%, 65%);
+  --popover: hsl(240, 10%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 4%, 16%);
+  --input: hsl(240, 4%, 16%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 4%, 16%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 4%, 16%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 5%, 84%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .hero-bg {
+    background: linear-gradient(135deg, hsl(210, 29%, 16%) 0%, hsl(210, 19%, 24%) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 20%, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 30%, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 60%, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 80%, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%);
+    opacity: 0.6;
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px hsla(0, 0%, 0%, 0.1);
+  }
+
+  .mega-menu {
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mega-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@layer utilities {
+  .text-navy {
+    color: hsl(210, 29%, 16%);
+  }
+
+  .text-charcoal {
+    color: hsl(210, 19%, 24%);
+  }
+
+  .text-electric-blue {
+    color: hsl(207, 90%, 54%);
+  }
+
+  .text-cyan-accent {
+    color: hsl(187, 100%, 42%);
+  }
+
+  .text-medium-gray {
+    color: hsl(220, 13%, 69%);
+  }
+
+  .bg-navy {
+    background-color: hsl(210, 29%, 16%);
+  }
+
+  .bg-charcoal {
+    background-color: hsl(210, 19%, 24%);
+  }
+
+  .bg-electric-blue {
+    background-color: hsl(207, 90%, 54%);
+  }
+
+  .bg-cyan-accent {
+    background-color: hsl(187, 100%, 42%);
+  }
+
+  .bg-light-gray {
+    background-color: hsl(210, 40%, 98%);
+  }
+
+  .border-electric-blue {
+    border-color: hsl(207, 90%, 54%);
+  }
+
+  .border-cyan-accent {
+    border-color: hsl(187, 100%, 42%);
+  }
+
+  .hover\:bg-electric-blue:hover {
+    background-color: hsl(207, 90%, 54%);
+  }
+
+  .hover\:bg-cyan-accent:hover {
+    background-color: hsl(187, 100%, 42%);
+  }
+
+  .hover\:text-electric-blue:hover {
+    color: hsl(207, 90%, 54%);
+  }
+
+  .hover\:text-cyan-accent:hover {
+    color: hsl(187, 100%, 42%);
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
