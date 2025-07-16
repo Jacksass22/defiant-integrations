@@ -20,7 +20,7 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center space-x-1 text-white hover:text-blue-400 transition-colors font-medium">
+      <button className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors font-medium">
         <span>{title}</span>
         <ChevronDown className="w-4 h-4" />
       </button>
@@ -34,7 +34,7 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                 <ul className="space-y-1.5 text-sm">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex}>
-                      <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors block py-1">
+                      <a href="#" className="text-gray-300 hover:text-white transition-colors block py-1">
                         {item}
                       </a>
                     </li>
