@@ -89,10 +89,6 @@ export default function StrategyArticle() {
         {/* Article Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-700 mb-8">
-              Most business leaders believe strategy is important. But here's the uncomfortable truth I've observed working with companies of all sizes: the vast majority struggle to bridge the gap between strategic thinking and strategic execution.
-            </p>
-
             <p className="text-lg text-gray-700 mb-8">
               In today's volatile business environment—where AI capabilities evolve weekly, supply chains face constant disruption, and customer expectations shift rapidly—having a solid strategy isn't just important. It's the difference between thriving and merely surviving.
             </p>
