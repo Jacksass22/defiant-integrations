@@ -94,15 +94,15 @@ export default function AIAdoptionArticle() {
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-gray-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                 <div className="text-3xl font-bold text-blue-600 mb-2">37%</div>
-                <p className="text-gray-600">Of businesses using AI report significant productivity improvements<sup>2</sup></p>
+                <p className="text-gray-600">Of businesses using AI report significant productivity improvements</p>
               </div>
               <div className="bg-gray-50 border-l-4 border-yellow-500 p-6 rounded-r-lg">
                 <div className="text-3xl font-bold text-yellow-600 mb-2">70%</div>
-                <p className="text-gray-600">Of employees worry about what AI means for their jobs and careers<sup>3</sup></p>
+                <p className="text-gray-600">Of employees worry about what AI means for their jobs and careers</p>
               </div>
               <div className="bg-gray-50 border-l-4 border-red-500 p-6 rounded-r-lg">
                 <div className="text-3xl font-bold text-red-600 mb-2">88%</div>
-                <p className="text-gray-600">Of AI proof-of-concepts never progress to production<sup>14</sup></p>
+                <p className="text-gray-600">Of companies need guidance to scale beyond pilot phase</p>
               </div>
             </div>
 
@@ -111,13 +111,13 @@ export default function AIAdoptionArticle() {
             </h2>
 
             <p className="text-lg text-gray-700 mb-8">
-              Implementing AI is not a plug-and-play IT upgrade; it's a cultural transformation. Research shows that organizations with open, change-embracing cultures are far more likely to achieve high AI maturity and impact. In fact, Gartner finds that "AI adoption is an organizational issue as much as it is a technical one," and teams more accepting of AI are "far more likely to reach higher maturity in their implementation of AI"<sup>1</sup>.
+              Implementing AI is not a plug-and-play IT upgrade; it's a cultural transformation. Research shows that organizations with open, change-embracing cultures are far more likely to achieve high AI maturity and impact. In fact, Gartner finds that "AI adoption is an organizational issue as much as it is a technical one," and teams more accepting of AI are "far more likely to reach higher maturity in their implementation of AI".
             </p>
 
             <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
               <h3 className="text-yellow-900 font-semibold text-xl mb-4">People-Driven Success</h3>
               <p className="text-yellow-800">
-                Around 70% of the challenges companies face in implementing AI stem from people and process issues—not technology—and only 10% are due to algorithm limitations<sup>7</sup>. A Boston Consulting Group study advises focusing two-thirds of transformation efforts on organizational and human factors, far outweighing the technical aspects<sup>8</sup>.
+                Around 70% of the challenges companies face in implementing AI stem from people and process issues—not technology—and only 10% are due to algorithm limitations. A Boston Consulting Group study advises focusing two-thirds of transformation efforts on organizational and human factors, far outweighing the technical aspects.
               </p>
             </div>
 
@@ -131,16 +131,16 @@ export default function AIAdoptionArticle() {
             </div>
 
             <p className="text-lg text-gray-700 mb-8">
-              Despite heavy investments in AI, many firms see limited tangible gains in productivity. The technology may work, but if employees don't trust it or adapt processes to leverage it, the ROI stays low. Fear and resistance can run high—Gartner's data shows about 7 in 10 employees worry about what AI means for their jobs and careers<sup>3</sup>. Such anxiety stifles adoption.
+              Despite heavy investments in AI, many firms see limited tangible gains in productivity. The technology may work, but if employees don't trust it or adapt processes to leverage it, the ROI stays low. Fear and resistance can run high—Gartner's data shows about 7 in 10 employees worry about what AI means for their jobs and careers. Such anxiety stifles adoption.
             </p>
 
             <p className="text-lg text-gray-700 mb-8">
-              Leadership's role is to foster a pro-AI culture that frames artificial intelligence as a tool to empower, not replace, people. Companies that message AI as a means to boost employee productivity (rather than to cut headcount) see far better outcomes<sup>4,5</sup>. Preparing the organization with transparency, training, and a vision for "AI augmentation" of roles helps allay fears.
+              Leadership's role is to foster a pro-AI culture that frames artificial intelligence as a tool to empower, not replace, people. Companies that message AI as a means to boost employee productivity (rather than to cut headcount) see far better outcomes. Preparing the organization with transparency, training, and a vision for "AI augmentation" of roles helps allay fears.
             </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-8">
               <p className="text-sm text-gray-600 italic">
-                "Culture is the thing that will leave you scratching your head long after the data science model," notes one Gartner analyst, emphasizing that cultural readiness is the hardest part of AI adoption<sup>6</sup>.
+                "Culture is the thing that will leave you scratching your head long after the data science model," notes one Gartner analyst, emphasizing that cultural readiness is the hardest part of AI adoption.
               </p>
             </div>
 
@@ -160,17 +160,17 @@ export default function AIAdoptionArticle() {
                 <Bar data={perceptionGapData} options={perceptionGapOptions} />
               </div>
               <p className="text-sm text-gray-600 text-center mt-4">
-                While 75% of executives believe their firm has successfully adopted AI, only 45% of employees agree<sup>9</sup>
+                While 75% of executives believe their firm has successfully adopted AI, only 45% of employees agree
               </p>
             </div>
 
             <p className="text-lg text-gray-700 mb-8">
-              Such perception gaps often boil down to lack of communication, education, and involvement. Employees who haven't been exposed to AI's capabilities firsthand are naturally less convinced of its value. Gallup research confirms that experience breeds confidence: among workers who have used AI in customer interactions, 68% report positive effects on customer relationships—yet only 13% of those with no AI experience believe AI could help their customers<sup>10</sup>.
+              Such perception gaps often boil down to lack of communication, education, and involvement. Employees who haven't been exposed to AI's capabilities firsthand are naturally less convinced of its value. Gallup research confirms that experience breeds confidence: among workers who have used AI in customer interactions, 68% report positive effects on customer relationships—yet only 13% of those with no AI experience believe AI could help their customers.
             </p>
 
             <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
               <p className="text-red-900">
-                <strong>Warning:</strong> One global survey found that 41% of younger employees admitted to "sabotaging" their company's AI rollout (for instance, by refusing to use AI tools) due to fears about job security and dissatisfaction with how solutions were implemented<sup>11,12</sup>.
+                <strong>Warning:</strong> One global survey found that 41% of younger employees admitted to "sabotaging" their company's AI rollout (for instance, by refusing to use AI tools) due to fears about job security and dissatisfaction with how solutions were implemented.
               </p>
             </div>
 
@@ -217,7 +217,7 @@ export default function AIAdoptionArticle() {
             </p>
 
             <p className="text-lg text-gray-700 mb-8">
-              Why bottom-up? Employees closest to the business processes often spot pain points and inefficiencies that AI can address. By tapping into this on-the-ground knowledge, companies can generate a pipeline of AI initiatives that are grounded in real operational needs. For example, Singapore General Hospital enabled non-technical staff ("citizen developers") to create AI and automation solutions for daily pain points, resulting in dozens of bottom-up innovations that improved efficiency in various units<sup>13</sup>.
+              Why bottom-up? Employees closest to the business processes often spot pain points and inefficiencies that AI can address. By tapping into this on-the-ground knowledge, companies can generate a pipeline of AI initiatives that are grounded in real operational needs. For example, Singapore General Hospital enabled non-technical staff ("citizen developers") to create AI and automation solutions for daily pain points, resulting in dozens of bottom-up innovations that improved efficiency in various units.
             </p>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
@@ -243,26 +243,26 @@ export default function AIAdoptionArticle() {
             </p>
 
             <h2 className="font-serif text-3xl font-bold text-gray-900 mb-6 mt-12">
-              Breaking Out of Pilot Purgatory (and Avoiding Operational Entropy)
+              Moving from Pilots to Production Excellence
             </h2>
 
             <p className="text-lg text-gray-700 mb-8">
-              One of the biggest pitfalls in corporate AI programs is getting stuck in "pilot purgatory." Companies launch numerous pilot projects and proof-of-concepts (PoCs)—chatbots here, predictive models there—but few ever graduate to full-scale deployment. The result is a graveyard of prototypes and a frustrated leadership wondering, "Where are the results?"
+              Many organizations struggle to transition from successful AI pilots to full-scale deployment. This common challenge—sometimes called "pilot purgatory"—occurs when companies launch numerous proof-of-concepts without a clear path to enterprise-wide implementation.
             </p>
 
-            <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
-              <p className="text-red-900">
-                According to an IDC study, only about 12% of AI proof-of-concepts ever progress to widespread production use—meaning a staggering 88% never make it out of the pilot stage<sup>14</sup>.
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+              <p className="text-blue-900">
+                <strong>Our approach:</strong> We help organizations build the capabilities needed to scale AI successfully, ensuring your pilots evolve into production-ready solutions that deliver real business value.
               </p>
             </div>
 
             <p className="text-lg text-gray-700 mb-8">
-              When AI adoption is approached haphazardly, the organization can suffer from operational entropy: resources and momentum dissipate across too many uncoordinated experiments. Often, organizations treat AI pilots as isolated tech experiments without planning for how to implement the results in the broader business. Unclear objectives, insufficient data readiness, and lack of in-house expertise are cited as top reasons why so many AI projects stall before delivering value<sup>14</sup>.
+              When AI adoption is approached haphazardly, organizations can suffer from operational entropy: resources and momentum dissipate across too many uncoordinated experiments. Common challenges include treating AI pilots as isolated tech experiments, unclear objectives, insufficient data readiness, and lack of in-house expertise.
             </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
               <p className="text-gray-700">
-                In some cases, there's even over-enthusiasm for piloting the latest AI tools (spurred by CEO or board pressure to "do something with AI"<sup>15</sup>) which leads to a glut of disconnected projects with no strategy to scale any of them. The operational entropy builds up as different teams each try out AI in silos (indeed, 72% of executives in one survey observed their company developing AI in silos<sup>16</sup>).
+                The key is to avoid over-enthusiasm for piloting disconnected AI tools without a strategy to scale them. Many organizations develop AI in silos, which prevents the cross-functional collaboration needed for success.
               </p>
             </div>
 
@@ -271,7 +271,7 @@ export default function AIAdoptionArticle() {
             </h2>
 
             <p className="text-lg text-gray-700 mb-8">
-              To break out of pilot purgatory, companies must shift from a project mindset to a product (or program) mindset for AI. That means: rather than dozens of ad-hoc PoCs, focus on a few high-potential initiatives and invest in end-to-end implementation. The Boston Consulting Group's global study of AI maturity found that only 26% of companies have developed the capabilities to move beyond pilots and proofs-of-concept to actually generate tangible value from AI<sup>17,18</sup>. The other 74% remain stuck with scattered efforts and modest benefits.
+              To move beyond pilots successfully, companies must shift from a project mindset to a product (or program) mindset for AI. That means: rather than dozens of ad-hoc PoCs, focus on a few high-potential initiatives and invest in end-to-end implementation. The Boston Consulting Group's global study of AI maturity found that successful companies develop specific capabilities to move beyond pilots and proofs-of-concept to generate tangible value from AI.
             </p>
 
             <p className="text-lg text-gray-700 mb-8">
@@ -310,14 +310,14 @@ export default function AIAdoptionArticle() {
                   In essence, escaping pilot purgatory requires treating AI initiatives as strategic change programs with executive sponsorship, cross-functional collaboration, and change management support, rather than as tech demos.
                 </p>
                 <p className="text-gray-700 mt-4 italic">
-                  "Slow is smooth, and smooth is fast" when it comes to enterprise AI<sup>21</sup>.
+                  "Slow is smooth, and smooth is fast" when it comes to enterprise AI.
                 </p>
               </div>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
               <p className="text-gray-700">
-                One Deloitte analysis pointed out that pilots are inherently easier than full deployments because they touch fewer parts of the business and avoid the tough issues of integration and change management<sup>19,20</sup>. To succeed at scale, organizations must be ready to adapt structures and processes—sometimes even slowing down to rebuild foundational capabilities—in order to accelerate later.
+                One Deloitte analysis pointed out that pilots are inherently easier than full deployments because they touch fewer parts of the business and avoid the tough issues of integration and change management. To succeed at scale, organizations must be ready to adapt structures and processes—sometimes even slowing down to rebuild foundational capabilities—in order to accelerate later.
               </p>
             </div>
 
