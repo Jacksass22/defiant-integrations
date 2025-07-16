@@ -5,14 +5,30 @@ import { useEffect } from 'react';
 
 export default function StrategyArticle() {
   useEffect(() => {
-    // Load Chart.js dynamically
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
-    script.onload = () => {
+    let chartInstances: any[] = [];
+
+    // Check if Chart.js is already loaded
+    if ((window as any).Chart) {
+      initializeCharts();
+    } else {
+      // Load Chart.js dynamically
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
+      script.onload = () => {
+        initializeCharts();
+      };
+      document.head.appendChild(script);
+    }
+
+    function initializeCharts() {
+      // Destroy existing charts if they exist
+      (window as any).Chart?.getChart('performanceChart')?.destroy();
+      (window as any).Chart?.getChart('capabilityChart')?.destroy();
+
       // Performance Distribution Chart
-      const ctx1 = document.getElementById('performanceChart');
+      const ctx1 = document.getElementById('performanceChart') as HTMLCanvasElement;
       if (ctx1) {
-        new (window as any).Chart(ctx1, {
+        const chart1 = new (window as any).Chart(ctx1, {
           type: 'doughnut',
           data: {
             labels: ['Top 20% (High Performers)', 'Middle 60% (Average)', 'Bottom 20% (Underperformers)'],
@@ -32,12 +48,13 @@ export default function StrategyArticle() {
             }
           }
         });
+        chartInstances.push(chart1);
       }
 
       // Capability Chart
-      const ctx2 = document.getElementById('capabilityChart');
+      const ctx2 = document.getElementById('capabilityChart') as HTMLCanvasElement;
       if (ctx2) {
-        new (window as any).Chart(ctx2, {
+        const chart2 = new (window as any).Chart(ctx2, {
           type: 'radar',
           data: {
             labels: ['Strategic Design', 'Mobilization', 'Execution', 'Leadership Alignment', 'Resource Allocation'],
@@ -74,12 +91,17 @@ export default function StrategyArticle() {
             }
           }
         });
+        chartInstances.push(chart2);
       }
-    };
-    document.head.appendChild(script);
+    }
 
+    // Cleanup function
     return () => {
-      document.head.removeChild(script);
+      chartInstances.forEach(chart => {
+        if (chart) {
+          chart.destroy();
+        }
+      });
     };
   }, []);
 
