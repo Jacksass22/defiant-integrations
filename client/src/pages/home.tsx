@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
+import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 
 export default function Home() {
   return (
@@ -15,9 +16,13 @@ export default function Home() {
           loop
           muted
           playsInline
+          src={videoBackground}
         >
-          <source src="/attached_assets/3866539-hd_1920_1080_25fps_1752668973005.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
+        
+        {/* Fallback background if video doesn't load */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" style={{ zIndex: -1 }}></div>
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
