@@ -143,13 +143,16 @@ export default function Home() {
             <div className="bg-gray-50 p-16 min-h-[500px] flex items-center">
               <div>
                 <h2 className="font-serif text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                  What to read next: Defiant Integration's 2025 annual book recommendations
+                  What's on your shelf? Our 2025 Client Book List
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Each year, we invite a diverse group of leaders to share the books that have resonated with them—or ones they can't wait to read. This year's list includes over 90 titles, from timely insights to timeless fiction.
+                  Every year, we ask our clients to recommend one book—something that's shaped their thinking, sparked curiosity, or captured their industry's spirit. With partners across so many sectors, our bookshelf becomes a reflection of the diverse minds we work with.
+                </p>
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  This year's list is built by you. One title, one insight, one perspective at a time.
                 </p>
                 <button className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
-                  <span>Your bookshelf is waiting</span>
+                  <span>Add your voice to the list</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
