@@ -100,20 +100,80 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="bg-gray-900 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px]">
-              <div className="text-center">
-                <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto mb-6 sm:mb-8">
-                  <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20"></div>
-                  <div className="absolute inset-2 sm:inset-4 lg:inset-6 bg-blue-400 rounded-full opacity-40"></div>
-                  <div className="absolute inset-4 sm:inset-8 lg:inset-12 bg-blue-300 rounded-full opacity-60"></div>
-                  <div className="absolute inset-6 sm:inset-12 lg:inset-16 bg-blue-200 rounded-full opacity-80"></div>
-                  <div className="absolute inset-8 sm:inset-16 lg:inset-20 bg-white rounded-full flex items-center justify-center">
-                    <div className="text-xl sm:text-2xl text-blue-600 font-bold">AI</div>
-                  </div>
-                </div>
-                <div className="text-white text-base sm:text-lg font-medium">
-                  Building digital capabilities across your organization
-                </div>
+            <div className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative overflow-hidden">
+              <div className="relative z-10 flex items-center justify-center w-full max-w-md">
+                {/* AI Head Silhouette with Circuits */}
+                <svg viewBox="0 0 400 400" className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                  {/* Circuit Lines Background */}
+                  <g className="opacity-40">
+                    {/* Left circuit paths */}
+                    <path d="M50 150 L100 150 L120 170" stroke="#3B82F6" strokeWidth="2" fill="none" />
+                    <circle cx="50" cy="150" r="6" fill="#3B82F6" />
+                    <circle cx="120" cy="170" r="4" fill="#3B82F6" />
+                    
+                    <path d="M60 200 L110 200 L130 220" stroke="#3B82F6" strokeWidth="2" fill="none" />
+                    <circle cx="60" cy="200" r="4" fill="#3B82F6" />
+                    <circle cx="130" cy="220" r="6" fill="#3B82F6" />
+                    
+                    <path d="M70 250 L120 250 L140 230" stroke="#3B82F6" strokeWidth="2" fill="none" />
+                    <circle cx="70" cy="250" r="6" fill="#3B82F6" />
+                    <circle cx="140" cy="230" r="4" fill="#3B82F6" />
+                    
+                    <path d="M80 300 L130 300 L150 280" stroke="#3B82F6" strokeWidth="2" fill="none" />
+                    <circle cx="80" cy="300" r="4" fill="#3B82F6" />
+                    <circle cx="150" cy="280" r="6" fill="#3B82F6" />
+                  </g>
+                  
+                  {/* Head Silhouette */}
+                  <path d="M200 50 C250 50 280 80 280 130 L280 200 C280 250 250 280 200 280 C150 280 120 250 120 200 L120 130 C120 80 150 50 200 50 Z" 
+                        fill="#1e3a8a" opacity="0.8" />
+                  
+                  {/* Inner Head Gradient */}
+                  <defs>
+                    <radialGradient id="headGradient">
+                      <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.6" />
+                      <stop offset="50%" stopColor="#2563EB" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#1e40af" stopOpacity="0.2" />
+                    </radialGradient>
+                  </defs>
+                  <path d="M200 70 C240 70 270 100 270 140 L270 190 C270 230 240 260 200 260 C160 260 130 230 130 190 L130 140 C130 100 160 70 200 70 Z" 
+                        fill="url(#headGradient)" />
+                  
+                  {/* AI Core Circle */}
+                  <g transform="translate(200, 160)">
+                    <circle r="50" fill="#1e40af" opacity="0.3" />
+                    <circle r="40" fill="#2563EB" opacity="0.4" />
+                    <circle r="30" fill="#3B82F6" opacity="0.5" />
+                    <circle r="20" fill="#60A5FA" opacity="0.6" />
+                    <circle r="10" fill="white" />
+                    <text x="0" y="5" textAnchor="middle" className="text-xl font-bold fill-blue-600">AI</text>
+                  </g>
+                  
+                  {/* Growth Chart */}
+                  <g transform="translate(200, 320)">
+                    {/* Chart bars */}
+                    <rect x="-40" y="-20" width="15" height="20" fill="#3B82F6" opacity="0.8" />
+                    <rect x="-20" y="-30" width="15" height="30" fill="#3B82F6" opacity="0.85" />
+                    <rect x="0" y="-40" width="15" height="40" fill="#3B82F6" opacity="0.9" />
+                    <rect x="20" y="-50" width="15" height="50" fill="#60A5FA" />
+                    
+                    {/* Growth arrow */}
+                    <path d="M-40 -20 Q0 -40 35 -50" stroke="#60A5FA" strokeWidth="3" fill="none" markerEnd="url(#arrowhead)" />
+                    <defs>
+                      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#60A5FA" />
+                      </marker>
+                    </defs>
+                  </g>
+                </svg>
+              </div>
+              
+              {/* Animated Background Elements */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-10 left-10 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                <div className="absolute top-20 right-20 w-3 h-3 bg-blue-300 rounded-full animate-pulse animation-delay-1000"></div>
+                <div className="absolute bottom-20 left-20 w-2 h-2 bg-blue-500 rounded-full animate-pulse animation-delay-2000"></div>
+                <div className="absolute bottom-10 right-10 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
               </div>
             </div>
           </div>
