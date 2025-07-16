@@ -52,41 +52,41 @@ const industriesData = [
   }
 ];
 
-const insightsData = [
+const capabilitiesData = [
   {
-    title: "Research & Analysis",
+    title: "Strategy & Planning",
     items: [
-      "Research Reports",
-      "Implementation Studies",
-      "Market Analysis",
-      "Trend Forecasting"
+      "AI Strategy Development",
+      "Digital Transformation",
+      "Technology Roadmapping",
+      "ROI Assessment"
     ]
   },
   {
-    title: "Implementation Guides",
+    title: "Implementation & Integration",
     items: [
-      "Technical Guides",
-      "Best Practices",
-      "Case Studies",
-      "Success Stories"
+      "System Integration",
+      "Process Automation",
+      "Data Architecture",
+      "Performance Optimization"
     ]
   },
   {
-    title: "Thought Leadership",
+    title: "Scaling & Operations",
     items: [
-      "Executive Insights",
-      "Industry Perspectives",
-      "Future of AI",
-      "Strategic Frameworks"
+      "Change Management",
+      "Team Training",
+      "Governance Frameworks",
+      "Continuous Improvement"
     ]
   },
   {
-    title: "Resources",
+    title: "Innovation & Research",
     items: [
-      "Defiant Insights Blog",
-      "Whitepapers",
-      "Webinars",
-      "Tools & Templates"
+      "AI Research",
+      "Proof of Concepts",
+      "Pilot Programs",
+      "Technology Evaluation"
     ]
   }
 ];
@@ -128,76 +128,94 @@ export function Navigation() {
     <nav className="bg-gray-900 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <div className="text-xl font-serif font-bold text-white">
-              Defiant <span className="text-blue-400">Integrations</span>
-            </div>
-          </Link>
+          {/* Menu Icon and Logo */}
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+            
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <div className="text-xl font-serif font-bold text-white">
+                Defiant <span className="text-blue-400">Integrations</span>
+              </div>
+            </Link>
+          </div>
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <MegaMenu title="Industries" sections={industriesData} />
-            <MegaMenu title="Capabilities" sections={insightsData} />
+            <MegaMenu title="Capabilities" sections={capabilitiesData} />
             <Link href="/insights" className="text-white hover:text-blue-400 transition-colors font-medium">
               Featured Insights
             </Link>
-            <MegaMenu title="About Us" sections={aboutData} />
+            <Link href="/locations" className="text-white hover:text-blue-400 transition-colors font-medium">
+              Locations
+            </Link>
             <Link href="/careers" className="text-white hover:text-blue-400 transition-colors font-medium">
               Careers
             </Link>
-            <Link href="/contact" className="text-white hover:text-blue-400 transition-colors font-medium">
-              Contact
+            <MegaMenu title="About Us" sections={aboutData} />
+            <Link href="/blog" className="text-white hover:text-blue-400 transition-colors font-medium">
+              Defiant Integration Blog
             </Link>
           </div>
           
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/signin" className="text-white hover:text-blue-400 transition-colors font-medium">
+          {/* Right Side - Sign In, Subscribe, Search */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <Link href="/signin" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
               Sign In
             </Link>
-            <Link href="/subscribe" className="text-white hover:text-blue-400 transition-colors font-medium">
+            <span className="text-gray-400">|</span>
+            <Link href="/subscribe" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
               Subscribe
             </Link>
-          </div>
-          
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-charcoal hover:text-electric-blue"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <button className="text-white hover:text-blue-400 transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
             </button>
           </div>
+          
         </div>
       </div>
       
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100">
+        <div className="lg:hidden bg-gray-800 border-t border-gray-700">
           <div className="px-4 py-6 space-y-4">
-            <Link href="/industries" className="block text-charcoal hover:text-electric-blue transition-colors font-medium">
+            <Link href="/industries" className="block text-white hover:text-blue-400 transition-colors font-medium">
               Industries
             </Link>
-            <Link href="/insights" className="block text-charcoal hover:text-electric-blue transition-colors font-medium">
-              Insights & Research
+            <Link href="/capabilities" className="block text-white hover:text-blue-400 transition-colors font-medium">
+              Capabilities
             </Link>
-            <Link href="/case-studies" className="block text-charcoal hover:text-electric-blue transition-colors font-medium">
-              Case Studies
+            <Link href="/insights" className="block text-white hover:text-blue-400 transition-colors font-medium">
+              Featured Insights
             </Link>
-            <Link href="/about" className="block text-charcoal hover:text-electric-blue transition-colors font-medium">
-              About Us
+            <Link href="/locations" className="block text-white hover:text-blue-400 transition-colors font-medium">
+              Locations
             </Link>
-            <Link href="/careers" className="block text-charcoal hover:text-electric-blue transition-colors font-medium">
+            <Link href="/careers" className="block text-white hover:text-blue-400 transition-colors font-medium">
               Careers
             </Link>
-            <Link href="/contact" className="block text-charcoal hover:text-electric-blue transition-colors font-medium">
-              Contact
+            <Link href="/about" className="block text-white hover:text-blue-400 transition-colors font-medium">
+              About Us
             </Link>
-            <Link href="/contact" className="block bg-electric-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors text-center">
-              Start Your Transformation
+            <Link href="/blog" className="block text-white hover:text-blue-400 transition-colors font-medium">
+              Defiant Integration Blog
             </Link>
+            <div className="pt-4 border-t border-gray-700">
+              <Link href="/signin" className="block text-white hover:text-blue-400 transition-colors font-medium mb-2">
+                Sign In
+              </Link>
+              <Link href="/subscribe" className="block text-white hover:text-blue-400 transition-colors font-medium">
+                Subscribe
+              </Link>
+            </div>
           </div>
         </div>
       )}
