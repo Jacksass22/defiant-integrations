@@ -140,7 +140,7 @@ export function Navigation() {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <div className="text-xl font-serif font-bold text-white">
-                Defiant <span className="text-blue-400">Integrations</span>
+                Defiant <span className="text-gray-300">Integrations</span>
               </div>
             </Link>
           </div>
@@ -149,24 +149,24 @@ export function Navigation() {
           <div className="hidden lg:flex items-center space-x-10">
             <MegaMenu title="Industries" sections={industriesData} />
             <MegaMenu title="Capabilities" sections={capabilitiesData} />
-            <Link href="/insights" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
+            <Link href="/insights" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
               Featured Insights
             </Link>
-            <Link href="/careers" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
+            <Link href="/careers" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
               Careers
             </Link>
             <MegaMenu title="About Us" sections={aboutData} />
-            <Link href="/blog" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
+            <Link href="/blog" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
               Defiant Integration Blog
             </Link>
           </div>
           
           {/* Right Side - Subscribe, Search */}
           <div className="hidden lg:flex items-center space-x-6">
-            <Link href="/subscribe" className="text-white hover:text-blue-400 transition-colors font-medium text-sm">
+            <Link href="/subscribe" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
               Subscribe
             </Link>
-            <button className="text-white hover:text-blue-400 transition-colors">
+            <button className="text-white hover:text-gray-300 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -180,26 +180,26 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-gray-800 border-t border-gray-700">
           <div className="px-6 py-8 space-y-6">
-            <Link href="/industries" className="block text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/industries" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Industries
             </Link>
-            <Link href="/capabilities" className="block text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/capabilities" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Capabilities
             </Link>
-            <Link href="/insights" className="block text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/insights" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Featured Insights
             </Link>
-            <Link href="/careers" className="block text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/careers" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Careers
             </Link>
-            <Link href="/about" className="block text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/about" className="block text-white hover:text-gray-300 transition-colors font-medium">
               About Us
             </Link>
-            <Link href="/blog" className="block text-white hover:text-blue-400 transition-colors font-medium">
+            <Link href="/blog" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Defiant Integration Blog
             </Link>
             <div className="pt-6 border-t border-gray-700">
-              <Link href="/subscribe" className="block text-white hover:text-blue-400 transition-colors font-medium">
+              <Link href="/subscribe" className="block text-white hover:text-gray-300 transition-colors font-medium">
                 Subscribe
               </Link>
             </div>
