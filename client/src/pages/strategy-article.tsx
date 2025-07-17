@@ -54,13 +54,26 @@ export default function StrategyArticle() {
         beginAtZero: true,
         max: 10,
         ticks: {
-          stepSize: 1
+          stepSize: 1,
+          font: {
+            size: 14
+          }
+        },
+        pointLabels: {
+          font: {
+            size: 16
+          }
         }
       }
     },
     plugins: {
       legend: {
-        position: 'bottom' as const
+        position: 'bottom' as const,
+        labels: {
+          font: {
+            size: 14
+          }
+        }
       }
     }
   };
@@ -233,11 +246,11 @@ export default function StrategyArticle() {
               Where Winners Break Away: The Mobilization Advantage
             </h2>
 
-            <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
-              <div className="text-center font-semibold text-gray-900 mb-4 text-lg">
+            <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
+              <div className="text-center font-semibold text-gray-900 mb-6 text-xl">
                 Strategic Capability Gaps: High Performers vs. Average
               </div>
-              <div className="h-64">
+              <div className="h-96 md:h-[450px] px-4">
                 <Radar data={capabilityChartData} options={capabilityChartOptions} />
               </div>
             </div>
