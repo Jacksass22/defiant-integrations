@@ -2,6 +2,7 @@ import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Rep
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import StarBorder from '@/components/StarBorder';
+import Stack from '@/components/Stack';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 
 export default function Home() {
@@ -160,28 +161,20 @@ export default function Home() {
               >
               <Link href="/books" className="block">
                 <div className="text-center">
-                  {/* Enhanced Book Design */}
-                  <div className="relative w-32 h-44 sm:w-40 sm:h-56 mx-auto mb-6 sm:mb-8 transition-transform group-hover:scale-105">
-                    {/* Book spine */}
-                    <div className="absolute left-0 top-0 w-4 h-full bg-gradient-to-r from-gray-800 to-gray-700 rounded-l-sm transform -skew-y-2"></div>
-                    
-                    {/* Book cover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-sm shadow-2xl transform perspective-500 rotateY-10">
-                      {/* Book texture */}
-                      <div className="absolute inset-0 opacity-10">
-                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white to-transparent"></div>
-                      </div>
-                      
-                      {/* Book title area */}
-                      <div className="absolute inset-4 border border-blue-300/30 rounded-sm p-4 flex flex-col items-center justify-center">
-                        <div className="font-serif text-white text-lg font-bold mb-2">2025</div>
-                        <div className="w-16 h-px bg-blue-300/50 mb-2"></div>
-                        <div className="text-blue-200 text-xs font-medium text-center">CLIENT<br/>BOOK<br/>LIST</div>
-                      </div>
-                    </div>
-                    
-                    {/* Hover glow effect */}
-                    <div className="absolute -inset-4 bg-blue-400/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  {/* Stack of Books */}
+                  <div className="mx-auto mb-6 sm:mb-8">
+                    <Stack
+                      randomRotation={true}
+                      sensitivity={180}
+                      sendToBackOnClick={false}
+                      cardDimensions={{ width: 160, height: 220 }}
+                      cardsData={[
+                        { id: 1, title: "STRATEGY", year: "2025", color: "from-blue-600 to-blue-800" },
+                        { id: 2, title: "INNOVATION", year: "2025", color: "from-purple-600 to-purple-800" },
+                        { id: 3, title: "LEADERSHIP", year: "2025", color: "from-green-600 to-green-800" },
+                        { id: 4, title: "TRANSFORM", year: "2025", color: "from-red-600 to-red-800" }
+                      ]}
+                    />
                   </div>
                   
                   <div className="text-white text-base sm:text-lg font-medium group-hover:text-blue-200 transition-colors">
