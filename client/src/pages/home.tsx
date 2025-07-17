@@ -1,6 +1,7 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import ShapeBlur from '@/components/ShapeBlur';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 
 export default function Home() {
@@ -149,22 +150,55 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-0 items-center">
-            <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px]">
-              <div className="text-center">
-                <div className="relative w-24 h-32 sm:w-32 sm:h-40 mx-auto mb-6 sm:mb-8">
-                  <div className="absolute inset-0 bg-orange-500 rounded-sm transform rotate-3"></div>
-                  <div className="absolute inset-0 bg-blue-500 rounded-sm transform -rotate-2"></div>
-                  <div className="absolute inset-0 bg-red-500 rounded-sm transform rotate-1"></div>
-                  <div className="absolute inset-0 bg-green-500 rounded-sm transform -rotate-1"></div>
-                  <div className="absolute inset-0 bg-purple-500 rounded-sm"></div>
-                  <div className="absolute inset-2 bg-white rounded-sm flex items-center justify-center">
-                    <div className="text-xs text-gray-600 font-mono">2025</div>
+            <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative">
+              {/* ShapeBlur Effect Background */}
+              <div className="absolute inset-0 opacity-30">
+                <ShapeBlur
+                  variation={0}
+                  pixelRatioProp={window.devicePixelRatio || 1}
+                  shapeSize={0.5}
+                  roundness={0.5}
+                  borderSize={0.05}
+                  circleSize={0.5}
+                  circleEdge={1}
+                />
+              </div>
+              
+              <Link href="/books" className="relative z-10 group cursor-pointer">
+                <div className="text-center">
+                  {/* Enhanced Book Design */}
+                  <div className="relative w-32 h-44 sm:w-40 sm:h-56 mx-auto mb-6 sm:mb-8 transition-transform group-hover:scale-105">
+                    {/* Book spine */}
+                    <div className="absolute left-0 top-0 w-4 h-full bg-gradient-to-r from-gray-800 to-gray-700 rounded-l-sm transform -skew-y-2"></div>
+                    
+                    {/* Book cover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-sm shadow-2xl transform perspective-500 rotateY-10">
+                      {/* Book texture */}
+                      <div className="absolute inset-0 opacity-10">
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white to-transparent"></div>
+                      </div>
+                      
+                      {/* Book title area */}
+                      <div className="absolute inset-4 border border-blue-300/30 rounded-sm p-4 flex flex-col items-center justify-center">
+                        <div className="font-serif text-white text-lg font-bold mb-2">2025</div>
+                        <div className="w-16 h-px bg-blue-300/50 mb-2"></div>
+                        <div className="text-blue-200 text-xs font-medium text-center">CLIENT<br/>BOOK<br/>LIST</div>
+                      </div>
+                    </div>
+                    
+                    {/* Hover glow effect */}
+                    <div className="absolute -inset-4 bg-blue-400/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  </div>
+                  
+                  <div className="text-white text-base sm:text-lg font-medium group-hover:text-blue-200 transition-colors">
+                    Essential reads for transformation leaders
+                  </div>
+                  <div className="flex items-center justify-center space-x-2 mt-2 text-blue-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-sm">Explore collection</span>
+                    <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="text-white text-base sm:text-lg font-medium">
-                  Essential reads for transformation leaders
-                </div>
-              </div>
+              </Link>
             </div>
             <div className="bg-gray-50 p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center">
               <div>
@@ -177,10 +211,10 @@ export default function Home() {
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                   This year's list is built by you. One title, one insight, one perspective at a time.
                 </p>
-                <button className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
+                <Link href="/books" className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
                   <span>Add your voice to the list</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
