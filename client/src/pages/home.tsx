@@ -1,7 +1,7 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
-import ShapeBlur from '@/components/ShapeBlur';
+import StarBorder from '@/components/StarBorder';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 
 export default function Home() {
@@ -151,20 +151,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-0 items-center">
             <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative">
-              {/* ShapeBlur Effect Background */}
-              <div className="absolute inset-0 opacity-30">
-                <ShapeBlur
-                  variation={0}
-                  pixelRatioProp={window.devicePixelRatio || 1}
-                  shapeSize={0.5}
-                  roundness={0.5}
-                  borderSize={0.05}
-                  circleSize={0.5}
-                  circleEdge={1}
-                />
-              </div>
-              
-              <Link href="/books" className="relative z-10 group cursor-pointer">
+              <StarBorder
+                as="div"
+                className="relative group cursor-pointer"
+                color="cyan"
+                speed="5s"
+                thickness={2}
+              >
+              <Link href="/books" className="block">
                 <div className="text-center">
                   {/* Enhanced Book Design */}
                   <div className="relative w-32 h-44 sm:w-40 sm:h-56 mx-auto mb-6 sm:mb-8 transition-transform group-hover:scale-105">
@@ -199,6 +193,7 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
+              </StarBorder>
             </div>
             <div className="bg-gray-50 p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center">
               <div>
