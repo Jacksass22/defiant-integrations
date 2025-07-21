@@ -4,6 +4,10 @@
 
 This is a premium consulting website for Defiant Integrations, designed to rival McKinsey & Company's digital authority and sophistication. The application is built as a modern full-stack web application using React, Express, and TypeScript with a focus on creating a high-end consulting firm digital presence.
 
+## Recent Changes
+
+- **January 22, 2025**: Created dedicated HVAC industry page with comprehensive content about smart technology solutions for HVAC businesses. Added routing and navigation integration.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -40,6 +44,7 @@ Preferred communication style: Simple, everyday language.
 - **Mega Menu**: Complex navigation with industry-specific dropdowns
 - **Responsive Design**: Mobile-first approach with collapsible navigation
 - **Industry Categories**: Organized by business types (Trades, Consumer Services, Professional Services, etc.)
+- **Industry Pages**: Dedicated pages for specific industries (e.g., HVAC) with detailed service offerings
 
 ### Database Schema
 - **Users Table**: Basic user management with username/password authentication
