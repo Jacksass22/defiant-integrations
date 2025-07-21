@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'wouter';
 
 interface MegaMenuItem {
   title: string;
@@ -34,9 +35,15 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                 <ul className="space-y-1.5 text-sm">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex}>
-                      <a href="#" className="text-gray-300 hover:text-white transition-colors block py-1">
-                        {item}
-                      </a>
+                      {item === "HVAC" ? (
+                        <Link href="/hvac" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </Link>
+                      ) : (
+                        <a href="#" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

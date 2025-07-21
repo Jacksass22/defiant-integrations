@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import StrategyArticle from "@/pages/strategy-article";
 import AIAdoptionArticle from "@/pages/ai-adoption-article";
 import Books from "@/pages/books";
+import HVAC from "@/pages/hvac";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/strategy-article" component={StrategyArticle} />
       <Route path="/ai-adoption-article" component={AIAdoptionArticle} />
       <Route path="/books" component={Books} />
+      <Route path="/hvac" component={HVAC} />
       <Route component={NotFound} />
     </Switch>
   );
