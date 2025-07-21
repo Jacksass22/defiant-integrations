@@ -13,6 +13,7 @@ import Electrical from "@/pages/electrical";
 import Landscaping from "@/pages/landscaping";
 import Roofing from "@/pages/roofing";
 import Painting from "@/pages/painting";
+import GeneralContracting from "@/pages/general-contracting";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/landscaping" component={Landscaping} />
       <Route path="/roofing" component={Roofing} />
       <Route path="/painting" component={Painting} />
+      <Route path="/general-contracting" component={GeneralContracting} />
       <Route component={NotFound} />
     </Switch>
   );
