@@ -12,6 +12,7 @@ import Plumbing from "@/pages/plumbing";
 import Electrical from "@/pages/electrical";
 import Landscaping from "@/pages/landscaping";
 import Roofing from "@/pages/roofing";
+import Painting from "@/pages/painting";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/electrical" component={Electrical} />
       <Route path="/landscaping" component={Landscaping} />
       <Route path="/roofing" component={Roofing} />
+      <Route path="/painting" component={Painting} />
       <Route component={NotFound} />
     </Switch>
   );
