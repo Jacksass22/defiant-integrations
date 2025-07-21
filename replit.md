@@ -12,6 +12,7 @@ This is a premium consulting website for Defiant Integrations, designed to rival
 - **January 22, 2025**: Created Landscaping industry page with green nature-themed design, focused on lead generation, social media marketing, and converting one-time projects into recurring maintenance revenue.
 - **January 22, 2025**: Created Roofing industry page with slate/red color scheme, emphasizing trust building, insurance claim management, and neighborhood market dominance strategies.
 - **January 22, 2025**: Created Painting industry page with purple/artistic color scheme, focused on premium quality leads, visual content showcasing craftsmanship, and converting customers from price shoppers to quality seekers.
+- **January 22, 2025**: Created General Contracting industry page with amber/brown construction color scheme, focused on managing complex projects, professional communication systems, and attracting premium remodeling clients through project showcase content.
 
 ## User Preferences
 
