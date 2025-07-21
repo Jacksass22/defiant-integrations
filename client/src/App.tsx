@@ -8,6 +8,7 @@ import StrategyArticle from "@/pages/strategy-article";
 import AIAdoptionArticle from "@/pages/ai-adoption-article";
 import Books from "@/pages/books";
 import HVAC from "@/pages/hvac";
+import Plumbing from "@/pages/plumbing";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/ai-adoption-article" component={AIAdoptionArticle} />
       <Route path="/books" component={Books} />
       <Route path="/hvac" component={HVAC} />
+      <Route path="/plumbing" component={Plumbing} />
       <Route component={NotFound} />
     </Switch>
   );
