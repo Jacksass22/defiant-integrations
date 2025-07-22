@@ -13,10 +13,10 @@ export default function HVAC() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight">
-              HVAC: Smart Technology That Actually Works for Your Business
+              HVAC: Automation That Pays for Itself
             </h1>
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
-              Transform your HVAC operations with AI-powered solutions that save time, keep customers happy, and grow your business without the headaches.
+              We help HVAC businesses grow by eliminating missed follow-ups, scheduling chaos, and customer churn with AI-powered systems that run your business while you run the jobs.
             </p>
             <button className="inline-flex items-center space-x-2 bg-white text-blue-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors">
               <span>Start Your Free Assessment</span>
@@ -31,10 +31,10 @@ export default function HVAC() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              The HVAC Industry's Perfect Storm
+              The Real Problem: It's Not the Tech Shortage—It's the System Shortage
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 mb-12 leading-relaxed">
-              Running an HVAC company has never been tougher. Equipment costs have doubled since 2020. Good techs are impossible to find—and the ones you do find want more money. Customers expect you to respond faster, remember their preferences, and keep them informed every step of the way.
+              You're not losing money because your service is bad. You're losing money because no one follows up after a quote, customers forget about maintenance, calls go unanswered when you're on the job, and techs get double-booked. 225,000 open HVAC positions by 2025? That's not your fault. But letting $45,000 in revenue slip away from missed appointments and forgotten reminders? That can be fixed.
             </p>
             
             {/* Stats Grid */}
@@ -62,25 +62,8 @@ export default function HVAC() {
             </div>
 
             <div className="bg-blue-900 text-white p-8 rounded-lg">
-              <h3 className="font-serif text-2xl font-bold mb-4">What This Means for Your Business</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-0.5" />
-                  <span>Customers slip through the cracks without proper follow-up</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-0.5" />
-                  <span>Manual scheduling leads to double-bookings and missed appointments</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-0.5" />
-                  <span>You lose repeat business because customers forget about maintenance</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-0.5" />
-                  <span>Time gets wasted on tasks that could be automated</span>
-                </li>
-              </ul>
+              <h3 className="font-serif text-2xl font-bold mb-4">The Transformation: From Reactive to Revenue</h3>
+              <p className="mb-4">We help HVAC companies go from chaotic scheduling and lost leads to automated, high-retention operations—without adding more staff.</p>
             </div>
           </div>
         </div>
@@ -91,11 +74,14 @@ export default function HVAC() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              How Smart Technology Fixes These Problems
+              Our Offer: The System That Never Forgets
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Transform your operations with AI-powered solutions designed specifically for HVAC companies
+              These are our core service packages tailored for HVAC businesses—but we also offer custom integrations and software development solutions upon consultation. If you have a unique system, workflow, or need, we can build a solution that fits.
             </p>
+            <div className="mt-8 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-700 font-medium">We install a 3-part AI-powered sales and service system:</p>
+            </div>
           </div>
 
           {/* Solution Cards */}
@@ -107,26 +93,22 @@ export default function HVAC() {
                   <Users className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                  Never Miss a Customer Again
+                  1. Follow-Up Machine
                 </h3>
                 <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Problem:</strong> Customers book service, then disappear until something breaks
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Solution:</strong> Automated follow-up and reminder systems that keep customers engaged
+                  No more "they ghosted us."
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Automatic maintenance reminders sent via email and text</li>
-                    <li>• Follow-up messages after every service call</li>
-                    <li>• Birthday and seasonal check-in messages that build relationships</li>
-                    <li>• Automatic review requests when jobs go well</li>
+                    <li>• Automated reminders (email/text) for estimates, service, and maintenance</li>
+                    <li>• Re-engagement campaigns for old customers</li>
+                    <li>• Birthday and seasonal messages that build loyalty</li>
                   </ul>
                 </div>
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4">
                   <p className="text-blue-900 font-semibold">
-                    Real Results: Companies see 40% fewer no-shows and 3x more repeat bookings
+                    Real Results: 40% drop in no-shows, 3x increase in repeat bookings
                   </p>
                 </div>
               </div>
@@ -145,26 +127,22 @@ export default function HVAC() {
                   <Calendar className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                  Schedule Jobs Like a Pro
+                  2. Smart Scheduler
                 </h3>
                 <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Problem:</strong> Dispatchers waste hours every day playing scheduling Tetris
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Solution:</strong> Smart calendar systems that handle scheduling and customer updates automatically
+                  No more wasted hours moving appointments around.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Drag-and-drop scheduling that syncs with your calendar</li>
-                    <li>• Automatic appointment confirmations and reminders</li>
-                    <li>• Customers get real-time updates when techs are running late</li>
-                    <li>• Easy rescheduling when emergencies pop up</li>
+                    <li>• Auto-sync calendar + CRM</li>
+                    <li>• Drag-and-drop job board</li>
+                    <li>• Customer alerts for time changes or ETA</li>
                   </ul>
                 </div>
                 <div className="bg-green-50 border-l-4 border-green-600 p-4">
                   <p className="text-green-900 font-semibold">
-                    Real Results: Companies save 2-3 hours daily on scheduling and cut no-shows by 40%
+                    Real Results: 40% drop in no-shows, 60% more maintenance sign-ups
                   </p>
                 </div>
               </div>
@@ -177,27 +155,22 @@ export default function HVAC() {
                   <MessageSquare className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                  AI-Powered Customer Service
+                  3. AI Front Desk
                 </h3>
                 <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Problem:</strong> Your phone rings constantly with simple questions, interrupting real work
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Solution:</strong> AI assistants that handle common questions and only pass through calls that actually need a human
+                  No more missed calls or late-night messages.
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• AI phone system answers calls and handles simple questions</li>
-                    <li>• Only urgent or complex calls get transferred to your team</li>
-                    <li>• Chatbots on your website answer basic questions 24/7</li>
-                    <li>• AI captures customer details and appointment requests automatically</li>
-                    <li>• Smart email responses that sound personal but save time</li>
+                    <li>• Phone AI that answers, qualifies, and books</li>
+                    <li>• Website chatbot that closes leads while you sleep</li>
+                    <li>• FAQ-trained assistant that saves your techs' time</li>
                   </ul>
                 </div>
                 <div className="bg-purple-50 border-l-4 border-purple-600 p-4">
                   <p className="text-purple-900 font-semibold">
-                    Real Results: 70% fewer interruptions, 50% faster response times, and happier customers
+                    Real Results: 70% fewer phone interruptions
                   </p>
                 </div>
               </div>
@@ -206,37 +179,25 @@ export default function HVAC() {
               </div>
             </div>
 
-            {/* Solution 4 */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-orange-600 to-orange-800 h-96 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-32 h-32 text-white/20" />
-              </div>
-              <div className="order-1 lg:order-2">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-600 rounded-lg mb-6">
-                  <TrendingUp className="w-8 h-8" />
+            {/* Real HVAC Wins Section */}
+            <div className="bg-blue-900 text-white p-12 rounded-lg text-center">
+              <h3 className="font-serif text-3xl font-bold mb-8">Real HVAC Wins (Because We Built This With You in Mind)</h3>
+              <div className="grid md:grid-cols-4 gap-8">
+                <div>
+                  <div className="text-4xl font-bold text-blue-300 mb-2">40%</div>
+                  <div className="text-lg">drop in no-shows</div>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                  Turn One-Time Customers Into Regulars
-                </h3>
-                <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Problem:</strong> Customers forget about maintenance until something breaks
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Solution:</strong> CRM systems that automatically nurture customer relationships
-                </p>
-                <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Maintenance reminders sent at the right time based on equipment type</li>
-                    <li>• Personalized offers for customers ready for system upgrades</li>
-                    <li>• Automatic follow-up on estimates that haven't been accepted</li>
-                    <li>• Customer history that makes every interaction feel personal</li>
-                  </ul>
+                <div>
+                  <div className="text-4xl font-bold text-blue-300 mb-2">3x</div>
+                  <div className="text-lg">increase in repeat bookings</div>
                 </div>
-                <div className="bg-orange-50 border-l-4 border-orange-600 p-4">
-                  <p className="text-orange-900 font-semibold">
-                    Real Results: 60% increase in maintenance agreement sign-ups
-                  </p>
+                <div>
+                  <div className="text-4xl font-bold text-blue-300 mb-2">60%</div>
+                  <div className="text-lg">more maintenance sign-ups</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-blue-300 mb-2">70%</div>
+                  <div className="text-lg">fewer phone interruptions</div>
                 </div>
               </div>
             </div>
@@ -249,67 +210,64 @@ export default function HVAC() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              How We Get You There
+              The Implementation Roadmap (90 Days to Freedom)
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A proven 90-day implementation roadmap designed for minimal disruption and maximum impact
-            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 shadow-lg">
               <div className="text-blue-600 font-bold text-lg mb-2">Month 1</div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Connect Your Systems</h3>
+              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Foundations</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Integrate your calendar, email, and customer database</span>
+                  <span>Connect calendar, CRM, and email</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Set up automated appointment reminders and confirmations</span>
+                  <span>Install AI chatbot + phone AI</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Create customer service AI for your website</span>
+                  <span>Launch estimate + booking follow-up automations</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white p-8 shadow-lg">
               <div className="text-blue-600 font-bold text-lg mb-2">Month 2</div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Add Smart Automation</h3>
+              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Optimization</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Launch maintenance reminder campaigns</span>
+                  <span>Build seasonal marketing calendar</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Set up follow-up sequences for estimates and completed jobs</span>
+                  <span>Train AI with your top FAQs and service types</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Train AI on your most common customer questions</span>
+                  <span>Add review request + customer check-in workflows</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white p-8 shadow-lg">
               <div className="text-blue-600 font-bold text-lg mb-2">Month 3+</div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Watch It Work</h3>
+              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Automation Flywheel</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Customers get timely reminders and book more maintenance</span>
+                  <span>Turn installs into recurring maintenance clients</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Your schedule stays full with less manual work</span>
+                  <span>Segment customers by equipment type</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Customer relationships improve with consistent communication</span>
+                  <span>Automate slow-season promos and reactivations</span>
                 </li>
               </ul>
             </div>
@@ -317,48 +275,45 @@ export default function HVAC() {
         </div>
       </section>
 
-      {/* ROI Section */}
+      {/* Why This Works Section */}
       <section className="py-20 bg-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              What This Actually Means for Your Bottom Line
+              Why This Works (And Why Your Competitors Won't Do It)
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-blue-800/50 p-8 rounded-lg">
-              <Clock className="w-12 h-12 text-blue-300 mb-4" />
-              <h3 className="font-serif text-2xl font-bold mb-4">Time You'll Save</h3>
-              <ul className="space-y-3 text-gray-200">
-                <li>• <strong>Scheduling:</strong> Automated appointment booking and confirmations</li>
-                <li>• <strong>Follow-up:</strong> No more forgetting to call customers back</li>
-                <li>• <strong>Customer service:</strong> AI handles basic questions 24/7</li>
-                <li>• <strong>Marketing:</strong> Automated campaigns that nurture relationships</li>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+            <div>
+              <h3 className="font-serif text-3xl font-bold mb-6">They're still chasing techs and playing scheduling Tetris.</h3>
+              <p className="text-xl text-gray-200 mb-8">You'll have:</p>
+              <ul className="space-y-4 text-lg">
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                  <span>A system that follows up for you</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                  <span>A phone line that qualifies leads 24/7</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                  <span>A schedule that runs itself</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-blue-300 flex-shrink-0 mt-1" />
+                  <span>A brand that customers remember</span>
+                </li>
               </ul>
             </div>
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-96 rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-32 h-32 text-white/20" />
+            </div>
+          </div>
 
-            <div className="bg-blue-800/50 p-8 rounded-lg">
-              <DollarSign className="w-12 h-12 text-blue-300 mb-4" />
-              <h3 className="font-serif text-2xl font-bold mb-4">Money You'll Make</h3>
-              <ul className="space-y-3 text-gray-200">
-                <li>• <strong>More maintenance contracts:</strong> 60% more sign-ups</li>
-                <li>• <strong>Better retention:</strong> Regular communication keeps you top-of-mind</li>
-                <li>• <strong>Fewer no-shows:</strong> Cut no-shows by 40%</li>
-                <li>• <strong>Higher conversion:</strong> Follow up on every estimate automatically</li>
-              </ul>
-            </div>
-
-            <div className="bg-blue-800/50 p-8 rounded-lg">
-              <TrendingUp className="w-12 h-12 text-blue-300 mb-4" />
-              <h3 className="font-serif text-2xl font-bold mb-4">Competitive Advantages</h3>
-              <ul className="space-y-3 text-gray-200">
-                <li>• Respond to customers instantly, even after hours</li>
-                <li>• Remember every customer's preferences and history</li>
-                <li>• Follow up consistently while competitors forget</li>
-                <li>• Build a reputation as the responsive, professional choice</li>
-              </ul>
-            </div>
+          <div className="text-center">
+            <p className="text-2xl font-bold mb-4">This isn't just automation. It's elevation.</p>
           </div>
         </div>
       </section>
