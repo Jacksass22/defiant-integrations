@@ -16,6 +16,7 @@ import Painting from "@/pages/painting";
 import GeneralContracting from "@/pages/general-contracting";
 import CleaningServices from "@/pages/cleaning-services";
 import RestaurantsCafes from "@/pages/restaurants-cafes";
+import BeautySalonsSpas from "@/pages/beauty-salons-spas";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -34,6 +35,7 @@ function Router() {
       <Route path="/general-contracting" component={GeneralContracting} />
       <Route path="/cleaning-services" component={CleaningServices} />
       <Route path="/restaurants-cafes" component={RestaurantsCafes} />
+      <Route path="/beauty-salons-spas" component={BeautySalonsSpas} />
       <Route component={NotFound} />
     </Switch>
   );
