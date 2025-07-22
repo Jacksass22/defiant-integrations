@@ -112,7 +112,8 @@ export default function Stack({
               animate={{
                 rotateZ: (cards.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - cards.length * 0.06,
-                transformOrigin: "50% 50%",
+                x: 0,
+                y: 0,
               }}
               initial={false}
               transition={{
@@ -123,6 +124,7 @@ export default function Stack({
               style={{
                 width: cardDimensions.width,
                 height: cardDimensions.height,
+                transformOrigin: "50% 50%",
               }}
             >
               <div className={`book-card h-full bg-gradient-to-br ${card.color}`}>
