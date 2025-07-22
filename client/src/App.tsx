@@ -19,6 +19,7 @@ import RestaurantsCafes from "@/pages/restaurants-cafes";
 import BeautySalonsSpas from "@/pages/beauty-salons-spas";
 import Barbershops from "@/pages/barbershops";
 import GymsPersonalTrainers from "@/pages/gyms-personal-trainers";
+import WellnessLifeCoaches from "@/pages/wellness-life-coaches";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/beauty-salons-spas" component={BeautySalonsSpas} />
       <Route path="/barbershops" component={Barbershops} />
       <Route path="/gyms-personal-trainers" component={GymsPersonalTrainers} />
+      <Route path="/wellness-life-coaches" component={WellnessLifeCoaches} />
       <Route component={NotFound} />
     </Switch>
   );
