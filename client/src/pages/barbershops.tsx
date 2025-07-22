@@ -1,0 +1,460 @@
+import { Navigation } from '@/components/navigation';
+import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera } from 'lucide-react';
+import { Link } from 'wouter';
+
+export default function Barbershops() {
+  return (
+    <div className="bg-white text-charcoal font-sans">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-gray-700 via-gray-800 to-black">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight">
+              Barbershops: Smart Technology That Actually Works for Your Business
+            </h1>
+            <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
+              Attract loyal regulars, reduce wait times, and build the kind of neighborhood reputation that keeps chairs busy and customers coming back every few weeks.
+            </p>
+            <button className="inline-flex items-center space-x-2 bg-white text-gray-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors">
+              <span>Start Your Free Assessment</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+              What Barbershops Are Dealing With Right Now
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 mb-12 leading-relaxed">
+              Running a barbershop means balancing tradition with modern customer expectations. You're building regular relationships with guys who want consistent cuts, competing with chain salons and quick-cut places, while trying to keep chairs filled during slow periods and managing walk-ins during busy times.
+            </p>
+            
+            {/* Stats Grid */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-white p-8 shadow-lg">
+                <div className="text-5xl font-bold text-gray-700 mb-4">160%</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">New Customer Increase</h3>
+                <p className="text-gray-600">More new customers with targeted local marketing</p>
+              </div>
+              <div className="bg-white p-8 shadow-lg">
+                <div className="text-5xl font-bold text-gray-700 mb-4">70%</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Regular Client Conversion</h3>
+                <p className="text-gray-600">First-time visitors who become regular customers</p>
+              </div>
+              <div className="bg-white p-8 shadow-lg">
+                <div className="text-5xl font-bold text-gray-700 mb-4">6x</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">More Engagement</h3>
+                <p className="text-gray-600">On barbering content and craftsmanship showcases</p>
+              </div>
+              <div className="bg-white p-8 shadow-lg">
+                <div className="text-5xl font-bold text-gray-700 mb-4">40%</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Wait Time Reduction</h3>
+                <p className="text-gray-600">Fewer complaints with smart queue management</p>
+              </div>
+            </div>
+
+            <div className="bg-gray-800 text-white p-8 rounded-lg">
+              <h3 className="font-serif text-2xl font-bold mb-4">What This Means for Your Business</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-gray-300 flex-shrink-0 mt-0.5" />
+                  <span>Lost revenue during slow periods when chairs sit empty</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-gray-300 flex-shrink-0 mt-0.5" />
+                  <span>Customers wait too long during busy times and leave frustrated</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-gray-300 flex-shrink-0 mt-0.5" />
+                  <span>Regulars drift away when life gets busy and they forget to come in</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-gray-300 flex-shrink-0 mt-0.5" />
+                  <span>Younger customers choose competitors with online booking and modern marketing</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <CheckCircle className="w-6 h-6 text-gray-300 flex-shrink-0 mt-0.5" />
+                  <span>Difficulty building new regular clientele to replace customers who move away</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              How Smart Technology Fixes These Problems
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Transform your barbershop with modern systems that respect tradition
+            </p>
+          </div>
+
+          {/* Solution Cards */}
+          <div className="space-y-20">
+            {/* Solution 1 */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 text-gray-700 rounded-lg mb-6">
+                  <Scissors className="w-8 h-8" />
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  Generate Loyal Regular Customers
+                </h3>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Problem:</strong> Guys often choose barbershops based on convenience rather than building relationships
+                </p>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Solution:</strong> Professional marketing that attracts customers looking for their regular barber
+                </p>
+                <div className="bg-gray-50 p-6 rounded-lg mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Google Ads targeting "barber near me," "men's haircuts," and "traditional barbershop"</li>
+                    <li>• Content about classic cuts, grooming advice, and barbershop culture</li>
+                    <li>• Before/after photos showing clean cuts and attention to detail</li>
+                    <li>• Barber profiles highlighting experience and signature styles</li>
+                    <li>• Local SEO for neighborhood searches and "best barber" queries</li>
+                  </ul>
+                </div>
+                <div className="bg-gray-100 border-l-4 border-gray-700 p-4">
+                  <p className="text-gray-800 font-semibold">
+                    Real Results: 160% increase in new customers and 70% conversion to regular clients
+                  </p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-gray-700 to-black h-96 rounded-lg flex items-center justify-center">
+                <Scissors className="w-32 h-32 text-white/20" />
+              </div>
+            </div>
+
+            {/* Solution 2 */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-600 to-gray-800 h-96 rounded-lg flex items-center justify-center">
+                <Camera className="w-32 h-32 text-white/20" />
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-lg mb-6">
+                  <Camera className="w-8 h-8" />
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  Showcase Classic Craftsmanship and Modern Style
+                </h3>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Problem:</strong> Great barbering skills and shop atmosphere aren't seen by potential customers
+                </p>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Solution:</strong> AI-powered content that highlights your expertise and barbershop experience
+                </p>
+                <div className="bg-gray-50 p-6 rounded-lg mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Professional photos of fresh cuts and classic barbering techniques</li>
+                    <li>• Behind-the-scenes content showing attention to detail and craftsmanship</li>
+                    <li>• Customer testimonials focusing on consistency and personal service</li>
+                    <li>• Educational content about men's grooming, beard care, and style trends</li>
+                    <li>• Shop atmosphere content highlighting the barbershop experience and community</li>
+                  </ul>
+                </div>
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-4">
+                  <p className="text-blue-900 font-semibold">
+                    Real Results: 6x more engagement and 50% increase in walk-in traffic from online discovery
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Solution 3 */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-lg mb-6">
+                  <Calendar className="w-8 h-8" />
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  Smart Scheduling That Respects Barbershop Culture
+                </h3>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Problem:</strong> Balancing traditional walk-in culture with modern appointment expectations
+                </p>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Solution:</strong> Flexible booking systems that accommodate both scheduled and spontaneous visits
+                </p>
+                <div className="bg-gray-50 p-6 rounded-lg mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Online booking system for customers who prefer appointments</li>
+                    <li>• Walk-in queue management with text notifications for wait times</li>
+                    <li>• Regular customer reminders based on their typical cutting schedule</li>
+                    <li>• Barber availability updates and preferred barber booking options</li>
+                    <li>• Appointment confirmations and "running late" notifications</li>
+                  </ul>
+                </div>
+                <div className="bg-green-50 border-l-4 border-green-600 p-4">
+                  <p className="text-green-900 font-semibold">
+                    Real Results: 40% reduction in wait time complaints and 50% more appointment consistency
+                  </p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-green-600 to-green-800 h-96 rounded-lg flex items-center justify-center">
+                <Calendar className="w-32 h-32 text-white/20" />
+              </div>
+            </div>
+
+            {/* Solution 4 */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1 bg-gradient-to-br from-amber-600 to-orange-700 h-96 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-32 h-32 text-white/20" />
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-100 text-amber-600 rounded-lg mb-6">
+                  <TrendingUp className="w-8 h-8" />
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  Keep Regulars Coming Back on Schedule
+                </h3>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Problem:</strong> Regular customers forget to book until their hair looks unprofessional
+                </p>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Solution:</strong> Automated relationship building that maintains cutting schedules
+                </p>
+                <div className="bg-gray-50 p-6 rounded-lg mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Automatic reminders based on each customer's cutting cycle (2-4 weeks typically)</li>
+                    <li>• Seasonal grooming reminders and special occasion prep</li>
+                    <li>• Loyalty programs with automated tracking for frequent customers</li>
+                    <li>• Special offers during slow periods to encourage regular visits</li>
+                    <li>• Personal touch: birthday greetings and holiday messages from their barber</li>
+                  </ul>
+                </div>
+                <div className="bg-amber-50 border-l-4 border-amber-600 p-4">
+                  <p className="text-amber-900 font-semibold">
+                    Real Results: 85% of customers maintain regular 3-4 week cutting schedules
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation Timeline */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              How We Get You There
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              A proven 90-day implementation roadmap designed for barbershops
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white p-8 shadow-lg">
+              <div className="text-gray-700 font-bold text-lg mb-2">Month 1</div>
+              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Modern Barbershop Presence</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Lead generation targeting local men's grooming searches</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Professional website with barber profiles and online booking options</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Flexible scheduling system accommodating appointments and walk-ins</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 shadow-lg">
+              <div className="text-gray-700 font-bold text-lg mb-2">Month 2</div>
+              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Community and Consistency Building</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Content showcasing barbering expertise and shop atmosphere</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Customer reminder systems based on cutting schedules</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Queue management and wait time communication</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 shadow-lg">
+              <div className="text-gray-700 font-bold text-lg mb-2">Month 3+</div>
+              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Neighborhood Institution Status</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Professional online presence attracts new regular customers</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Smart scheduling systems improve customer experience for all visit types</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Local reputation grows through satisfied regulars and referrals</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Section */}
+      <section className="py-20 bg-gray-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+              What This Actually Means for Your Bottom Line
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="bg-gray-700/50 p-8 rounded-lg">
+              <Users className="w-12 h-12 text-gray-300 mb-4" />
+              <h3 className="font-serif text-2xl font-bold mb-4">Customers You'll Build</h3>
+              <ul className="space-y-3 text-gray-200">
+                <li>• <strong>Regular weekly/bi-weekly clients:</strong> Build base of customers with consistent cutting schedules</li>
+                <li>• <strong>Business professionals:</strong> Attract men who need to look sharp for work</li>
+                <li>• <strong>Neighborhood locals:</strong> Become the go-to shop for men in your area</li>
+                <li>• <strong>Multi-generational families:</strong> Traditional service that appeals to fathers and sons</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-700/50 p-8 rounded-lg">
+              <DollarSign className="w-12 h-12 text-gray-300 mb-4" />
+              <h3 className="font-serif text-2xl font-bold mb-4">Money You'll Make</h3>
+              <ul className="space-y-3 text-gray-200">
+                <li>• <strong>Consistent revenue:</strong> Regular customers provide predictable weekly income</li>
+                <li>• <strong>Higher chair utilization:</strong> Fill slow periods with reminder-driven appointments</li>
+                <li>• <strong>Premium services:</strong> Beard trims, hot towel shaves, and grooming add-ons</li>
+                <li>• <strong>Reduced no-shows:</strong> Automated reminders keep regular schedules consistent</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-700/50 p-8 rounded-lg">
+              <Clock className="w-12 h-12 text-gray-300 mb-4" />
+              <h3 className="font-serif text-2xl font-bold mb-4">Time You'll Save</h3>
+              <ul className="space-y-3 text-gray-200">
+                <li>• <strong>Booking coordination:</strong> Online scheduling reduces phone interruptions</li>
+                <li>• <strong>Wait management:</strong> Automated queue system handles walk-in communications</li>
+                <li>• <strong>Customer reminders:</strong> Automated messages maintain cutting schedules</li>
+                <li>• <strong>Relationship building:</strong> Systems help remember customer preferences and histories</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            The Bottom Line
+          </h2>
+          <p className="text-xl mb-8 leading-relaxed text-gray-300">
+            Barbershops are about more than haircuts - they're about consistency, community, and helping guys look their best for work and life. Your customers want a barber who remembers how they like their cut and makes the experience efficient and enjoyable.
+          </p>
+          <p className="text-xl mb-8 leading-relaxed text-gray-300">
+            Smart technology respects barbershop tradition while adding modern convenience that today's customers expect. While your competitors are stuck with paper books and frustrated customers, you'll be the barbershop that combines old-school craftsmanship with new-school efficiency.
+          </p>
+          <p className="text-2xl font-semibold mb-12">
+            Ready to see what this looks like for your business?
+          </p>
+          <button className="inline-flex items-center space-x-2 bg-gray-600 text-white px-8 py-4 font-medium hover:bg-gray-700 transition-colors text-lg">
+            <span>Start Your Free Assessment</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
+            <div className="col-span-2 sm:col-span-3 lg:col-span-2">
+              <div className="text-xl sm:text-2xl font-serif font-bold mb-4">
+                Defiant <span className="text-gray-300">Integrations</span>
+              </div>
+              <p className="text-gray-400 mb-6 text-sm sm:text-base">
+                Architecting intelligent transformations that scale.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Industries</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><Link href="/" className="hover:text-gray-300 transition-colors">Home</Link></li>
+                <li><Link href="/hvac" className="hover:text-gray-300 transition-colors">HVAC</Link></li>
+                <li><Link href="/plumbing" className="hover:text-gray-300 transition-colors">Plumbing</Link></li>
+                <li><Link href="/electrical" className="hover:text-gray-300 transition-colors">Electrical</Link></li>
+                <li><Link href="/landscaping" className="hover:text-gray-300 transition-colors">Landscaping</Link></li>
+                <li><Link href="/roofing" className="hover:text-gray-300 transition-colors">Roofing</Link></li>
+                <li><Link href="/painting" className="hover:text-gray-300 transition-colors">Painting</Link></li>
+                <li><Link href="/general-contracting" className="hover:text-gray-300 transition-colors">General Contracting</Link></li>
+                <li><Link href="/cleaning-services" className="hover:text-gray-300 transition-colors">Cleaning Services</Link></li>
+                <li><Link href="/restaurants-cafes" className="hover:text-gray-300 transition-colors">Restaurants & Cafés</Link></li>
+                <li><Link href="/beauty-salons-spas" className="hover:text-gray-300 transition-colors">Beauty Salons & Spas</Link></li>
+                <li><Link href="/barbershops" className="hover:text-gray-300 transition-colors">Barbershops</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Capabilities</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><button className="hover:text-gray-300 transition-colors">AI Strategy</button></li>
+                <li><button className="hover:text-gray-300 transition-colors">Implementation</button></li>
+                <li><button className="hover:text-gray-300 transition-colors">Scaling</button></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">About Us</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><button className="hover:text-gray-300 transition-colors">Careers</button></li>
+                <li><button className="hover:text-gray-300 transition-colors">Contact</button></li>
+                <li><button className="hover:text-gray-300 transition-colors">Blog</button></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Connect</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><button className="hover:text-gray-300 transition-colors">Sign In</button></li>
+                <li><button className="hover:text-gray-300 transition-colors">Subscribe</button></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Defiant Integrations. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
