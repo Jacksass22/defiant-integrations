@@ -22,7 +22,9 @@ import GymsPersonalTrainers from "@/pages/gyms-personal-trainers";
 import WellnessLifeCoaches from "@/pages/wellness-life-coaches";
 import PetGroomingBoarding from "@/pages/pet-grooming-boarding";
 import RemodelingRenovation from "@/pages/remodeling-renovation";
+import BrickMortarRetail from "@/pages/brick-mortar-retail";
 import NotFound from "@/pages/not-found";
+
 
 function Router() {
   return (
@@ -46,6 +48,7 @@ function Router() {
       <Route path="/wellness-life-coaches" component={WellnessLifeCoaches} />
       <Route path="/pet-grooming-boarding" component={PetGroomingBoarding} />
       <Route path="/remodeling-renovation" component={RemodelingRenovation} />
+      <Route path="/brick-mortar-retail" component={BrickMortarRetail} />
       <Route component={NotFound} />
     </Switch>
   );
