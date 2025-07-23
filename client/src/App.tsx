@@ -23,6 +23,7 @@ import WellnessLifeCoaches from "@/pages/wellness-life-coaches";
 import PetGroomingBoarding from "@/pages/pet-grooming-boarding";
 import RemodelingRenovation from "@/pages/remodeling-renovation";
 import BrickMortarRetail from "@/pages/brick-mortar-retail";
+import EcommerceBrands from "@/pages/ecommerce-brands";
 import NotFound from "@/pages/not-found";
 
 
@@ -49,6 +50,7 @@ function Router() {
       <Route path="/pet-grooming-boarding" component={PetGroomingBoarding} />
       <Route path="/remodeling-renovation" component={RemodelingRenovation} />
       <Route path="/brick-mortar-retail" component={BrickMortarRetail} />
+      <Route path="/ecommerce-brands" component={EcommerceBrands} />
       <Route component={NotFound} />
     </Switch>
   );
