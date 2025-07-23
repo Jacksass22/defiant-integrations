@@ -26,7 +26,8 @@ const industriesData = [
       "Barbershops",
       "Gyms & Personal Trainers",
       "Wellness & Life Coaches",
-      "Pet Grooming & Boarding"
+      "Pet Grooming & Boarding",
+      "Golf Courses"
     ]
   },
   {

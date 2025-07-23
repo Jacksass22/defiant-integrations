@@ -1,0 +1,135 @@
+Golf Courses: Elevate the Guest Experience, Streamline Operations
+Run a smoother pro shop, handle more calls at once, and never miss a tee time again.
+Modern golf courses juggle phone lines, bookings, guest services, staff management, and pro shop sales—often with outdated tools and overworked teams. At Defiant Integrations, we bring intelligent systems and automation to the game, helping you eliminate friction, delight guests, and operate with precision.
+
+What We Solve
+📞 Intelligent Phone Reception & Call Filtering
+Free your staff from the phones—without losing the human touch.
+Our AI-powered phone assistant handles high-volume, repetitive calls—like:
+
+Tee time availability
+
+Hours of operation
+
+Weather conditions and cart rules
+
+Rates and specials
+
+Event info
+
+When someone calls with a personal or one-off request (e.g., “Did someone turn in a lost club?”), the system instantly routes them to your pro shop for human assistance. No menus, no confusion—just smarter service.
+
+✔️ Real-time tee sheet and calendar integration
+✔️ Staff alerted only when human input is needed
+✔️ 24/7 coverage with zero missed calls
+
+📊 Data-Driven Decision-Making
+You can’t grow what you don’t track.
+We install the infrastructure for smarter operations—turning your everyday interactions into actionable insights.
+
+What We Track:
+Booking volume by channel, time of day, and weather pattern
+
+Peak call times and common guest questions
+
+Conversion rates from inquiry to booked round
+
+Retail and lesson sales trends
+
+Staff workload distribution
+
+Membership engagement and churn signals
+
+What You Can Do With It:
+📈 Forecast tee time demand based on trends
+
+📣 Target marketing to lapsed players or slow days
+
+⏱ Optimize staffing by analyzing hourly traffic
+
+🧠 Make strategic upgrades with clear ROI data
+
+We don’t just automate—we illuminate.
+
+Outcomes You Can Expect
+65%+ Fewer Repetitive Phone Calls
+
+Zero Missed Booking Opportunities
+
+Faster Guest Response Times
+
+Live Dashboards for KPIs & Performance Trends
+
+Better Marketing ROI from Smart Segmentation
+
+🧠 Beyond the Phone: Full-Facility Integration
+Golf courses rely on fragmented tools. We bring them together.
+
+🔧 Example Integrations:
+Tee sheet software (e.g., Chronogolf, GolfNow, ForeUP)
+
+Point-of-sale and lesson scheduling
+
+Google Calendar or Outlook for staff visibility
+
+Membership databases or custom CRM
+
+Email/SMS systems for automated follow-up
+
+Google Sheets or custom dashboards for reporting
+
+⚙️ Custom Software & SaaS Development
+Need a solution that doesn’t exist yet? We’ll build it.
+
+Internal dashboards for owners & GMs
+
+Smart kiosk or tablet interfaces for check-in
+
+Mobile app integration for VIP members
+
+Notification systems for staff and instructors
+
+Visual analytics for board reports or sponsors
+
+Our Capabilities for Golf Operators
+Capability	What It Means for You
+AI Receptionist	Answers common calls 24/7 with live call routing
+System Integration	Syncs tee times, calendars, POS, marketing tools
+KPI & Insights Dashboards	View real-time performance data
+Marketing Automation	Auto-reengage guests, promote events, fill slow days
+Custom SaaS Solutions	Proprietary tools built just for your course
+Forecasting & Analytics	Plan staffing, events, and upgrades with data
+
+🛠 How We Work
+Discovery & Demo
+We assess your tech stack, workflows, and guest interactions. Then we build a tailored demo.
+
+Integration & Launch
+We connect your tools, configure the AI assistant, and deploy reporting dashboards.
+
+Optimize & Support
+We train your team, tweak based on real use, and provide live support & monthly optimizations.
+
+🏆 Why Defiant Integrations?
+Deep knowledge of golf course operations
+
+Experts in automation, n8n, and data engineering
+
+Custom-built solutions, not cookie-cutter tools
+
+Fast, secure, and scalable infrastructure
+
+Trusted by small and mid-size operators alike
+
+Ready to Modernize Your Course?
+Let us show you what your course could look like in 30 days:
+
+Less phone chaos
+
+More booked tee times
+
+Data to make every decision smarter
+
+Systems that work behind the scenes
+
+👉 [Start Your Free Discovery Call Today]
