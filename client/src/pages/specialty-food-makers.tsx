@@ -1,9 +1,12 @@
 import { ArrowRight, CheckCircle, ChefHat, TrendingUp, Users, Package } from 'lucide-react';
+import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 
 export default function SpecialtyFoodMakers() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+    <div className="bg-white text-charcoal font-sans">
+      <Navigation />
+      <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -491,6 +494,7 @@ export default function SpecialtyFoodMakers() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
