@@ -25,6 +25,9 @@ This is a premium consulting website for Defiant Integrations, designed to rival
 - **January 22, 2025**: Created Local Boutiques industry page with pink color scheme, focused on driving foot traffic, converting browsers to buyers, and automating backend operations while preserving personal brand style.
 - **January 22, 2025**: Created Real Estate Agencies industry page with blue color scheme, focused on winning more listings, automating lead follow-up, and building referral systems for agents and brokerages.
 - **January 22, 2025**: Created Law Firms industry page with slate/gray color scheme, emphasizing security, compliance, and data control with legal-grade automation systems for intake, casework, and client management.
+- **January 23, 2025**: Created Insurance Brokers industry page with orange color scheme, focused on generating qualified leads, automating renewals, and building lifelong policyholder relationships while maintaining compliance with HIPAA, GLBA, and local regulations.
+- **January 23, 2025**: Created HR & Recruiting Firms industry page with blue color scheme, focused on automating candidate outreach, streamlining placement workflows, and scaling client satisfaction while ensuring compliance with EEOC, GDPR, and CCPA regulations.
+- **January 23, 2025**: Created Business Consultants industry page with violet color scheme, focused on attracting better clients through authority-driven funnels, productizing expertise, and scaling impact with secure, consultant-owned systems for IP protection.
 
 ## User Preferences
 
@@ -62,7 +65,11 @@ Preferred communication style: Simple, everyday language.
 - **Mega Menu**: Complex navigation with industry-specific dropdowns
 - **Responsive Design**: Mobile-first approach with collapsible navigation
 - **Industry Categories**: Organized by business types (Trades, Consumer Services, Professional Services, etc.)
-- **Industry Pages**: Dedicated pages for specific industries (e.g., HVAC) with detailed service offerings
+- **Industry Pages**: Complete set of 26 dedicated industry pages with detailed service offerings and industry-specific color schemes:
+  - **Trades**: HVAC, Plumbing, Electrical, Landscaping, Roofing, Painting, General Contracting
+  - **Consumer Services**: Cleaning Services, Restaurants & Cafés, Beauty Salons & Spas, Barbershops, Gyms & Personal Trainers, Wellness & Life Coaches, Pet Grooming & Boarding
+  - **Retail**: Brick-and-Mortar Retail, eCommerce Brands, Cannabis Retail, Specialty Food Makers, Local Boutiques
+  - **Professional Services**: Real Estate Agencies, Law Firms, Accounting & Tax Firms, Insurance Brokers, HR & Recruiting Firms, Business Consultants
 
 ### Database Schema
 - **Users Table**: Basic user management with username/password authentication
