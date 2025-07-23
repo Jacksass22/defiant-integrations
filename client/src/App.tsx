@@ -30,6 +30,9 @@ import LocalBoutiques from "@/pages/local-boutiques";
 import RealEstateAgencies from "@/pages/real-estate-agencies";
 import LawFirms from "@/pages/law-firms";
 import AccountingTaxFirms from "@/pages/accounting-tax-firms";
+import InsuranceBrokers from "@/pages/insurance-brokers";
+import HRRecruitingFirms from "@/pages/hr-recruiting-firms";
+import BusinessConsultants from "@/pages/business-consultants";
 import NotFound from "@/pages/not-found";
 
 
@@ -65,6 +68,9 @@ function Router() {
       <Route path="/real-estate-agencies" component={RealEstateAgencies} />
       <Route path="/law-firms" component={LawFirms} />
       <Route path="/accounting-tax-firms" component={AccountingTaxFirms} />
+      <Route path="/insurance-brokers" component={InsuranceBrokers} />
+      <Route path="/hr-recruiting-firms" component={HRRecruitingFirms} />
+      <Route path="/business-consultants" component={BusinessConsultants} />
       <Route component={NotFound} />
     </Switch>
   );

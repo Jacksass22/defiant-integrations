@@ -127,6 +127,18 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                         <Link href="/accounting-tax-firms" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
                         </Link>
+                      ) : item === "Insurance Brokers" ? (
+                        <Link href="/insurance-brokers" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </Link>
+                      ) : item === "HR & Recruiting" ? (
+                        <Link href="/hr-recruiting-firms" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </Link>
+                      ) : item === "Business Consultants" ? (
+                        <Link href="/business-consultants" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </Link>
                       ) : (
                         <a href="#" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
