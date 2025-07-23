@@ -24,7 +24,9 @@ import PetGroomingBoarding from "@/pages/pet-grooming-boarding";
 import RemodelingRenovation from "@/pages/remodeling-renovation";
 import BrickMortarRetail from "@/pages/brick-mortar-retail";
 import EcommerceBrands from "@/pages/ecommerce-brands";
+import CannabisRetail from "@/pages/cannabis-retail";
 import NotFound from "@/pages/not-found";
+
 
 
 function Router() {
@@ -51,6 +53,7 @@ function Router() {
       <Route path="/remodeling-renovation" component={RemodelingRenovation} />
       <Route path="/brick-mortar-retail" component={BrickMortarRetail} />
       <Route path="/ecommerce-brands" component={EcommerceBrands} />
+      <Route path="/cannabis-retail" component={CannabisRetail} />
       <Route component={NotFound} />
     </Switch>
   );

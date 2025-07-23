@@ -103,6 +103,10 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                         <Link href="/ecommerce-brands" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
                         </Link>
+                      ) : item === "Cannabis Retail & Growers" ? (
+                        <Link href="/cannabis-retail" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </Link>
                       ) : (
                         <a href="#" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
