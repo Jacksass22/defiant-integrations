@@ -28,6 +28,7 @@ import CannabisRetail from "@/pages/cannabis-retail";
 import SpecialtyFoodMakers from "@/pages/specialty-food-makers";
 import LocalBoutiques from "@/pages/local-boutiques";
 import RealEstateAgencies from "@/pages/real-estate-agencies";
+import LawFirms from "@/pages/law-firms";
 import NotFound from "@/pages/not-found";
 
 
@@ -61,6 +62,7 @@ function Router() {
       <Route path="/specialty-food-makers" component={SpecialtyFoodMakers} />
       <Route path="/local-boutiques" component={LocalBoutiques} />
       <Route path="/real-estate-agencies" component={RealEstateAgencies} />
+      <Route path="/law-firms" component={LawFirms} />
       <Route component={NotFound} />
     </Switch>
   );
