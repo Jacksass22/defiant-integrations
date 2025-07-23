@@ -28,6 +28,7 @@ This is a premium consulting website for Defiant Integrations, designed to rival
 - **January 23, 2025**: Created Insurance Brokers industry page with orange color scheme, focused on generating qualified leads, automating renewals, and building lifelong policyholder relationships while maintaining compliance with HIPAA, GLBA, and local regulations.
 - **January 23, 2025**: Created HR & Recruiting Firms industry page with blue color scheme, focused on automating candidate outreach, streamlining placement workflows, and scaling client satisfaction while ensuring compliance with EEOC, GDPR, and CCPA regulations.
 - **January 23, 2025**: Created Business Consultants industry page with violet color scheme, focused on attracting better clients through authority-driven funnels, productizing expertise, and scaling impact with secure, consultant-owned systems for IP protection.
+- **January 23, 2025**: Created Golf Courses industry page with green color scheme, focused on elevating guest experience through intelligent phone reception, data-driven operations, and full-facility integration to streamline tee times, pro shop operations, and guest services.
 
 ## User Preferences
 
@@ -65,9 +66,9 @@ Preferred communication style: Simple, everyday language.
 - **Mega Menu**: Complex navigation with industry-specific dropdowns
 - **Responsive Design**: Mobile-first approach with collapsible navigation
 - **Industry Categories**: Organized by business types (Trades, Consumer Services, Professional Services, etc.)
-- **Industry Pages**: Complete set of 26 dedicated industry pages with detailed service offerings and industry-specific color schemes:
+- **Industry Pages**: Complete set of 27 dedicated industry pages with detailed service offerings and industry-specific color schemes:
   - **Trades**: HVAC, Plumbing, Electrical, Landscaping, Roofing, Painting, General Contracting
-  - **Consumer Services**: Cleaning Services, Restaurants & Cafés, Beauty Salons & Spas, Barbershops, Gyms & Personal Trainers, Wellness & Life Coaches, Pet Grooming & Boarding
+  - **Consumer Services**: Cleaning Services, Restaurants & Cafés, Beauty Salons & Spas, Barbershops, Gyms & Personal Trainers, Wellness & Life Coaches, Pet Grooming & Boarding, Golf Courses
   - **Retail**: Brick-and-Mortar Retail, eCommerce Brands, Cannabis Retail, Specialty Food Makers, Local Boutiques
   - **Professional Services**: Real Estate Agencies, Law Firms, Accounting & Tax Firms, Insurance Brokers, HR & Recruiting Firms, Business Consultants
 
