@@ -29,6 +29,7 @@ import SpecialtyFoodMakers from "@/pages/specialty-food-makers";
 import LocalBoutiques from "@/pages/local-boutiques";
 import RealEstateAgencies from "@/pages/real-estate-agencies";
 import LawFirms from "@/pages/law-firms";
+import AccountingTaxFirms from "@/pages/accounting-tax-firms";
 import NotFound from "@/pages/not-found";
 
 
@@ -63,6 +64,7 @@ function Router() {
       <Route path="/local-boutiques" component={LocalBoutiques} />
       <Route path="/real-estate-agencies" component={RealEstateAgencies} />
       <Route path="/law-firms" component={LawFirms} />
+      <Route path="/accounting-tax-firms" component={AccountingTaxFirms} />
       <Route component={NotFound} />
     </Switch>
   );
