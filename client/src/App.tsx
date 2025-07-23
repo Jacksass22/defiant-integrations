@@ -27,6 +27,7 @@ import EcommerceBrands from "@/pages/ecommerce-brands";
 import CannabisRetail from "@/pages/cannabis-retail";
 import SpecialtyFoodMakers from "@/pages/specialty-food-makers";
 import LocalBoutiques from "@/pages/local-boutiques";
+import RealEstateAgencies from "@/pages/real-estate-agencies";
 import NotFound from "@/pages/not-found";
 
 
@@ -59,6 +60,7 @@ function Router() {
       <Route path="/cannabis-retail" component={CannabisRetail} />
       <Route path="/specialty-food-makers" component={SpecialtyFoodMakers} />
       <Route path="/local-boutiques" component={LocalBoutiques} />
+      <Route path="/real-estate-agencies" component={RealEstateAgencies} />
       <Route component={NotFound} />
     </Switch>
   );
