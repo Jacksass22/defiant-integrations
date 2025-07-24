@@ -5,8 +5,11 @@ import LightRays from '@/components/LightRays';
 import BlurText from '@/components/BlurText';
 import Galaxy from '@/components/Galaxy';
 import TiltedCard from '@/components/TiltedCard';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function CannabisRetail() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
