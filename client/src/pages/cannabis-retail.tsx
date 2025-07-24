@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle, Leaf, TrendingUp, Users, Shield } from 'lucide
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import LightRays from '@/components/LightRays';
+import BlurText from '@/components/BlurText';
 
 export default function CannabisRetail() {
   return (
@@ -31,9 +32,13 @@ export default function CannabisRetail() {
               <span>Cannabis Retail</span>
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-              Built for Growth. Designed for Compliance. Powered by Intelligence.
-            </h1>
+            <BlurText
+              text="Built for Growth. Designed for Compliance. Powered by Intelligence."
+              delay={100}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+            />
             
             <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
               Running a dispensary isn't what it used to be. We help operators run smarter, scale faster, and deliver consistently standout experiences—without adding more tools or stress.
