@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
 
 export default function GolfCourses() {
   return (
@@ -8,23 +9,35 @@ export default function GolfCourses() {
       <Navigation />
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
-        <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={golfCourseImage}
+              alt="Golf course landscape"
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay for better text readability */}
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full text-green-800 text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-green-100/90 backdrop-blur-sm px-4 py-2 rounded-full text-green-800 text-sm font-medium mb-6">
                 <Trophy className="w-4 h-4" />
                 <span>Golf Courses</span>
               </div>
               
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Elevate the Guest Experience, Streamline Operations
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-green-50 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Run a smoother pro shop, handle more calls at once, and never miss a tee time again with intelligent systems that eliminate friction and delight guests.
               </p>
               
-              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
+              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2 shadow-lg">
                 <span>Start Your Free Discovery Call</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
