@@ -521,9 +521,45 @@ export default function CannabisRetail() {
           <p className="text-xl text-green-100 mb-8">
             We help cannabis retailers make data-driven decisions while staying compliant and focused on growth.
           </p>
-          <button className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2 shadow-lg">
-            <span>Start Your Free Assessment</span>
-            <ArrowRight className="w-5 h-5" />
+          <button className="relative group">
+            {/* UFO Base (Dome) */}
+            <div className="relative">
+              {/* Main UFO body */}
+              <div className="bg-gradient-to-b from-gray-300 to-gray-400 w-64 h-20 rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+                {/* Metallic shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
+                
+                {/* UFO lights */}
+                <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-4">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse animation-delay-200 shadow-lg shadow-green-400/50"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse animation-delay-400 shadow-lg shadow-green-400/50"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse animation-delay-600 shadow-lg shadow-green-400/50"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse animation-delay-800 shadow-lg shadow-green-400/50"></div>
+                </div>
+              </div>
+              
+              {/* UFO Dome */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-32 h-16 bg-gradient-to-b from-gray-200/80 to-gray-300/80 rounded-t-full backdrop-blur-sm border-t border-white/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent rounded-t-full"></div>
+              </div>
+              
+              {/* Text content */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-gray-800 font-bold text-lg tracking-wide flex items-center space-x-2">
+                  <span>Start Your Free Assessment</span>
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </div>
+              
+              {/* Hover glow effect */}
+              <div className="absolute -inset-4 bg-green-400/0 group-hover:bg-green-400/20 rounded-full blur-xl transition-all duration-300"></div>
+            </div>
+            
+            {/* Beam effect on hover */}
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-24 h-32 bg-gradient-to-b from-green-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              <div className="w-full h-full bg-gradient-to-b from-green-400/20 to-transparent blur-xl"></div>
+            </div>
           </button>
         </div>
       </section>
