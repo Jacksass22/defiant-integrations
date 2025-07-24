@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import LightRays from '@/components/LightRays';
 import BlurText from '@/components/BlurText';
 import Galaxy from '@/components/Galaxy';
+import TiltedCard from '@/components/TiltedCard';
 
 export default function CannabisRetail() {
   return (
@@ -521,31 +522,42 @@ export default function CannabisRetail() {
           <p className="text-xl text-green-100 mb-8">
             We help cannabis retailers make data-driven decisions while staying compliant and focused on growth.
           </p>
-          <button className="relative group bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 rounded-full overflow-hidden transition-all duration-500 hover:bg-white/20 hover:border-white/30 hover:scale-105">
-            {/* Orbital rings animation */}
-            <div className="absolute inset-0 opacity-30">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-24 border border-white/20 rounded-full transform rotate-45 animate-orbit-slow"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-20 border border-white/10 rounded-full transform -rotate-45 animate-orbit-reverse"></div>
-            </div>
-            
-            {/* Gradient glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
-            
-            {/* Content */}
-            <div className="relative flex items-center space-x-3">
-              <span className="text-white font-semibold text-lg tracking-wide">Start Your Free Assessment</span>
-              <div className="relative">
-                <ArrowRight className="w-5 h-5 text-white transform group-hover:translate-x-1 transition-transform" />
-                {/* Arrow glow */}
-                <div className="absolute inset-0 bg-white/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <TiltedCard
+            containerHeight="auto"
+            containerWidth="auto"
+            imageHeight="auto"
+            imageWidth="auto"
+            scaleOnHover={1.05}
+            rotateAmplitude={8}
+            isButton={true}
+            className="inline-block"
+          >
+            <div className="relative group bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 rounded-full overflow-hidden transition-all duration-500 hover:bg-white/20 hover:border-white/30">
+              {/* Orbital rings animation */}
+              <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-24 border border-white/20 rounded-full transform rotate-45 animate-orbit-slow"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-20 border border-white/10 rounded-full transform -rotate-45 animate-orbit-reverse"></div>
               </div>
+              
+              {/* Gradient glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+              
+              {/* Content */}
+              <div className="relative flex items-center space-x-3">
+                <span className="text-white font-semibold text-lg tracking-wide">Start Your Free Assessment</span>
+                <div className="relative">
+                  <ArrowRight className="w-5 h-5 text-white transform group-hover:translate-x-1 transition-transform" />
+                  {/* Arrow glow */}
+                  <div className="absolute inset-0 bg-white/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+              </div>
+              
+              {/* Subtle stars */}
+              <div className="absolute top-2 right-4 w-1 h-1 bg-white rounded-full opacity-50 animate-twinkle"></div>
+              <div className="absolute bottom-3 left-6 w-0.5 h-0.5 bg-white rounded-full opacity-40 animate-twinkle animation-delay-400"></div>
+              <div className="absolute top-4 left-12 w-0.5 h-0.5 bg-white rounded-full opacity-30 animate-twinkle animation-delay-800"></div>
             </div>
-            
-            {/* Subtle stars */}
-            <div className="absolute top-2 right-4 w-1 h-1 bg-white rounded-full opacity-50 animate-twinkle"></div>
-            <div className="absolute bottom-3 left-6 w-0.5 h-0.5 bg-white rounded-full opacity-40 animate-twinkle animation-delay-400"></div>
-            <div className="absolute top-4 left-12 w-0.5 h-0.5 bg-white rounded-full opacity-30 animate-twinkle animation-delay-800"></div>
-          </button>
+          </TiltedCard>
         </div>
       </section>
 
