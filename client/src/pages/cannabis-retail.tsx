@@ -3,6 +3,7 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import LightRays from '@/components/LightRays';
 import BlurText from '@/components/BlurText';
+import Galaxy from '@/components/Galaxy';
 
 export default function CannabisRetail() {
   return (
@@ -501,15 +502,26 @@ export default function CannabisRetail() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-green-700">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0">
+          <Galaxy 
+            hueShift={120}
+            density={1.5}
+            glowIntensity={0.5}
+            saturation={0.3}
+            starSpeed={0.3}
+            rotationSpeed={0.05}
+            transparent={false}
+          />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Run a Smarter, Safer, More Scalable Dispensary?
           </h2>
           <p className="text-xl text-green-100 mb-8">
             We help cannabis retailers make data-driven decisions while staying compliant and focused on growth.
           </p>
-          <button className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
+          <button className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2 shadow-lg">
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
