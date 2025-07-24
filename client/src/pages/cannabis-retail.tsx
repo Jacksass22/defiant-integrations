@@ -562,61 +562,70 @@ export default function CannabisRetail() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-black text-white py-12 sm:py-16 relative overflow-hidden">
+        {/* Subtle starfield effect */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-20 w-1 h-1 bg-white rounded-full"></div>
+          <div className="absolute top-32 right-40 w-0.5 h-0.5 bg-white rounded-full"></div>
+          <div className="absolute bottom-20 left-1/3 w-0.5 h-0.5 bg-white rounded-full"></div>
+          <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-white rounded-full"></div>
+          <div className="absolute bottom-10 right-20 w-0.5 h-0.5 bg-white rounded-full"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
             <div className="col-span-2 sm:col-span-3 lg:col-span-2">
               <div className="text-xl sm:text-2xl font-serif font-bold mb-4">
-                Defiant <span className="text-gray-300">Integrations</span>
+                Defiant <span className="text-gray-500">Integrations</span>
               </div>
-              <p className="text-gray-400 mb-6 text-sm sm:text-base">
+              <p className="text-gray-500 mb-6 text-sm sm:text-base">
                 Architecting intelligent transformations that scale.
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Trades</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/" className="hover:text-green-400 transition-colors">Home</Link></li>
-                <li><Link href="/hvac" className="hover:text-green-400 transition-colors">HVAC</Link></li>
-                <li><Link href="/plumbing" className="hover:text-green-400 transition-colors">Plumbing</Link></li>
-                <li><Link href="/electrical" className="hover:text-green-400 transition-colors">Electrical</Link></li>
-                <li><Link href="/landscaping" className="hover:text-green-400 transition-colors">Landscaping</Link></li>
+              <h4 className="font-semibold mb-4 text-gray-300">Trades</h4>
+              <ul className="space-y-2 text-gray-500 text-sm">
+                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/hvac" className="hover:text-white transition-colors">HVAC</Link></li>
+                <li><Link href="/plumbing" className="hover:text-white transition-colors">Plumbing</Link></li>
+                <li><Link href="/electrical" className="hover:text-white transition-colors">Electrical</Link></li>
+                <li><Link href="/landscaping" className="hover:text-white transition-colors">Landscaping</Link></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Retail</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/brick-mortar-retail" className="hover:text-green-400 transition-colors">Brick-and-Mortar</Link></li>
-                <li><Link href="/ecommerce-brands" className="hover:text-green-400 transition-colors">eCommerce Brands</Link></li>
-                <li><Link href="/cannabis-retail" className="hover:text-green-400 transition-colors">Cannabis Retail</Link></li>
-                <li><Link href="/restaurants-cafes" className="hover:text-green-400 transition-colors">Restaurants</Link></li>
+              <h4 className="font-semibold mb-4 text-gray-300">Retail</h4>
+              <ul className="space-y-2 text-gray-500 text-sm">
+                <li><Link href="/brick-mortar-retail" className="hover:text-white transition-colors">Brick-and-Mortar</Link></li>
+                <li><Link href="/ecommerce-brands" className="hover:text-white transition-colors">eCommerce Brands</Link></li>
+                <li><Link href="/cannabis-retail" className="hover:text-white transition-colors">Cannabis Retail</Link></li>
+                <li><Link href="/restaurants-cafes" className="hover:text-white transition-colors">Restaurants</Link></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/cleaning-services" className="hover:text-green-400 transition-colors">Cleaning Services</Link></li>
-                <li><Link href="/gyms-personal-trainers" className="hover:text-green-400 transition-colors">Gyms & Trainers</Link></li>
-                <li><Link href="/wellness-life-coaches" className="hover:text-green-400 transition-colors">Wellness & Coaches</Link></li>
-                <li><Link href="/pet-grooming-boarding" className="hover:text-green-400 transition-colors">Pet Grooming</Link></li>
+              <h4 className="font-semibold mb-4 text-gray-300">Services</h4>
+              <ul className="space-y-2 text-gray-500 text-sm">
+                <li><Link href="/cleaning-services" className="hover:text-white transition-colors">Cleaning Services</Link></li>
+                <li><Link href="/gyms-personal-trainers" className="hover:text-white transition-colors">Gyms & Trainers</Link></li>
+                <li><Link href="/wellness-life-coaches" className="hover:text-white transition-colors">Wellness & Coaches</Link></li>
+                <li><Link href="/pet-grooming-boarding" className="hover:text-white transition-colors">Pet Grooming</Link></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="#" className="hover:text-green-400 transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-green-400 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-green-400 transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-green-400 transition-colors">Blog</a></li>
+              <h4 className="font-semibold mb-4 text-gray-300">Company</h4>
+              <ul className="space-y-2 text-gray-500 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400 text-sm">
+          <div className="border-t border-gray-900 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-600 text-sm">
             <p>&copy; 2025 Defiant Integrations. All rights reserved.</p>
           </div>
         </div>
