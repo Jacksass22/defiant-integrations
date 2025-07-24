@@ -1,11 +1,10 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
-import StarBorder from '@/components/StarBorder';
-import Stack from '@/components/Stack';
 import BlurText from '@/components/BlurText';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
+import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
 
 export default function Home() {
   return (
@@ -133,42 +132,14 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-0 items-center">
-            <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative">
-              <StarBorder
-                as="div"
-                className="relative group cursor-pointer"
-                color="cyan"
-                speed="5s"
-                thickness={2}
-              >
-              <Link href="/books" className="block">
-                <div className="text-center">
-                  {/* Stack of Books */}
-                  <div className="mx-auto mb-6 sm:mb-8">
-                    <Stack
-                      randomRotation={true}
-                      sensitivity={180}
-                      sendToBackOnClick={false}
-                      cardDimensions={{ width: 160, height: 220 }}
-                      cardsData={[
-                        { id: 1, title: "STRATEGY", year: "2025", color: "from-blue-600 to-blue-800" },
-                        { id: 2, title: "INNOVATION", year: "2025", color: "from-purple-600 to-purple-800" },
-                        { id: 3, title: "LEADERSHIP", year: "2025", color: "from-green-600 to-green-800" },
-                        { id: 4, title: "TRANSFORM", year: "2025", color: "from-red-600 to-red-800" }
-                      ]}
-                    />
-                  </div>
-                  
-                  <div className="text-white text-base sm:text-lg font-medium group-hover:text-blue-200 transition-colors">
-                    Essential reads for transformation leaders
-                  </div>
-                  <div className="flex items-center justify-center space-x-2 mt-2 text-blue-300 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-sm">Explore collection</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </Link>
-              </StarBorder>
+            <div className="relative min-h-[400px] sm:min-h-[500px] overflow-hidden">
+              <img
+                src={booksImage}
+                alt="Books on shelf"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Optional overlay for better visual integration */}
+              <div className="absolute inset-0 bg-black/10"></div>
             </div>
             <div className="bg-gray-50 p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center">
               <div>
