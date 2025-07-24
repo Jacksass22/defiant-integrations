@@ -532,13 +532,13 @@ export default function CannabisRetail() {
             isButton={true}
             className="inline-block"
           >
-            <div className="relative">
+            <div className="relative pt-6">
               {/* UFO Dome */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-8 z-10">
-                <div className="w-full h-full bg-gradient-to-b from-white/20 to-white/10 rounded-t-full backdrop-blur-sm border-t border-l border-r border-white/30">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-t-full"></div>
+              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-48 h-16 z-10">
+                <div className="w-full h-full bg-white/10 rounded-t-full backdrop-blur-md border-t border-l border-r border-white/20">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-t-full"></div>
                   {/* Dome highlight */}
-                  <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-8 h-2 bg-white/20 rounded-full blur-sm"></div>
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-white/10 rounded-full blur-md"></div>
                 </div>
               </div>
               
