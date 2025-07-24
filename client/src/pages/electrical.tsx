@@ -1,8 +1,11 @@
 import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Shield, Calendar, FileCheck, TrendingUp, CheckCircle, Zap } from 'lucide-react';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function Electrical() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />

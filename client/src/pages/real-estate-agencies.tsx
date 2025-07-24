@@ -1,8 +1,11 @@
 import { ArrowRight, CheckCircle, Home, TrendingUp, Users, Calendar } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function RealEstateAgencies() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />

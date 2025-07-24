@@ -1,8 +1,11 @@
 import { ArrowRight, CheckCircle, Store, TrendingUp, Users, Package } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function LocalBoutiques() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />

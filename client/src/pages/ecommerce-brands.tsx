@@ -1,8 +1,11 @@
 import { ArrowRight, CheckCircle, ShoppingBag, TrendingUp, Users, Zap } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function EcommerceBrands() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />

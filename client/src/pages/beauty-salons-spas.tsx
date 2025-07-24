@@ -1,8 +1,11 @@
 import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Sparkles, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera } from 'lucide-react';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function BeautySalonsSpas() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />

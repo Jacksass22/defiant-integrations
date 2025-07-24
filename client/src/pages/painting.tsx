@@ -1,8 +1,11 @@
 import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Palette, Camera, MessageSquare, TrendingUp, CheckCircle, Brush } from 'lucide-react';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function Painting() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
