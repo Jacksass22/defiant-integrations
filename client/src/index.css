@@ -214,7 +214,7 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* UFO Button Animation Delays */
+/* Animation Delays */
 .animation-delay-200 {
   animation-delay: 200ms;
 }
@@ -229,4 +229,32 @@
 
 .animation-delay-800 {
   animation-delay: 800ms;
+}
+
+/* Space-themed animations */
+@keyframes orbit-slow {
+  0% { transform: translate(-50%, -50%) rotate(45deg); }
+  100% { transform: translate(-50%, -50%) rotate(405deg); }
+}
+
+@keyframes orbit-reverse {
+  0% { transform: translate(-50%, -50%) rotate(-45deg); }
+  100% { transform: translate(-50%, -50%) rotate(-405deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.animate-orbit-slow {
+  animation: orbit-slow 20s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 15s linear infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
 }
