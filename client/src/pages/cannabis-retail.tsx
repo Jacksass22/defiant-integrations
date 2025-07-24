@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle, Leaf, TrendingUp, Users, Shield } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import LightRays from '@/components/LightRays';
 
 export default function CannabisRetail() {
   return (
@@ -8,19 +9,33 @@ export default function CannabisRetail() {
       <Navigation />
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-gray-800 overflow-hidden">
+        {/* Light Rays Background */}
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#10b981"
+          raysSpeed={0.8}
+          lightSpread={1.2}
+          rayLength={0.8}
+          followMouse={true}
+          mouseInfluence={0.15}
+          noiseAmount={0.05}
+          distortion={0.03}
+          fadeDistance={0.8}
+          saturation={0.9}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full text-green-800 text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-green-500/20 backdrop-blur-sm px-4 py-2 rounded-full text-green-300 text-sm font-medium mb-6 border border-green-400/30">
               <Leaf className="w-4 h-4" />
               <span>Cannabis Retail</span>
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
               Built for Growth. Designed for Compliance. Powered by Intelligence.
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
               Running a dispensary isn't what it used to be. We help operators run smarter, scale faster, and deliver consistently standout experiences—without adding more tools or stress.
             </p>
             
