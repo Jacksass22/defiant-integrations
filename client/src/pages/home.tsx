@@ -5,6 +5,7 @@ import StarBorder from '@/components/StarBorder';
 import Stack from '@/components/Stack';
 import BlurText from '@/components/BlurText';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
+import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 
 export default function Home() {
   return (
@@ -105,46 +106,24 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-900 to-blue-700 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative overflow-hidden">
-              <div className="relative z-10">
-                {/* Circuit connections */}
-                <div className="absolute -left-20 top-1/3 opacity-30">
-                  <svg width="150" height="200" viewBox="0 0 150 200">
-                    <g stroke="#60A5FA" strokeWidth="2" fill="none">
-                      <path d="M0 50 L50 50 L70 30" />
-                      <circle cx="0" cy="50" r="4" fill="#60A5FA" />
-                      <circle cx="70" cy="30" r="3" fill="#60A5FA" />
-                      
-                      <path d="M0 100 L60 100 L80 80" />
-                      <circle cx="0" cy="100" r="3" fill="#60A5FA" />
-                      <circle cx="80" cy="80" r="4" fill="#60A5FA" />
-                      
-                      <path d="M0 150 L50 150 L70 170" />
-                      <circle cx="0" cy="150" r="4" fill="#60A5FA" />
-                      <circle cx="70" cy="170" r="3" fill="#60A5FA" />
-                    </g>
-                  </svg>
-                </div>
-                
-                {/* Main AI visualization */}
-                <div className="text-center">
-                  {/* AI Circle */}
-                  <div className="relative w-32 h-32 mx-auto mb-8">
-                    <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl"></div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
-                      <span className="text-white text-3xl font-bold">AI</span>
-                    </div>
-                  </div>
-                  
-                  {/* Bar chart */}
-                  <div className="flex items-end justify-center space-x-3">
-                    <div className="w-8 h-12 bg-blue-400 rounded-t"></div>
-                    <div className="w-8 h-16 bg-blue-400 rounded-t"></div>
-                    <div className="w-8 h-20 bg-blue-400 rounded-t"></div>
-                    <div className="w-8 h-24 bg-blue-500 rounded-t"></div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative min-h-[400px] sm:min-h-[500px] overflow-hidden">
+              {/* Video Background */}
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                src={aiVideo}
+              >
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Fallback background if video doesn't load */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-700" style={{ zIndex: -1 }}></div>
+              
+              {/* Optional overlay for better text readability */}
+              <div className="absolute inset-0 bg-black/20"></div>
             </div>
           </div>
         </div>
