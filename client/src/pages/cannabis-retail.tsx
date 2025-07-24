@@ -17,11 +17,11 @@ export default function CannabisRetail() {
             </div>
             
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Smart Technology That Actually Works for Your Business
+              Built for Growth. Designed for Compliance. Powered by Intelligence.
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Drive traffic, stay compliant, and turn first-time buyers into lifelong customers with systems that blend modern retail precision with cannabis industry expertise.
+              Running a dispensary isn't what it used to be. We help operators run smarter, scale faster, and deliver consistently standout experiences—without adding more tools or stress.
             </p>
             
             <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
@@ -38,10 +38,10 @@ export default function CannabisRetail() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                What Cannabis Retailers Are Dealing With Right Now
+                Why Top Cannabis Operators Partner With Us
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Running a cannabis retail brand means navigating complex compliance, fluctuating regulations, slim margins, and a hyper-competitive market—all while trying to deliver an experience that builds trust and drives repeat visits.
+                Most cannabis shops are juggling a patchwork of disconnected systems. POS doesn't talk to marketing. Compliance is a daily fire drill. Staff spend more time explaining than selling. You don't need another app—you need a smarter way to run your operation.
               </p>
             </div>
             
@@ -74,22 +74,23 @@ export default function CannabisRetail() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
-            What This Means for Your Business
+            What Changes When Things Just Flow
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "You're competing with chains, delivery apps, and the black market",
-              "Compliance paperwork and state systems eat hours of staff time",
-              "Repeat customer potential is untapped due to poor follow-up",
-              "Most local ads and promos don't comply—or convert",
-              "Budtenders don't always upsell or collect the right customer data"
-            ].map((problem, index) => (
+              "Traffic becomes predictable with geo-targeted campaigns and optimized local visibility",
+              "Staff focus on people, not busywork—front desk distractions disappear",
+              "Compliance gets easier with automated reports and threshold tracking",
+              "Customers actually come back through smart touchpoints and personalized re-engagement",
+              "You see what's working with unified sales, marketing, and performance dashboards",
+              "New staff get up to speed fast with custom tools and smart onboarding flows"
+            ].map((benefit, index) => (
               <div key={index} className="bg-white p-6 rounded-xl border border-gray-200">
-                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-red-600 font-bold text-sm">{index + 1}</span>
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-green-600 font-bold text-sm">→</span>
                 </div>
-                <p className="text-gray-700">{problem}</p>
+                <p className="text-gray-700">{benefit}</p>
               </div>
             ))}
           </div>
@@ -104,7 +105,7 @@ export default function CannabisRetail() {
               How Smart Technology Fixes These Problems
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We help cannabis retailers implement systems that boost revenue, reduce risk, and streamline daily operations—while staying fully compliant.
+              We bring your systems together into a clean, automated, and scalable structure. It's not about replacing your tools—it's about making them work in harmony.
             </p>
           </div>
 
@@ -370,8 +371,26 @@ export default function CannabisRetail() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              What This Actually Means for Your Bottom Line
+              The Results Speak Louder Than Features
             </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="bg-green-50 p-6 rounded-xl">
+                <div className="text-3xl font-bold text-green-600 mb-2">3x</div>
+                <div className="text-sm text-gray-600">ROI on local marketing initiatives</div>
+              </div>
+              <div className="bg-green-50 p-6 rounded-xl">
+                <div className="text-3xl font-bold text-green-600 mb-2">80%</div>
+                <div className="text-sm text-gray-600">Fewer daily compliance headaches</div>
+              </div>
+              <div className="bg-green-50 p-6 rounded-xl">
+                <div className="text-3xl font-bold text-green-600 mb-2">60%</div>
+                <div className="text-sm text-gray-600">Increases in revenue per visit</div>
+              </div>
+              <div className="bg-green-50 p-6 rounded-xl">
+                <div className="text-3xl font-bold text-green-600 mb-2">2x</div>
+                <div className="text-sm text-gray-600">Return customer rate</div>
+              </div>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-4 gap-8">
@@ -415,14 +434,60 @@ export default function CannabisRetail() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Built for Cannabis Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              Built for Cannabis. Customized for You.
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Whether you're running one dispensary or managing a multi-state operation, we adapt our systems to your tools, team, and timeline. Most importantly: your staff doesn't have to lift a finger—every automation operates quietly in the background.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-3">POS Integration</h3>
+              <p className="text-gray-600 text-sm">Direct integration with your existing point-of-sale system for seamless operations.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-3">Compliance Tracking</h3>
+              <p className="text-gray-600 text-sm">Automated compliance monitoring and reporting for state requirements.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-3">Staff AI Assistant</h3>
+              <p className="text-gray-600 text-sm">Custom AI assistant available 24/7 to answer internal questions and guide SOPs.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-3">Loyalty Programs</h3>
+              <p className="text-gray-600 text-sm">Automated loyalty and retention systems that build long-term customer relationships.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-3">CRM Integration</h3>
+              <p className="text-gray-600 text-sm">Connect with your customer relationship management tools for unified data.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-3">Calendar Management</h3>
+              <p className="text-gray-600 text-sm">Smart scheduling and calendar integration for staff and operations coordination.</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-gray-600 mb-6">
+              We're not here to sell software. We're here to help you operate like the best-run shops in the country—with no guesswork, no extra stress, and no bloat.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-green-700">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Run a Smarter, Safer, More Scalable Dispensary?
           </h2>
           <p className="text-xl text-green-100 mb-8">
-            We help dispensaries and cannabis retailers do both.
+            We help cannabis retailers make data-driven decisions while staying compliant and focused on growth.
           </p>
           <button className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
             <span>Start Your Free Assessment</span>
