@@ -532,18 +532,18 @@ export default function CannabisRetail() {
             isButton={true}
             className="inline-block"
           >
-            <div className="relative pt-6">
+            <div className="relative pt-4">
               {/* UFO Dome */}
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-48 h-16 z-10">
-                <div className="w-full h-full bg-white/10 rounded-t-full backdrop-blur-md border-t border-l border-r border-white/20">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-44 h-12 z-10">
+                <div className="w-full h-full bg-white/10 rounded-t-full backdrop-blur-md border-t border-l border-r border-white/20" style={{borderBottomColor: 'transparent'}}>
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-t-full"></div>
                   {/* Dome highlight */}
                   <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-white/10 rounded-full blur-md"></div>
                 </div>
               </div>
               
-              {/* Main button body */}
-              <div className="relative group bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 rounded-full overflow-hidden transition-all duration-500 hover:bg-white/20 hover:border-white/30">
+              {/* Main button body with adjusted top border */}
+              <div className="relative group bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 rounded-full overflow-hidden transition-all duration-500 hover:bg-white/20 hover:border-white/30" style={{borderTopLeftRadius: '12px', borderTopRightRadius: '12px'}}>
                 {/* Orbital rings animation */}
                 <div className="absolute inset-0 opacity-30">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-24 border border-white/20 rounded-full transform rotate-45 animate-orbit-slow"></div>
