@@ -100,7 +100,7 @@ const BlurText = ({
     <div
       ref={ref}
       className={className}
-      style={{ display: 'flex', flexWrap: 'wrap' }}
+      style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center' }}
     >
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
