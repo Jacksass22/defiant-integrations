@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import BlurText from '@/components/BlurText';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
 
 export default function GolfCourses() {
@@ -29,9 +30,13 @@ export default function GolfCourses() {
                 <span>Golf Courses</span>
               </div>
               
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Elevate the Guest Experience, Streamline Operations
-              </h1>
+              <BlurText
+                text="Elevate the Guest Experience, Streamline Operations"
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+              />
               
               <p className="text-xl text-green-50 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Run a smoother pro shop, handle more calls at once, and never miss a tee time again with intelligent systems that eliminate friction and delight guests.
