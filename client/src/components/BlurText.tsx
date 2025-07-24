@@ -1,17 +1,17 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
 
-interface AnimationFrame {
+interface KeyframeObject {
   [key: string]: any;
 }
 
-const buildKeyframes = (from: AnimationFrame, steps: AnimationFrame[]) => {
+const buildKeyframes = (from: KeyframeObject, steps: KeyframeObject[]) => {
   const keys = new Set([
     ...Object.keys(from),
     ...steps.flatMap((s) => Object.keys(s)),
   ]);
 
-  const keyframes: { [key: string]: any[] } = {};
+  const keyframes: KeyframeObject = {};
   keys.forEach((k) => {
     keyframes[k] = [from[k], ...steps.map((s) => s[k])];
   });
@@ -26,8 +26,8 @@ interface BlurTextProps {
   direction?: 'top' | 'bottom';
   threshold?: number;
   rootMargin?: string;
-  animationFrom?: AnimationFrame;
-  animationTo?: AnimationFrame[];
+  animationFrom?: KeyframeObject;
+  animationTo?: KeyframeObject[];
   easing?: (t: number) => number;
   onAnimationComplete?: () => void;
   stepDuration?: number;
@@ -52,21 +52,19 @@ const BlurText = ({
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!ref.current) return;
+    const currentRef = ref.current;
+    if (!currentRef) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          if (ref.current) {
-            observer.unobserve(ref.current);
-          }
+          observer.unobserve(currentRef);
         }
       },
       { threshold, rootMargin }
     );
-    observer.observe(ref.current);
+    observer.observe(currentRef);
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [threshold, rootMargin]);
 
   const defaultFrom = useMemo(
@@ -99,10 +97,10 @@ const BlurText = ({
   );
 
   return (
-    <p
+    <div
       ref={ref}
       className={className}
-      style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+      style={{ display: 'flex', flexWrap: 'wrap' }}
     >
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
@@ -130,7 +128,7 @@ const BlurText = ({
           </motion.span>
         );
       })}
-    </p>
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import StarBorder from '@/components/StarBorder';
 import Stack from '@/components/Stack';
+import BlurText from '@/components/BlurText';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 
 export default function Home() {
@@ -32,11 +33,13 @@ export default function Home() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold mb-8 sm:mb-12 lg:mb-16 text-white leading-tight">
-              What's your next<br />
-              <span className="text-white">intelligent</span><br />
-              <span className="text-white">breakthrough?</span>
-            </h1>
+            <BlurText
+              text="What's your next intelligent breakthrough?"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold mb-8 sm:mb-12 lg:mb-16 text-white leading-tight"
+            />
             <div className="mt-8 sm:mt-12 lg:mt-16">
               <button className="bg-white text-gray-900 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium hover:bg-gray-100 transition-all inline-flex items-center space-x-2">
                 <span>Get started</span>
