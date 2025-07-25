@@ -3,7 +3,7 @@ import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, Trend
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
-import SimpleLanyardCSS from '@/components/SimpleLanyardCSS';
+
 
 export default function Barbershops() {
   useScrollToTop();
@@ -46,7 +46,6 @@ export default function Barbershops() {
               Focus on your craft while our intelligent system manages appointments, answers questions, and keeps your schedule running smoothly.
             </p>
           </div>
-          <SimpleLanyardCSS />
         </div>
       </section>
 
