@@ -1,11 +1,11 @@
 import { Canvas } from '@react-three/fiber';
 import { Text, Box, OrbitControls } from '@react-three/drei';
-import { useRef, useState } from 'react';
+import { useRef, useState, Suspense } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 function Card() {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
   
   useFrame((state) => {
@@ -42,7 +42,6 @@ function Card() {
         anchorY="middle"
         maxWidth={3}
         textAlign="center"
-        font="/fonts/inter-bold.woff"
       >
         Never have to answer{'\n'}another client{'\n'}phone call again
       </Text>
@@ -57,7 +56,6 @@ function Card() {
         maxWidth={3}
         textAlign="center"
         lineHeight={1.4}
-        font="/fonts/inter-regular.woff"
       >
         AI handles appointments,{'\n'}questions, and follow-ups.{'\n'}{'\n'}Personal calls and{'\n'}important matters are{'\n'}seamlessly transferred{'\n'}to you.
       </Text>
@@ -69,7 +67,6 @@ function Card() {
         color="#666666"
         anchorX="center"
         anchorY="middle"
-        font="/fonts/inter-regular.woff"
       >
         Defiant Integrations
       </Text>
@@ -87,18 +84,21 @@ export default function SimpleLanyard() {
     <div style={{ width: '100%', height: '600px', background: 'transparent' }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 35 }}
-        gl={{ alpha: true }}
+        gl={{ alpha: true, antialias: true }}
+        dpr={[1, 2]}
       >
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <directionalLight position={[-10, -10, -5]} intensity={0.3} />
-        <Card />
-        <OrbitControls 
-          enablePan={false} 
-          enableZoom={false} 
-          minPolarAngle={Math.PI / 2.5}
-          maxPolarAngle={Math.PI / 1.5}
-        />
+        <Suspense fallback={null}>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <directionalLight position={[-10, -10, -5]} intensity={0.3} />
+          <Card />
+          <OrbitControls 
+            enablePan={false} 
+            enableZoom={false} 
+            minPolarAngle={Math.PI / 2.5}
+            maxPolarAngle={Math.PI / 1.5}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );
