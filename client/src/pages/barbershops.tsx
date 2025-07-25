@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
 import SimpleLanyardCSS from '@/components/SimpleLanyardCSS';
+// import Lanyard from '@/components/Lanyard'; // Advanced physics version - requires more setup
 
 export default function Barbershops() {
   useScrollToTop();
