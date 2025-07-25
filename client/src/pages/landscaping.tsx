@@ -3,6 +3,7 @@ import { ArrowRight, Clock, DollarSign, Camera, Calendar, Leaf, TrendingUp, Chec
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import landscapingImage from '@assets/image_1753469470789.png';
 
 export default function Landscaping() {
   useScrollToTop();
@@ -12,8 +13,17 @@ export default function Landscaping() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-green-900 via-green-800 to-green-900">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative min-h-[60vh] flex items-center pt-16">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={landscapingImage}
+            alt="Professional landscaping with striped lawn pattern"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <BlurText
