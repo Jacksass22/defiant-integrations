@@ -1,8 +1,12 @@
 import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Heart, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera } from 'lucide-react';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
+import BlurText from '@/components/BlurText';
 
 export default function WellnessLifeCoaches() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
@@ -12,9 +16,13 @@ export default function WellnessLifeCoaches() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight">
-              Wellness & Life Coaches: Smart Technology That Actually Works for Your Business
-            </h1>
+            <BlurText
+              text="Wellness & Life Coaches: Smart Technology That Actually Works for Your Business"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight"
+            />
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Attract committed clients, maintain powerful coaching relationships, and build a practice that creates lasting transformation while growing sustainably.
             </p>

@@ -1,8 +1,12 @@
 import { ArrowRight, CheckCircle, Users, Calendar, TrendingUp, Shield } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
+import BlurText from '@/components/BlurText';
 
 export default function HRRecruitingFirms() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
@@ -16,9 +20,13 @@ export default function HRRecruitingFirms() {
               <span>HR & Recruiting Firms</span>
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Smart Technology That Actually Works for Your Business
-            </h1>
+            <BlurText
+              text="Smart Technology That Actually Works for Your Business"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            />
             
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Automate your outreach, streamline placements, and scale client satisfaction—while keeping candidate data secure and your team focused on relationships, not spreadsheets.

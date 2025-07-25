@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle, Scale, Shield, FileText, Users } from 'lucide-
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import BlurText from '@/components/BlurText';
 
 export default function LawFirms() {
   useScrollToTop();
@@ -19,9 +20,13 @@ export default function LawFirms() {
               <span>Law Firms</span>
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Smart Technology That Actually Works for Your Practice
-            </h1>
+            <BlurText
+              text="Smart Technology That Actually Works for Your Practice"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            />
             
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Streamline casework, increase client retention, and grow your firm with systems that prioritize security, compliance, and data control—so you can focus on winning, not worrying.

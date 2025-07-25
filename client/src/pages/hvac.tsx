@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Users, Calendar, MessageSquare, TrendingUp, CheckCircle } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import BlurText from '@/components/BlurText';
 
 export default function HVAC() {
   useScrollToTop();
@@ -15,9 +16,13 @@ export default function HVAC() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight">
-              HVAC: Automation That Pays for Itself
-            </h1>
+            <BlurText
+              text="HVAC: Automation That Pays for Itself"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight"
+            />
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               We help HVAC businesses grow by eliminating missed follow-ups, scheduling chaos, and customer churn with AI-powered systems that run your business while you run the jobs.
             </p>
