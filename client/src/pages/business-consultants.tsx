@@ -1,8 +1,12 @@
 import { ArrowRight, CheckCircle, Target, FileText, Package, Shield } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
+import BlurText from '@/components/BlurText';
 
 export default function BusinessConsultants() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
@@ -16,9 +20,13 @@ export default function BusinessConsultants() {
               <span>Business Consultants</span>
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Smart Technology That Actually Works for Your Practice
-            </h1>
+            <BlurText
+              text="Smart Technology That Actually Works for Your Practice"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            />
             
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Attract better clients, productize your expertise, and scale your impact with automations that build trust, streamline delivery, and keep your calendar full—without losing the personal touch that makes your work powerful.

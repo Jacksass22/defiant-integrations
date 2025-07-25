@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle, Store, TrendingUp, Users, Package } from 'luci
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import BlurText from '@/components/BlurText';
 
 export default function LocalBoutiques() {
   useScrollToTop();
@@ -19,9 +20,13 @@ export default function LocalBoutiques() {
               <span>Local Boutiques</span>
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Smart Technology That Actually Works for Your Business
-            </h1>
+            <BlurText
+              text="Smart Technology That Actually Works for Your Business"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            />
             
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Blend your personal style with professional systems that boost foot traffic, streamline sales, and turn browsers into loyal brand fans.

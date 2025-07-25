@@ -1,8 +1,12 @@
 import { ArrowRight, CheckCircle, ChefHat, TrendingUp, Users, Package } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
+import BlurText from '@/components/BlurText';
 
 export default function SpecialtyFoodMakers() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
@@ -16,9 +20,13 @@ export default function SpecialtyFoodMakers() {
               <span>Specialty Food Makers</span>
             </div>
             
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Smart Technology That Actually Works for Your Business
-            </h1>
+            <BlurText
+              text="Smart Technology That Actually Works for Your Business"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            />
             
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Turn handcrafted quality into scalable success with systems that attract loyal customers, streamline fulfillment, and boost your bottom line—without losing your artisanal edge.
