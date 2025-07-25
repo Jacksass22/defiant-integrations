@@ -3,6 +3,7 @@ import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, Trend
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import SimpleLanyard from '@/components/SimpleLanyard';
 
 export default function Barbershops() {
   useScrollToTop();
@@ -31,6 +32,21 @@ export default function Barbershops() {
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* Lanyard Section - AI Phone Handling */}
+      <section className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Let AI Handle The Phone While You Handle The Clippers
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Focus on your craft while our intelligent system manages appointments, answers questions, and keeps your schedule running smoothly.
+            </p>
+          </div>
+          <SimpleLanyard />
         </div>
       </section>
 
