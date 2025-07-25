@@ -35,7 +35,11 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                 <ul className="space-y-1.5 text-sm">
                   {section.items.map((item, itemIndex) => (
                     <li key={itemIndex}>
-                      {item === "HVAC" ? (
+                      {item === "AI Strategy Development" ? (
+                        <Link href="/ai-strategy-development" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </Link>
+                      ) : item === "HVAC" ? (
                         <Link href="/hvac" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
                         </Link>
