@@ -15,7 +15,7 @@ export default function Barbershops() {
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-gray-700 via-gray-800 to-black">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <BlurText
               text="Barbershops: Smart Technology That Actually Works for Your Business"
               delay={150}
@@ -26,7 +26,7 @@ export default function Barbershops() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Attract loyal regulars, reduce wait times, and build the kind of neighborhood reputation that keeps chairs busy and customers coming back every few weeks.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-white text-gray-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors">
+            <button className="inline-flex items-center space-x-2 bg-gray-800 text-white px-8 py-4 font-medium hover:bg-gray-700 transition-colors">
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
