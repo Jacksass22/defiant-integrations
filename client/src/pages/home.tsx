@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
-      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
         {/* Video Background */}
@@ -49,7 +48,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Authority & Research Hook Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,7 +84,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Digital Transformation Reality Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,7 +124,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Thought Leadership Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,14 +157,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Research & Insights Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
-              NEW AT DEFIANT INTEGRATION BLOG
-            </h2>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">MONTHLY DEFIANT INTEGRATION BLOG</h2>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
@@ -245,9 +238,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
