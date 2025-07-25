@@ -3,8 +3,11 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function GolfCourses() {
+  useScrollToTop();
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
