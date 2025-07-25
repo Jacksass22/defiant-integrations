@@ -25,7 +25,7 @@ export default function Landscaping() {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <BlurText
               text="Landscaping: Smart Technology That Actually Works for Your Business"
               delay={150}
@@ -36,7 +36,7 @@ export default function Landscaping() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Generate more leads, showcase your work professionally, and grow beyond just mowing lawns.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-white text-green-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors">
+            <button className="inline-flex items-center space-x-2 bg-green-600 text-white px-8 py-4 font-medium hover:bg-green-700 transition-colors">
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
