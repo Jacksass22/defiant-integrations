@@ -348,7 +348,7 @@ export default function GolfCourses() {
                 <ul className="space-y-2 text-gray-600">
                   <li>Staff focused on guest service</li>
                   <li>No more missed calls during busy times</li>
-                  <li>Instant routing for urgent matters</li>
+                  <li>Instant routing to the pro shop for urgent or specific matters</li>
                 </ul>
               </div>
 
@@ -357,7 +357,7 @@ export default function GolfCourses() {
                 <ul className="space-y-2 text-gray-600">
                   <li>24/7 booking availability</li>
                   <li>Real-time schedule updates</li>
-                  <li>Automated follow-up marketing</li>
+                  <li>Automated follow-up marketing and reminders.</li>
                 </ul>
               </div>
 
