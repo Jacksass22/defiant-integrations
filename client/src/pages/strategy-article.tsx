@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
 import { Navigation } from '@/components/navigation';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler } from 'chart.js';
 import { Doughnut, Radar } from 'react-chartjs-2';
 
@@ -8,6 +9,8 @@ import { Doughnut, Radar } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler);
 
 export default function StrategyArticle() {
+  useScrollToTop();
+  
   // Chart data for performance distribution
   const performanceChartData = {
     labels: ['Top 20% (High Performers)', 'Middle 60% (Average)', 'Bottom 20% (Underperformers)'],
