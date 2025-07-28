@@ -587,9 +587,7 @@ export default function CannabisRetail() {
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to Run a Smarter, Safer, More Scalable Dispensary?
-          </h2>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Run a Smarter, Data Driven, and More Scalable Dispensary?</h2>
           <p className="text-xl text-green-100 mb-8">Book a meeting to see how we can get your company ahead of the curve.</p>
           <TiltedCard
             containerHeight="auto"
