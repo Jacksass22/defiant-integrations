@@ -10,7 +10,6 @@ export default function AIStrategyDevelopment() {
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
-      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
         <div className="absolute inset-0 bg-black/20"></div>
@@ -33,7 +32,6 @@ export default function AIStrategyDevelopment() {
           </div>
         </div>
       </section>
-
       {/* Problem Statement */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +83,6 @@ export default function AIStrategyDevelopment() {
           </div>
         </div>
       </section>
-
       {/* What We Deliver */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,9 +108,7 @@ export default function AIStrategyDevelopment() {
                   <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
                     Assess current operational maturity
                   </h3>
-                  <p className="text-gray-600">
-                    We map your workflows, data flows, and capability gaps
-                  </p>
+                  <p className="text-gray-600">We map your workflows, data flows, and capability gaps to see what we can do for you</p>
                 </div>
               </div>
 
@@ -184,7 +179,6 @@ export default function AIStrategyDevelopment() {
           </div>
         </div>
       </section>
-
       {/* Strategic Approach */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -268,7 +262,6 @@ export default function AIStrategyDevelopment() {
           </div>
         </div>
       </section>
-
       {/* What You Walk Away With */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -347,7 +340,6 @@ export default function AIStrategyDevelopment() {
           </div>
         </div>
       </section>
-
       {/* Why Defiant */}
       <section className="py-20 bg-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -385,7 +377,6 @@ export default function AIStrategyDevelopment() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-black text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -404,7 +395,6 @@ export default function AIStrategyDevelopment() {
           </button>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
