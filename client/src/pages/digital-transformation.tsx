@@ -435,18 +435,7 @@ export default function DigitalTransformation() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0">
-          <Galaxy 
-            hueShift={220}
-            density={1.5}
-            glowIntensity={0.5}
-            saturation={0.3}
-            starSpeed={0.3}
-            rotationSpeed={0.05}
-            transparent={false}
-          />
-        </div>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-900 to-blue-800">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Transform Your Business?
