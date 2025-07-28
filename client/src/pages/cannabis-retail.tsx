@@ -65,9 +65,7 @@ export default function CannabisRetail() {
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Why Top Cannabis Operators Partner With Us
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Most cannabis shops struggle with outdated websites that can't answer customer questions, manual inventory tracking, and staff overwhelmed by repetitive inquiries. Our AI automation solutions deploy intelligent RAG agents on your website to handle product questions, provide personalized recommendations, and guide customers through compliance requirements—all while your team focuses on high-value interactions.
-              </p>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">Most cannabis shops struggle with outdated websites that can't answer customer questions, manual inventory tracking, and staff overwhelmed by repetitive inquiries. Our AI automation solutions deploy intelligent RAG agents on your website to handle product questions, provide personalized recommendations like an online budtender—all while your team focuses on high-value interactions in the store.</p>
             </div>
             
             <div className="bg-gradient-to-br from-green-600 to-green-700 p-8 rounded-2xl text-white">
