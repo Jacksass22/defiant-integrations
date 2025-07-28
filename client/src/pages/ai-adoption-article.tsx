@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { Navigation } from '@/components/navigation';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 
@@ -8,6 +9,8 @@ import { Doughnut, Bar } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler, BarElement, CategoryScale, LinearScale);
 
 export default function AIAdoptionArticle() {
+  useScrollToTop();
+  
   // Chart data for AI Implementation Challenges
   const challengesChartData = {
     labels: ['People & Process Issues', 'Technology Limitations', 'Other Factors'],
