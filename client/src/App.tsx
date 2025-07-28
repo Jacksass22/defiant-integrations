@@ -35,6 +35,7 @@ import HRRecruitingFirms from "@/pages/hr-recruiting-firms";
 import BusinessConsultants from "@/pages/business-consultants";
 import GolfCourses from "@/pages/golf-courses";
 import AIStrategyDevelopment from "@/pages/ai-strategy-development";
+import DigitalTransformation from "@/pages/digital-transformation";
 import NotFound from "@/pages/not-found";
 
 
@@ -75,6 +76,7 @@ function Router() {
       <Route path="/business-consultants" component={BusinessConsultants} />
       <Route path="/golf-courses" component={GolfCourses} />
       <Route path="/ai-strategy-development" component={AIStrategyDevelopment} />
+      <Route path="/digital-transformation" component={DigitalTransformation} />
       <Route component={NotFound} />
     </Switch>
   );
