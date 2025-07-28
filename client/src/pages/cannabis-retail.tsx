@@ -102,7 +102,7 @@ export default function CannabisRetail() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "AI-powered website chat handles 80% of product questions automatically with RAG agents",
+              "AI-powered website chat bot handles product questions seamlessly",
               "Smart inventory alerts and automated ordering prevent stockouts and overstock",
               "Compliance gets easier with AI-monitored reports and automated threshold tracking",
               "Personalized product recommendations increase average order value by 60%",
