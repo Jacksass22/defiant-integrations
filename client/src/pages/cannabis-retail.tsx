@@ -38,7 +38,7 @@ export default function CannabisRetail() {
             </div>
             
             <BlurText
-              text="Built for Growth. Designed for Compliance. Powered by Intelligence."
+              text="AI-Powered Cannabis Retail. Built for Growth. Designed for Compliance."
               delay={100}
               animateBy="words"
               direction="top"
@@ -46,7 +46,7 @@ export default function CannabisRetail() {
             />
             
             <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Running a dispensary isn't what it used to be. We help operators run smarter, scale faster, and deliver consistently standout experiences—without adding more tools or stress.
+              Transform your dispensary with intelligent automation. Our AI agents handle customer questions, manage inventory insights, and power your website with smart product recommendations—all while keeping you compliant.
             </p>
             
             <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
@@ -66,7 +66,7 @@ export default function CannabisRetail() {
                 Why Top Cannabis Operators Partner With Us
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Most cannabis shops are juggling a patchwork of disconnected systems. POS doesn't talk to marketing. Compliance is a daily fire drill. Staff spend more time explaining than selling. You don't need another app—you need a smarter way to run your operation.
+                Most cannabis shops struggle with outdated websites that can't answer customer questions, manual inventory tracking, and staff overwhelmed by repetitive inquiries. Our AI automation solutions deploy intelligent RAG agents on your website to handle product questions, provide personalized recommendations, and guide customers through compliance requirements—all while your team focuses on high-value interactions.
               </p>
             </div>
             
@@ -104,12 +104,12 @@ export default function CannabisRetail() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Traffic becomes predictable with geo-targeted campaigns and optimized local visibility",
-              "Staff focus on people, not busywork—front desk distractions disappear",
-              "Compliance gets easier with automated reports and threshold tracking",
-              "Customers actually come back through smart touchpoints and personalized re-engagement",
-              "You see what's working with unified sales, marketing, and performance dashboards",
-              "New staff get up to speed fast with custom tools and smart onboarding flows"
+              "AI-powered website chat handles 80% of product questions automatically with RAG agents",
+              "Smart inventory alerts and automated ordering prevent stockouts and overstock",
+              "Compliance gets easier with AI-monitored reports and automated threshold tracking",
+              "Personalized product recommendations increase average order value by 60%",
+              "Real-time analytics dashboard shows exactly what's driving revenue and retention",
+              "Staff focus on consultative selling while AI handles routine inquiries and onboarding"
             ].map((benefit, index) => (
               <div key={index} className="bg-white p-6 rounded-xl border border-gray-200">
                 <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -239,11 +239,11 @@ export default function CannabisRetail() {
                 
                 <ul className="space-y-3">
                   {[
-                    "Smart POS prompts: 'Pair with this terpene-rich pre-roll'",
-                    "Upsell bundles based on past behavior ('Your 3rd time? Try concentrates')",
-                    "Shelf talkers and digital displays that auto-rotate based on inventory",
-                    "Personalized offers via SMS/email: 'We noticed you like hybrids…'",
-                    "New product drip campaigns for loyalty members"
+                    "AI-powered POS prompts: 'Pair with this terpene-rich pre-roll' based on customer history",
+                    "Smart upsell bundles using RAG agents that analyze customer preferences and inventory",
+                    "Digital displays with AI-generated product recommendations that auto-rotate",
+                    "Personalized AI-crafted offers: 'We noticed you like hybrids—try this new strain'",
+                    "Automated product education campaigns delivered through intelligent chatbots"
                   ].map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
@@ -322,6 +322,76 @@ export default function CannabisRetail() {
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                       <span className="text-sm">ID Verification - 100%</span>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* AI Automation Section */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center space-x-2 bg-blue-100 px-4 py-2 rounded-full text-blue-800 text-sm font-medium mb-4">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span>AI-Powered Website & Customer Service</span>
+                </div>
+                
+                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                  The Problem: Your website can't answer customer questions, and staff are overwhelmed with repetitive inquiries.
+                </h3>
+                
+                <p className="text-gray-600 mb-6">
+                  The Solution: Deploy intelligent RAG (Retrieval-Augmented Generation) agents that instantly answer product questions, provide strain recommendations, and guide customers through your inventory—24/7.
+                </p>
+                
+                <ul className="space-y-3">
+                  {[
+                    "AI chatbot trained on your complete product catalog with real-time inventory sync",
+                    "Smart strain finder: 'Looking for pain relief? Try these indica-dominant options'",
+                    "Automated dosage guidance and consumption method recommendations",
+                    "Instant answers about effects, terpenes, THC/CBD ratios, and product availability",
+                    "Seamless handoff to human budtenders for complex consultations"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                  <p className="text-blue-800 font-semibold">
+                    Real Results: 80% of customer questions answered instantly, 40% reduction in staff workload
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-8 rounded-2xl">
+                <div className="bg-white p-6 rounded-xl shadow-lg">
+                  <h4 className="font-bold text-gray-900 mb-4">AI Assistant Analytics</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Questions Answered</span>
+                      <span className="font-bold text-blue-600">847/day</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Customer Satisfaction</span>
+                      <span className="font-bold text-blue-600">94%</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Staff Time Saved</span>
+                      <span className="font-bold text-blue-600">12 hrs/day</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Conversion Rate</span>
+                      <span className="font-bold text-blue-600">73%</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                    <p className="text-xs text-blue-700">
+                      <strong>Most Asked:</strong> "What's the difference between this sativa and that one?" - Answered 156 times today
+                    </p>
                   </div>
                 </div>
               </div>
