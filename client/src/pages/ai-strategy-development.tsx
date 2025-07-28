@@ -93,9 +93,7 @@ export default function AIStrategyDevelopment() {
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               What We Deliver
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We partner with executive teams to design intelligent transformation pathways
-            </p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">We design intelligent transformation's that saving time and generate revenue. </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
