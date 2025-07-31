@@ -171,16 +171,16 @@ export default function Home() {
                 <div className="text-white text-2xl sm:text-3xl font-bold">INNOVATION IN AI</div>
               </div>
               <div className="p-6 sm:p-8">
-                <div className="text-sm text-gray-500 mb-2">July 9, 2025</div>
+                <div className="text-sm text-gray-500 mb-2">July 31, 2025</div>
                 <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                  From apprenticeship in space to selecting microbes: Meet McKinsey's game-based innovation lab
+                  How AI Is Powering the Next Generation of Robotics
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                  Our Innovation Lab uses game design principles to tackle complex business challenges, from space exploration to biotechnology.
+                  From humanoid assistants to autonomous manufacturing bots, artificial intelligence is transforming robotics into a force multiplier for industries worldwide.
                 </p>
-                <button className="text-blue-600 font-medium hover:underline text-sm sm:text-base">
+                <Link href="/ai-robotics-article" className="text-blue-600 font-medium hover:underline text-sm sm:text-base">
                   Read more
-                </button>
+                </Link>
               </div>
             </div>
             
