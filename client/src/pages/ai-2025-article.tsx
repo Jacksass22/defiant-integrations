@@ -187,18 +187,19 @@ export default function AI2025Article() {
 
             <div className="bg-gray-50 border border-gray-200 p-8 rounded-lg mb-8">
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                <strong>As an AI consulting firm specializing in systems integration, Defiant Integrations is ideally positioned to help clients:</strong>
+                <strong>As a next-generation AI consulting and integration firm, Defiant Integrations is built to help clients:</strong>
               </p>
               
               <ul className="list-disc pl-6 mb-6 space-y-3 text-lg text-gray-700">
-                <li>Design and deploy agentic AI workflows that behave autonomously yet transparently</li>
-                <li>Integrate sensors, edge hardware, and custom models for optimized performance</li>
-                <li>Build governance programs that ensure explainability, compliance, and trustworthy deployment</li>
-                <li>Explore personal superintelligence and wearable AI-driven interfaces for enterprise workflows</li>
+                <li>Design and deploy autonomous AI agents that handle real operational tasks—automating everything from outreach to reporting</li>
+                <li>Build custom, secure web applications tailored to each business's unique needs, workflows, and data environment</li>
+                <li>Integrate disconnected tools and software into seamless, centralized automations using platforms like n8n and custom APIs</li>
+                <li>Deliver smart content creation pipelines that scale—powered by LLMs and built for lead generation, SEO, or internal operations</li>
+                <li>Set up self-hosted AI infrastructure for privacy, speed, and full control—no more relying on fragile third-party tools</li>
               </ul>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                Let us help you navigate this pivotal phase of industrial AI evolution.
+                Let us help you move beyond fragmented tools and start building systems that think, act, and scale with your business.
               </p>
             </div>
 
