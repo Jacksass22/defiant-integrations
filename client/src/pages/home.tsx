@@ -170,11 +170,11 @@ export default function Home() {
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
                 <Threads 
-                  color={[0.3, 0.6, 1.0]}
+                  color={[1.0, 1.0, 1.0]}
                   amplitude={1.2}
                   distance={0.3}
                   enableMouseInteraction={true}
-                  className="opacity-40"
+                  className="opacity-30"
                 />
                 <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">INNOVATION IN AI</div>
               </div>
