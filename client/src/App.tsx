@@ -37,6 +37,7 @@ import GolfCourses from "@/pages/golf-courses";
 import AIStrategyDevelopment from "@/pages/ai-strategy-development";
 import DigitalTransformation from "@/pages/digital-transformation";
 import TechnologyRoadmapping from "@/pages/technology-roadmapping";
+import AIRoboticsArticle from "@/pages/ai-robotics-article";
 import NotFound from "@/pages/not-found";
 
 
@@ -79,6 +80,7 @@ function Router() {
       <Route path="/ai-strategy-development" component={AIStrategyDevelopment} />
       <Route path="/digital-transformation" component={DigitalTransformation} />
       <Route path="/technology-roadmapping" component={TechnologyRoadmapping} />
+      <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
       <Route component={NotFound} />
     </Switch>
   );
