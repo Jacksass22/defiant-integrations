@@ -2,8 +2,7 @@ import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Rep
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
-import Threads from '@/components/Threads';
-import GridDistortion from '@/components/GridDistortion';
+// Removed complex animations for better compatibility
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -170,13 +169,11 @@ export default function Home() {
             {/* Featured Article */}
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
-                <Threads 
-                  color={[1.0, 1.0, 1.0]}
-                  amplitude={1.2}
-                  distance={0.3}
-                  enableMouseInteraction={true}
-                  className="opacity-30"
-                />
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
+                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_25%,rgba(255,255,255,0.1)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.1)_75%)] bg-[length:20px_20px] animate-pulse"></div>
+                </div>
                 <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">INNOVATION IN AI</div>
               </div>
               <div className="p-6 sm:p-8">
@@ -196,14 +193,11 @@ export default function Home() {
             {/* Second Article */}
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center relative overflow-hidden">
-                <GridDistortion 
-                  imageSrc="https://picsum.photos/1920/1080?grayscale&blur=1"
-                  grid={12}
-                  mouse={0.15}
-                  strength={0.2}
-                  relaxation={0.85}
-                  className="opacity-30"
-                />
+                {/* Animated grid pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_98%,rgba(255,255,255,0.3)_100%),linear-gradient(0deg,transparent_98%,rgba(255,255,255,0.3)_100%)] bg-[length:20px_20px] animate-pulse"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
+                </div>
                 <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">FUTURE</div>
               </div>
               <div className="p-6 sm:p-8">
