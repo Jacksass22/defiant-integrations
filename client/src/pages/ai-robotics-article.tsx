@@ -237,9 +237,7 @@ export default function AIRoboticsArticle() {
               The endgame? Multi-modal, general-purpose robots with real-world utility—what Tesla calls "Optimus-level" generality. These machines will not only execute tasks but also learn, adapt, and even reason.
             </p>
 
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              As the cost of sensors and chips drops, and models become more efficient, businesses of all sizes—not just the Fortune 500—will soon be able to deploy robotics at scale.
-            </p>
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">As the cost of sensors and chips drops, and models become more efficient, businesses of all sizes—not just the Fortune 500—will soon be able to deploy AI in one way or another.</p>
 
             <h2 className="font-serif text-3xl font-bold text-gray-900 mb-6 mt-12">
               Final Thought: Get Started Now, Not Later
