@@ -3,6 +3,7 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
+import Noise from '@/components/Noise';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -195,6 +196,13 @@ export default function Home() {
             {/* Second Article */}
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center relative overflow-hidden">
+                <Noise
+                  patternSize={250}
+                  patternScaleX={1}
+                  patternScaleY={1}
+                  patternRefreshInterval={2}
+                  patternAlpha={15}
+                />
                 <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">FUTURE</div>
               </div>
               <div className="p-6 sm:p-8">
