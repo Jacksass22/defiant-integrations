@@ -3,6 +3,7 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
 import Threads from '@/components/Threads';
+import GridDistortion from '@/components/GridDistortion';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -194,8 +195,16 @@ export default function Home() {
             
             {/* Second Article */}
             <div className="bg-white shadow-lg">
-              <div className="h-48 sm:h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
-                <div className="text-white text-2xl sm:text-3xl font-bold">FUTURE</div>
+              <div className="h-48 sm:h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center relative overflow-hidden">
+                <GridDistortion 
+                  imageSrc="https://picsum.photos/1920/1080?grayscale&blur=1"
+                  grid={12}
+                  mouse={0.15}
+                  strength={0.2}
+                  relaxation={0.85}
+                  className="opacity-30"
+                />
+                <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">FUTURE</div>
               </div>
               <div className="p-6 sm:p-8">
                 <div className="text-sm text-gray-500 mb-2">July 31, 2025</div>
