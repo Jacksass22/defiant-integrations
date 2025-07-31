@@ -139,9 +139,9 @@ export function Navigation() {
             </button>
             
             {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <div className="text-xl font-serif font-bold text-white">
-                Defiant <span className="text-gray-300">Integrations</span>
+            <Link href="/" className="flex items-center group">
+              <div className="text-xl font-serif font-bold text-white bg-white/5 px-4 py-2 rounded-lg border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-200 group-hover:shadow-lg group-hover:shadow-white/5">
+                Defiant <span className="text-gray-300 group-hover:text-white transition-colors">Integrations</span>
               </div>
             </Link>
           </div>
