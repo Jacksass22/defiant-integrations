@@ -190,16 +190,16 @@ export default function Home() {
                 <div className="text-white text-2xl sm:text-3xl font-bold">FUTURE</div>
               </div>
               <div className="p-6 sm:p-8">
-                <div className="text-sm text-gray-500 mb-2">July 8, 2025</div>
+                <div className="text-sm text-gray-500 mb-2">July 31, 2025</div>
                 <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                  The future of work: AI implementation strategies that scale
+                  AI in 2025: What Comes Next for Intelligent Systems
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                  How organizations can successfully implement AI while maintaining human-centered approaches to work and productivity.
+                  From agentic AI to personal superintelligence, artificial intelligence stands beyond hype as the foundation of enterprise, science, and everyday technology.
                 </p>
-                <button className="text-blue-600 font-medium hover:underline text-sm sm:text-base">
+                <Link href="/ai-2025-article" className="text-blue-600 font-medium hover:underline text-sm sm:text-base">
                   Read more
-                </button>
+                </Link>
               </div>
             </div>
           </div>
