@@ -38,6 +38,7 @@ import AIStrategyDevelopment from "@/pages/ai-strategy-development";
 import DigitalTransformation from "@/pages/digital-transformation";
 import TechnologyRoadmapping from "@/pages/technology-roadmapping";
 import AIRoboticsArticle from "@/pages/ai-robotics-article";
+import AI2025Article from "@/pages/ai-2025-article";
 import NotFound from "@/pages/not-found";
 
 
@@ -81,6 +82,7 @@ function Router() {
       <Route path="/digital-transformation" component={DigitalTransformation} />
       <Route path="/technology-roadmapping" component={TechnologyRoadmapping} />
       <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
+      <Route path="/ai-2025-article" component={AI2025Article} />
       <Route component={NotFound} />
     </Switch>
   );
