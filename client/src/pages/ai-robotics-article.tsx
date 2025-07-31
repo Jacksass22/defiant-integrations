@@ -248,9 +248,7 @@ export default function AIRoboticsArticle() {
             </p>
 
             <div className="bg-blue-900 text-white p-8 rounded-lg mb-8">
-              <p className="text-lg mb-4 leading-relaxed">
-                At Defiant Integrations, we help businesses future-proof their operations by combining AI and robotics into a cohesive, scalable system. Let's build smarter workflows—together.
-              </p>
+              <p className="text-lg mb-4 leading-relaxed">At Defiant Integrations, we help businesses future-proof their operations by building systems that streamline operations with the latest technological advances. You get a cohesive, scalable system. Let's build smarter workflows—together.</p>
               
               <Link href="/" className="inline-flex items-center space-x-2 bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 <span>Start your free assessment today</span>
