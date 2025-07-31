@@ -216,8 +216,16 @@ export default function AIRoboticsArticle() {
                 <strong>Where Does Defiant Integrations come in?</strong>
               </p>
               
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                While we don't set up robots to wash your dishes... (yet). The underlying technological infrastructure that enables these capabilities is commercially mature and readily deployable across enterprise applications. The fundamental challenge organizations face today is not technological availability, but rather strategic implementation and identifying optimal use cases and establishing frameworks for scalable AI integration.
+              </p>
+              
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                The core technologies powering advanced robotics—machine learning algorithms, computer vision, natural language processing, and predictive analytics—represent proven solutions that can drive measurable value across industries. Success hinges on an organization's ability to systematically evaluate their operational landscape, identify high-impact opportunities, and execute targeted AI initiatives that align with broader business objectives.
+              </p>
+              
               <p className="text-lg text-gray-700 leading-relaxed">
-                We help you assess, pilot, and deploy AI-robotic systems tailored to your business—whether that means integrating robotics APIs with your cloud ERP, using AI to train your robotics workflow, or designing custom LLM-powered agents for automation.
+                The question for leaders is not whether AI capabilities exist, but how to harness these tools strategically to create sustainable competitive advantage and operational excellence.
               </p>
             </div>
 
