@@ -89,6 +89,21 @@ export default function AIRoboticsArticle() {
               </p>
             </div>
 
+            {/* YouTube Video */}
+            <div className="my-8">
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                  src="https://www.youtube.com/embed/LUnZXBL_lqA?si=ngaVnilSHnxTW0UU" 
+                  title="AI Robotics Demo" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerPolicy="strict-origin-when-cross-origin" 
+                  allowFullScreen
+                />
+              </div>
+            </div>
+
             <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4 mt-8">
               2. Dexterous Manipulation with Neural Networks
             </h3>
