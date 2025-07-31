@@ -9,7 +9,6 @@ export default function AIRoboticsArticle() {
   return (
     <div className="bg-white text-charcoal font-sans min-h-screen">
       <Navigation />
-      
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-900 to-blue-800">
         <div className="max-w-4xl mx-auto">
@@ -45,7 +44,6 @@ export default function AIRoboticsArticle() {
           </div>
         </div>
       </section>
-
       {/* Article Content */}
       <article className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
@@ -215,7 +213,7 @@ export default function AIRoboticsArticle() {
 
             <div className="bg-gray-50 border border-gray-200 p-8 rounded-lg mb-8">
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                <strong>That's where Defiant Integrations comes in.</strong>
+                <strong>Where Does Defiant Integrations come in?</strong>
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -256,7 +254,6 @@ export default function AIRoboticsArticle() {
           </div>
         </div>
       </article>
-
       {/* Related Articles */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
@@ -291,7 +288,6 @@ export default function AIRoboticsArticle() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
