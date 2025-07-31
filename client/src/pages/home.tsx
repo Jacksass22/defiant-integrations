@@ -2,6 +2,7 @@ import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Rep
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
+import Threads from '@/components/Threads';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -167,8 +168,15 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Featured Article */}
             <div className="bg-white shadow-lg">
-              <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                <div className="text-white text-2xl sm:text-3xl font-bold">INNOVATION IN AI</div>
+              <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
+                <Threads 
+                  color={[0.3, 0.6, 1.0]}
+                  amplitude={1.2}
+                  distance={0.3}
+                  enableMouseInteraction={true}
+                  className="opacity-40"
+                />
+                <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">INNOVATION IN AI</div>
               </div>
               <div className="p-6 sm:p-8">
                 <div className="text-sm text-gray-500 mb-2">July 31, 2025</div>
