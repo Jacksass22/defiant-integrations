@@ -168,7 +168,7 @@ export default function Home() {
             {/* Featured Article */}
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                <div className="text-white text-2xl sm:text-3xl font-bold">INNOVATION</div>
+                <div className="text-white text-2xl sm:text-3xl font-bold">INNOVATION IN AI</div>
               </div>
               <div className="p-6 sm:p-8">
                 <div className="text-sm text-gray-500 mb-2">July 9, 2025</div>
