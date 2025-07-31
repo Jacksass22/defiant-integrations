@@ -2,7 +2,7 @@ import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Rep
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
-// Animation components removed
+import TrueFocus from '@/components/TrueFocus';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -169,7 +169,14 @@ export default function Home() {
             {/* Featured Article */}
             <div className="bg-white shadow-lg">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
-                <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">INNOVATION IN AI</div>
+                <TrueFocus 
+                  sentence="INNOVATION IN AI"
+                  manualMode={false}
+                  blurAmount={5}
+                  borderColor="white"
+                  animationDuration={2}
+                  pauseBetweenAnimations={1}
+                />
               </div>
               <div className="p-6 sm:p-8">
                 <div className="text-sm text-gray-500 mb-2">July 31, 2025</div>
