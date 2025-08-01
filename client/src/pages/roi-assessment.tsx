@@ -855,7 +855,7 @@ export default function ROIAssessment() {
                       </div>
                       <div>
                         <div className="text-sm opacity-80">Monthly Service</div>
-                        <div className="text-2xl font-bold">${(calculatedROI.annualServiceCost / 12).toLocaleString()}</div>
+                        <div className="text-2xl font-bold">${(calculatedROI.annualServiceCost / 12).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className="text-xs opacity-70">Per month</div>
                       </div>
                       <div>
