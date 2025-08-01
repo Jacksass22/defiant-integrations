@@ -39,6 +39,7 @@ import DigitalTransformation from "@/pages/digital-transformation";
 import TechnologyRoadmapping from "@/pages/technology-roadmapping";
 import ROIAssessment from "@/pages/roi-assessment";
 import ChangeManagement from "@/pages/change-management";
+import TeamTraining from "@/pages/team-training";
 import AIRoboticsArticle from "@/pages/ai-robotics-article";
 import AI2025Article from "@/pages/ai-2025-article";
 import NotFound from "@/pages/not-found";
@@ -85,6 +86,7 @@ function Router() {
       <Route path="/technology-roadmapping" component={TechnologyRoadmapping} />
       <Route path="/roi-assessment" component={ROIAssessment} />
       <Route path="/change-management" component={ChangeManagement} />
+      <Route path="/team-training" component={TeamTraining} />
       <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
       <Route path="/ai-2025-article" component={AI2025Article} />
       <Route component={NotFound} />

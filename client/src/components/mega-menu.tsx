@@ -160,7 +160,7 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                           {item}
                         </Link>
                       ) : item === "Team Training" ? (
-                        <Link href="/change-management#team-training" className="text-gray-300 hover:text-white transition-colors block py-1">
+                        <Link href="/team-training" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
                         </Link>
                       ) : item === "Golf Courses" ? (
