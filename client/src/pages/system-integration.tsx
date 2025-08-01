@@ -87,61 +87,73 @@ export default function SystemIntegration() {
               className="relative"
             >
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-                <h3 className="font-semibold text-lg text-gray-900 mb-6">Unified System Architecture</h3>
+                <h3 className="font-semibold text-lg text-gray-900 mb-6">System Integration Architecture</h3>
                 
-                {/* Central AI Hub */}
-                <div className="relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center">
-                      <GitMerge className="w-8 h-8 text-white" />
+                {/* Clean Integration Flow */}
+                <div className="space-y-6">
+                  {/* Input Systems Row */}
+                  <div className="flex justify-between items-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-xl flex flex-col items-center justify-center text-green-600">
+                      <Database className="w-5 h-5" />
+                      <span className="text-xs mt-1 font-medium">Database</span>
+                    </div>
+                    <div className="w-16 h-16 bg-purple-100 rounded-xl flex flex-col items-center justify-center text-purple-600">
+                      <Settings className="w-5 h-5" />
+                      <span className="text-xs mt-1 font-medium">CRM</span>
+                    </div>
+                    <div className="w-16 h-16 bg-blue-100 rounded-xl flex flex-col items-center justify-center text-blue-600">
+                      <Cloud className="w-5 h-5" />
+                      <span className="text-xs mt-1 font-medium">Cloud</span>
                     </div>
                   </div>
                   
-                  {/* Connected Systems */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    {[
-                      { icon: <Database className="w-5 h-5" />, label: "Database", color: "green" },
-                      { icon: <Cloud className="w-5 h-5" />, label: "Cloud", color: "blue" },
-                      { icon: <Settings className="w-5 h-5" />, label: "CRM", color: "purple" },
-                      { icon: <BarChart3 className="w-5 h-5" />, label: "Analytics", color: "orange" },
-                      { icon: <Shield className="w-5 h-5" />, label: "Security", color: "red" },
-                      { icon: <Workflow className="w-5 h-5" />, label: "ERP", color: "indigo" }
-                    ].map((system, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.1 * index }}
-                        className={`w-16 h-16 bg-${system.color}-100 rounded-xl flex flex-col items-center justify-center text-${system.color}-600 hover:bg-${system.color}-200 transition-all duration-300 cursor-pointer`}
-                      >
-                        {system.icon}
-                        <span className="text-xs mt-1 font-medium">{system.label}</span>
-                      </motion.div>
-                    ))}
+                  {/* Flow Arrows */}
+                  <div className="flex justify-center">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-0.5 h-8 bg-gradient-to-b from-gray-400 to-blue-600"></div>
+                      <ArrowRight className="w-5 h-5 text-blue-600 rotate-90" />
+                      <div className="w-0.5 h-8 bg-gradient-to-b from-blue-600 to-gray-400"></div>
+                    </div>
                   </div>
                   
-                  {/* Connection Lines */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(6)].map((_, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, delay: 0.5 + index * 0.1 }}
-                        className={`absolute w-0.5 h-12 bg-gradient-to-b from-blue-400 to-transparent transform rotate-${60 * index} origin-bottom`}
-                        style={{ 
-                          left: '50%', 
-                          top: '50%', 
-                          transformOrigin: 'center bottom',
-                          transform: `translate(-50%, -50%) rotate(${60 * index}deg)`
-                        }}
-                      />
-                    ))}
+                  {/* Central AI Integration Hub */}
+                  <div className="flex justify-center">
+                    <div className="w-24 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center">
+                      <div className="text-center">
+                        <GitMerge className="w-6 h-6 text-white mx-auto mb-1" />
+                        <span className="text-xs text-white font-semibold">AI Hub</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Flow Arrows */}
+                  <div className="flex justify-center">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-0.5 h-8 bg-gradient-to-b from-gray-400 to-blue-600"></div>
+                      <ArrowRight className="w-5 h-5 text-blue-600 rotate-90" />
+                      <div className="w-0.5 h-8 bg-gradient-to-b from-blue-600 to-gray-400"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Output Systems Row */}
+                  <div className="flex justify-between items-center">
+                    <div className="w-16 h-16 bg-orange-100 rounded-xl flex flex-col items-center justify-center text-orange-600">
+                      <BarChart3 className="w-5 h-5" />
+                      <span className="text-xs mt-1 font-medium">Analytics</span>
+                    </div>
+                    <div className="w-16 h-16 bg-red-100 rounded-xl flex flex-col items-center justify-center text-red-600">
+                      <Shield className="w-5 h-5" />
+                      <span className="text-xs mt-1 font-medium">Security</span>
+                    </div>
+                    <div className="w-16 h-16 bg-indigo-100 rounded-xl flex flex-col items-center justify-center text-indigo-600">
+                      <Workflow className="w-5 h-5" />
+                      <span className="text-xs mt-1 font-medium">ERP</span>
+                    </div>
                   </div>
                 </div>
                 
                 {/* Integration Stats */}
-                <div className="grid grid-cols-2 gap-4 text-center">
+                <div className="grid grid-cols-2 gap-4 text-center mt-6">
                   <div className="bg-blue-50 rounded-xl p-3">
                     <div className="text-lg font-bold text-blue-600">24/7</div>
                     <div className="text-xs text-gray-600">Monitoring</div>
