@@ -144,12 +144,7 @@ export default function Home() {
                     </div>
                     <span className="text-gray-600 leading-relaxed">Industry-specific AI tools trained for your business</span>
                   </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Multi-team AI agents that work together seamlessly</span>
-                  </li>
+
                 </ul>
               </div>
             </div>
