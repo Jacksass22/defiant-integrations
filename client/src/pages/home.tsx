@@ -1,6 +1,7 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useEffect, useRef } from 'react';
 import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
 import Noise from '@/components/Noise';
@@ -9,6 +10,41 @@ import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
 
 export default function Home() {
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const aiVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const playVideo = async (videoRef: React.RefObject<HTMLVideoElement>) => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+        } catch (error) {
+          console.log('Video autoplay failed:', error);
+          // Fallback: try to play on user interaction
+          const handleUserInteraction = async () => {
+            try {
+              await videoRef.current?.play();
+              document.removeEventListener('click', handleUserInteraction);
+              document.removeEventListener('touchstart', handleUserInteraction);
+            } catch (e) {
+              console.log('Video play after interaction failed:', e);
+            }
+          };
+          document.addEventListener('click', handleUserInteraction);
+          document.addEventListener('touchstart', handleUserInteraction);
+        }
+      }
+    };
+
+    // Try to play videos after a short delay
+    const timer = setTimeout(() => {
+      playVideo(heroVideoRef);
+      playVideo(aiVideoRef);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
@@ -16,11 +52,13 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
         {/* Video Background */}
         <video
+          ref={heroVideoRef}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           src={videoBackground}
         >
           Your browser does not support the video tag.
@@ -107,11 +145,13 @@ export default function Home() {
             <div className="relative min-h-[400px] sm:min-h-[500px] overflow-hidden">
               {/* Video Background */}
               <video
+                ref={aiVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 src={aiVideo}
               >
                 Your browser does not support the video tag.
