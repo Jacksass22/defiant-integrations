@@ -96,22 +96,22 @@ export default function ROIAssessment() {
     const monthlyRevenue = revenueMap[roiData.revenue] || 75000;
     const annualRevenue = monthlyRevenue * 12;
     
-    // Determine business size and investment structure
+    // Determine business size and investment structure (User-specified ranges: $3K-$70K setup, $300-$20K monthly)
     let setupCost, monthlyCost, targetMultiplier;
     if (annualRevenue <= 300000) {
       // Small Business ($50K-300K revenue)
-      setupCost = 15000 + Math.random() * 10000; // $15K-$25K
-      monthlyCost = 3000 + Math.random() * 2000; // $3K-$5K
+      setupCost = 3000 + Math.random() * 17000; // $3K-$20K
+      monthlyCost = 300 + Math.random() * 2200; // $300-$2.5K
       targetMultiplier = 3 + Math.random(); // 3-4x return
     } else if (annualRevenue <= 1000000) {
       // Medium Business ($300K-1M revenue)
-      setupCost = 25000 + Math.random() * 15000; // $25K-$40K
-      monthlyCost = 5000 + Math.random() * 3000; // $5K-$8K
+      setupCost = 20000 + Math.random() * 25000; // $20K-$45K
+      monthlyCost = 2500 + Math.random() * 7500; // $2.5K-$10K
       targetMultiplier = 3 + Math.random(); // 3-4x return
     } else {
       // Large Business ($1M+ revenue)
-      setupCost = 40000 + Math.random() * 20000; // $40K-$60K
-      monthlyCost = 8000 + Math.random() * 4000; // $8K-$12K
+      setupCost = 45000 + Math.random() * 25000; // $45K-$70K
+      monthlyCost = 10000 + Math.random() * 10000; // $10K-$20K
       targetMultiplier = 3 + Math.random() * 2; // 3-5x return
     }
     
