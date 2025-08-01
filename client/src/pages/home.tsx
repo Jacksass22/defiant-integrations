@@ -1,7 +1,7 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
 import Noise from '@/components/Noise';
@@ -15,6 +15,73 @@ import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
 export default function Home() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const aiVideoRef = useRef<HTMLVideoElement>(null);
+  
+  // ROI Calculator State
+  const [roiData, setRoiData] = useState({
+    revenue: '100k',
+    hours: '30',
+    teamSize: '5',
+    toolCosts: '1000'
+  });
+  
+  const [calculatedROI, setCalculatedROI] = useState({
+    annualSavings: 156000,
+    weeklyHours: '25-40',
+    paybackMonths: '4-6',
+    roiPercentage: 385
+  });
+
+  // ROI Calculation Function
+  const calculateROI = () => {
+    const revenueMap: { [key: string]: number } = {
+      '10k': 17500, '25k': 37500, '50k': 75000, '100k': 175000, '250k': 375000, '500k': 750000
+    };
+    const hoursMap: { [key: string]: number } = {
+      '10': 15, '20': 25, '30': 35, '40': 45, '50': 60
+    };
+    const teamMap: { [key: string]: number } = {
+      '1': 1, '2': 3.5, '5': 7.5, '10': 17.5, '25': 35
+    };
+    const toolsMap: { [key: string]: number } = {
+      '500': 750, '1000': 1750, '2500': 3750, '5000': 7500, '10000': 15000
+    };
+
+    const monthlyRevenue = revenueMap[roiData.revenue] || 175000;
+    const weeklyHours = hoursMap[roiData.hours] || 35;
+    const teamSize = teamMap[roiData.teamSize] || 7.5;
+    const monthlyToolCosts = toolsMap[roiData.toolCosts] || 1750;
+
+    // Calculate savings
+    const hourlyRate = 75; // Average hourly rate for business operations
+    const weeklyLaborSavings = weeklyHours * 0.7 * hourlyRate; // 70% automation
+    const monthlyLaborSavings = weeklyLaborSavings * 4.33;
+    
+    const conversionIncrease = monthlyRevenue * 0.25; // 25% conversion improvement
+    const operationalEfficiency = monthlyToolCosts * 0.3; // 30% efficiency gains
+    const reducedToolCosts = monthlyToolCosts * 0.15; // 15% tool consolidation
+    
+    const totalMonthlySavings = monthlyLaborSavings + conversionIncrease + operationalEfficiency + reducedToolCosts;
+    const annualSavings = totalMonthlySavings * 12;
+    
+    // Implementation cost estimate (simplified)
+    const implementationCost = Math.max(25000, teamSize * 3000);
+    const paybackMonths = Math.ceil(implementationCost / totalMonthlySavings);
+    const roiPercentage = Math.round((annualSavings / implementationCost) * 100);
+    
+    const savedHoursLow = Math.floor(weeklyHours * 0.6);
+    const savedHoursHigh = Math.ceil(weeklyHours * 0.8);
+
+    setCalculatedROI({
+      annualSavings: Math.round(annualSavings),
+      weeklyHours: `${savedHoursLow}-${savedHoursHigh}`,
+      paybackMonths: paybackMonths <= 6 ? `${paybackMonths}-${paybackMonths + 2}` : `${paybackMonths}-${paybackMonths + 3}`,
+      roiPercentage: roiPercentage
+    });
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setRoiData(prev => ({ ...prev, [field]: value }));
+  };
 
   useEffect(() => {
     const playVideo = async (videoRef: React.RefObject<HTMLVideoElement>) => {
@@ -625,7 +692,11 @@ export default function Home() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Current Monthly Revenue
                     </label>
-                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                    <select 
+                      value={roiData.revenue}
+                      onChange={(e) => handleInputChange('revenue', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    >
                       <option value="10k">$10K - $25K</option>
                       <option value="25k">$25K - $50K</option>
                       <option value="50k">$50K - $100K</option>
@@ -639,7 +710,11 @@ export default function Home() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Hours Spent on Manual Tasks (per week)
                     </label>
-                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                    <select 
+                      value={roiData.hours}
+                      onChange={(e) => handleInputChange('hours', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    >
                       <option value="10">10-20 hours</option>
                       <option value="20">20-30 hours</option>
                       <option value="30">30-40 hours</option>
@@ -652,7 +727,11 @@ export default function Home() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Team Size
                     </label>
-                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                    <select 
+                      value={roiData.teamSize}
+                      onChange={(e) => handleInputChange('teamSize', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    >
                       <option value="1">Just me (1 person)</option>
                       <option value="2">2-5 people</option>
                       <option value="5">5-10 people</option>
@@ -665,7 +744,11 @@ export default function Home() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Current Software/Tools Cost (monthly)
                     </label>
-                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                    <select 
+                      value={roiData.toolCosts}
+                      onChange={(e) => handleInputChange('toolCosts', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    >
                       <option value="500">$500 - $1,000</option>
                       <option value="1000">$1,000 - $2,500</option>
                       <option value="2500">$2,500 - $5,000</option>
@@ -676,7 +759,10 @@ export default function Home() {
                 </div>
 
                 {/* Calculate Button */}
-                <button className="w-full mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <button 
+                  onClick={calculateROI}
+                  className="w-full mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
                   Calculate My ROI
                 </button>
               </div>
@@ -692,22 +778,24 @@ export default function Home() {
                 {/* ROI Metrics */}
                 <div className="space-y-6">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-emerald-600">$156,000</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-emerald-600">
+                      ${calculatedROI.annualSavings.toLocaleString()}
+                    </div>
                     <div className="text-sm text-gray-600">Annual Savings</div>
                   </div>
                   
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-blue-600">25-40 hrs</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-blue-600">{calculatedROI.weeklyHours} hrs</div>
                     <div className="text-sm text-gray-600">Time Saved Per Week</div>
                   </div>
                   
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-violet-600">4-6 months</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-violet-600">{calculatedROI.paybackMonths} months</div>
                     <div className="text-sm text-gray-600">Payback Period</div>
                   </div>
                   
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-amber-600">385%</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-amber-600">{calculatedROI.roiPercentage}%</div>
                     <div className="text-sm text-gray-600">Return on Investment</div>
                   </div>
                 </div>
