@@ -575,7 +575,7 @@ export default function ChangeManagement() {
       </section>
 
       {/* Team Training Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section id="team-training" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Left Content */}
