@@ -1,0 +1,115 @@
+The current ROI calculator is showing unrealistic savings that exceed business revenue. Fix the calculation logic to show professional, believable results that align with actual business economics.
+Calculation Logic Fixes:
+Revenue-Based Savings Caps:
+Maximum Savings Should Never Exceed:
+
+15-25% of annual revenue for small businesses ($50K-500K)
+10-20% of annual revenue for medium businesses ($500K-2M)
+8-15% of annual revenue for large businesses ($2M+)
+
+Realistic Labor Cost Calculations:
+Base Hourly Rates by Business Size:
+
+Solo/Small (under $100K revenue): $25-40/hour for owner time
+Small Team ($100K-500K): $30-50/hour average
+Medium ($500K-2M): $40-75/hour average
+Large ($2M+): $50-100/hour average
+
+Updated Savings Categories:
+Labor Cost Reduction (40-50% of total savings):
+
+Calculate based on: (Hours saved per week × Hourly rate × 50 weeks)
+Cap at 60% of current manual task time (not 100% - some human oversight needed)
+Maximum 25 hours/week savings for small businesses
+
+Revenue Growth (25-35% of total savings):
+
+Conversion rate improvements: 2-8% increase realistic
+Average order value: 5-15% increase realistic
+Customer retention: 10-25% improvement realistic
+Cap revenue growth at 15-30% of current revenue
+
+Tool Consolidation (10-20% of total savings):
+
+Can only save what they're currently spending on tools
+Typical savings: 20-50% of current tool costs
+Add cost of new AI tools to offset some savings
+
+Efficiency Gains (15-25% of total savings):
+
+Process improvements and faster execution
+Reduced errors and rework
+Better resource allocation
+
+Realistic Service Pricing Integration:
+Show Investment Requirements:
+Implementation Costs:
+
+Small Business ($50K-300K revenue): $10K-25K setup + $2K-5K/month
+Medium Business ($300K-1M revenue): $20K-40K setup + $4K-8K/month
+Large Business ($1M+ revenue): $30K-60K setup + $6K-15K/month
+
+Updated ROI Display:
+Annual Savings: $XX,XXX
+Annual Investment: $XX,XXX  
+Net Benefit: $XX,XXX
+ROI Percentage: XXX%
+Payback Period: X months
+Business-Type Specific Logic:
+E-commerce:
+
+Focus on cart recovery, inventory optimization, customer service
+Revenue growth: 10-25% realistic through conversion optimization
+High automation potential for order processing
+
+Coaching Business:
+
+Client onboarding, content delivery, lead nurturing automation
+Revenue growth: 15-40% through better lead conversion and retention
+Significant time savings on admin tasks
+
+Course Creator:
+
+Student support automation, content delivery, sales funnel optimization
+Revenue growth: 20-50% through improved funnel conversion
+Major time savings on student support
+
+SaaS:
+
+User onboarding, churn reduction, customer success automation
+Revenue growth: 10-30% through reduced churn and expansion
+High efficiency gains in customer operations
+
+Updated Calculation Examples:
+Small Coaching Business ($15K/month revenue):
+
+Annual Revenue: $180K
+Realistic Savings: $25K-35K annually
+Service Investment: $40K-50K annually
+Net ROI: 50-75% (still attractive!)
+Payback: 12-18 months
+
+Medium E-commerce ($75K/month revenue):
+
+Annual Revenue: $900K
+Realistic Savings: $80K-120K annually
+Service Investment: $70K-90K annually
+Net ROI: 40-80%
+Payback: 8-12 months
+
+Key Messaging Updates:
+Honest Value Proposition:
+
+"Typically see 150-300% ROI over 18 months"
+"Average payback period: 8-15 months"
+"Most clients save 10-25% of operational costs"
+"Revenue growth of 15-40% through automation"
+
+Professional Disclaimers:
+
+"Results based on average client outcomes"
+"Individual results may vary based on implementation"
+"ROI calculated over 12-18 month period"
+"Investment required for maximum benefits"
+
+The goal is to show compelling but believable ROI that justifies your premium pricing while setting realistic expectations for serious business owners.
