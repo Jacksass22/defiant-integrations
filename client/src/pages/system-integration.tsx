@@ -523,25 +523,25 @@ export default function SystemIntegration() {
             {[
               {
                 category: "E-commerce Platforms",
-                technologies: ["Shopify", "WooCommerce", "Magento", "BigCommerce", "and many more"],
+                technologies: ["Shopify", "WooCommerce", "Magento", "BigCommerce"],
                 color: "green",
                 icon: <BarChart3 className="w-6 h-6" />
               },
               {
                 category: "CRM & Sales",
-                technologies: ["Salesforce", "HubSpot", "Pipedrive", "Zoho CRM", "and many more"],
+                technologies: ["Salesforce", "HubSpot", "Pipedrive", "Zoho CRM"],
                 color: "blue",
                 icon: <Users className="w-6 h-6" />
               },
               {
                 category: "Databases & Storage",
-                technologies: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "and many more"],
+                technologies: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
                 color: "purple",
                 icon: <Database className="w-6 h-6" />
               },
               {
                 category: "Cloud Platforms",
-                technologies: ["AWS", "Azure", "Google Cloud", "DigitalOcean", "and many more"],
+                technologies: ["AWS", "Azure", "Google Cloud", "DigitalOcean"],
                 color: "orange",
                 icon: <Cloud className="w-6 h-6" />
               }
@@ -569,10 +569,17 @@ export default function SystemIntegration() {
               </motion.div>
             ))}
           </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-lg text-gray-600 font-medium">
+              ...and many more platforms and technologies
+            </p>
+            <p className="text-gray-500 mt-2">
+              We integrate with virtually any system your business uses
+            </p>
+          </div>
         </div>
       </section>
-
-
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-br from-blue-600 to-cyan-700">
