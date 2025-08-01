@@ -1,0 +1,167 @@
+Replit Code Agent Prompt: ROI Calculator Visual & Functionality Enhancement
+Transform the current ROI calculator into a sophisticated, McKinsey-level tool that looks premium and provides more realistic, detailed calculations. Make it feel like a world-class business intelligence platform.
+Visual Enhancement Requirements:
+Premium Calculator Interface:
+Replace basic dropdowns with sophisticated inputs:
+
+Slider Controls: Interactive sliders with real-time value updates for all numerical inputs
+Smart Input Fields: Auto-formatting currency and percentage fields with elegant styling
+Progressive Disclosure: Show/hide advanced options with smooth animations
+Visual Feedback: Real-time chart updates as users adjust inputs
+Premium Typography: Sophisticated font hierarchy with better spacing
+
+Advanced Calculator Layout:
+Multi-Step Calculator Experience:
+
+Step 1: Business Basics (Revenue, Team Size, Industry)
+Step 2: Current Operations (Hours, Costs, Pain Points)
+Step 3: Goals & Targets (Growth objectives, Automation priorities)
+Step 4: Results Dashboard (Comprehensive ROI breakdown)
+
+Enhanced Visual Design:
+Premium Card Design:
+
+Glass morphism effects on calculator cards
+Sophisticated shadows and depth for floating appearance
+Animated gradient backgrounds that respond to user interactions
+Professional color palette with your brand blues, greens, and accent colors
+Micro-animations on all interactive elements
+
+Realistic Calculator Improvements:
+More Detailed Input Categories:
+Business Information:
+
+Monthly Revenue: $5K, $10K-25K, $25K-50K, $50K-100K, $100K-250K, $250K-500K, $500K+
+Business Type: E-commerce Store, Online Coach, Course Creator, SaaS, Agency, Consulting
+Years in Business: <1, 1-2, 3-5, 5-10, 10+ (affects baseline efficiency)
+Team Structure: Solo, 2-5 people, 6-15 people, 16-50 people, 50+ people
+
+Current Operations Detail:
+
+Customer Service Hours/Week: 0-5, 5-15, 15-30, 30-50, 50+ hours
+Marketing/Content Hours/Week: 0-10, 10-20, 20-40, 40+ hours
+Administrative Tasks Hours/Week: 0-10, 10-20, 20-30, 30+ hours
+Order Processing/Fulfillment Hours/Week: 0-5, 5-15, 15-30, 30+ hours
+
+Current Tool Stack & Costs:
+
+Email Marketing: $0-50, $50-200, $200-500, $500+ monthly
+CRM/Sales Tools: $0-100, $100-300, $300-800, $800+ monthly
+Customer Service Tools: $0-50, $50-150, $150-400, $400+ monthly
+Analytics/Tracking: $0-100, $100-300, $300+ monthly
+Other Business Tools: $0-200, $200-500, $500-1000, $1000+ monthly
+
+Realistic ROI Calculations:
+Labor Cost Calculations:
+
+Calculate hourly rate based on revenue/business size (more realistic than flat rate)
+Factor in opportunity cost (time spent on manual tasks vs growth activities)
+Include hiring cost avoidance (when automation prevents need for additional staff)
+
+Revenue Impact Calculations:
+
+Conversion rate improvements based on business type and current performance
+Average order value increases through AI recommendations
+Customer lifetime value improvements through better retention
+Lead generation efficiency gains
+
+Implementation Timeline:
+
+Phase 1 (Months 1-2): Initial setup and basic automation (25% of benefits)
+Phase 2 (Months 3-4): Advanced features and optimization (50% of benefits)
+Phase 3 (Months 5-6): Full implementation and scaling (75% of benefits)
+Phase 4 (Months 7-12): Optimization and additional features (100% of benefits)
+
+Enhanced Results Display:
+Comprehensive Dashboard:
+Main Metrics Card:
+
+Annual Savings: Large, prominent display with animation
+Monthly ROI: Progressive increase over 12 months
+Payback Period: Visual timeline with milestones
+Efficiency Gain: Percentage improvement with before/after comparison
+
+Detailed Breakdown:
+
+Time Savings: Hours saved per week → Monthly → Annually
+Cost Avoidance: Tools consolidation, hiring prevention, operational efficiency
+Revenue Growth: Conversion improvements, AOV increases, retention gains
+Competitive Advantage: Market positioning, scalability, future-proofing
+
+Interactive Charts & Visualizations:
+Professional Data Visualization:
+
+ROI Timeline: 12-month projection with milestones
+Savings Breakdown: Interactive pie chart showing sources of savings
+Before/After Comparison: Side-by-side operational efficiency charts
+Cumulative Benefits: Stacked area chart showing compound savings over time
+
+Industry-Specific Results:
+Tailored Projections by Business Type:
+
+E-commerce: Focus on cart recovery, inventory optimization, customer service automation
+Online Coaches: Emphasize client onboarding, content automation, lead nurturing
+Course Creators: Highlight student support automation, content delivery, sales funnels
+SaaS: Feature user onboarding, churn reduction, customer success automation
+
+Advanced Features:
+Smart Recommendations:
+AI-Powered Suggestions:
+
+Based on inputs, suggest specific automation priorities
+Recommend implementation sequence for maximum impact
+Identify quick wins vs long-term investments
+Compare different automation strategies
+
+Scenario Planning:
+Multiple ROI Scenarios:
+
+Conservative estimate (lower-bound projections)
+Realistic estimate (based on average client results)
+Optimistic estimate (upper-bound potential)
+Custom scenario builder for specific goals
+
+Competitive Benchmarking:
+Industry Comparisons:
+
+Show how user's current efficiency compares to industry standards
+Display potential competitive advantages from automation
+Highlight risks of not adopting AI/automation solutions
+
+Technical Implementation:
+Interactive Elements:
+Advanced UI Components:
+
+Range sliders with custom styling and value displays
+Toggle switches for feature selections
+Progress indicators showing calculation completeness
+Animated counters for result displays
+Smooth transitions between calculation steps
+
+Real-Time Calculations:
+Sophisticated Calculation Engine:
+
+Debounced updates for smooth performance
+Complex formulas considering multiple variables and interactions
+Validation logic to ensure realistic inputs and outputs
+Error handling with helpful guidance for users
+
+Professional Polish:
+McKinsey-Level Presentation:
+
+Loading animations during calculations
+Success animations when results are displayed
+Export functionality for results (PDF report)
+Email capture for detailed analysis delivery
+Social proof integration showing calculation usage stats
+
+Call-to-Action Enhancement:
+Contextual CTAs:
+Smart Next Steps:
+
+High ROI Results: "Schedule Implementation Strategy Call"
+Medium ROI Results: "Explore Specific Solutions"
+Learning Mode: "Download Complete ROI Analysis"
+Comparison Shopping: "See Client Case Studies"
+
+The goal is to create a calculator that feels like enterprise-grade business intelligence software while being accessible to online business owners. It should inspire confidence in your expertise and make the value proposition absolutely irresistible.
