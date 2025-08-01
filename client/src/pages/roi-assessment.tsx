@@ -855,7 +855,7 @@ export default function ROIAssessment() {
                       </div>
                       <div>
                         <div className="text-sm opacity-80">Monthly Service</div>
-                        <div className="text-2xl font-bold">${(calculatedROI.annualServiceCost / 12).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className="text-2xl font-bold">${Math.round(calculatedROI.annualServiceCost / 12).toLocaleString()}</div>
                         <div className="text-xs opacity-70">Per month</div>
                       </div>
                       <div>
@@ -1082,9 +1082,7 @@ export default function ROIAssessment() {
                       <button className="bg-white text-blue-600 font-semibold py-4 px-8 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl">
                         Schedule Strategy Session
                       </button>
-                      <button className="border-2 border-white text-white font-semibold py-4 px-8 rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300">
-                        Download Full Report
-                      </button>
+
                     </div>
                   </motion.div>
 
