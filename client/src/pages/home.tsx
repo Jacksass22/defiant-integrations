@@ -676,7 +676,7 @@ export default function Home() {
                 <div className="text-white text-2xl sm:text-3xl font-bold relative z-10">FUTURE</div>
               </div>
               <div className="p-6 sm:p-8">
-                <div className="text-sm text-gray-500 mb-2">July 31, 2025</div>
+                <div className="text-sm text-gray-500 mb-2">August, 2025</div>
                 <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
                   AI in 2025: What Comes Next for Intelligent Systems
                 </h3>
