@@ -344,13 +344,9 @@ export default function Home() {
                     Revenue Optimization
                   </h4>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed">
                   Transform your website visitors into paying customers with <span className="font-semibold text-gray-800">AI-powered conversion tools</span>, dynamic pricing algorithms, and intelligent sales funnels that automatically adapt to user behavior patterns and market conditions.
                 </p>
-                <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors">
-                  <span>Learn more</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </div>
               </div>
             </div>
 
@@ -393,13 +389,9 @@ export default function Home() {
                     Scaling Solutions
                   </h4>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed">
                   Build robust infrastructure that grows seamlessly with your business demands, featuring <span className="font-semibold text-gray-800">cloud-native architectures</span>, automated load balancing, and intelligent resource allocation that scales from startup to enterprise-level traffic.
                 </p>
-                <div className="flex items-center text-emerald-600 font-medium text-sm group-hover:text-emerald-700 transition-colors">
-                  <span>Learn more</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </div>
               </div>
             </div>
           </div>
@@ -445,13 +437,9 @@ export default function Home() {
                     Customer Retention
                   </h4>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed">
                   Keep customers engaged and coming back with <span className="font-semibold text-gray-800">intelligent engagement systems</span>, personalized communication workflows, loyalty program automation, and predictive analytics that identify at-risk customers before they churn.
                 </p>
-                <div className="flex items-center text-violet-600 font-medium text-sm group-hover:text-violet-700 transition-colors">
-                  <span>Learn more</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </div>
               </div>
             </div>
 
@@ -494,13 +482,9 @@ export default function Home() {
                     Automation-First
                   </h4>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed">
                   Free up your valuable time to focus on strategic growth by automating repetitive tasks, streamlining operations with <span className="font-semibold text-gray-800">intelligent workflows</span>, and implementing smart systems that handle everything from customer service to inventory management.
                 </p>
-                <div className="flex items-center text-amber-600 font-medium text-sm group-hover:text-amber-700 transition-colors">
-                  <span>Learn more</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </div>
               </div>
             </div>
           </div>
