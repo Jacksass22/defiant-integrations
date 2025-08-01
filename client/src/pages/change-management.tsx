@@ -616,20 +616,25 @@ export default function ChangeManagement() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`bg-white rounded-3xl p-8 shadow-lg ${tier.featured ? 'ring-2 ring-blue-600 scale-105' : ''}`}
+                whileHover={{ 
+                  y: -8, 
+                  scale: tier.featured ? 1.05 : 1.02,
+                  transition: { duration: 0.3 }
+                }}
+                className={`bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group ${tier.featured ? 'ring-2 ring-blue-600 scale-105' : ''}`}
               >
                 <div className="text-center mb-6">
-                  <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">{tier.title}</h3>
-                  <p className="text-gray-600 mb-4">{tier.subtitle}</p>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{tier.price}</div>
-                  <p className="text-gray-600">{tier.description}</p>
+                  <h3 className="font-serif text-2xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 mb-2">{tier.title}</h3>
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 mb-4">{tier.subtitle}</p>
+                  <div className="text-3xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300 mb-2">{tier.price}</div>
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{tier.description}</p>
                 </div>
                 
                 <ul className="space-y-3">
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <CheckCircle className="w-5 h-5 text-green-600 group-hover:text-green-700 transition-colors duration-300 flex-shrink-0" />
+                      <span className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -653,14 +658,24 @@ export default function ChangeManagement() {
                 { phase: "Phase 3", time: "Weeks 7-12", title: "Full rollout and adoption support" },
                 { phase: "Phase 4", time: "Months 4-6", title: "Integration and optimization" }
               ].map((phase, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">
+                <motion.div 
+                  key={index} 
+                  className="text-center group cursor-pointer"
+                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                >
+                  <motion.div 
+                    className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4 group-hover:bg-blue-700 transition-colors duration-300"
+                    whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
+                  >
                     {index + 1}
-                  </div>
-                  <div className="font-semibold text-gray-900 mb-1">{phase.phase}</div>
-                  <div className="text-sm text-blue-600 font-medium mb-2">{phase.time}</div>
-                  <div className="text-sm text-gray-600">{phase.title}</div>
-                </div>
+                  </motion.div>
+                  <div className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 mb-1">{phase.phase}</div>
+                  <div className="text-sm text-blue-600 group-hover:text-blue-700 transition-colors duration-300 font-medium mb-2">{phase.time}</div>
+                  <div className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{phase.title}</div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
