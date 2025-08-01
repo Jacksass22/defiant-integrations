@@ -692,39 +692,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              {
-                date: "July 7, 2025",
-                title: "Digital transformation at scale: Lessons from 1,000+ implementations",
-                description: "Key insights from our analysis of successful digital transformation initiatives across industries."
-              },
-              {
-                date: "July 6, 2025", 
-                title: "The economics of AI: ROI frameworks that work",
-                description: "Evidence-based approaches to measuring and optimizing AI investment returns."
-              },
-              {
-                date: "July 5, 2025",
-                title: "Change management in the age of AI",
-                description: "Strategies for leading organizational transformation in rapidly evolving technological landscapes."
-              }
-            ].map((article, index) => (
-              <div key={index} className="bg-white p-4 sm:p-6 shadow-lg">
-                <div className="text-sm text-gray-500 mb-2">{article.date}</div>
-                <h3 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  {article.title}
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  {article.description}
-                </p>
-                <button className="text-blue-600 font-medium hover:underline text-sm">
-                  Read more
-                </button>
-              </div>
-            ))}
-          </div>
+
         </div>
       </section>
       {/* Footer */}
