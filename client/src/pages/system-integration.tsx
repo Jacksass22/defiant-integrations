@@ -523,25 +523,25 @@ export default function SystemIntegration() {
             {[
               {
                 category: "E-commerce Platforms",
-                technologies: ["Shopify", "WooCommerce", "Magento", "BigCommerce"],
+                technologies: ["Shopify", "WooCommerce", "Magento", "BigCommerce", "and many more"],
                 color: "green",
                 icon: <BarChart3 className="w-6 h-6" />
               },
               {
                 category: "CRM & Sales",
-                technologies: ["Salesforce", "HubSpot", "Pipedrive", "Zoho CRM"],
+                technologies: ["Salesforce", "HubSpot", "Pipedrive", "Zoho CRM", "and many more"],
                 color: "blue",
                 icon: <Users className="w-6 h-6" />
               },
               {
                 category: "Databases & Storage",
-                technologies: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+                technologies: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "and many more"],
                 color: "purple",
                 icon: <Database className="w-6 h-6" />
               },
               {
                 category: "Cloud Platforms",
-                technologies: ["AWS", "Azure", "Google Cloud", "DigitalOcean"],
+                technologies: ["AWS", "Azure", "Google Cloud", "DigitalOcean", "and many more"],
                 color: "orange",
                 icon: <Cloud className="w-6 h-6" />
               }
