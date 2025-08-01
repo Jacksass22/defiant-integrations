@@ -150,9 +150,6 @@ export function Navigation() {
           <div className="hidden lg:flex items-center space-x-10">
             <MegaMenu title="Industries" sections={industriesData} />
             <MegaMenu title="Capabilities" sections={capabilitiesData} />
-            <Link href="/insights" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
-              Featured Insights
-            </Link>
             <Link href="/careers" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
               Careers
             </Link>
@@ -186,9 +183,6 @@ export function Navigation() {
             </Link>
             <Link href="/capabilities" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Capabilities
-            </Link>
-            <Link href="/insights" className="block text-white hover:text-gray-300 transition-colors font-medium">
-              Featured Insights
             </Link>
             <Link href="/careers" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Careers
