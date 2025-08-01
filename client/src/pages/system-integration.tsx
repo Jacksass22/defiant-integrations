@@ -89,66 +89,76 @@ export default function SystemIntegration() {
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
                 <h3 className="font-semibold text-lg text-gray-900 mb-6">System Integration Architecture</h3>
                 
-                {/* Clean Integration Flow */}
-                <div className="space-y-6">
-                  {/* Input Systems Row */}
-                  <div className="flex justify-between items-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-xl flex flex-col items-center justify-center text-green-600">
-                      <Database className="w-5 h-5" />
-                      <span className="text-xs mt-1 font-medium">Database</span>
+                {/* Hub and Spoke Integration Architecture */}
+                <div className="relative h-80 flex items-center justify-center">
+                  {/* Central AI Hub */}
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                      <GitMerge className="w-8 h-8 text-white" />
                     </div>
-                    <div className="w-16 h-16 bg-purple-100 rounded-xl flex flex-col items-center justify-center text-purple-600">
-                      <Settings className="w-5 h-5" />
-                      <span className="text-xs mt-1 font-medium">CRM</span>
-                    </div>
-                    <div className="w-16 h-16 bg-blue-100 rounded-xl flex flex-col items-center justify-center text-blue-600">
-                      <Cloud className="w-5 h-5" />
-                      <span className="text-xs mt-1 font-medium">Cloud</span>
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+                      <span className="text-sm font-semibold text-gray-900 bg-white px-2 py-1 rounded shadow">AI Hub</span>
                     </div>
                   </div>
                   
-                  {/* Flow Arrows */}
-                  <div className="flex justify-center">
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="w-0.5 h-8 bg-gradient-to-b from-gray-400 to-blue-600"></div>
-                      <ArrowRight className="w-5 h-5 text-blue-600 rotate-90" />
-                      <div className="w-0.5 h-8 bg-gradient-to-b from-blue-600 to-gray-400"></div>
+                  {/* Connected Systems with Arms */}
+                  {[
+                    { icon: <Database className="w-4 h-4" />, label: "Database", color: "green", position: { top: "10%", left: "15%" }, angle: 45 },
+                    { icon: <Cloud className="w-4 h-4" />, label: "Cloud", color: "blue", position: { top: "5%", left: "50%" }, angle: 90 },
+                    { icon: <Settings className="w-4 h-4" />, label: "CRM", color: "purple", position: { top: "10%", right: "15%" }, angle: 135 },
+                    { icon: <Users className="w-4 h-4" />, label: "Sales", color: "cyan", position: { right: "5%", top: "40%" }, angle: 180 },
+                    { icon: <BarChart3 className="w-4 h-4" />, label: "Analytics", color: "orange", position: { bottom: "10%", right: "15%" }, angle: 225 },
+                    { icon: <Workflow className="w-4 h-4" />, label: "ERP", color: "indigo", position: { bottom: "5%", left: "50%" }, angle: 270 },
+                    { icon: <Shield className="w-4 h-4" />, label: "Security", color: "red", position: { bottom: "10%", left: "15%" }, angle: 315 },
+                    { icon: <Server className="w-4 h-4" />, label: "Apps", color: "gray", position: { left: "5%", top: "40%" }, angle: 0 }
+                  ].map((system, index) => (
+                    <div key={index}>
+                      {/* Connection Line/Arm */}
+                      <div 
+                        className="absolute w-16 h-0.5 bg-gradient-to-r from-blue-400 to-transparent origin-left z-0"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                          transform: `translate(-50%, -50%) rotate(${system.angle}deg)`,
+                          transformOrigin: 'left center'
+                        }}
+                      />
+                      
+                      {/* System Node */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 * index }}
+                        className={`absolute w-12 h-12 bg-${system.color}-100 rounded-xl flex flex-col items-center justify-center text-${system.color}-600 hover:bg-${system.color}-200 transition-all duration-300 cursor-pointer shadow-md border border-${system.color}-200`}
+                        style={system.position}
+                      >
+                        {system.icon}
+                        <span className="text-xs mt-0.5 font-medium">{system.label}</span>
+                      </motion.div>
                     </div>
-                  </div>
+                  ))}
                   
-                  {/* Central AI Integration Hub */}
-                  <div className="flex justify-center">
-                    <div className="w-24 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center">
-                      <div className="text-center">
-                        <GitMerge className="w-6 h-6 text-white mx-auto mb-1" />
-                        <span className="text-xs text-white font-semibold">AI Hub</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Flow Arrows */}
-                  <div className="flex justify-center">
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="w-0.5 h-8 bg-gradient-to-b from-gray-400 to-blue-600"></div>
-                      <ArrowRight className="w-5 h-5 text-blue-600 rotate-90" />
-                      <div className="w-0.5 h-8 bg-gradient-to-b from-blue-600 to-gray-400"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Output Systems Row */}
-                  <div className="flex justify-between items-center">
-                    <div className="w-16 h-16 bg-orange-100 rounded-xl flex flex-col items-center justify-center text-orange-600">
-                      <BarChart3 className="w-5 h-5" />
-                      <span className="text-xs mt-1 font-medium">Analytics</span>
-                    </div>
-                    <div className="w-16 h-16 bg-red-100 rounded-xl flex flex-col items-center justify-center text-red-600">
-                      <Shield className="w-5 h-5" />
-                      <span className="text-xs mt-1 font-medium">Security</span>
-                    </div>
-                    <div className="w-16 h-16 bg-indigo-100 rounded-xl flex flex-col items-center justify-center text-indigo-600">
-                      <Workflow className="w-5 h-5" />
-                      <span className="text-xs mt-1 font-medium">ERP</span>
-                    </div>
+                  {/* Data Flow Indicators */}
+                  <div className="absolute inset-0 pointer-events-none">
+                    {[...Array(8)].map((_, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ 
+                          duration: 2, 
+                          delay: 1 + index * 0.2,
+                          repeat: Infinity,
+                          repeatDelay: 3
+                        }}
+                        className="absolute w-2 h-2 bg-blue-400 rounded-full"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                          transform: `translate(-50%, -50%) rotate(${45 * index}deg) translateX(25px)`
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
                 
