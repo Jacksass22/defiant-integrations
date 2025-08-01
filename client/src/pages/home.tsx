@@ -6,6 +6,7 @@ import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
 import Noise from '@/components/Noise';
 import ScrollVelocity from '@/components/ScrollVelocity';
+import ShinyText from '@/components/ShinyText';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -356,7 +357,11 @@ export default function Home() {
             {/* Online Business Solutions Scroll Animation */}
             <div className="mt-12">
               <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-8 text-center">
-                Online Business Solutions We Implement
+                <ShinyText 
+                  text="Online Business Solutions We Implement" 
+                  speed={6}
+                  className="font-serif text-lg sm:text-xl font-bold"
+                />
               </h4>
               <div className="relative">
                 <ScrollVelocity
@@ -365,8 +370,8 @@ export default function Home() {
                     "Customer segmentation and personalized marketing · Automated review and testimonial collection · Social proof and urgency widgets · Affiliate and influencer management systems · and more ·"
                   ]}
                   velocity={50}
-                  className="text-gray-600"
-                  scrollerClassName="flex whitespace-nowrap text-center font-sans text-sm sm:text-base font-medium tracking-wide drop-shadow-sm py-4"
+                  className="text-gray-800"
+                  scrollerClassName="flex whitespace-nowrap text-center font-sans text-base sm:text-lg lg:text-xl font-semibold tracking-wide drop-shadow-sm py-6"
                 />
               </div>
             </div>
