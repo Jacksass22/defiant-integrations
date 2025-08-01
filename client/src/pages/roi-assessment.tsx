@@ -1,4 +1,4 @@
-import { ArrowRight, TrendingUp, Clock, DollarSign, Users, BarChart3, Target, Zap, ChevronRight, Check, Building2, Calendar, Briefcase, ShoppingCart, GraduationCap, Laptop, HeadphonesIcon, Info } from 'lucide-react';
+import { ArrowRight, TrendingUp, Clock, DollarSign, Users, BarChart3, Target, Zap, ChevronRight, Check, Building2, Calendar, Briefcase, ShoppingCart, GraduationCap, Laptop, HeadphonesIcon, Info, Store, Home, Wrench, Heart, Package, MoreHorizontal } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useState, useEffect } from 'react';
@@ -50,6 +50,12 @@ export default function ROIAssessment() {
     revenueGrowth: 42000,
     efficiencyGains: 12000,
     
+    // Investment costs
+    setupCost: 30000,
+    annualServiceCost: 72000,
+    totalAnnualInvestment: 102000,
+    netAnnualBenefit: 54000,
+    
     // Timeline projections
     month3Savings: 19500,
     month6Savings: 58500,
@@ -68,22 +74,29 @@ export default function ROIAssessment() {
     course: GraduationCap,
     saas: Laptop,
     agency: Briefcase,
-    consulting: Building2
+    consulting: Building2,
+    retail: Store,
+    realestate: Home,
+    trades: Wrench,
+    healthcare: Heart,
+    logistics: Package,
+    other: MoreHorizontal
   };
 
   // Enhanced ROI Calculation Function
   const calculateROI = () => {
     setIsCalculating(true);
     
-    // Revenue mapping
+    // Revenue mapping (monthly values)
     const revenueMap: { [key: string]: number } = {
       '5k': 5000, '10k-25k': 17500, '25k-50k': 37500, '50k-100k': 75000, 
-      '100k': 175000, '250k': 375000, '500k': 750000
+      '100k-250k': 175000, '250k-500k': 375000, '500k-1m': 750000, '1m+': 1500000
     };
     
     // Business type multipliers
     const businessMultipliers: { [key: string]: number } = {
-      ecommerce: 1.2, coach: 1.1, course: 1.3, saas: 1.4, agency: 1.0, consulting: 1.1
+      ecommerce: 1.2, coach: 1.1, course: 1.3, saas: 1.4, agency: 1.0, consulting: 1.1,
+      retail: 1.0, realestate: 0.9, trades: 0.8, healthcare: 1.0, logistics: 1.1, other: 1.0
     };
     
     // Years in business efficiency factor
@@ -131,36 +144,80 @@ export default function ROIAssessment() {
     const otherCost = costMap[roiData.otherToolsCost] || 350;
     const totalMonthlyToolCost = emailCost + crmCost + serviceCost + analyticsCost + otherCost;
     
-    // Calculate hourly rate based on revenue and team size
-    const effectiveHourlyRate = Math.min(150, Math.max(50, (monthlyRevenue / (teamSize * 160))));
+    // Calculate hourly rate based on revenue (more realistic rates)
+    let effectiveHourlyRate;
+    const annualRevenue = monthlyRevenue * 12;
+    if (annualRevenue < 100000) {
+      effectiveHourlyRate = 30; // $25-40/hour for small businesses
+    } else if (annualRevenue < 500000) {
+      effectiveHourlyRate = 40; // $30-50/hour average
+    } else if (annualRevenue < 2000000) {
+      effectiveHourlyRate = 55; // $40-75/hour average
+    } else {
+      effectiveHourlyRate = 75; // $50-100/hour average
+    }
     
-    // Labor savings calculation (more sophisticated)
-    const automationRate = 0.65 * yearsFactor; // 65% automation adjusted by experience
-    const weeklyLaborSavings = totalWeeklyHours * automationRate * effectiveHourlyRate;
+    // Labor savings calculation (capped at 60% automation)
+    const automationRate = Math.min(0.6, 0.5 * yearsFactor); // Max 60% automation
+    const maxWeeklySavings = teamSize < 2 ? 25 : totalWeeklyHours * 0.6; // Max 25 hrs/week for small businesses
+    const weeklyLaborSavings = Math.min(maxWeeklySavings, totalWeeklyHours * automationRate) * effectiveHourlyRate;
     const monthlyLaborSavings = weeklyLaborSavings * 4.33;
     
-    // Tool consolidation savings
-    const toolConsolidationRate = 0.35; // 35% reduction in tool costs
+    // Tool consolidation savings (more conservative)
+    const toolConsolidationRate = 0.3; // 30% reduction in tool costs
     const monthlyToolSavings = totalMonthlyToolCost * toolConsolidationRate;
     
-    // Revenue growth calculations
-    const baseConversionImprovement = 0.15; // 15% base improvement
+    // Revenue growth calculations (more realistic)
+    let baseConversionImprovement;
+    if (roiData.businessType === 'course') {
+      baseConversionImprovement = 0.08; // 8% for course creators
+    } else if (roiData.businessType === 'saas') {
+      baseConversionImprovement = 0.06; // 6% for SaaS
+    } else if (roiData.businessType === 'coach') {
+      baseConversionImprovement = 0.1; // 10% for coaches
+    } else {
+      baseConversionImprovement = 0.05; // 5% base improvement
+    }
     const conversionImprovement = baseConversionImprovement * businessMultiplier * yearsFactor;
     const monthlyRevenueGrowth = monthlyRevenue * conversionImprovement;
     
-    // Efficiency gains (opportunity cost)
-    const efficiencyMultiplier = 0.1; // 10% efficiency gains
+    // Efficiency gains (more conservative)
+    const efficiencyMultiplier = 0.05; // 5% efficiency gains
     const monthlyEfficiencyGains = monthlyRevenue * efficiencyMultiplier * yearsFactor;
     
-    // Total savings
-    const totalMonthlySavings = monthlyLaborSavings + monthlyToolSavings + monthlyRevenueGrowth + monthlyEfficiencyGains;
+    // Total savings before capping
+    let totalMonthlySavings = monthlyLaborSavings + monthlyToolSavings + monthlyRevenueGrowth + monthlyEfficiencyGains;
+    
+    // Apply revenue-based savings caps
+    let maxSavingsRate;
+    if (annualRevenue < 500000) {
+      maxSavingsRate = 0.2; // 20% max for small businesses
+    } else if (annualRevenue < 2000000) {
+      maxSavingsRate = 0.15; // 15% for medium businesses
+    } else {
+      maxSavingsRate = 0.12; // 12% for large businesses
+    }
+    
+    const maxMonthlySavings = monthlyRevenue * maxSavingsRate;
+    totalMonthlySavings = Math.min(totalMonthlySavings, maxMonthlySavings);
     const annualSavings = totalMonthlySavings * 12;
     
-    // Implementation cost (more sophisticated)
-    const baseCost = 15000;
-    const teamCost = teamSize * 2000;
-    const revenueFactor = monthlyRevenue > 100000 ? 1.5 : 1.0;
-    const implementationCost = (baseCost + teamCost) * revenueFactor;
+    // Implementation cost based on business size
+    let setupCost, monthlyCost;
+    if (annualRevenue < 300000) {
+      setupCost = 15000; // $10K-25K setup
+      monthlyCost = 3500; // $2K-5K/month
+    } else if (annualRevenue < 1000000) {
+      setupCost = 30000; // $20K-40K setup
+      monthlyCost = 6000; // $4K-8K/month
+    } else {
+      setupCost = 45000; // $30K-60K setup
+      monthlyCost = 10000; // $6K-15K/month
+    }
+    
+    const annualServiceCost = monthlyCost * 12;
+    const totalAnnualInvestment = setupCost + annualServiceCost;
+    const netAnnualBenefit = annualSavings - totalAnnualInvestment;
     
     // Timeline calculations
     const month3Savings = totalMonthlySavings * 3 * 0.25; // 25% realized by month 3
@@ -168,9 +225,9 @@ export default function ROIAssessment() {
     const month12Savings = annualSavings; // 100% realized by month 12
     
     // Final calculations
-    const paybackMonths = Math.ceil(implementationCost / totalMonthlySavings);
-    const roiPercentage = Math.round((annualSavings / implementationCost) * 100);
-    const weeklyHoursSaved = Math.round(totalWeeklyHours * automationRate);
+    const paybackMonths = netAnnualBenefit > 0 ? Math.ceil(setupCost / (netAnnualBenefit / 12)) : 24;
+    const roiPercentage = totalAnnualInvestment > 0 ? Math.round((netAnnualBenefit / totalAnnualInvestment) * 100) : 0;
+    const weeklyHoursSaved = Math.round(Math.min(maxWeeklySavings, totalWeeklyHours * automationRate));
     const efficiencyGain = Math.round(automationRate * 100);
     const revenueIncrease = Math.round(conversionImprovement * 100);
     
@@ -194,6 +251,12 @@ export default function ROIAssessment() {
         toolConsolidation: Math.round(monthlyToolSavings * 12),
         revenueGrowth: Math.round(monthlyRevenueGrowth * 12),
         efficiencyGains: Math.round(monthlyEfficiencyGains * 12),
+        
+        // Investment costs
+        setupCost: setupCost,
+        annualServiceCost: annualServiceCost,
+        totalAnnualInvestment: totalAnnualInvestment,
+        netAnnualBenefit: Math.round(netAnnualBenefit),
         
         // Timeline projections
         month3Savings: Math.round(month3Savings),
@@ -260,18 +323,18 @@ export default function ROIAssessment() {
             <div className="bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-2xl p-6 max-w-2xl mx-auto shadow-xl">
               <div className="flex items-center justify-center gap-8">
                 <div>
-                  <div className="text-3xl font-bold">385%</div>
-                  <div className="text-sm opacity-90">Average ROI</div>
+                  <div className="text-3xl font-bold">150-300%</div>
+                  <div className="text-sm opacity-90">ROI Over 18 Months</div>
                 </div>
                 <div className="h-12 w-px bg-white/30"></div>
                 <div>
-                  <div className="text-3xl font-bold">4-6</div>
+                  <div className="text-3xl font-bold">8-15</div>
                   <div className="text-sm opacity-90">Month Payback</div>
                 </div>
                 <div className="h-12 w-px bg-white/30"></div>
                 <div>
-                  <div className="text-3xl font-bold">$156K</div>
-                  <div className="text-sm opacity-90">Avg Annual Savings</div>
+                  <div className="text-3xl font-bold">10-25%</div>
+                  <div className="text-sm opacity-90">Operational Savings</div>
                 </div>
               </div>
             </div>
@@ -319,7 +382,7 @@ export default function ROIAssessment() {
 
           {/* Calculator Container */}
           <div className="max-w-4xl mx-auto">
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               {/* Step 1: Business Basics */}
               {currentStep === 1 && (
                 <motion.div
@@ -340,8 +403,8 @@ export default function ROIAssessment() {
                       <label className="block text-sm font-semibold text-gray-700 mb-3">
                         Current Monthly Revenue
                       </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        {['5k', '10k-25k', '25k-50k', '50k-100k', '100k', '250k', '500k'].map((value) => (
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        {['5k', '10k-25k', '25k-50k', '50k-100k', '100k-250k', '250k-500k', '500k-1m', '1m+'].map((value) => (
                           <button
                             key={value}
                             onClick={() => handleInputChange('revenue', value)}
@@ -362,20 +425,24 @@ export default function ROIAssessment() {
                       <label className="block text-sm font-semibold text-gray-700 mb-3">
                         Business Type
                       </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                         {Object.entries(businessTypeIcons).map(([type, Icon]) => (
                           <button
                             key={type}
                             onClick={() => handleInputChange('businessType', type)}
-                            className={`p-4 rounded-xl transition-all duration-200 ${
+                            className={`p-3 rounded-xl transition-all duration-200 ${
                               roiData.businessType === type
                                 ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                             }`}
                           >
-                            <Icon className="w-8 h-8 mx-auto mb-2" />
-                            <div className="text-sm font-medium capitalize">
-                              {type === 'ecommerce' ? 'E-commerce' : type}
+                            <Icon className="w-6 h-6 mx-auto mb-1" />
+                            <div className="text-xs font-medium">
+                              {type === 'ecommerce' ? 'E-commerce' : 
+                               type === 'realestate' ? 'Real Estate' :
+                               type === 'healthcare' ? 'Healthcare' :
+                               type === 'other' ? 'Other Industries' :
+                               type.charAt(0).toUpperCase() + type.slice(1)}
                             </div>
                           </button>
                         ))}
@@ -736,9 +803,9 @@ export default function ROIAssessment() {
                         className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center"
                       >
                         <div className="text-3xl sm:text-4xl font-bold mb-2">
-                          ${calculatedROI.annualSavings.toLocaleString()}
+                          ${calculatedROI.netAnnualBenefit.toLocaleString()}
                         </div>
-                        <div className="text-sm opacity-90">Annual Savings</div>
+                        <div className="text-sm opacity-90">Net Annual Benefit</div>
                       </motion.div>
                       
                       <motion.div
@@ -807,17 +874,44 @@ export default function ROIAssessment() {
                     </div>
                   </div>
 
+                  {/* Investment Overview */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-6 text-white mb-6"
+                  >
+                    <h3 className="font-semibold text-lg mb-4">Your Investment</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div>
+                        <div className="text-sm opacity-80">Setup Cost</div>
+                        <div className="text-2xl font-bold">${calculatedROI.setupCost.toLocaleString()}</div>
+                        <div className="text-xs opacity-70">One-time</div>
+                      </div>
+                      <div>
+                        <div className="text-sm opacity-80">Monthly Service</div>
+                        <div className="text-2xl font-bold">${(calculatedROI.annualServiceCost / 12).toLocaleString()}</div>
+                        <div className="text-xs opacity-70">Per month</div>
+                      </div>
+                      <div>
+                        <div className="text-sm opacity-80">Total Annual Investment</div>
+                        <div className="text-2xl font-bold">${calculatedROI.totalAnnualInvestment.toLocaleString()}</div>
+                        <div className="text-xs opacity-70">Year 1</div>
+                      </div>
+                    </div>
+                  </motion.div>
+
                   {/* Detailed Breakdown */}
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Savings Breakdown */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 }}
+                      transition={{ delay: 0.6 }}
                       className="bg-white rounded-2xl shadow-xl p-6"
                     >
                       <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">
-                        Annual Savings Breakdown
+                        Gross Annual Savings
                       </h3>
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
@@ -945,6 +1039,12 @@ export default function ROIAssessment() {
                           {roiData.businessType === 'saas' && "User onboarding flows, feature adoption campaigns, churn prevention"}
                           {roiData.businessType === 'agency' && "Project management automation, client reporting, resource allocation"}
                           {roiData.businessType === 'consulting' && "Proposal generation, meeting scheduling, knowledge management"}
+                          {roiData.businessType === 'retail' && "Inventory management, customer loyalty programs, staff scheduling"}
+                          {roiData.businessType === 'realestate' && "Lead qualification, property matching, automated follow-ups"}
+                          {roiData.businessType === 'trades' && "Job scheduling, quote generation, customer communication"}
+                          {roiData.businessType === 'healthcare' && "Appointment reminders, patient intake forms, billing automation"}
+                          {roiData.businessType === 'logistics' && "Route optimization, shipment tracking, customer notifications"}
+                          {roiData.businessType === 'other' && "Process automation, customer communication, operational efficiency"}
                         </p>
                       </div>
                       <div className="bg-white rounded-xl p-4">
@@ -957,6 +1057,12 @@ export default function ROIAssessment() {
                           {roiData.businessType === 'saas' && "Usage-based expansion, feature discovery, customer success automation"}
                           {roiData.businessType === 'agency' && "Service productization, white-label solutions, automated proposals"}
                           {roiData.businessType === 'consulting' && "Thought leadership automation, strategic insights delivery, client retention"}
+                          {roiData.businessType === 'retail' && "Omnichannel experiences, dynamic promotions, customer analytics"}
+                          {roiData.businessType === 'realestate' && "Virtual tours automation, market analysis, commission optimization"}
+                          {roiData.businessType === 'trades' && "Service area expansion, warranty automation, review generation"}
+                          {roiData.businessType === 'healthcare' && "Telehealth integration, patient engagement, outcome tracking"}
+                          {roiData.businessType === 'logistics' && "Fleet optimization, predictive maintenance, demand forecasting"}
+                          {roiData.businessType === 'other' && "Market expansion, process optimization, customer retention systems"}
                         </p>
                       </div>
                       <div className="bg-white rounded-xl p-4">
@@ -969,6 +1075,12 @@ export default function ROIAssessment() {
                           {roiData.businessType === 'saas' && "Proactive customer success, instant support, usage optimization"}
                           {roiData.businessType === 'agency' && "Faster turnaround times, consistent quality, scalable operations"}
                           {roiData.businessType === 'consulting' && "Data-driven insights, rapid analysis, always-on advisory"}
+                          {roiData.businessType === 'retail' && "Smart inventory management, personalized shopping, efficient operations"}
+                          {roiData.businessType === 'realestate' && "Instant lead response, market intelligence, automated nurturing"}
+                          {roiData.businessType === 'trades' && "Professional communication, instant quotes, reputation management"}
+                          {roiData.businessType === 'healthcare' && "Reduced wait times, better patient outcomes, streamlined operations"}
+                          {roiData.businessType === 'logistics' && "Real-time tracking, optimized routing, proactive communication"}
+                          {roiData.businessType === 'other' && "Automated workflows, enhanced customer experience, operational excellence"}
                         </p>
                       </div>
                     </div>
