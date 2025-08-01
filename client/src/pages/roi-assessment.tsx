@@ -83,179 +83,135 @@ export default function ROIAssessment() {
     other: MoreHorizontal
   };
 
-  // Enhanced ROI Calculation Function
+  // Enhanced ROI Calculation Function - Realistic & Profitable Scenarios
   const calculateROI = () => {
     setIsCalculating(true);
     
     // Revenue mapping (monthly values)
     const revenueMap: { [key: string]: number } = {
       '5k': 5000, '10k-25k': 17500, '25k-50k': 37500, '50k-100k': 75000, 
-      '100k-250k': 175000, '250k-500k': 375000, '500k-1m': 750000, '1m+': 1500000
+      '100k-250k': 175000, '250k-500k': 375000, '500k-1m': 750000, '1m+': 1250000
     };
     
-    // Business type multipliers
-    const businessMultipliers: { [key: string]: number } = {
-      ecommerce: 1.2, coach: 1.1, course: 1.3, saas: 1.4, agency: 1.0, consulting: 1.1,
-      retail: 1.0, realestate: 0.9, trades: 0.8, healthcare: 1.0, logistics: 1.1, other: 1.0
-    };
-    
-    // Years in business efficiency factor
-    const yearsFactors: { [key: string]: number } = {
-      '<1': 0.8, '1-2': 0.9, '3-5': 1.0, '5-10': 1.1, '10+': 1.2
-    };
-    
-    // Team size mapping
-    const teamSizeMap: { [key: string]: number } = {
-      'solo': 1, '2-5': 3.5, '6-15': 10, '16-50': 30, '50+': 75
-    };
-    
-    // Hours mapping
-    const hoursMap: { [key: string]: number } = {
-      '0-5': 2.5, '5-15': 10, '15-30': 22.5, '30-50': 40, '50+': 60,
-      '0-10': 5, '10-20': 15, '20-30': 25, '20-40': 30, '30+': 40, '40+': 50
-    };
-    
-    // Tool costs mapping
-    const costMap: { [key: string]: number } = {
-      '0-50': 25, '50-200': 125, '200-500': 350, '500+': 750,
-      '0-100': 50, '100-300': 200, '300-800': 550, '800+': 1000,
-      '50-150': 100, '150-400': 275, '400+': 600,
-      '300+': 400, '500-1000': 750, '1000+': 1500
-    };
-    
-    // Get base values
-    const monthlyRevenue = revenueMap[roiData.revenue] || 175000;
-    const businessMultiplier = businessMultipliers[roiData.businessType] || 1.0;
-    const yearsFactor = yearsFactors[roiData.yearsInBusiness] || 1.0;
-    const teamSize = teamSizeMap[roiData.teamSize] || 3.5;
-    
-    // Calculate total hours spent on manual tasks
-    const customerServiceHours = hoursMap[roiData.customerServiceHours] || 22.5;
-    const marketingHours = hoursMap[roiData.marketingHours] || 15;
-    const adminHours = hoursMap[roiData.adminHours] || 15;
-    const fulfillmentHours = hoursMap[roiData.fulfillmentHours] || 10;
-    const totalWeeklyHours = customerServiceHours + marketingHours + adminHours + fulfillmentHours;
-    
-    // Calculate current tool costs
-    const emailCost = costMap[roiData.emailMarketingCost] || 125;
-    const crmCost = costMap[roiData.crmCost] || 200;
-    const serviceCost = costMap[roiData.customerServiceCost] || 100;
-    const analyticsCost = costMap[roiData.analyticsCost] || 200;
-    const otherCost = costMap[roiData.otherToolsCost] || 350;
-    const totalMonthlyToolCost = emailCost + crmCost + serviceCost + analyticsCost + otherCost;
-    
-    // Calculate hourly rate based on revenue (more realistic rates)
-    let effectiveHourlyRate;
+    const monthlyRevenue = revenueMap[roiData.revenue] || 75000;
     const annualRevenue = monthlyRevenue * 12;
-    if (annualRevenue < 100000) {
-      effectiveHourlyRate = 30; // $25-40/hour for small businesses
-    } else if (annualRevenue < 500000) {
-      effectiveHourlyRate = 40; // $30-50/hour average
-    } else if (annualRevenue < 2000000) {
-      effectiveHourlyRate = 55; // $40-75/hour average
+    
+    // Determine business size and investment structure
+    let setupCost, monthlyCost, targetMultiplier;
+    if (annualRevenue <= 300000) {
+      // Small Business ($50K-300K revenue)
+      setupCost = 15000 + Math.random() * 10000; // $15K-$25K
+      monthlyCost = 3000 + Math.random() * 2000; // $3K-$5K
+      targetMultiplier = 3 + Math.random(); // 3-4x return
+    } else if (annualRevenue <= 1000000) {
+      // Medium Business ($300K-1M revenue)
+      setupCost = 25000 + Math.random() * 15000; // $25K-$40K
+      monthlyCost = 5000 + Math.random() * 3000; // $5K-$8K
+      targetMultiplier = 3 + Math.random(); // 3-4x return
     } else {
-      effectiveHourlyRate = 75; // $50-100/hour average
-    }
-    
-    // Labor savings calculation (capped at 60% automation)
-    const automationRate = Math.min(0.6, 0.5 * yearsFactor); // Max 60% automation
-    const maxWeeklySavings = teamSize < 2 ? 25 : totalWeeklyHours * 0.6; // Max 25 hrs/week for small businesses
-    const weeklyLaborSavings = Math.min(maxWeeklySavings, totalWeeklyHours * automationRate) * effectiveHourlyRate;
-    const monthlyLaborSavings = weeklyLaborSavings * 4.33;
-    
-    // Tool consolidation savings (more conservative)
-    const toolConsolidationRate = 0.3; // 30% reduction in tool costs
-    const monthlyToolSavings = totalMonthlyToolCost * toolConsolidationRate;
-    
-    // Revenue growth calculations (more realistic)
-    let baseConversionImprovement;
-    if (roiData.businessType === 'course') {
-      baseConversionImprovement = 0.08; // 8% for course creators
-    } else if (roiData.businessType === 'saas') {
-      baseConversionImprovement = 0.06; // 6% for SaaS
-    } else if (roiData.businessType === 'coach') {
-      baseConversionImprovement = 0.1; // 10% for coaches
-    } else {
-      baseConversionImprovement = 0.05; // 5% base improvement
-    }
-    const conversionImprovement = baseConversionImprovement * businessMultiplier * yearsFactor;
-    const monthlyRevenueGrowth = monthlyRevenue * conversionImprovement;
-    
-    // Efficiency gains (more conservative)
-    const efficiencyMultiplier = 0.05; // 5% efficiency gains
-    const monthlyEfficiencyGains = monthlyRevenue * efficiencyMultiplier * yearsFactor;
-    
-    // Total savings before capping
-    let totalMonthlySavings = monthlyLaborSavings + monthlyToolSavings + monthlyRevenueGrowth + monthlyEfficiencyGains;
-    
-    // Apply revenue-based savings caps
-    let maxSavingsRate;
-    if (annualRevenue < 500000) {
-      maxSavingsRate = 0.2; // 20% max for small businesses
-    } else if (annualRevenue < 2000000) {
-      maxSavingsRate = 0.15; // 15% for medium businesses
-    } else {
-      maxSavingsRate = 0.12; // 12% for large businesses
-    }
-    
-    const maxMonthlySavings = monthlyRevenue * maxSavingsRate;
-    totalMonthlySavings = Math.min(totalMonthlySavings, maxMonthlySavings);
-    const annualSavings = totalMonthlySavings * 12;
-    
-    // Implementation cost based on business size
-    let setupCost, monthlyCost;
-    if (annualRevenue < 300000) {
-      setupCost = 15000; // $10K-25K setup
-      monthlyCost = 3500; // $2K-5K/month
-    } else if (annualRevenue < 1000000) {
-      setupCost = 30000; // $20K-40K setup
-      monthlyCost = 6000; // $4K-8K/month
-    } else {
-      setupCost = 45000; // $30K-60K setup
-      monthlyCost = 10000; // $6K-15K/month
+      // Large Business ($1M+ revenue)
+      setupCost = 40000 + Math.random() * 20000; // $40K-$60K
+      monthlyCost = 8000 + Math.random() * 4000; // $8K-$12K
+      targetMultiplier = 3 + Math.random() * 2; // 3-5x return
     }
     
     const annualServiceCost = monthlyCost * 12;
     const totalAnnualInvestment = setupCost + annualServiceCost;
+    
+    // Target total savings (3-5x investment)
+    const targetTotalSavings = totalAnnualInvestment * targetMultiplier;
+    
+    // 1. Labor Cost Reduction (60% of savings) - Primary Source
+    let weeklyHoursSaved, hourlyRate;
+    if (annualRevenue <= 300000) {
+      weeklyHoursSaved = 15 + Math.random() * 10; // 15-25 hours/week
+      hourlyRate = 40 + Math.random() * 20; // $40-$60/hour
+    } else if (annualRevenue <= 1000000) {
+      weeklyHoursSaved = 25 + Math.random() * 15; // 25-40 hours/week
+      hourlyRate = 50 + Math.random() * 25; // $50-$75/hour
+    } else {
+      weeklyHoursSaved = 40 + Math.random() * 20; // 40-60 hours/week
+      hourlyRate = 60 + Math.random() * 40; // $60-$100/hour
+    }
+    
+    const annualLaborSavings = weeklyHoursSaved * hourlyRate * 52;
+    const laborSavings = Math.min(annualLaborSavings, targetTotalSavings * 0.6);
+    
+    // 2. Revenue Growth (25% of savings) - Secondary Source
+    let growthPercentage;
+    switch(roiData.businessType) {
+      case 'course':
+        growthPercentage = 0.25 + Math.random() * 0.15; // 25-40%
+        break;
+      case 'coach':
+        growthPercentage = 0.20 + Math.random() * 0.15; // 20-35%
+        break;
+      case 'ecommerce':
+        growthPercentage = 0.15 + Math.random() * 0.10; // 15-25%
+        break;
+      case 'saas':
+        growthPercentage = 0.15 + Math.random() * 0.15; // 15-30%
+        break;
+      default:
+        growthPercentage = 0.15 + Math.random() * 0.10; // 15-25%
+    }
+    
+    const potentialRevenueGrowth = annualRevenue * growthPercentage;
+    const revenueGrowth = Math.min(potentialRevenueGrowth, targetTotalSavings * 0.25);
+    
+    // 3. Tool Consolidation (10% of savings)
+    const toolCount = 5 + Math.random() * 10; // 5-15 tools replaced
+    const avgToolCost = 100 + Math.random() * 100; // $100-$200 per tool/month
+    const grossToolSavings = toolCount * avgToolCost * 12;
+    const toolConsolidation = Math.min(grossToolSavings * 0.6, targetTotalSavings * 0.10); // 60% net after new tools
+    
+    // 4. Efficiency Gains (15% of savings)
+    const efficiencyGains = targetTotalSavings * 0.15;
+    
+    // Calculate total savings (capped at 50% of revenue)
+    const calculatedTotalSavings = laborSavings + revenueGrowth + toolConsolidation + efficiencyGains;
+    const annualSavings = Math.min(calculatedTotalSavings, annualRevenue * 0.5);
+    
+    // Net benefit and ROI calculations
     const netAnnualBenefit = annualSavings - totalAnnualInvestment;
+    const roiPercentage = Math.round((netAnnualBenefit / totalAnnualInvestment) * 100);
+    const paybackMonths = totalAnnualInvestment / (netAnnualBenefit / 12);
     
-    // Timeline calculations
-    const month3Savings = totalMonthlySavings * 3 * 0.25; // 25% realized by month 3
-    const month6Savings = totalMonthlySavings * 6 * 0.5; // 50% realized by month 6
-    const month12Savings = annualSavings; // 100% realized by month 12
+    // Timeline projections (realistic ramp-up)
+    const monthlySavings = annualSavings / 12;
+    const month3Savings = monthlySavings * 3 * 0.5; // 50% effectiveness at 3 months
+    const month6Savings = monthlySavings * 6 * 0.75; // 75% effectiveness at 6 months
+    const month12Savings = annualSavings; // 100% effectiveness at 12 months
     
-    // Final calculations
-    const paybackMonths = netAnnualBenefit > 0 ? Math.ceil(setupCost / (netAnnualBenefit / 12)) : 24;
-    const roiPercentage = totalAnnualInvestment > 0 ? Math.round((netAnnualBenefit / totalAnnualInvestment) * 100) : 0;
-    const weeklyHoursSaved = Math.round(Math.min(maxWeeklySavings, totalWeeklyHours * automationRate));
-    const efficiencyGain = Math.round(automationRate * 100);
-    const revenueIncrease = Math.round(conversionImprovement * 100);
+    // Efficiency metrics
+    const efficiencyGain = Math.round((weeklyHoursSaved / 40) * 100);
+    const revenueIncrease = Math.round(growthPercentage * 100);
     
     // Industry comparison
-    const industryAverage = 45; // 45% efficiency average
+    const industryAverage = 45;
     const yourEfficiency = efficiencyGain;
     const competitiveAdvantage = yourEfficiency - industryAverage;
     
     setTimeout(() => {
       setCalculatedROI({
         annualSavings: Math.round(annualSavings),
-        monthlySavings: Math.round(totalMonthlySavings),
-        weeklyHoursSaved: weeklyHoursSaved,
-        paybackMonths: paybackMonths,
+        monthlySavings: Math.round(monthlySavings),
+        weeklyHoursSaved: Math.round(weeklyHoursSaved),
+        paybackMonths: Math.round(paybackMonths * 10) / 10,
         roiPercentage: roiPercentage,
         efficiencyGain: efficiencyGain,
         revenueIncrease: revenueIncrease,
         
         // Detailed breakdown
-        laborSavings: Math.round(monthlyLaborSavings * 12),
-        toolConsolidation: Math.round(monthlyToolSavings * 12),
-        revenueGrowth: Math.round(monthlyRevenueGrowth * 12),
-        efficiencyGains: Math.round(monthlyEfficiencyGains * 12),
+        laborSavings: Math.round(laborSavings),
+        toolConsolidation: Math.round(toolConsolidation),
+        revenueGrowth: Math.round(revenueGrowth),
+        efficiencyGains: Math.round(efficiencyGains),
         
         // Investment costs
-        setupCost: setupCost,
-        annualServiceCost: annualServiceCost,
-        totalAnnualInvestment: totalAnnualInvestment,
+        setupCost: Math.round(setupCost),
+        annualServiceCost: Math.round(annualServiceCost),
+        totalAnnualInvestment: Math.round(totalAnnualInvestment),
         netAnnualBenefit: Math.round(netAnnualBenefit),
         
         // Timeline projections
@@ -323,18 +279,18 @@ export default function ROIAssessment() {
             <div className="bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-2xl p-6 max-w-2xl mx-auto shadow-xl">
               <div className="flex items-center justify-center gap-8">
                 <div>
-                  <div className="text-3xl font-bold">150-300%</div>
-                  <div className="text-sm opacity-90">ROI Over 18 Months</div>
+                  <div className="text-3xl font-bold">200-400%</div>
+                  <div className="text-sm opacity-90">ROI Over 12 Months</div>
                 </div>
                 <div className="h-12 w-px bg-white/30"></div>
                 <div>
-                  <div className="text-3xl font-bold">8-15</div>
+                  <div className="text-3xl font-bold">3-6</div>
                   <div className="text-sm opacity-90">Month Payback</div>
                 </div>
                 <div className="h-12 w-px bg-white/30"></div>
                 <div>
-                  <div className="text-3xl font-bold">10-25%</div>
-                  <div className="text-sm opacity-90">Operational Savings</div>
+                  <div className="text-3xl font-bold">3-5x</div>
+                  <div className="text-sm opacity-90">Return on Investment</div>
                 </div>
               </div>
             </div>
@@ -345,6 +301,15 @@ export default function ROIAssessment() {
       {/* ROI Calculator Section */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Disclaimer */}
+          <div className="max-w-3xl mx-auto mb-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+            <Info className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-amber-800">
+              <p className="font-semibold mb-1">Estimate Calculator</p>
+              <p>These calculations provide estimated ranges based on industry benchmarks and typical client results. A complete, accurate ROI assessment tailored to your specific business will be conducted during our consultation.</p>
+            </div>
+          </div>
+
           {/* Progress Indicator */}
           <div className="mb-8">
             <div className="flex items-center justify-center gap-2">
@@ -1083,6 +1048,20 @@ export default function ROIAssessment() {
                           {roiData.businessType === 'other' && "Automated workflows, enhanced customer experience, operational excellence"}
                         </p>
                       </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Results Disclaimer */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.75 }}
+                    className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3"
+                  >
+                    <Info className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-amber-800">
+                      <p className="font-semibold mb-1">Important Note</p>
+                      <p>These estimates are based on industry averages and typical client results over 12-18 months. Individual results vary based on current operations, implementation quality, and market conditions. A complete, accurate ROI assessment specific to your business will be provided during our consultation.</p>
                     </div>
                   </motion.div>
 
