@@ -278,111 +278,114 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Online Business Optimization Section */}
-          <div className="mt-16 pt-12 pb-16 bg-gray-50 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight">
-                Online Business Acceleration
-              </h3>
-              <div className="w-16 h-0.5 bg-blue-600 mx-auto mb-6" />
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Specialized solutions for digital businesses ready to scale smarter through intelligent automation and optimization
-              </p>
-            </div>
+        </div>
+      </section>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-10">
-              {/* Revenue Optimization */}
-              <div className="bg-white shadow-lg">
-                <div className="h-32 sm:h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-white text-xl sm:text-2xl font-bold">REVENUE</div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                    Revenue Optimization
-                  </h4>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    Transform your website visitors into paying customers with AI-powered conversion tools, dynamic pricing algorithms, and intelligent sales funnels that automatically adapt to user behavior patterns and market conditions.
-                  </p>
-                </div>
+      {/* Online Business Optimization Section */}
+      <section className="py-16 bg-slate-100 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight">
+              Online Business Acceleration
+            </h3>
+            <div className="w-16 h-0.5 bg-blue-600 mx-auto mb-6" />
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Specialized solutions for digital businesses ready to scale smarter through intelligent automation and optimization
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            {/* Revenue Optimization */}
+            <div className="bg-white shadow-lg">
+              <div className="h-32 sm:h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
+                <div className="text-white text-xl sm:text-2xl font-bold">REVENUE</div>
               </div>
-
-              {/* Scaling Solutions */}
-              <div className="bg-white shadow-lg">
-                <div className="h-32 sm:h-40 bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-white text-xl sm:text-2xl font-bold">SCALING</div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                    Scaling Solutions
-                  </h4>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    Build robust infrastructure that grows seamlessly with your business demands, featuring cloud-native architectures, automated load balancing, and intelligent resource allocation that scales from startup to enterprise-level traffic.
-                  </p>
-                </div>
+              <div className="p-6">
+                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  Revenue Optimization
+                </h4>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  Transform your website visitors into paying customers with AI-powered conversion tools, dynamic pricing algorithms, and intelligent sales funnels that automatically adapt to user behavior patterns and market conditions.
+                </p>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-10">
-              {/* Customer Retention */}
-              <div className="bg-white shadow-lg">
-                <div className="h-32 sm:h-40 bg-gradient-to-br from-violet-600 to-violet-800 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-white text-xl sm:text-2xl font-bold">RETENTION</div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                    Customer Retention
-                  </h4>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    Keep customers engaged and coming back with intelligent engagement systems, personalized communication workflows, loyalty program automation, and predictive analytics that identify at-risk customers before they churn.
-                  </p>
-                </div>
+            {/* Scaling Solutions */}
+            <div className="bg-white shadow-lg">
+              <div className="h-32 sm:h-40 bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center relative overflow-hidden">
+                <div className="text-white text-xl sm:text-2xl font-bold">SCALING</div>
               </div>
+              <div className="p-6">
+                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  Scaling Solutions
+                </h4>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  Build robust infrastructure that grows seamlessly with your business demands, featuring cloud-native architectures, automated load balancing, and intelligent resource allocation that scales from startup to enterprise-level traffic.
+                </p>
+              </div>
+            </div>
+          </div>
 
-              {/* Automation-First */}
-              <div className="bg-white shadow-lg">
-                <div className="h-32 sm:h-40 bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-white text-xl sm:text-2xl font-bold">AUTOMATION</div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                    Automation-First
-                  </h4>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    Free up your valuable time to focus on strategic growth by automating repetitive tasks, streamlining operations with intelligent workflows, and implementing smart systems that handle everything from customer service to inventory management.
-                  </p>
-                </div>
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            {/* Customer Retention */}
+            <div className="bg-white shadow-lg">
+              <div className="h-32 sm:h-40 bg-gradient-to-br from-violet-600 to-violet-800 flex items-center justify-center relative overflow-hidden">
+                <div className="text-white text-xl sm:text-2xl font-bold">RETENTION</div>
+              </div>
+              <div className="p-6">
+                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  Customer Retention
+                </h4>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  Keep customers engaged and coming back with intelligent engagement systems, personalized communication workflows, loyalty program automation, and predictive analytics that identify at-risk customers before they churn.
+                </p>
               </div>
             </div>
 
-            {/* Online Business Solutions Scroll Animation */}
-            <div className="mt-12">
-              <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-8 text-center">
-                <ShinyText 
-                  text="Online Business Solutions We Implement" 
-                  speed={6}
-                  className="font-serif text-lg sm:text-xl font-bold"
-                />
-              </h4>
-              <div className="relative">
-                <ScrollVelocity
-                  texts={[
-                    "Cart abandonment recovery systems · Automated customer onboarding sequences · Dynamic pricing optimization · Multi-channel inventory synchronization ·",
-                    "Customer segmentation and personalized marketing · Automated review and testimonial collection · Social proof and urgency widgets · Affiliate and influencer management systems · and more ·"
-                  ]}
-                  velocity={50}
-                  className="text-gray-800"
-                  scrollerClassName="flex whitespace-nowrap text-center font-sans text-base sm:text-lg lg:text-xl font-semibold tracking-wide drop-shadow-sm py-6"
-                />
+            {/* Automation-First */}
+            <div className="bg-white shadow-lg">
+              <div className="h-32 sm:h-40 bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center relative overflow-hidden">
+                <div className="text-white text-xl sm:text-2xl font-bold">AUTOMATION</div>
+              </div>
+              <div className="p-6">
+                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  Automation-First
+                </h4>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  Free up your valuable time to focus on strategic growth by automating repetitive tasks, streamlining operations with intelligent workflows, and implementing smart systems that handle everything from customer service to inventory management.
+                </p>
               </div>
             </div>
-              
-            <div className="text-center mt-16">
-              <Link href="/capabilities" className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-lg font-normal text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                <span className="relative">See How We Can Help Your Business</span>
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                <div className="absolute inset-0 rounded-lg bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              </Link>
+          </div>
+
+          {/* Online Business Solutions Scroll Animation */}
+          <div className="mt-12">
+            <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-8 text-center">
+              <ShinyText 
+                text="Online Business Solutions We Implement" 
+                speed={6}
+                className="font-serif text-lg sm:text-xl font-bold"
+              />
+            </h4>
+            <div className="relative">
+              <ScrollVelocity
+                texts={[
+                  "Cart abandonment recovery systems · Automated customer onboarding sequences · Dynamic pricing optimization · Multi-channel inventory synchronization ·",
+                  "Customer segmentation and personalized marketing · Automated review and testimonial collection · Social proof and urgency widgets · Affiliate and influencer management systems · and more ·"
+                ]}
+                velocity={50}
+                className="text-gray-800"
+                scrollerClassName="flex whitespace-nowrap text-center font-sans text-base sm:text-lg lg:text-xl font-semibold tracking-wide drop-shadow-sm py-6"
+              />
             </div>
+          </div>
+            
+          <div className="text-center mt-16">
+            <Link href="/capabilities" className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-lg font-normal text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              <span className="relative">See How We Can Help Your Business</span>
+              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+              <div className="absolute inset-0 rounded-lg bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </Link>
           </div>
         </div>
       </section>
