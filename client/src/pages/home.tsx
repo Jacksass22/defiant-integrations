@@ -596,6 +596,230 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ROI Assessment Section */}
+      <section className="py-16 sm:py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Calculate Your ROI: See How Much You'll Save
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Most of our clients see 300-500% ROI within the first 12 months. See your potential savings below.
+            </p>
+          </div>
+
+          {/* Split Hero Layout */}
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+            {/* Left Side - Interactive Calculator (60%) */}
+            <div className="lg:col-span-3">
+              <div className="bg-white p-6 sm:p-8 shadow-lg border border-gray-100">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                  ROI Calculator
+                </h3>
+                
+                {/* Calculator Inputs */}
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Current Monthly Revenue
+                    </label>
+                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                      <option value="10k">$10K - $25K</option>
+                      <option value="25k">$25K - $50K</option>
+                      <option value="50k">$50K - $100K</option>
+                      <option value="100k">$100K - $250K</option>
+                      <option value="250k">$250K - $500K</option>
+                      <option value="500k">$500K - $1M+</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Hours Spent on Manual Tasks (per week)
+                    </label>
+                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                      <option value="10">10-20 hours</option>
+                      <option value="20">20-30 hours</option>
+                      <option value="30">30-40 hours</option>
+                      <option value="40">40-50 hours</option>
+                      <option value="50">50+ hours</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Team Size
+                    </label>
+                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                      <option value="1">Just me (1 person)</option>
+                      <option value="2">2-5 people</option>
+                      <option value="5">5-10 people</option>
+                      <option value="10">10-25 people</option>
+                      <option value="25">25+ people</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Current Software/Tools Cost (monthly)
+                    </label>
+                    <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                      <option value="500">$500 - $1,000</option>
+                      <option value="1000">$1,000 - $2,500</option>
+                      <option value="2500">$2,500 - $5,000</option>
+                      <option value="5000">$5,000 - $10,000</option>
+                      <option value="10000">$10,000+</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Calculate Button */}
+                <button className="w-full mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  Calculate My ROI
+                </button>
+              </div>
+            </div>
+
+            {/* Right Side - ROI Results (40%) */}
+            <div className="lg:col-span-2">
+              <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-6 sm:p-8 shadow-lg border border-gray-100 h-full">
+                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">
+                  Your Potential Savings
+                </h3>
+                
+                {/* ROI Metrics */}
+                <div className="space-y-6">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="text-2xl sm:text-3xl font-bold text-emerald-600">$156,000</div>
+                    <div className="text-sm text-gray-600">Annual Savings</div>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="text-2xl sm:text-3xl font-bold text-blue-600">25-40 hrs</div>
+                    <div className="text-sm text-gray-600">Time Saved Per Week</div>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="text-2xl sm:text-3xl font-bold text-violet-600">4-6 months</div>
+                    <div className="text-sm text-gray-600">Payback Period</div>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="text-2xl sm:text-3xl font-bold text-amber-600">385%</div>
+                    <div className="text-sm text-gray-600">Return on Investment</div>
+                  </div>
+                </div>
+
+                {/* Value Breakdown */}
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <h4 className="font-semibold text-gray-900 mb-4">Where Your Savings Come From:</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Labor Cost Reduction</span>
+                      <span className="font-semibold">50%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Increased Conversions</span>
+                      <span className="font-semibold">25%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Operational Efficiency</span>
+                      <span className="font-semibold">20%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Reduced Tool Costs</span>
+                      <span className="font-semibold">5%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Key Benefits Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="bg-white p-6 shadow-lg border-l-4 border-emerald-500">
+              <div className="text-3xl font-bold text-emerald-600 mb-2">80%</div>
+              <div className="text-sm font-semibold text-gray-900 mb-2">Task Automation</div>
+              <div className="text-sm text-gray-600">Eliminate repetitive customer service and operational tasks</div>
+            </div>
+            
+            <div className="bg-white p-6 shadow-lg border-l-4 border-blue-500">
+              <div className="text-3xl font-bold text-blue-600 mb-2">40%</div>
+              <div className="text-sm font-semibold text-gray-900 mb-2">Cart Recovery</div>
+              <div className="text-sm text-gray-600">Reduce cart abandonment with intelligent follow-up systems</div>
+            </div>
+            
+            <div className="bg-white p-6 shadow-lg border-l-4 border-violet-500">
+              <div className="text-3xl font-bold text-violet-600 mb-2">35%</div>
+              <div className="text-sm font-semibold text-gray-900 mb-2">Conversion Boost</div>
+              <div className="text-sm text-gray-600">Increase sales with AI-powered recommendations and optimization</div>
+            </div>
+            
+            <div className="bg-white p-6 shadow-lg border-l-4 border-amber-500">
+              <div className="text-3xl font-bold text-amber-600 mb-2">50%</div>
+              <div className="text-sm font-semibold text-gray-900 mb-2">Cost Reduction</div>
+              <div className="text-sm text-gray-600">Cut customer acquisition costs with intelligent targeting</div>
+            </div>
+          </div>
+
+          {/* Case Studies */}
+          <div className="bg-white p-8 sm:p-12 shadow-lg mb-16">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
+              Real Results from Real Clients
+            </h3>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-8 h-8 bg-emerald-500 rounded-full"></div>
+                </div>
+                <div className="font-semibold text-gray-900 mb-2">E-commerce Store</div>
+                <div className="text-sm text-gray-600">"Increased revenue by 45% while cutting operational costs by 30%"</div>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
+                </div>
+                <div className="font-semibold text-gray-900 mb-2">Online Coach</div>
+                <div className="text-sm text-gray-600">"Automated client onboarding saved 20 hours/week, enabling 3x business growth"</div>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-8 h-8 bg-violet-500 rounded-full"></div>
+                </div>
+                <div className="font-semibold text-gray-900 mb-2">Course Creator</div>
+                <div className="text-sm text-gray-600">"AI-powered customer service reduced support time by 75%"</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 sm:p-12 shadow-lg text-white">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-4">
+                Get Your Custom ROI Analysis
+              </h3>
+              <p className="text-lg mb-8 opacity-90">
+                Schedule a free 30-minute consultation to see your specific savings potential
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-50 transition-colors">
+                  Schedule Free Consultation
+                </button>
+                <button className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-colors">
+                  Download ROI Case Studies
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Thought Leadership Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
