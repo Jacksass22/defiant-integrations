@@ -91,7 +91,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
       {/* What We Do Section */}
       <section className="relative py-32 bg-gradient-to-b from-white via-gray-50/50 to-white overflow-hidden">
         {/* Premium background pattern */}
@@ -290,7 +289,6 @@ export default function Home() {
 
         </div>
       </section>
-
       {/* Online Business Optimization Section */}
       <section className="py-16 bg-slate-100 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -520,7 +518,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
       {/* Authority & Research Hook Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -653,7 +650,7 @@ export default function Home() {
                 />
               </div>
               <div className="p-6 sm:p-8">
-                <div className="text-sm text-gray-500 mb-2">July 31, 2025</div>
+                <div className="text-sm text-gray-500 mb-2">August, 2025</div>
                 <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
                   How AI Is Powering the Next Generation of Robotics
                 </h3>
