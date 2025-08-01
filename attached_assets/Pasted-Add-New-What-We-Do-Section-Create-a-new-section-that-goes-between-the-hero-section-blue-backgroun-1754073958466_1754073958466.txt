@@ -1,0 +1,57 @@
+Add New "What We Do" Section
+Create a new section that goes between the hero section (blue background with "What's your next intelligent breakthrough?") and the statistics section (blue square with "Only 23% of companies successfully scale AI beyond pilot projects").
+Section Requirements:
+Visual Design:
+
+Clean, modern layout with white/light background to contrast with the blue sections above and below
+Professional typography that matches the existing site style
+Subtle animations or hover effects to keep it engaging
+Responsive design that works on all devices
+
+Content Structure:
+Create 3-4 main service categories with simple, non-technical language:
+1. Smart AI Solutions
+
+Custom AI assistants that handle real business tasks
+Automated workflows that save time and reduce errors
+Industry-specific AI tools trained for your business
+Multi-team AI agents that work together seamlessly
+
+2. Web & Digital Tools
+
+Custom websites and web applications
+AI-powered chatbots and customer service tools
+Intelligent website search and recommendations
+SEO automation and lead generation systems
+
+3. Data & Analytics
+
+Turn your business data into actionable insights
+Automated inventory tracking and management
+Performance dashboards and reporting
+Predictive analytics for better decision-making
+
+4. Strategy & Development
+
+Full-service strategy consulting
+Custom app development from concept to launch
+Secure, professional development using Python and modern frameworks
+Ongoing support and optimization
+
+Key Messaging:
+
+Emphasize "we build it for you" rather than just consulting
+Use phrases like "intelligent automation," "smart systems," and "custom solutions"
+Highlight that we work across all industries with real developers
+Make it clear we handle everything from strategy to implementation
+
+Call-to-Action:
+Include a subtle CTA button or link that says something like "See How We Can Help Your Business" or "Explore Our Solutions"
+Technical Notes:
+
+Ensure smooth scrolling transitions between sections
+Match the existing color scheme and fonts
+Keep the section height balanced with surrounding content
+Add appropriate spacing and padding for visual hierarchy
+
+Make this section feel like a natural bridge between the inspiring hero message and the credibility-building statistics section that follows.
