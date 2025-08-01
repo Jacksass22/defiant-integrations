@@ -7,6 +7,7 @@ import TrueFocus from '@/components/TrueFocus';
 import Noise from '@/components/Noise';
 import ScrollVelocity from '@/components/ScrollVelocity';
 import ShinyText from '@/components/ShinyText';
+import TextType from '@/components/TextType';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -99,7 +100,16 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-24">
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight">
-              What We Do
+              <TextType 
+                text={["What We Do", "How We Transform", "What We Build"]}
+                typingSpeed={75}
+                pauseDuration={1500}
+                showCursor={true}
+                cursorCharacter="|"
+                startOnVisible={true}
+                className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight"
+                textColors={["#111827", "#1f2937", "#374151"]}
+              />
             </h2>
             <div className="w-24 h-0.5 bg-blue-600 mx-auto mb-8" />
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
