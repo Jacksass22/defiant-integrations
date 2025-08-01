@@ -139,8 +139,8 @@ export function Navigation() {
             </button>
             
             {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <div className="text-xl font-serif font-bold text-white">
+            <Link href="/" className="flex items-center group">
+              <div className="text-xl font-serif font-bold text-white transform transition-transform duration-200 group-hover:-translate-y-0.5">
                 Defiant <span className="text-gray-300">Integrations</span>
               </div>
             </Link>
