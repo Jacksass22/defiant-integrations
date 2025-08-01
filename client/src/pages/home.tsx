@@ -276,6 +276,68 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Online Business Optimization Section */}
+          <div className="mt-20 pt-16 border-t border-gray-200">
+            <div className="text-center mb-12">
+              <h3 className="font-serif text-3xl sm:text-4xl font-light text-gray-900 mb-4">
+                Online Business Acceleration
+              </h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Specialized solutions for digital businesses ready to scale smarter
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
+              {/* Revenue Optimization */}
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Revenue Optimization</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">Turn visitors into customers with AI-powered conversion tools</p>
+              </div>
+
+              {/* Scaling Solutions */}
+              <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg border border-emerald-200">
+                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Scaling Solutions</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">Infrastructure that grows with your online business</p>
+              </div>
+
+              {/* Customer Retention */}
+              <div className="bg-gradient-to-br from-violet-50 to-violet-100 p-6 rounded-lg border border-violet-200">
+                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Customer Retention</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">Keep customers coming back with intelligent engagement systems</p>
+              </div>
+
+              {/* Automation-First */}
+              <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-lg border border-amber-200">
+                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Automation-First</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">Free up your time to focus on growing your business</p>
+              </div>
+            </div>
+
+            {/* Pain Points Grid */}
+            <div className="bg-gray-50 p-8 rounded-xl">
+              <h4 className="font-serif text-xl font-medium text-gray-900 mb-6 text-center">
+                Specific Solutions We Implement
+              </h4>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  "Cart abandonment recovery systems",
+                  "Automated customer onboarding sequences",
+                  "Dynamic pricing optimization",
+                  "Multi-channel inventory synchronization",
+                  "Customer segmentation and personalized marketing",
+                  "Automated review and testimonial collection",
+                  "Social proof and urgency widgets",
+                  "Affiliate and influencer management systems"
+                ].map((solution, index) => (
+                  <div key={index} className="flex items-start space-x-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-gray-600 text-sm leading-relaxed">{solution}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mt-16">
             <Link href="/capabilities" className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-lg font-normal text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
               <span className="relative">See How We Can Help Your Business</span>
