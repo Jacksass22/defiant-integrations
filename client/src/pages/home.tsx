@@ -304,66 +304,203 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Revenue Optimization */}
-            <div className="bg-white shadow-lg">
-              <div className="h-32 sm:h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
-                <div className="text-white text-xl sm:text-2xl font-bold">REVENUE</div>
+            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+              
+              <div className="h-40 sm:h-48 relative overflow-hidden">
+                {/* Premium gradient background with texture overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(120,_119,_198,_0.3),_transparent_50%)]" />
+                
+                {/* Animated geometric pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                      <pattern id="revenue-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.4)" />
+                        <circle cx="12" cy="12" r="1" fill="rgba(255,255,255,0.2)" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#revenue-pattern)" />
+                  </svg>
+                </div>
+                
+                <div className="relative h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">REVENUE</div>
+                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
+                  </div>
+                </div>
               </div>
-              <div className="p-6">
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  Revenue Optimization
-                </h4>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  Transform your website visitors into paying customers with AI-powered conversion tools, dynamic pricing algorithms, and intelligent sales funnels that automatically adapt to user behavior patterns and market conditions.
+              
+              <div className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <TrendingUp className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+                    Revenue Optimization
+                  </h4>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Transform your website visitors into paying customers with <span className="font-semibold text-gray-800">AI-powered conversion tools</span>, dynamic pricing algorithms, and intelligent sales funnels that automatically adapt to user behavior patterns and market conditions.
                 </p>
+                <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors">
+                  <span>Learn more</span>
+                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
 
             {/* Scaling Solutions */}
-            <div className="bg-white shadow-lg">
-              <div className="h-32 sm:h-40 bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center relative overflow-hidden">
-                <div className="text-white text-xl sm:text-2xl font-bold">SCALING</div>
+            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+              
+              <div className="h-40 sm:h-48 relative overflow-hidden">
+                {/* Premium gradient background with texture overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,_rgba(16,_185,_129,_0.3),_transparent_50%)]" />
+                
+                {/* Animated circuit pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                      <pattern id="scaling-pattern" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
+                        <path d="M5,5 L20,5 M5,5 L5,20 M20,5 L20,20 M5,20 L20,20" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" fill="none" />
+                        <circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.5)" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#scaling-pattern)" />
+                  </svg>
+                </div>
+                
+                <div className="relative h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">SCALING</div>
+                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
+                  </div>
+                </div>
               </div>
-              <div className="p-6">
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  Scaling Solutions
-                </h4>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  Build robust infrastructure that grows seamlessly with your business demands, featuring cloud-native architectures, automated load balancing, and intelligent resource allocation that scales from startup to enterprise-level traffic.
+              
+              <div className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg flex items-center justify-center mr-4">
+                    <Target className="w-6 h-6 text-emerald-600" />
+                  </div>
+                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+                    Scaling Solutions
+                  </h4>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Build robust infrastructure that grows seamlessly with your business demands, featuring <span className="font-semibold text-gray-800">cloud-native architectures</span>, automated load balancing, and intelligent resource allocation that scales from startup to enterprise-level traffic.
                 </p>
+                <div className="flex items-center text-emerald-600 font-medium text-sm group-hover:text-emerald-700 transition-colors">
+                  <span>Learn more</span>
+                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Customer Retention */}
-            <div className="bg-white shadow-lg">
-              <div className="h-32 sm:h-40 bg-gradient-to-br from-violet-600 to-violet-800 flex items-center justify-center relative overflow-hidden">
-                <div className="text-white text-xl sm:text-2xl font-bold">RETENTION</div>
+            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+              
+              <div className="h-40 sm:h-48 relative overflow-hidden">
+                {/* Premium gradient background with particle effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500 via-purple-600 to-indigo-700" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_rgba(139,_92,_246,_0.3),_transparent_50%)]" />
+                
+                {/* Animated particle pattern */}
+                <div className="absolute inset-0 opacity-25">
+                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                      <pattern id="retention-pattern" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+                        <circle cx="3" cy="3" r="0.8" fill="rgba(255,255,255,0.6)" />
+                        <circle cx="8" cy="8" r="0.5" fill="rgba(255,255,255,0.4)" />
+                        <circle cx="12" cy="4" r="0.6" fill="rgba(255,255,255,0.3)" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#retention-pattern)" />
+                  </svg>
+                </div>
+                
+                <div className="relative h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">RETENTION</div>
+                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
+                  </div>
+                </div>
               </div>
-              <div className="p-6">
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  Customer Retention
-                </h4>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  Keep customers engaged and coming back with intelligent engagement systems, personalized communication workflows, loyalty program automation, and predictive analytics that identify at-risk customers before they churn.
+              
+              <div className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-violet-50 to-violet-100 rounded-lg flex items-center justify-center mr-4">
+                    <Repeat className="w-6 h-6 text-violet-600" />
+                  </div>
+                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+                    Customer Retention
+                  </h4>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Keep customers engaged and coming back with <span className="font-semibold text-gray-800">intelligent engagement systems</span>, personalized communication workflows, loyalty program automation, and predictive analytics that identify at-risk customers before they churn.
                 </p>
+                <div className="flex items-center text-violet-600 font-medium text-sm group-hover:text-violet-700 transition-colors">
+                  <span>Learn more</span>
+                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
 
             {/* Automation-First */}
-            <div className="bg-white shadow-lg">
-              <div className="h-32 sm:h-40 bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center relative overflow-hidden">
-                <div className="text-white text-xl sm:text-2xl font-bold">AUTOMATION</div>
+            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+              
+              <div className="h-40 sm:h-48 relative overflow-hidden">
+                {/* Premium gradient background with geometric pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-600 to-orange-700" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_70%,_rgba(245,_158,_11,_0.3),_transparent_50%)]" />
+                
+                {/* Animated gear pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                      <pattern id="automation-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                        <polygon points="15,5 20,10 15,15 10,10" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.8" />
+                        <circle cx="15" cy="10" r="2" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#automation-pattern)" />
+                  </svg>
+                </div>
+                
+                <div className="relative h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">AUTOMATION</div>
+                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
+                  </div>
+                </div>
               </div>
-              <div className="p-6">
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  Automation-First
-                </h4>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  Free up your valuable time to focus on strategic growth by automating repetitive tasks, streamlining operations with intelligent workflows, and implementing smart systems that handle everything from customer service to inventory management.
+              
+              <div className="p-8">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg flex items-center justify-center mr-4">
+                    <Settings className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+                    Automation-First
+                  </h4>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Free up your valuable time to focus on strategic growth by automating repetitive tasks, streamlining operations with <span className="font-semibold text-gray-800">intelligent workflows</span>, and implementing smart systems that handle everything from customer service to inventory management.
                 </p>
+                <div className="flex items-center text-amber-600 font-medium text-sm group-hover:text-amber-700 transition-colors">
+                  <span>Learn more</span>
+                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
           </div>
