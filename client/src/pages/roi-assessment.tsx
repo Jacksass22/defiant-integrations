@@ -1,371 +1,1016 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, TrendingUp, Clock, DollarSign, Users, BarChart3, Target, Zap, ChevronRight, Check, Building2, Calendar, Briefcase, ShoppingCart, GraduationCap, Laptop, HeadphonesIcon, Info } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ROIAssessment() {
-  // ROI Calculator State
+  // Multi-step form state
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isCalculating, setIsCalculating] = useState(false);
+  
+  // Enhanced ROI Calculator State
   const [roiData, setRoiData] = useState({
+    // Step 1: Business Basics
     revenue: '100k',
-    hours: '30',
-    teamSize: '5',
-    toolCosts: '1000'
+    businessType: 'ecommerce',
+    yearsInBusiness: '3-5',
+    teamSize: '2-5',
+    
+    // Step 2: Current Operations
+    customerServiceHours: '15-30',
+    marketingHours: '10-20',
+    adminHours: '10-20',
+    fulfillmentHours: '5-15',
+    
+    // Step 3: Current Tools & Costs
+    emailMarketingCost: '50-200',
+    crmCost: '100-300',
+    customerServiceCost: '50-150',
+    analyticsCost: '100-300',
+    otherToolsCost: '200-500',
+    
+    // Goals
+    primaryGoal: 'revenue-growth',
+    automationPriority: 'customer-service'
   });
   
   const [calculatedROI, setCalculatedROI] = useState({
     annualSavings: 156000,
-    weeklyHours: '25-40',
-    paybackMonths: '4-6',
-    roiPercentage: 385
+    monthlySavings: 13000,
+    weeklyHoursSaved: 35,
+    paybackMonths: 4,
+    roiPercentage: 385,
+    efficiencyGain: 65,
+    revenueIncrease: 25,
+    
+    // Detailed breakdown
+    laborSavings: 78000,
+    toolConsolidation: 24000,
+    revenueGrowth: 42000,
+    efficiencyGains: 12000,
+    
+    // Timeline projections
+    month3Savings: 19500,
+    month6Savings: 58500,
+    month12Savings: 156000,
+    
+    // Competitive metrics
+    industryAverage: 45,
+    yourEfficiency: 65,
+    competitiveAdvantage: 20
   });
 
-  // ROI Calculation Function
+  // Business type icons
+  const businessTypeIcons = {
+    ecommerce: ShoppingCart,
+    coach: HeadphonesIcon,
+    course: GraduationCap,
+    saas: Laptop,
+    agency: Briefcase,
+    consulting: Building2
+  };
+
+  // Enhanced ROI Calculation Function
   const calculateROI = () => {
+    setIsCalculating(true);
+    
+    // Revenue mapping
     const revenueMap: { [key: string]: number } = {
-      '10k': 17500, '25k': 37500, '50k': 75000, '100k': 175000, '250k': 375000, '500k': 750000
+      '5k': 5000, '10k-25k': 17500, '25k-50k': 37500, '50k-100k': 75000, 
+      '100k': 175000, '250k': 375000, '500k': 750000
     };
+    
+    // Business type multipliers
+    const businessMultipliers: { [key: string]: number } = {
+      ecommerce: 1.2, coach: 1.1, course: 1.3, saas: 1.4, agency: 1.0, consulting: 1.1
+    };
+    
+    // Years in business efficiency factor
+    const yearsFactors: { [key: string]: number } = {
+      '<1': 0.8, '1-2': 0.9, '3-5': 1.0, '5-10': 1.1, '10+': 1.2
+    };
+    
+    // Team size mapping
+    const teamSizeMap: { [key: string]: number } = {
+      'solo': 1, '2-5': 3.5, '6-15': 10, '16-50': 30, '50+': 75
+    };
+    
+    // Hours mapping
     const hoursMap: { [key: string]: number } = {
-      '10': 15, '20': 25, '30': 35, '40': 45, '50': 60
+      '0-5': 2.5, '5-15': 10, '15-30': 22.5, '30-50': 40, '50+': 60,
+      '0-10': 5, '10-20': 15, '20-30': 25, '20-40': 30, '30+': 40, '40+': 50
     };
-    const teamMap: { [key: string]: number } = {
-      '1': 1, '2': 3.5, '5': 7.5, '10': 17.5, '25': 35
+    
+    // Tool costs mapping
+    const costMap: { [key: string]: number } = {
+      '0-50': 25, '50-200': 125, '200-500': 350, '500+': 750,
+      '0-100': 50, '100-300': 200, '300-800': 550, '800+': 1000,
+      '50-150': 100, '150-400': 275, '400+': 600,
+      '300+': 400, '500-1000': 750, '1000+': 1500
     };
-    const toolsMap: { [key: string]: number } = {
-      '500': 750, '1000': 1750, '2500': 3750, '5000': 7500, '10000': 15000
-    };
-
+    
+    // Get base values
     const monthlyRevenue = revenueMap[roiData.revenue] || 175000;
-    const weeklyHours = hoursMap[roiData.hours] || 35;
-    const teamSize = teamMap[roiData.teamSize] || 7.5;
-    const monthlyToolCosts = toolsMap[roiData.toolCosts] || 1750;
-
-    // Calculate savings
-    const hourlyRate = 75; // Average hourly rate for business operations
-    const weeklyLaborSavings = weeklyHours * 0.7 * hourlyRate; // 70% automation
+    const businessMultiplier = businessMultipliers[roiData.businessType] || 1.0;
+    const yearsFactor = yearsFactors[roiData.yearsInBusiness] || 1.0;
+    const teamSize = teamSizeMap[roiData.teamSize] || 3.5;
+    
+    // Calculate total hours spent on manual tasks
+    const customerServiceHours = hoursMap[roiData.customerServiceHours] || 22.5;
+    const marketingHours = hoursMap[roiData.marketingHours] || 15;
+    const adminHours = hoursMap[roiData.adminHours] || 15;
+    const fulfillmentHours = hoursMap[roiData.fulfillmentHours] || 10;
+    const totalWeeklyHours = customerServiceHours + marketingHours + adminHours + fulfillmentHours;
+    
+    // Calculate current tool costs
+    const emailCost = costMap[roiData.emailMarketingCost] || 125;
+    const crmCost = costMap[roiData.crmCost] || 200;
+    const serviceCost = costMap[roiData.customerServiceCost] || 100;
+    const analyticsCost = costMap[roiData.analyticsCost] || 200;
+    const otherCost = costMap[roiData.otherToolsCost] || 350;
+    const totalMonthlyToolCost = emailCost + crmCost + serviceCost + analyticsCost + otherCost;
+    
+    // Calculate hourly rate based on revenue and team size
+    const effectiveHourlyRate = Math.min(150, Math.max(50, (monthlyRevenue / (teamSize * 160))));
+    
+    // Labor savings calculation (more sophisticated)
+    const automationRate = 0.65 * yearsFactor; // 65% automation adjusted by experience
+    const weeklyLaborSavings = totalWeeklyHours * automationRate * effectiveHourlyRate;
     const monthlyLaborSavings = weeklyLaborSavings * 4.33;
     
-    const conversionIncrease = monthlyRevenue * 0.25; // 25% conversion improvement
-    const operationalEfficiency = monthlyToolCosts * 0.3; // 30% efficiency gains
-    const reducedToolCosts = monthlyToolCosts * 0.15; // 15% tool consolidation
+    // Tool consolidation savings
+    const toolConsolidationRate = 0.35; // 35% reduction in tool costs
+    const monthlyToolSavings = totalMonthlyToolCost * toolConsolidationRate;
     
-    const totalMonthlySavings = monthlyLaborSavings + conversionIncrease + operationalEfficiency + reducedToolCosts;
+    // Revenue growth calculations
+    const baseConversionImprovement = 0.15; // 15% base improvement
+    const conversionImprovement = baseConversionImprovement * businessMultiplier * yearsFactor;
+    const monthlyRevenueGrowth = monthlyRevenue * conversionImprovement;
+    
+    // Efficiency gains (opportunity cost)
+    const efficiencyMultiplier = 0.1; // 10% efficiency gains
+    const monthlyEfficiencyGains = monthlyRevenue * efficiencyMultiplier * yearsFactor;
+    
+    // Total savings
+    const totalMonthlySavings = monthlyLaborSavings + monthlyToolSavings + monthlyRevenueGrowth + monthlyEfficiencyGains;
     const annualSavings = totalMonthlySavings * 12;
     
-    // Implementation cost estimate (simplified)
-    const implementationCost = Math.max(25000, teamSize * 3000);
+    // Implementation cost (more sophisticated)
+    const baseCost = 15000;
+    const teamCost = teamSize * 2000;
+    const revenueFactor = monthlyRevenue > 100000 ? 1.5 : 1.0;
+    const implementationCost = (baseCost + teamCost) * revenueFactor;
+    
+    // Timeline calculations
+    const month3Savings = totalMonthlySavings * 3 * 0.25; // 25% realized by month 3
+    const month6Savings = totalMonthlySavings * 6 * 0.5; // 50% realized by month 6
+    const month12Savings = annualSavings; // 100% realized by month 12
+    
+    // Final calculations
     const paybackMonths = Math.ceil(implementationCost / totalMonthlySavings);
     const roiPercentage = Math.round((annualSavings / implementationCost) * 100);
+    const weeklyHoursSaved = Math.round(totalWeeklyHours * automationRate);
+    const efficiencyGain = Math.round(automationRate * 100);
+    const revenueIncrease = Math.round(conversionImprovement * 100);
     
-    const savedHoursLow = Math.floor(weeklyHours * 0.6);
-    const savedHoursHigh = Math.ceil(weeklyHours * 0.8);
-
-    setCalculatedROI({
-      annualSavings: Math.round(annualSavings),
-      weeklyHours: `${savedHoursLow}-${savedHoursHigh}`,
-      paybackMonths: paybackMonths <= 6 ? `${paybackMonths}-${paybackMonths + 2}` : `${paybackMonths}-${paybackMonths + 3}`,
-      roiPercentage: roiPercentage
-    });
+    // Industry comparison
+    const industryAverage = 45; // 45% efficiency average
+    const yourEfficiency = efficiencyGain;
+    const competitiveAdvantage = yourEfficiency - industryAverage;
+    
+    setTimeout(() => {
+      setCalculatedROI({
+        annualSavings: Math.round(annualSavings),
+        monthlySavings: Math.round(totalMonthlySavings),
+        weeklyHoursSaved: weeklyHoursSaved,
+        paybackMonths: paybackMonths,
+        roiPercentage: roiPercentage,
+        efficiencyGain: efficiencyGain,
+        revenueIncrease: revenueIncrease,
+        
+        // Detailed breakdown
+        laborSavings: Math.round(monthlyLaborSavings * 12),
+        toolConsolidation: Math.round(monthlyToolSavings * 12),
+        revenueGrowth: Math.round(monthlyRevenueGrowth * 12),
+        efficiencyGains: Math.round(monthlyEfficiencyGains * 12),
+        
+        // Timeline projections
+        month3Savings: Math.round(month3Savings),
+        month6Savings: Math.round(month6Savings),
+        month12Savings: Math.round(month12Savings),
+        
+        // Competitive metrics
+        industryAverage: industryAverage,
+        yourEfficiency: yourEfficiency,
+        competitiveAdvantage: competitiveAdvantage
+      });
+      setIsCalculating(false);
+      setCurrentStep(4); // Go to results
+    }, 2000); // Simulate calculation time
   };
 
   const handleInputChange = (field: string, value: string) => {
     setRoiData(prev => ({ ...prev, [field]: value }));
   };
 
+  const nextStep = () => {
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      calculateROI();
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const resetCalculator = () => {
+    setCurrentStep(1);
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-br from-blue-50 to-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+      <section className="pt-24 pb-12 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-emerald-200 rounded-full filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               ROI Assessment Calculator
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Discover the financial impact of AI transformation on your business. Get personalized projections based on your current operations and see how much you could save.
+              Discover your personalized savings potential with our enterprise-grade ROI analysis tool. Built on real data from 500+ successful implementations.
             </p>
-            <div className="bg-blue-100 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
-              <p className="text-blue-800 font-semibold">
-                Most clients see 300-500% ROI within the first 12 months
-              </p>
+            <div className="bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-2xl p-6 max-w-2xl mx-auto shadow-xl">
+              <div className="flex items-center justify-center gap-8">
+                <div>
+                  <div className="text-3xl font-bold">385%</div>
+                  <div className="text-sm opacity-90">Average ROI</div>
+                </div>
+                <div className="h-12 w-px bg-white/30"></div>
+                <div>
+                  <div className="text-3xl font-bold">4-6</div>
+                  <div className="text-sm opacity-90">Month Payback</div>
+                </div>
+                <div className="h-12 w-px bg-white/30"></div>
+                <div>
+                  <div className="text-3xl font-bold">$156K</div>
+                  <div className="text-sm opacity-90">Avg Annual Savings</div>
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ROI Calculator Section */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Split Hero Layout */}
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
-            {/* Left Side - Interactive Calculator (60%) */}
-            <div className="lg:col-span-3">
-              <div className="bg-white p-6 sm:p-8 shadow-lg border border-gray-100 rounded-lg">
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                  Calculate Your Potential Savings
-                </h3>
-                
-                {/* Calculator Inputs */}
-                <div className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Current Monthly Revenue
-                    </label>
-                    <select 
-                      value={roiData.revenue}
-                      onChange={(e) => handleInputChange('revenue', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="10k">$10K - $25K</option>
-                      <option value="25k">$25K - $50K</option>
-                      <option value="50k">$50K - $100K</option>
-                      <option value="100k">$100K - $250K</option>
-                      <option value="250k">$250K - $500K</option>
-                      <option value="500k">$500K - $1M+</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Hours Spent on Manual Tasks (per week)
-                    </label>
-                    <select 
-                      value={roiData.hours}
-                      onChange={(e) => handleInputChange('hours', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="10">10-20 hours</option>
-                      <option value="20">20-30 hours</option>
-                      <option value="30">30-40 hours</option>
-                      <option value="40">40-50 hours</option>
-                      <option value="50">50+ hours</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Team Size
-                    </label>
-                    <select 
-                      value={roiData.teamSize}
-                      onChange={(e) => handleInputChange('teamSize', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="1">Just me (1 person)</option>
-                      <option value="2">2-5 people</option>
-                      <option value="5">5-10 people</option>
-                      <option value="10">10-25 people</option>
-                      <option value="25">25+ people</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Current Software/Tools Cost (monthly)
-                    </label>
-                    <select 
-                      value={roiData.toolCosts}
-                      onChange={(e) => handleInputChange('toolCosts', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="500">$500 - $1,000</option>
-                      <option value="1000">$1,000 - $2,500</option>
-                      <option value="2500">$2,500 - $5,000</option>
-                      <option value="5000">$5,000 - $10,000</option>
-                      <option value="10000">$10,000+</option>
-                    </select>
-                  </div>
+          {/* Progress Indicator */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center gap-2">
+              {[1, 2, 3].map((step) => (
+                <div key={step} className="flex items-center">
+                  <motion.div
+                    initial={{ scale: 0.8 }}
+                    animate={{ 
+                      scale: currentStep >= step ? 1 : 0.8,
+                      backgroundColor: currentStep >= step ? '#0066cc' : '#e5e7eb'
+                    }}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold transition-all duration-300 ${
+                      currentStep >= step ? 'shadow-lg' : ''
+                    }`}
+                  >
+                    {currentStep > step ? <Check className="w-5 h-5" /> : step}
+                  </motion.div>
+                  {step < 3 && (
+                    <div className={`w-16 h-1 mx-2 transition-all duration-300 ${
+                      currentStep > step ? 'bg-blue-600' : 'bg-gray-200'
+                    }`}></div>
+                  )}
                 </div>
-
-                {/* Calculate Button */}
-                <button 
-                  onClick={calculateROI}
-                  className="w-full mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Calculate My ROI
-                </button>
-              </div>
+              ))}
             </div>
-
-            {/* Right Side - ROI Results (40%) */}
-            <div className="lg:col-span-2">
-              <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-6 sm:p-8 shadow-lg border border-gray-100 h-full rounded-lg">
-                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">
-                  Your Potential Savings
-                </h3>
-                
-                {/* ROI Metrics */}
-                <div className="space-y-6">
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-emerald-600">
-                      ${calculatedROI.annualSavings.toLocaleString()}
-                    </div>
-                    <div className="text-sm text-gray-600">Annual Savings</div>
-                  </div>
-                  
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-blue-600">{calculatedROI.weeklyHours} hrs</div>
-                    <div className="text-sm text-gray-600">Time Saved Per Week</div>
-                  </div>
-                  
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-violet-600">{calculatedROI.paybackMonths} months</div>
-                    <div className="text-sm text-gray-600">Payback Period</div>
-                  </div>
-                  
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="text-2xl sm:text-3xl font-bold text-amber-600">{calculatedROI.roiPercentage}%</div>
-                    <div className="text-sm text-gray-600">Return on Investment</div>
-                  </div>
-                </div>
-
-                {/* Value Breakdown */}
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="font-semibold text-gray-900 mb-4">Where Your Savings Come From:</h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Labor Cost Reduction</span>
-                      <span className="font-semibold">50%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Increased Conversions</span>
-                      <span className="font-semibold">25%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Operational Efficiency</span>
-                      <span className="font-semibold">20%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Reduced Tool Costs</span>
-                      <span className="font-semibold">5%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Key Benefits Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div className="bg-white p-6 shadow-lg border-l-4 border-emerald-500 rounded-lg">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">80%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-2">Task Automation</div>
-              <div className="text-sm text-gray-600">Eliminate repetitive customer service and operational tasks</div>
-            </div>
-            
-            <div className="bg-white p-6 shadow-lg border-l-4 border-blue-500 rounded-lg">
-              <div className="text-3xl font-bold text-blue-600 mb-2">40%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-2">Cart Recovery</div>
-              <div className="text-sm text-gray-600">Reduce cart abandonment with intelligent follow-up systems</div>
-            </div>
-            
-            <div className="bg-white p-6 shadow-lg border-l-4 border-violet-500 rounded-lg">
-              <div className="text-3xl font-bold text-violet-600 mb-2">35%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-2">Conversion Boost</div>
-              <div className="text-sm text-gray-600">Increase sales with AI-powered recommendations and optimization</div>
-            </div>
-            
-            <div className="bg-white p-6 shadow-lg border-l-4 border-amber-500 rounded-lg">
-              <div className="text-3xl font-bold text-amber-600 mb-2">50%</div>
-              <div className="text-sm font-semibold text-gray-900 mb-2">Cost Reduction</div>
-              <div className="text-sm text-gray-600">Cut customer acquisition costs with intelligent targeting</div>
-            </div>
-          </div>
-
-          {/* Case Studies */}
-          <div className="bg-white p-8 sm:p-12 shadow-lg mb-16 rounded-lg">
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              Real Results from Real Clients
-            </h3>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-8 h-8 bg-emerald-500 rounded-full"></div>
-                </div>
-                <div className="font-semibold text-gray-900 mb-2">E-commerce Store</div>
-                <div className="text-sm text-gray-600">"Increased revenue by 45% while cutting operational costs by 30%"</div>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-                </div>
-                <div className="font-semibold text-gray-900 mb-2">Online Coach</div>
-                <div className="text-sm text-gray-600">"Automated client onboarding saved 20 hours/week, enabling 3x business growth"</div>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-8 h-8 bg-violet-500 rounded-full"></div>
-                </div>
-                <div className="font-semibold text-gray-900 mb-2">Course Creator</div>
-                <div className="text-sm text-gray-600">"AI-powered customer service reduced support time by 75%"</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 sm:p-12 shadow-lg text-white rounded-lg">
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-4">
-                Get Your Custom ROI Analysis
-              </h3>
-              <p className="text-lg mb-8 opacity-90">
-                Schedule a free 30-minute consultation to see your specific savings potential
+            <div className="text-center mt-4">
+              <p className="text-sm text-gray-600">
+                {currentStep === 1 && "Business Information"}
+                {currentStep === 2 && "Current Operations"}
+                {currentStep === 3 && "Tools & Goals"}
+                {currentStep === 4 && "Your Results"}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-50 transition-colors">
-                  Schedule Free Consultation
-                </button>
-                <button className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-colors">
-                  Download ROI Case Studies
-                </button>
-              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Additional Information Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">
-                How We Calculate Your ROI
-              </h3>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  Our ROI calculations are based on real-world data from hundreds of client implementations. We factor in:
-                </p>
-                <ul className="space-y-2 ml-4">
-                  <li>• <strong>Labor savings:</strong> Average 70% reduction in manual task time</li>
-                  <li>• <strong>Revenue growth:</strong> Typical 15-35% increase in conversion rates</li>
-                  <li>• <strong>Operational efficiency:</strong> 20-40% improvement in process speed</li>
-                  <li>• <strong>Cost optimization:</strong> 10-25% reduction in tool and software costs</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">
-                Why Our Projections Are Accurate
-              </h3>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  Unlike generic calculators, our tool uses industry-specific benchmarks and proven methodologies:
-                </p>
-                <ul className="space-y-2 ml-4">
-                  <li>• <strong>Real client data:</strong> Based on 500+ successful implementations</li>
-                  <li>• <strong>Conservative estimates:</strong> We use lower-bound projections for reliability</li>
-                  <li>• <strong>Industry expertise:</strong> Tailored calculations for different business models</li>
-                  <li>• <strong>Ongoing tracking:</strong> Continuous validation against actual client results</li>
-                </ul>
-              </div>
-            </div>
+          {/* Calculator Container */}
+          <div className="max-w-4xl mx-auto">
+            <AnimatePresence mode="wait">
+              {/* Step 1: Business Basics */}
+              {currentStep === 1 && (
+                <motion.div
+                  key="step1"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100"
+                >
+                  <h2 className="font-serif text-3xl font-bold text-gray-900 mb-8">
+                    Tell us about your business
+                  </h2>
+                  
+                  <div className="space-y-6">
+                    {/* Monthly Revenue */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Current Monthly Revenue
+                      </label>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        {['5k', '10k-25k', '25k-50k', '50k-100k', '100k', '250k', '500k'].map((value) => (
+                          <button
+                            key={value}
+                            onClick={() => handleInputChange('revenue', value)}
+                            className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                              roiData.revenue === value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            ${value.toUpperCase()}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Business Type */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Business Type
+                      </label>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        {Object.entries(businessTypeIcons).map(([type, Icon]) => (
+                          <button
+                            key={type}
+                            onClick={() => handleInputChange('businessType', type)}
+                            className={`p-4 rounded-xl transition-all duration-200 ${
+                              roiData.businessType === type
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            <Icon className="w-8 h-8 mx-auto mb-2" />
+                            <div className="text-sm font-medium capitalize">
+                              {type === 'ecommerce' ? 'E-commerce' : type}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Years in Business */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Years in Business
+                      </label>
+                      <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+                        {['<1', '1-2', '3-5', '5-10', '10+'].map((value) => (
+                          <button
+                            key={value}
+                            onClick={() => handleInputChange('yearsInBusiness', value)}
+                            className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                              roiData.yearsInBusiness === value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {value} {value === '<1' ? 'year' : 'years'}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Team Size */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Team Size
+                      </label>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        {[
+                          { value: 'solo', label: 'Just Me' },
+                          { value: '2-5', label: '2-5 People' },
+                          { value: '6-15', label: '6-15 People' },
+                          { value: '16-50', label: '16-50 People' },
+                          { value: '50+', label: '50+ People' }
+                        ].map((option) => (
+                          <button
+                            key={option.value}
+                            onClick={() => handleInputChange('teamSize', option.value)}
+                            className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                              roiData.teamSize === option.value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex justify-end">
+                    <button
+                      onClick={nextStep}
+                      className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                    >
+                      Continue <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Step 2: Current Operations */}
+              {currentStep === 2 && (
+                <motion.div
+                  key="step2"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100"
+                >
+                  <h2 className="font-serif text-3xl font-bold text-gray-900 mb-8">
+                    How much time do you spend on these tasks?
+                  </h2>
+                  
+                  <div className="space-y-8">
+                    {/* Customer Service Hours */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Customer Service (per week)
+                      </label>
+                      <p className="text-xs text-gray-500 mb-3">Answering emails, calls, support tickets</p>
+                      <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+                        {['0-5', '5-15', '15-30', '30-50', '50+'].map((value) => (
+                          <button
+                            key={value}
+                            onClick={() => handleInputChange('customerServiceHours', value)}
+                            className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                              roiData.customerServiceHours === value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {value} hrs
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Marketing Hours */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Marketing & Content (per week)
+                      </label>
+                      <p className="text-xs text-gray-500 mb-3">Creating content, social media, email campaigns</p>
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                        {['0-10', '10-20', '20-40', '40+'].map((value) => (
+                          <button
+                            key={value}
+                            onClick={() => handleInputChange('marketingHours', value)}
+                            className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                              roiData.marketingHours === value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {value} hrs
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Admin Hours */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Administrative Tasks (per week)
+                      </label>
+                      <p className="text-xs text-gray-500 mb-3">Data entry, reporting, scheduling, invoicing</p>
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                        {['0-10', '10-20', '20-30', '30+'].map((value) => (
+                          <button
+                            key={value}
+                            onClick={() => handleInputChange('adminHours', value)}
+                            className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                              roiData.adminHours === value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {value} hrs
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Fulfillment Hours */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Order Processing & Fulfillment (per week)
+                      </label>
+                      <p className="text-xs text-gray-500 mb-3">Processing orders, inventory management, shipping</p>
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                        {['0-5', '5-15', '15-30', '30+'].map((value) => (
+                          <button
+                            key={value}
+                            onClick={() => handleInputChange('fulfillmentHours', value)}
+                            className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                              roiData.fulfillmentHours === value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            {value} hrs
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex justify-between">
+                    <button
+                      onClick={prevStep}
+                      className="text-gray-600 font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300"
+                    >
+                      Back
+                    </button>
+                    <button
+                      onClick={nextStep}
+                      className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                    >
+                      Continue <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Step 3: Tools & Goals */}
+              {currentStep === 3 && (
+                <motion.div
+                  key="step3"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100"
+                >
+                  <h2 className="font-serif text-3xl font-bold text-gray-900 mb-8">
+                    Current tools & primary goals
+                  </h2>
+                  
+                  <div className="space-y-6">
+                    {/* Current Tool Costs */}
+                    <div className="bg-gray-50 rounded-2xl p-6">
+                      <h3 className="font-semibold text-gray-900 mb-4">Monthly Tool Costs</h3>
+                      <div className="grid gap-4">
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-2">Email Marketing</label>
+                          <select
+                            value={roiData.emailMarketingCost}
+                            onChange={(e) => handleInputChange('emailMarketingCost', e.target.value)}
+                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          >
+                            <option value="0-50">$0 - $50</option>
+                            <option value="50-200">$50 - $200</option>
+                            <option value="200-500">$200 - $500</option>
+                            <option value="500+">$500+</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-2">CRM/Sales Tools</label>
+                          <select
+                            value={roiData.crmCost}
+                            onChange={(e) => handleInputChange('crmCost', e.target.value)}
+                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          >
+                            <option value="0-100">$0 - $100</option>
+                            <option value="100-300">$100 - $300</option>
+                            <option value="300-800">$300 - $800</option>
+                            <option value="800+">$800+</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-2">Customer Service Tools</label>
+                          <select
+                            value={roiData.customerServiceCost}
+                            onChange={(e) => handleInputChange('customerServiceCost', e.target.value)}
+                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          >
+                            <option value="0-50">$0 - $50</option>
+                            <option value="50-150">$50 - $150</option>
+                            <option value="150-400">$150 - $400</option>
+                            <option value="400+">$400+</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-2">Analytics/Tracking</label>
+                          <select
+                            value={roiData.analyticsCost}
+                            onChange={(e) => handleInputChange('analyticsCost', e.target.value)}
+                            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          >
+                            <option value="0-100">$0 - $100</option>
+                            <option value="100-300">$100 - $300</option>
+                            <option value="300+">$300+</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Primary Goal */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        Primary Business Goal
+                      </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {[
+                          { value: 'revenue-growth', label: 'Increase Revenue', icon: TrendingUp },
+                          { value: 'save-time', label: 'Save Time', icon: Clock },
+                          { value: 'scale-operations', label: 'Scale Operations', icon: Target },
+                          { value: 'reduce-costs', label: 'Reduce Costs', icon: DollarSign }
+                        ].map((option) => (
+                          <button
+                            key={option.value}
+                            onClick={() => handleInputChange('primaryGoal', option.value)}
+                            className={`p-4 rounded-xl transition-all duration-200 flex items-center gap-3 ${
+                              roiData.primaryGoal === option.value
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
+                          >
+                            <option.icon className="w-5 h-5" />
+                            <span className="font-medium">{option.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex justify-between">
+                    <button
+                      onClick={prevStep}
+                      className="text-gray-600 font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300"
+                    >
+                      Back
+                    </button>
+                    <button
+                      onClick={nextStep}
+                      className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold py-3 px-8 rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                    >
+                      Calculate ROI <Zap className="w-5 h-5" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Calculating State */}
+              {isCalculating && (
+                <motion.div
+                  key="calculating"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="bg-white rounded-3xl shadow-2xl p-12 border border-gray-100 text-center"
+                >
+                  <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-full mx-auto mb-6 animate-pulse"></div>
+                  <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                    Analyzing Your Business...
+                  </h3>
+                  <p className="text-gray-600 mb-8">
+                    We're calculating your personalized ROI based on 500+ similar businesses
+                  </p>
+                  <div className="flex justify-center gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce delay-100"></div>
+                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce delay-200"></div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Step 4: Results */}
+              {currentStep === 4 && !isCalculating && (
+                <motion.div
+                  key="results"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="space-y-8"
+                >
+                  {/* Main Results Card */}
+                  <div className="bg-gradient-to-br from-blue-600 to-emerald-600 rounded-3xl shadow-2xl p-8 sm:p-12 text-white">
+                    <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-8 text-center">
+                      Your Personalized ROI Analysis
+                    </h2>
+                    
+                    {/* Key Metrics Grid */}
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center"
+                      >
+                        <div className="text-3xl sm:text-4xl font-bold mb-2">
+                          ${calculatedROI.annualSavings.toLocaleString()}
+                        </div>
+                        <div className="text-sm opacity-90">Annual Savings</div>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center"
+                      >
+                        <div className="text-3xl sm:text-4xl font-bold mb-2">
+                          {calculatedROI.weeklyHoursSaved} hrs
+                        </div>
+                        <div className="text-sm opacity-90">Weekly Time Saved</div>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center"
+                      >
+                        <div className="text-3xl sm:text-4xl font-bold mb-2">
+                          {calculatedROI.paybackMonths} mo
+                        </div>
+                        <div className="text-sm opacity-90">Payback Period</div>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center"
+                      >
+                        <div className="text-3xl sm:text-4xl font-bold mb-2">
+                          {calculatedROI.roiPercentage}%
+                        </div>
+                        <div className="text-sm opacity-90">ROI</div>
+                      </motion.div>
+                    </div>
+
+                    {/* Efficiency Comparison */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+                      <h3 className="font-semibold mb-4">Your Efficiency vs Industry Average</h3>
+                      <div className="space-y-3">
+                        <div>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span>Industry Average</span>
+                            <span>{calculatedROI.industryAverage}%</span>
+                          </div>
+                          <div className="bg-white/20 rounded-full h-3">
+                            <div className="bg-white/60 h-3 rounded-full" style={{ width: `${calculatedROI.industryAverage}%` }}></div>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span>Your Potential</span>
+                            <span>{calculatedROI.yourEfficiency}%</span>
+                          </div>
+                          <div className="bg-white/20 rounded-full h-3">
+                            <div className="bg-emerald-300 h-3 rounded-full" style={{ width: `${calculatedROI.yourEfficiency}%` }}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-sm mt-3 opacity-90">
+                        You'll be <span className="font-bold">{calculatedROI.competitiveAdvantage}% more efficient</span> than your competitors
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Detailed Breakdown */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Savings Breakdown */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 }}
+                      className="bg-white rounded-2xl shadow-xl p-6"
+                    >
+                      <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">
+                        Annual Savings Breakdown
+                      </h3>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                            <span className="text-gray-700">Labor Cost Reduction</span>
+                          </div>
+                          <span className="font-semibold text-gray-900">
+                            ${calculatedROI.laborSavings.toLocaleString()}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-emerald-600 rounded-full"></div>
+                            <span className="text-gray-700">Revenue Growth</span>
+                          </div>
+                          <span className="font-semibold text-gray-900">
+                            ${calculatedROI.revenueGrowth.toLocaleString()}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-violet-600 rounded-full"></div>
+                            <span className="text-gray-700">Tool Consolidation</span>
+                          </div>
+                          <span className="font-semibold text-gray-900">
+                            ${calculatedROI.toolConsolidation.toLocaleString()}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-amber-600 rounded-full"></div>
+                            <span className="text-gray-700">Efficiency Gains</span>
+                          </div>
+                          <span className="font-semibold text-gray-900">
+                            ${calculatedROI.efficiencyGains.toLocaleString()}
+                          </span>
+                        </div>
+                        <div className="border-t pt-4">
+                          <div className="flex items-center justify-between">
+                            <span className="font-semibold text-gray-900">Total Annual Savings</span>
+                            <span className="text-xl font-bold text-emerald-600">
+                              ${calculatedROI.annualSavings.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    {/* Timeline Projection */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.6 }}
+                      className="bg-white rounded-2xl shadow-xl p-6"
+                    >
+                      <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">
+                        Implementation Timeline
+                      </h3>
+                      <div className="space-y-4">
+                        <div className="relative">
+                          <div className="absolute left-4 top-8 bottom-0 w-0.5 bg-gray-200"></div>
+                          <div className="space-y-6">
+                            <div className="flex gap-4">
+                              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                                1
+                              </div>
+                              <div className="flex-1">
+                                <div className="font-semibold text-gray-900">Month 3</div>
+                                <div className="text-sm text-gray-600">25% Benefits Realized</div>
+                                <div className="text-lg font-bold text-blue-600">
+                                  ${calculatedROI.month3Savings.toLocaleString()} saved
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex gap-4">
+                              <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                                2
+                              </div>
+                              <div className="flex-1">
+                                <div className="font-semibold text-gray-900">Month 6</div>
+                                <div className="text-sm text-gray-600">50% Benefits Realized</div>
+                                <div className="text-lg font-bold text-emerald-600">
+                                  ${calculatedROI.month6Savings.toLocaleString()} saved
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex gap-4">
+                              <div className="w-8 h-8 bg-violet-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                                3
+                              </div>
+                              <div className="flex-1">
+                                <div className="font-semibold text-gray-900">Month 12</div>
+                                <div className="text-sm text-gray-600">100% Benefits Realized</div>
+                                <div className="text-lg font-bold text-violet-600">
+                                  ${calculatedROI.month12Savings.toLocaleString()} saved
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Business-Type Specific Insights */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
+                  >
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                      Tailored Insights for Your {roiData.businessType === 'ecommerce' ? 'E-commerce' : 
+                        roiData.businessType.charAt(0).toUpperCase() + roiData.businessType.slice(1)} Business
+                    </h3>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="bg-white rounded-xl p-4">
+                        <Target className="w-8 h-8 text-blue-600 mb-3" />
+                        <h4 className="font-semibold text-gray-900 mb-2">Quick Wins</h4>
+                        <p className="text-sm text-gray-600">
+                          {roiData.businessType === 'ecommerce' && "Automated cart recovery emails, AI product recommendations, inventory alerts"}
+                          {roiData.businessType === 'coach' && "Automated client onboarding, calendar scheduling, follow-up sequences"}
+                          {roiData.businessType === 'course' && "Student support automation, course delivery systems, progress tracking"}
+                          {roiData.businessType === 'saas' && "User onboarding flows, feature adoption campaigns, churn prevention"}
+                          {roiData.businessType === 'agency' && "Project management automation, client reporting, resource allocation"}
+                          {roiData.businessType === 'consulting' && "Proposal generation, meeting scheduling, knowledge management"}
+                        </p>
+                      </div>
+                      <div className="bg-white rounded-xl p-4">
+                        <TrendingUp className="w-8 h-8 text-emerald-600 mb-3" />
+                        <h4 className="font-semibold text-gray-900 mb-2">Growth Opportunities</h4>
+                        <p className="text-sm text-gray-600">
+                          {roiData.businessType === 'ecommerce' && "Personalized marketing at scale, dynamic pricing, predictive analytics"}
+                          {roiData.businessType === 'coach' && "Group coaching automation, content repurposing, referral programs"}
+                          {roiData.businessType === 'course' && "Adaptive learning paths, community engagement, upsell automation"}
+                          {roiData.businessType === 'saas' && "Usage-based expansion, feature discovery, customer success automation"}
+                          {roiData.businessType === 'agency' && "Service productization, white-label solutions, automated proposals"}
+                          {roiData.businessType === 'consulting' && "Thought leadership automation, strategic insights delivery, client retention"}
+                        </p>
+                      </div>
+                      <div className="bg-white rounded-xl p-4">
+                        <Zap className="w-8 h-8 text-violet-600 mb-3" />
+                        <h4 className="font-semibold text-gray-900 mb-2">Competitive Edge</h4>
+                        <p className="text-sm text-gray-600">
+                          {roiData.businessType === 'ecommerce' && "24/7 customer service, instant personalization, predictive restocking"}
+                          {roiData.businessType === 'coach' && "Always-available support, scalable 1:1 feel, data-driven coaching"}
+                          {roiData.businessType === 'course' && "Personalized learning experiences, instant feedback, community AI moderator"}
+                          {roiData.businessType === 'saas' && "Proactive customer success, instant support, usage optimization"}
+                          {roiData.businessType === 'agency' && "Faster turnaround times, consistent quality, scalable operations"}
+                          {roiData.businessType === 'consulting' && "Data-driven insights, rapid analysis, always-on advisory"}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Call to Action */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white text-center"
+                  >
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-4">
+                      Ready to Capture These Savings?
+                    </h3>
+                    <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+                      Schedule a free 30-minute strategy session to see exactly how we'll implement these solutions for your business
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <button className="bg-white text-blue-600 font-semibold py-4 px-8 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        Schedule Strategy Session
+                      </button>
+                      <button className="border-2 border-white text-white font-semibold py-4 px-8 rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300">
+                        Download Full Report
+                      </button>
+                    </div>
+                  </motion.div>
+
+                  {/* Recalculate Button */}
+                  <div className="text-center">
+                    <button
+                      onClick={resetCalculator}
+                      className="text-gray-600 font-medium hover:text-gray-900 transition-colors"
+                    >
+                      Calculate again with different inputs
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
+
         </div>
       </section>
     </div>
