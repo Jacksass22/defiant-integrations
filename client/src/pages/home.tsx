@@ -277,48 +277,87 @@ export default function Home() {
           </div>
 
           {/* Online Business Optimization Section */}
-          <div className="mt-20 pt-16 border-t border-gray-200">
-            <div className="text-center mb-12">
-              <h3 className="font-serif text-3xl sm:text-4xl font-light text-gray-900 mb-4">
+          <div className="mt-20 pt-16">
+            <div className="text-center mb-16">
+              <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6 tracking-tight">
                 Online Business Acceleration
               </h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <div className="w-24 h-0.5 bg-blue-600 mx-auto mb-8" />
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
                 Specialized solutions for digital businesses ready to scale smarter
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
               {/* Revenue Optimization */}
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
-                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Revenue Optimization</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">Turn visitors into customers with AI-powered conversion tools</p>
+              <div className="bg-white shadow-lg">
+                <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
+                  <div className="text-white text-2xl sm:text-3xl font-bold">REVENUE</div>
+                </div>
+                <div className="p-6 sm:p-8">
+                  <h4 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+                    Revenue Optimization
+                  </h4>
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                    Turn visitors into customers with AI-powered conversion tools
+                  </p>
+                </div>
               </div>
 
               {/* Scaling Solutions */}
-              <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-lg border border-emerald-200">
-                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Scaling Solutions</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">Infrastructure that grows with your online business</p>
+              <div className="bg-white shadow-lg">
+                <div className="h-48 sm:h-64 bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center relative overflow-hidden">
+                  <div className="text-white text-2xl sm:text-3xl font-bold">SCALING</div>
+                </div>
+                <div className="p-6 sm:p-8">
+                  <h4 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+                    Scaling Solutions
+                  </h4>
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                    Infrastructure that grows with your online business
+                  </p>
+                </div>
               </div>
+            </div>
 
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
               {/* Customer Retention */}
-              <div className="bg-gradient-to-br from-violet-50 to-violet-100 p-6 rounded-lg border border-violet-200">
-                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Customer Retention</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">Keep customers coming back with intelligent engagement systems</p>
+              <div className="bg-white shadow-lg">
+                <div className="h-48 sm:h-64 bg-gradient-to-br from-violet-600 to-violet-800 flex items-center justify-center relative overflow-hidden">
+                  <div className="text-white text-2xl sm:text-3xl font-bold">RETENTION</div>
+                </div>
+                <div className="p-6 sm:p-8">
+                  <h4 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+                    Customer Retention
+                  </h4>
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                    Keep customers coming back with intelligent engagement systems
+                  </p>
+                </div>
               </div>
 
               {/* Automation-First */}
-              <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-lg border border-amber-200">
-                <h4 className="font-serif text-lg font-medium text-gray-900 mb-3">Automation-First</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">Free up your time to focus on growing your business</p>
+              <div className="bg-white shadow-lg">
+                <div className="h-48 sm:h-64 bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center relative overflow-hidden">
+                  <div className="text-white text-2xl sm:text-3xl font-bold">AUTOMATION</div>
+                </div>
+                <div className="p-6 sm:p-8">
+                  <h4 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+                    Automation-First
+                  </h4>
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                    Free up your time to focus on growing your business
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Pain Points Grid */}
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <h4 className="font-serif text-xl font-medium text-gray-900 mb-6 text-center">
+            <div className="bg-white p-8 sm:p-12 shadow-lg">
+              <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-8 text-center">
                 Specific Solutions We Implement
               </h4>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   "Cart abandonment recovery systems",
                   "Automated customer onboarding sequences",
@@ -329,9 +368,8 @@ export default function Home() {
                   "Social proof and urgency widgets",
                   "Affiliate and influencer management systems"
                 ].map((solution, index) => (
-                  <div key={index} className="flex items-start space-x-2">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                    <span className="text-gray-600 text-sm leading-relaxed">{solution}</span>
+                  <div key={index} className="text-gray-600 text-sm leading-relaxed">
+                    {solution}
                   </div>
                 ))}
               </div>
