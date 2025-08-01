@@ -615,12 +615,9 @@ export default function SystemIntegration() {
               Get a comprehensive system integration assessment and roadmap for connecting your AI with existing infrastructure.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex justify-center mb-8">
               <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Schedule Integration Assessment
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300">
-                Download CONNECT Framework Guide
               </button>
             </div>
             
