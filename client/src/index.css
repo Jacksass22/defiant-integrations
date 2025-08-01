@@ -74,6 +74,20 @@
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  /* Shine animation for ShinyText component */
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
+  }
+
+  .animate-shine {
+    animation: shine 5s linear infinite;
+  }
 }
 
 @layer components {
