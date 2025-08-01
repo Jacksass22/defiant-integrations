@@ -1,0 +1,141 @@
+Replit Code Agent Prompt: System Integration Section Page
+Create a sophisticated System Integration capability page that showcases Defiant Integrations' expertise in connecting AI systems with existing business infrastructure. This should feel like enterprise architecture meets seamless user experience, matching the premium McKinsey-level aesthetic of the existing site.
+Page Design Requirements:
+Visual Design Framework:
+
+Match existing site aesthetic: Use the same blue gradients, professional typography, and McKinsey-inspired layout
+Hero section: Split layout (50/50) with content left, interactive system diagram right
+Color scheme: Primary blues, accent greens, professional grays from existing brand
+Typography: Match the existing serif headlines and clean sans-serif body text
+Premium feel: Floating cards, subtle shadows, professional spacing
+
+Key Visual Elements to Include:
+
+System Architecture Diagram: Interactive visual showing AI integration with existing systems
+Data Flow Animation: Subtle animated connections showing real-time data movement
+Integration Dashboard Mockup: Professional interface showing unified system control
+Before/After System Comparison: Visual transformation from fragmented to unified
+Technology Stack Icons: Visual representation of platforms and tools we integrate with
+
+Content Structure:
+Hero Section:
+Headline: "Seamless System Integration: AI That Works with Everything You Already Have"
+Subheadline: "Enterprise-grade integration that connects your AI systems with existing tools, databases, and workflows - creating one powerful, unified technology ecosystem."
+Core Service Cards (4-column grid):
+Card 1: API Development & Integration
+
+Icon: Connected nodes or API symbol
+Title: "API Development & Integration"
+Description: "Custom APIs and third-party integrations that connect your AI with CRMs, databases, and business tools"
+Key points: Real-time sync, enterprise security, webhook management
+
+Card 2: Database Integration
+
+Icon: Database/server symbol
+Title: "Database Integration & Data Pipeline"
+Description: "Unified data flow connecting MySQL, PostgreSQL, MongoDB, and cloud platforms"
+Key points: Multi-database support, real-time analytics, data warehouse integration
+
+Card 3: Business Application Integration
+
+Icon: Connected apps/workflow symbol
+Title: "Business Application Integration"
+Description: "Seamless AI enhancement for CRMs, e-commerce platforms, and marketing automation"
+Key points: Salesforce, Shopify, HubSpot, automated workflows
+
+Card 4: Enterprise System Integration
+
+Icon: Enterprise/building symbol
+Title: "Enterprise System Integration"
+Description: "Mission-critical ERP, HR, and financial system connectivity with AI intelligence"
+Key points: SAP, Oracle, Workday, compliance systems
+
+Integration Methodology Section:
+Headline: "The CONNECT Framework"
+Subheadline: "Our proven 6-layer integration architecture that ensures seamless connectivity"
+Create an interactive or visual representation of:
+
+C: Core Infrastructure Setup
+O: Operational System Mapping
+N: Network & API Development
+N: Native System Enhancement
+E: End-to-End Process Automation
+C: Continuous Monitoring & Optimization
+
+Success Metrics Section:
+Display key statistics in prominent, animated counters:
+
+99.9% System Uptime
+85% Reduction in Manual Tasks
+60% Faster Process Execution
+95% Data Accuracy
+
+Case Studies Section (3-column layout):
+E-commerce Success: "300% Productivity Increase Through System Unification"
+SaaS Growth: "Scaled from $1M to $10M Without Adding IT Staff"
+Professional Services: "Automated 80% of Administrative Tasks"
+Technology Stack Showcase:
+Visual grid of technology logos/icons we integrate with:
+
+E-commerce: Shopify, WooCommerce, Magento
+CRM: Salesforce, HubSpot, Pipedrive
+Databases: PostgreSQL, MySQL, MongoDB
+Cloud: AWS, Azure, Google Cloud
+Automation: n8n, Zapier, custom APIs
+
+Investment & Timeline Section:
+Pricing Tiers:
+
+Small Business: $15K-35K
+Medium Enterprise: $35K-75K
+Large Organization: $75K-150K
+
+Implementation Timeline (visual timeline):
+
+Weeks 1-2: Discovery & Architecture
+Weeks 3-6: Development & Testing
+Weeks 7-8: Deployment & Optimization
+Ongoing: Monitoring & Enhancement
+
+Call-to-Action Section:
+Primary CTA: "Schedule Your System Integration Assessment"
+Secondary CTAs: Download guide, see case studies, preview demo
+Technical Implementation:
+Interactive Elements:
+
+System diagram: Hover effects showing data flow between systems
+Animated counters for success metrics
+Smooth scrolling between sections
+Card hover effects with subtle animations
+Progressive disclosure for technical details
+
+Responsive Design:
+
+Mobile-first approach matching existing site
+Card stacking on smaller screens
+Optimized images and icons
+Touch-friendly interactive elements
+
+Performance Optimization:
+
+Lazy loading for heavy visual elements
+Optimized animations using CSS transforms
+Compressed images and vector graphics
+Fast loading times consistent with existing site
+
+Brand Consistency:
+
+Match existing navigation and footer exactly
+Use same button styles and hover effects
+Maintain consistent spacing and typography
+Align with overall site color palette and visual hierarchy
+Ensure seamless transition from other site pages
+
+Content Tone:
+
+Technical authority but business-focused
+Professional and sophisticated like existing site content
+Results-oriented with specific metrics and outcomes
+Accessible language for non-technical decision makers
+
+Create a page that feels like a natural extension of the existing Defiant Integrations site while showcasing world-class system integration expertise.

@@ -42,6 +42,7 @@ import ChangeManagement from "@/pages/change-management";
 import TeamTraining from "@/pages/team-training";
 import GovernanceFrameworks from "@/pages/governance-frameworks";
 import ContinuousImprovement from "@/pages/continuous-improvement";
+import SystemIntegration from "@/pages/system-integration";
 import AIRoboticsArticle from "@/pages/ai-robotics-article";
 import AI2025Article from "@/pages/ai-2025-article";
 import NotFound from "@/pages/not-found";
@@ -91,6 +92,7 @@ function Router() {
       <Route path="/team-training" component={TeamTraining} />
       <Route path="/governance-frameworks" component={GovernanceFrameworks} />
       <Route path="/continuous-improvement" component={ContinuousImprovement} />
+      <Route path="/system-integration" component={SystemIntegration} />
       <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
       <Route path="/ai-2025-article" component={AI2025Article} />
       <Route component={NotFound} />
