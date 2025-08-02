@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { MegaMenu } from './mega-menu';
 
@@ -111,6 +111,38 @@ const aboutData = [
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location, setLocation] = useLocation();
+
+  const scrollToBlog = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // If we're not on the home page, navigate there first
+    if (location !== '/') {
+      setLocation('/');
+      // Use a timeout to ensure the page loads before scrolling
+      setTimeout(() => {
+        const blogElement = document.getElementById('blog');
+        if (blogElement) {
+          blogElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    } else {
+      // We're already on the home page, just scroll
+      const blogElement = document.getElementById('blog');
+      if (blogElement) {
+        blogElement.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    
+    // Close mobile menu if open
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <nav className="bg-gradient-to-b from-gray-900 via-gray-900/80 to-transparent fixed w-full top-0 z-50 pb-8">
@@ -141,9 +173,12 @@ export function Navigation() {
               Careers
             </Link>
             <MegaMenu title="About Us" sections={aboutData} />
-            <Link href="/#blog" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
+            <button 
+              onClick={scrollToBlog}
+              className="text-white hover:text-gray-300 transition-colors font-medium text-sm"
+            >
               Defiant Integration Blog
-            </Link>
+            </button>
           </div>
           
           {/* Right Side - Subscribe, Search */}
@@ -177,9 +212,12 @@ export function Navigation() {
             <Link href="/about" className="block text-white hover:text-gray-300 transition-colors font-medium">
               About Us
             </Link>
-            <Link href="/#blog" className="block text-white hover:text-gray-300 transition-colors font-medium">
+            <button 
+              onClick={scrollToBlog}
+              className="block text-white hover:text-gray-300 transition-colors font-medium text-left"
+            >
               Defiant Integration Blog
-            </Link>
+            </button>
             <div className="pt-6 border-t border-gray-700">
               <Link href="/subscribe" className="block text-white hover:text-gray-300 transition-colors font-medium">
                 Subscribe
