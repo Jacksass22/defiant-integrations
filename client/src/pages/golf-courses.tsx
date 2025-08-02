@@ -1,7 +1,9 @@
-import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target } from 'lucide-react';
+import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target, Zap, Clock, TrendingUp, Shield, Star, MapPin } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
+import TrueFocus from '@/components/TrueFocus';
+import { motion } from 'framer-motion';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 
@@ -53,182 +55,292 @@ export default function GolfCourses() {
           </div>
         </section>
 
-        {/* Problem Statement */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-7xl mx-auto">
+        {/* Problem Statement with Visual Enhancement */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-20 left-20 w-32 h-32 border border-green-300 rounded-full"></div>
+            <div className="absolute top-40 right-16 w-24 h-24 border border-green-200 rounded-full"></div>
+            <div className="absolute bottom-32 left-16 w-20 h-20 border border-green-100 rounded-full"></div>
+          </div>
+          
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                   Modern Golf Courses Juggle Too Much
                 </h2>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Phone lines, bookings, guest services, staff management, and pro shop sales—often with outdated tools and overworked teams.
                 </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
-                    <span className="text-gray-600">Staff stuck answering repetitive calls instead of serving guests</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
-                    <span className="text-gray-600">Missed booking opportunities during peak times</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
-                    <span className="text-gray-600">Fragmented systems that don't talk to each other</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0"></div>
-                    <span className="text-gray-600">No visibility into performance trends or guest patterns</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-green-50 p-8 rounded-lg">
-                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">The Cost of Chaos</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Missed tee times per week</span>
-                    <span className="font-semibold text-red-600">15-25</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Hours spent on phone admin</span>
-                    <span className="font-semibold text-red-600">20+ hrs</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Revenue lost to inefficiency</span>
-                    <span className="font-semibold text-red-600">$2,000+/month</span>
-                  </div>
+                <div className="space-y-6">
+                  {[
+                    { icon: Phone, text: "Staff stuck answering repetitive calls instead of serving guests" },
+                    { icon: Calendar, text: "Missed booking opportunities during peak times" },
+                    { icon: Target, text: "Fragmented systems that don't talk to each other" },
+                    { icon: BarChart3, text: "No visibility into performance trends or guest patterns" }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="flex items-start space-x-4 group"
+                    >
+                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors duration-300">
+                        <item.icon className="w-5 h-5 text-green-600" />
+                      </div>
+                      <span className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{item.text}</span>
+                    </motion.div>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl shadow-lg border border-green-200"
+              >
+                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <Zap className="w-6 h-6 text-red-500" />
+                  The Cost of Chaos
+                </h3>
+                <div className="space-y-6">
+                  {[
+                    { label: "Missed tee times per week", value: "15-25", icon: Calendar },
+                    { label: "Hours spent on phone admin", value: "20+ hrs", icon: Clock },
+                    { label: "Revenue lost to inefficiency", value: "$2,000+/month", icon: TrendingUp }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                      className="flex justify-between items-center p-4 bg-white rounded-xl shadow-sm border border-green-200"
+                    >
+                      <div className="flex items-center gap-3">
+                        <item.icon className="w-5 h-5 text-green-600" />
+                        <span className="text-gray-700 font-medium">{item.label}</span>
+                      </div>
+                      <span className="font-bold text-red-600 text-lg">{item.value}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Solutions */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-green-50 to-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        {/* Solutions with Enhanced Visuals */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-white to-green-50 relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 opacity-5">
+            <TrueFocus 
+              sentence="GOLF AUTOMATION"
+              manualMode={false}
+              blurAmount={8}
+              borderColor="green"
+              animationDuration={3}
+              pauseBetweenAnimations={2}
+            />
+          </div>
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 What We Solve
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Intelligent systems and automation that help you eliminate friction, delight guests, and operate with precision.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                  <Phone className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">
-                  Intelligent Phone Reception
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  AI-powered phone assistant handles high-volume, repetitive calls—tee times, hours, weather, rates—while routing personal requests to staff.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>24/7 coverage with zero missed calls</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Real-time tee sheet integration</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Smart call routing to staff when needed</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                  <BarChart3 className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">
-                  Data-Driven Decision Making
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Transform everyday interactions into actionable insights with comprehensive tracking and analytics.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Booking volume by time and weather</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Staff workload optimization</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Revenue trend forecasting</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 md:col-span-2 lg:col-span-1">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                  <Target className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">
-                  Full-Facility Integration
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Connect fragmented tools into one seamless operation—tee sheets, POS, scheduling, and more.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Unified system management</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Custom dashboard development</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span>Marketing automation integration</span>
-                  </li>
-                </ul>
-              </div>
+              {[
+                {
+                  icon: Phone,
+                  title: "Intelligent Phone Reception",
+                  description: "AI-powered phone assistant handles high-volume, repetitive calls—tee times, hours, weather, rates—while routing personal requests to staff.",
+                  features: [
+                    "24/7 coverage with zero missed calls",
+                    "Real-time tee sheet integration", 
+                    "Smart call routing to staff when needed"
+                  ],
+                  color: "green",
+                  delay: 0
+                },
+                {
+                  icon: BarChart3,
+                  title: "Data-Driven Decision Making",
+                  description: "Transform everyday interactions into actionable insights with comprehensive tracking and analytics.",
+                  features: [
+                    "Booking volume by time and weather",
+                    "Staff workload optimization",
+                    "Revenue trend forecasting"
+                  ],
+                  color: "blue",
+                  delay: 0.1
+                },
+                {
+                  icon: Target,
+                  title: "Full-Facility Integration",
+                  description: "Connect fragmented tools into one seamless operation—tee sheets, POS, scheduling, and more.",
+                  features: [
+                    "Unified system management",
+                    "Custom dashboard development",
+                    "Marketing automation integration"
+                  ],
+                  color: "purple",
+                  delay: 0.2
+                }
+              ].map((solution, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: solution.delay }}
+                  whileHover={{ 
+                    y: -8, 
+                    transition: { duration: 0.3 }
+                  }}
+                  className={`bg-white p-8 rounded-2xl shadow-lg border border-${solution.color}-100 hover:shadow-xl hover:border-${solution.color}-200 transition-all duration-300 cursor-pointer group`}
+                >
+                  <div className={`w-16 h-16 bg-gradient-to-br from-${solution.color}-100 to-${solution.color}-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-${solution.color}-500/20`}>
+                    <solution.icon className={`w-8 h-8 text-${solution.color}-600`} />
+                  </div>
+                  <h3 className={`font-serif text-xl font-bold text-gray-900 group-hover:text-${solution.color}-700 transition-colors duration-300 mb-4`}>
+                    {solution.title}
+                  </h3>
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 mb-6 leading-relaxed">
+                    {solution.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {solution.features.map((feature, featureIndex) => (
+                      <motion.li 
+                        key={featureIndex}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: solution.delay + 0.3 + featureIndex * 0.1 }}
+                        className="flex items-center space-x-3 text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300"
+                      >
+                        <CheckCircle className={`w-4 h-4 text-${solution.color}-500 flex-shrink-0`} />
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Outcomes */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        {/* Outcomes with Visual Appeal */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-green-50">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Outcomes You Can Expect
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Real results that transform your course operations and guest experience.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="text-center p-6">
-                <div className="text-4xl font-bold text-green-600 mb-2">65%+</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Fewer Repetitive Calls</div>
-                <p className="text-gray-600 text-sm">Staff freed to focus on guest service and pro shop sales</p>
-              </div>
-              
-              <div className="text-center p-6">
-                <div className="text-4xl font-bold text-green-600 mb-2">Zero</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Missed Bookings</div>
-                <p className="text-gray-600 text-sm">24/7 availability captures every opportunity</p>
-              </div>
-              
-              <div className="text-center p-6">
-                <div className="text-4xl font-bold text-green-600 mb-2">Live</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Performance Dashboards</div>
-                <p className="text-gray-600 text-sm">Real-time KPIs and trend analysis for smarter decisions</p>
-              </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  value: "65%+",
+                  title: "Fewer Repetitive Calls",
+                  description: "Staff freed to focus on guest service and pro shop sales",
+                  icon: Phone,
+                  color: "green",
+                  delay: 0
+                },
+                {
+                  value: "Zero",
+                  title: "Missed Bookings",
+                  description: "24/7 availability captures every opportunity", 
+                  icon: Calendar,
+                  color: "blue",
+                  delay: 0.1
+                },
+                {
+                  value: "Live",
+                  title: "Performance Dashboards",
+                  description: "Real-time KPIs and trend analysis for smarter decisions",
+                  icon: BarChart3,
+                  color: "purple",
+                  delay: 0.2
+                }
+              ].map((outcome, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: outcome.delay }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="text-center p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-green-200 transition-all duration-300 cursor-pointer group"
+                >
+                  <div className={`w-20 h-20 bg-gradient-to-br from-${outcome.color}-100 to-${outcome.color}-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-${outcome.color}-500/20`}>
+                    <outcome.icon className={`w-10 h-10 text-${outcome.color}-600`} />
+                  </div>
+                  <div className={`text-5xl font-bold text-${outcome.color}-600 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    {outcome.value}
+                  </div>
+                  <div className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-green-700 transition-colors duration-300">
+                    {outcome.title}
+                  </div>
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">
+                    {outcome.description}
+                  </p>
+                </motion.div>
+              ))}
             </div>
+            
+            {/* Additional Success Metrics */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
+              {[
+                { label: "Average Setup Time", value: "2-3 weeks", icon: Clock },
+                { label: "Client Satisfaction", value: "98%", icon: Star },
+                { label: "Revenue Recovery", value: "$3,000+/month", icon: TrendingUp },
+                { label: "Staff Time Saved", value: "15+ hrs/week", icon: Shield }
+              ].map((metric, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                  className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover:shadow-lg transition-shadow duration-300"
+                >
+                  <metric.icon className="w-8 h-8 text-green-600 mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-gray-900 mb-1">{metric.value}</div>
+                  <div className="text-sm text-gray-600">{metric.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
@@ -382,19 +494,76 @@ export default function GolfCourses() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-600 to-green-700">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to Modernize Your Course?
-            </h2>
-            <p className="text-xl text-green-100 mb-8">
-              Let us show you what intelligent automation can do for your golf course operations and guest experience.
-            </p>
-            <button className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
-              <span>Start Your Free Discovery Call Today</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+        {/* Enhanced CTA Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-600 via-green-700 to-green-800 relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-10 left-10 w-40 h-40 border-2 border-white rounded-full animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-32 h-32 border border-white rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/4 w-20 h-20 border border-white rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium mb-6">
+                <Trophy className="w-4 h-4" />
+                <span>Transform Your Golf Course Today</span>
+              </div>
+              
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                Ready to Modernize Your Course?
+              </h2>
+              <p className="text-xl text-green-100 mb-8 leading-relaxed max-w-3xl mx-auto">
+                Let us show you what intelligent automation can do for your golf course operations and guest experience.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-300 inline-flex items-center space-x-2 shadow-lg"
+                >
+                  <Calendar className="w-5 h-5" />
+                  <span>Start Your Free Discovery Call</span>
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
+                
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 inline-flex items-center space-x-2"
+                >
+                  <MapPin className="w-5 h-5" />
+                  <span>See Our Case Studies</span>
+                </motion.button>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white/90">
+                {[
+                  { icon: Clock, label: "2-3 Week Setup", value: "Fast Implementation" },
+                  { icon: Shield, label: "Zero Risk", value: "30-Day Guarantee" },
+                  { icon: Star, label: "Proven Results", value: "98% Satisfaction" }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    className="text-center"
+                  >
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <div className="font-semibold text-lg">{item.value}</div>
+                    <div className="text-green-100 text-sm">{item.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </section>
 
