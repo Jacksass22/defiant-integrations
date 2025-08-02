@@ -13,19 +13,22 @@ export default function Barbershops() {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Animated Background */}
+        {/* Silk Effect Background */}
         <div className="absolute inset-0 z-0">
+          {/* Base gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-navy via-charcoal to-black"></div>
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-electric-blue rounded-full filter blur-3xl animate-pulse"></div>
-            <div className="absolute top-1/3 right-0 w-80 h-80 bg-cyan rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-            <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-electric-blue/50 rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          
+          {/* Silk wave patterns */}
+          <div className="absolute inset-0 silk-container">
+            <div className="silk-layer silk-layer-1"></div>
+            <div className="silk-layer silk-layer-2"></div>
+            <div className="silk-layer silk-layer-3"></div>
           </div>
-          {/* Flowing gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-navy/20 to-transparent animate-gradient-x"></div>
         </div>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/20 z-10"></div>
+        
+        {/* Subtle overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
+        
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight">
