@@ -102,12 +102,10 @@ const aboutData = [
     ]
   },
   {
-    title: "Expertise",
+    title: "Social Media",
     items: [
-      "Our Approach",
-      "Methodologies",
-      "Certifications",
-      "Partnerships"
+      "Instagram",
+      "LinkedIn"
     ]
   },
   {
