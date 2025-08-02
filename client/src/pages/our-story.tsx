@@ -457,12 +457,9 @@ export default function OurStory() {
               Join the hundreds of businesses that have transformed their operations with AI that actually works. Your story starts here.
             </p>
             
-            <div className="flex justify-center gap-4 mb-8">
+            <div className="flex justify-center mb-8">
               <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Start Your Transformation
-              </button>
-              <button className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300">
-                Meet Our Team
               </button>
             </div>
             
