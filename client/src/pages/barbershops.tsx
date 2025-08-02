@@ -18,12 +18,8 @@ export default function Barbershops() {
           {/* Base gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-navy via-charcoal to-black"></div>
           
-          {/* Silk wave patterns */}
-          <div className="absolute inset-0 silk-container">
-            <div className="silk-layer silk-layer-1"></div>
-            <div className="silk-layer silk-layer-2"></div>
-            <div className="silk-layer silk-layer-3"></div>
-          </div>
+          {/* Silk texture overlay */}
+          <div className="absolute inset-0 silk-texture"></div>
         </div>
         
         {/* Subtle overlay for text readability */}

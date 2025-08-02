@@ -103,112 +103,82 @@
     animation: gradient-x 8s ease-in-out infinite;
   }
 
-  /* Silk effect styles */
-  .silk-container {
-    position: relative;
+  /* Silk texture effect */
+  .silk-texture {
+    position: absolute;
     width: 100%;
     height: 100%;
-  }
-
-  .silk-layer {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    opacity: 0.6;
-  }
-
-  /* Silk wave pattern using repeating gradients */
-  .silk-layer-1 {
+    overflow: hidden;
     background: 
-      repeating-linear-gradient(
-        -45deg,
-        transparent 0px,
-        rgba(30, 58, 138, 0.05) 1px,
-        rgba(30, 58, 138, 0.1) 2px,
-        rgba(59, 130, 246, 0.15) 3px,
-        rgba(59, 130, 246, 0.2) 4px,
-        rgba(59, 130, 246, 0.15) 5px,
-        rgba(30, 58, 138, 0.1) 6px,
-        rgba(30, 58, 138, 0.05) 7px,
-        transparent 8px,
-        transparent 16px
+      linear-gradient(115deg, 
+        transparent 0%,
+        rgba(59, 130, 246, 0.08) 15%,
+        rgba(59, 130, 246, 0.15) 20%,
+        rgba(59, 130, 246, 0.2) 25%,
+        rgba(30, 58, 138, 0.25) 30%,
+        rgba(30, 58, 138, 0.2) 35%,
+        rgba(59, 130, 246, 0.15) 40%,
+        rgba(59, 130, 246, 0.08) 45%,
+        transparent 60%,
+        transparent 100%
       ),
-      repeating-linear-gradient(
-        -45deg,
-        transparent 0px,
-        transparent 40px,
-        rgba(255, 255, 255, 0.03) 40px,
-        rgba(255, 255, 255, 0.05) 45px,
-        rgba(255, 255, 255, 0.03) 50px,
-        transparent 50px,
-        transparent 100px
+      linear-gradient(95deg,
+        transparent 0%,
+        transparent 10%,
+        rgba(6, 182, 212, 0.05) 20%,
+        rgba(6, 182, 212, 0.1) 30%,
+        rgba(6, 182, 212, 0.15) 35%,
+        rgba(59, 130, 246, 0.1) 40%,
+        rgba(59, 130, 246, 0.05) 50%,
+        transparent 60%,
+        transparent 100%
       );
-    animation: silk-flow-1 15s linear infinite;
-    mix-blend-mode: normal;
+    background-size: 300% 300%, 250% 250%;
+    animation: silk-flow 20s ease-in-out infinite;
   }
 
-  .silk-layer-2 {
+  .silk-texture::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background: 
-      repeating-linear-gradient(
-        -45deg,
-        transparent 0px,
-        rgba(6, 182, 212, 0.03) 2px,
-        rgba(6, 182, 212, 0.06) 4px,
-        rgba(59, 130, 246, 0.08) 6px,
-        rgba(59, 130, 246, 0.1) 8px,
-        rgba(59, 130, 246, 0.08) 10px,
-        rgba(6, 182, 212, 0.06) 12px,
-        rgba(6, 182, 212, 0.03) 14px,
-        transparent 16px,
-        transparent 32px
+      repeating-conic-gradient(
+        from 45deg at 50% 50%,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.02) 5deg,
+        rgba(255, 255, 255, 0.05) 10deg,
+        rgba(255, 255, 255, 0.02) 15deg,
+        transparent 20deg,
+        transparent 90deg
       );
-    animation: silk-flow-2 20s linear infinite reverse;
-    opacity: 0.7;
-  }
-
-  .silk-layer-3 {
-    background: 
-      repeating-linear-gradient(
-        -45deg,
-        transparent 0px,
-        transparent 10px,
-        rgba(255, 255, 255, 0.02) 10px,
-        rgba(255, 255, 255, 0.04) 12px,
-        rgba(255, 255, 255, 0.02) 14px,
-        transparent 14px,
-        transparent 28px
-      );
-    animation: silk-flow-3 25s linear infinite;
+    background-size: 60px 60px;
+    animation: silk-shimmer 15s linear infinite;
     opacity: 0.5;
+    mix-blend-mode: overlay;
   }
 
-  /* Silk flowing animations */
-  @keyframes silk-flow-1 {
-    0% {
-      transform: translate(0, 0) rotate(45deg);
+  @keyframes silk-flow {
+    0%, 100% {
+      background-position: 0% 0%, 100% 100%;
     }
-    100% {
-      transform: translate(100px, 100px) rotate(45deg);
+    25% {
+      background-position: 50% 50%, 50% 50%;
     }
-  }
-
-  @keyframes silk-flow-2 {
-    0% {
-      transform: translate(0, 0) rotate(-45deg);
+    50% {
+      background-position: 100% 100%, 0% 0%;
     }
-    100% {
-      transform: translate(-100px, 100px) rotate(-45deg);
+    75% {
+      background-position: 50% 50%, 50% 50%;
     }
   }
 
-  @keyframes silk-flow-3 {
+  @keyframes silk-shimmer {
     0% {
-      transform: translate(0, 0) rotate(45deg);
+      transform: translateX(0) translateY(0) rotate(0deg);
     }
     100% {
-      transform: translate(120px, -60px) rotate(45deg);
+      transform: translateX(30px) translateY(30px) rotate(360deg);
     }
   }
 }
