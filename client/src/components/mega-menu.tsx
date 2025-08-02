@@ -28,7 +28,7 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
       
       <div className={`mega-menu absolute top-full left-0 w-[800px] bg-gray-800 border border-gray-700 shadow-2xl mt-2 z-50 ${isOpen ? 'active' : ''}`}>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-3">
             {sections.map((section, index) => (
               <div key={index}>
                 <h3 className="font-serif text-base font-semibold text-white mb-3">{section.title}</h3>
