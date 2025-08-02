@@ -67,7 +67,7 @@ export function SubscriptionModal({ isOpen, onClose }: SubscriptionModalProps) {
     setErrorMessage('');
 
     try {
-      const response = await fetch('https://adk.defiantintegration.com/webhook/subscribe', {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,14 +77,25 @@ export function SubscriptionModal({ isOpen, onClose }: SubscriptionModalProps) {
         })
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (response.ok && data.success) {
         setState('success');
       } else {
-        throw new Error('Subscription failed');
+        throw new Error(data.error || 'Subscription failed');
       }
     } catch (error) {
+      console.error('Subscription error:', error);
       setState('error');
-      setErrorMessage('Something went wrong. Please try again.');
+      
+      // More specific error handling
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        setErrorMessage('Network error. Please check your connection and try again.');
+      } else if (error instanceof Error && error.message.includes('Invalid email')) {
+        setErrorMessage('Please enter a valid email address.');
+      } else {
+        setErrorMessage('Something went wrong. Please try again.');
+      }
     }
   };
 
