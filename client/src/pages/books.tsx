@@ -131,18 +131,6 @@ export default function Books() {
                       <h3 className="font-serif text-lg font-bold text-gray-900 mb-2">{book.title}</h3>
                       <p className="text-sm text-gray-500 mb-3">by {book.author}</p>
                       <p className="text-gray-600 text-sm leading-relaxed">{book.description}</p>
-                      
-                      {/* Reading status */}
-                      <div className="mt-4 flex items-center space-x-4 text-xs text-gray-500">
-                        <label className="flex items-center space-x-2 cursor-pointer">
-                          <input type="checkbox" className="w-3 h-3 text-blue-600 rounded" />
-                          <span>I've read</span>
-                        </label>
-                        <label className="flex items-center space-x-2 cursor-pointer">
-                          <input type="checkbox" className="w-3 h-3 text-blue-600 rounded" />
-                          <span>I want to read</span>
-                        </label>
-                      </div>
                     </div>
                   </div>
                 </div>
