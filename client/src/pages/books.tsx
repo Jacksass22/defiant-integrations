@@ -5,6 +5,7 @@ import goodStrategyImage from '@assets/goodbadstrat_1754163555535.jpg';
 import innovatorsDilemmaImage from '@assets/image_1754163593061.png';
 import teamOfTeamsImage from '@assets/image_1754163624113.png';
 import thinkingFastSlowImage from '@assets/image_1754163752802.png';
+import zeroToOneImage from '@assets/image_1754163785299.png';
 
 export default function Books() {
   const bookRecommendations = [
@@ -45,7 +46,8 @@ export default function Books() {
       author: "Peter Thiel",
       category: "Entrepreneurship",
       description: "Notes on startups, or how to build the future.",
-      color: "from-red-600 to-red-800"
+      color: "from-red-600 to-red-800",
+      coverImage: zeroToOneImage
     },
     {
       title: "The Lean Startup",
