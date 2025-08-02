@@ -235,41 +235,7 @@ export default function Barbershops() {
               </div>
             </div>
 
-            {/* Solution 4 */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-amber-600 to-orange-700 h-96 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-32 h-32 text-white/20" />
-              </div>
-              <div className="order-1 lg:order-2">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-100 text-amber-600 rounded-lg mb-6">
-                  <TrendingUp className="w-8 h-8" />
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                  Keep Regulars Coming Back on Schedule
-                </h3>
-                <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Problem:</strong> Regular customers forget to book until their hair looks unprofessional
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Solution:</strong> Automated relationship building that maintains cutting schedules
-                </p>
-                <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Automatic reminders based on each customer's cutting cycle (2-4 weeks typically)</li>
-                    <li>• Seasonal grooming reminders and special occasion prep</li>
-                    <li>• Loyalty programs with automated tracking for frequent customers</li>
-                    <li>• Special offers during slow periods to encourage regular visits</li>
-                    <li>• Personal touch: birthday greetings and holiday messages from their barber</li>
-                  </ul>
-                </div>
-                <div className="bg-amber-50 border-l-4 border-amber-600 p-4">
-                  <p className="text-amber-900 font-semibold">
-                    Intelligent automation that strengthens customer relationships and maintains consistent schedules
-                  </p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
