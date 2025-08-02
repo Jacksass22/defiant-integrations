@@ -525,90 +525,55 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-0 items-center">
             <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-20 left-20 w-32 h-32 border border-white/20 rounded-full"></div>
-                <div className="absolute top-40 right-16 w-24 h-24 border border-white/15 rounded-full"></div>
-                <div className="absolute bottom-32 left-16 w-20 h-20 border border-white/10 rounded-full"></div>
-                <div className="absolute bottom-20 right-32 w-16 h-16 border border-white/15 rounded-full"></div>
+              {/* Animated Neural Network Visualization */}
+              <div className="absolute inset-0">
+                {/* Nodes */}
+                <div className="absolute top-16 left-20 w-3 h-3 bg-white/40 rounded-full animate-pulse"></div>
+                <div className="absolute top-32 left-32 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute top-24 right-24 w-4 h-4 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-40 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                <div className="absolute bottom-32 left-16 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute bottom-20 left-40 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                <div className="absolute bottom-28 right-20 w-3 h-3 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1.2s' }}></div>
+                <div className="absolute bottom-16 right-32 w-2 h-2 bg-white/55 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }}></div>
+                
+                {/* Connecting Lines */}
+                <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 400">
+                  <line x1="80" y1="64" x2="128" y2="128" stroke="white" strokeWidth="1" className="animate-pulse" />
+                  <line x1="128" y1="128" x2="320" y2="96" stroke="white" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+                  <line x1="320" y1="96" x2="368" y2="160" stroke="white" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '1s' }} />
+                  <line x1="64" y1="320" x2="160" y2="280" stroke="white" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
+                  <line x1="160" y1="280" x2="320" y2="288" stroke="white" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '2s' }} />
+                  <line x1="320" y1="288" x2="320" y2="96" stroke="white" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '0.3s' }} />
+                </svg>
               </div>
               
-              <div className="text-center relative z-10">
-                {/* Enhanced Statistical Visualization */}
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-8 sm:mb-10">
-                  {/* Outer Progress Ring */}
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
-                    {/* Background circle */}
-                    <circle
-                      cx="100"
-                      cy="100"
-                      r="85"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.1)"
-                      strokeWidth="8"
-                    />
-                    {/* Progress circle */}
-                    <circle
-                      cx="100"
-                      cy="100"
-                      r="85"
-                      fill="none"
-                      stroke="white"
-                      strokeWidth="8"
-                      strokeLinecap="round"
-                      strokeDasharray={`${85 * 5.34} 534`}
-                      className="transition-all duration-2000 ease-out"
-                      style={{
-                        filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.3))'
-                      }}
-                    />
-                  </svg>
-                  
-                  {/* Center Content */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-5xl sm:text-6xl font-bold text-white mb-2">350%</div>
-                      <div className="text-sm sm:text-base text-blue-100 font-medium tracking-wide">
-                        AVERAGE ROI
-                      </div>
+              {/* Central Focus Element */}
+              <div className="relative z-10 text-center">
+                <div className="relative mb-8">
+                  {/* Hexagonal Grid Pattern */}
+                  <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-white/60 rotate-45 rounded-lg"></div>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 border-2 border-white/80 rotate-12 rounded-lg"></div>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg shadow-lg"></div>
                     </div>
                   </div>
-                  
-                  {/* Data Points */}
-                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="w-2 h-2 bg-white rounded-full opacity-80"></div>
-                  </div>
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className="w-2 h-2 bg-white rounded-full opacity-60"></div>
-                  </div>
-                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                    <div className="w-2 h-2 bg-white rounded-full opacity-70"></div>
-                  </div>
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                    <div className="w-2 h-2 bg-white rounded-full opacity-90"></div>
-                  </div>
                 </div>
                 
-                {/* Statistics Text */}
-                <div className="max-w-sm mx-auto">
-                  <div className="text-white text-lg sm:text-xl font-semibold mb-3">
-                    Companies that partner with us achieve 350% ROI within 18 months
-                  </div>
-                  <div className="text-blue-100 text-sm sm:text-base">
-                    Defiant Integrations Client Portfolio, 2024
-                  </div>
-                </div>
-                
-                {/* Additional Metrics */}
-                <div className="grid grid-cols-2 gap-6 mt-8 max-w-xs mx-auto">
-                  <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-white">95%</div>
-                    <div className="text-xs sm:text-sm text-blue-100">Client Success Rate</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-white">18</div>
-                    <div className="text-xs sm:text-sm text-blue-100">Months to ROI</div>
-                  </div>
+                {/* Elegant Typography */}
+                <div className="max-w-md mx-auto">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight">
+                    Intelligence Amplified
+                  </h3>
+                  <div className="w-16 h-px bg-white/60 mx-auto mb-4"></div>
+                  <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
+                    Transforming complexity into competitive advantage through sophisticated AI integration
+                  </p>
                 </div>
               </div>
             </div>
