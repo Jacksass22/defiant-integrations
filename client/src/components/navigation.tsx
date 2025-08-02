@@ -84,7 +84,6 @@ const capabilitiesData = [
   {
     title: "Innovation & Research",
     items: [
-      "AI Research",
       "Proof of Concepts",
       "Pilot Programs",
       "Technology Evaluation"

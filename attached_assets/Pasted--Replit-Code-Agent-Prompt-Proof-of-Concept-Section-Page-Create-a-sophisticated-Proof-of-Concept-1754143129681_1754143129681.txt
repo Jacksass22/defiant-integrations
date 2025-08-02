@@ -1,0 +1,86 @@
+# Replit Code Agent Prompt: Proof of Concept Section Page
+
+Create a sophisticated Proof of Concept capability page showcasing rapid AI prototyping and validation. Match the existing McKinsey-level aesthetic with innovation and experimentation visual elements.
+
+## Page Design Requirements:
+
+### Visual Design:
+- **Hero section**: 60/40 split with content left, interactive prototype demo right
+- **Color scheme**: Primary blues, accent oranges for experimentation, professional grays
+- **Premium elements**: Floating cards, prototype mockups, testing/validation graphics
+- **Interactive elements**: Live demos, before/after comparisons, rapid prototyping animations
+
+## Content Structure:
+
+### Hero Section:
+**Headline**: "Proof of Concept Development: See Your AI Vision In Action Within Weeks"
+**Subheadline**: "Rapid prototyping that transforms AI ideas into working demonstrations - proving business value and technical feasibility before full investment."
+
+### Value Metrics (3-column grid):
+- **2-6 weeks** From concept to working prototype
+- **$10K-25K** Fixed-price proof of concept development
+- **95%** Client satisfaction with prototype outcomes
+
+### Core POC Services (4-column grid):
+1. **Rapid Prototyping** - Working AI demos built in 2-6 weeks
+2. **Feasibility Assessment** - Technical and business viability analysis
+3. **Risk Validation** - Early identification of challenges and solutions
+4. **Business Case Development** - ROI projections and implementation roadmaps
+
+### POC Development Process:
+**"The VALIDATE Framework"** - 6-phase rapid prototyping methodology:
+Vision → Assess → Learn → Implement → Deploy → Advance → Test → Evolve
+
+### POC Specializations (3-column showcase):
+- **AI-Powered Automation**: Workflow automation prototypes with immediate impact demonstration
+- **Intelligent Analytics**: Custom dashboard and insight generation proof of concepts
+- **Customer Experience AI**: Chatbots, recommendation engines, personalization demos
+
+### Success Stories (3 horizontal cards):
+- **E-commerce**: Product recommendation POC led to 40% conversion increase
+- **SaaS**: Customer health scoring prototype reduced churn by 35%
+- **Manufacturing**: Predictive maintenance POC prevented $500K in downtime
+
+### POC Deliverables:
+**What You Get:**
+- Working prototype demonstration
+- Technical feasibility analysis
+- Business impact projections
+- Implementation roadmap
+- Risk assessment and mitigation plan
+
+### Investment & Timeline:
+**POC Packages:**
+- **Basic POC**: $10K-15K (2-4 weeks, single AI application)
+- **Advanced POC**: $15K-25K (4-6 weeks, integrated system prototype)
+- **Enterprise POC**: $25K-40K (6-8 weeks, complex multi-system demonstration)
+
+### Rapid Development Approach:
+**Week-by-Week Breakdown:**
+- **Week 1**: Requirements gathering and prototype design
+- **Week 2-3**: Core development and initial testing
+- **Week 4**: Integration, refinement, and demonstration prep
+- **Week 5-6**: Advanced features and business case development
+
+### Technology Stack:
+No-code/low-code platforms, rapid AI frameworks, cloud deployment, iterative development tools
+
+### Call-to-Action:
+**Primary**: "Start Your AI Proof of Concept"
+**Secondary**: Download POC guide, see prototype demos, schedule consultation
+
+## Technical Implementation:
+
+### Interactive Features:
+- Live prototype demonstrations
+- Before/after comparison sliders
+- Rapid development timeline visualization
+- ROI calculator for POC investment
+
+### Brand Consistency:
+- Match existing navigation/footer
+- Use established color palette
+- Maintain professional typography
+- Consistent button styles and spacing
+
+Create a page positioning proof of concepts as the smart, low-risk way to validate AI opportunities before major investment.
