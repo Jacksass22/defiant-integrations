@@ -6,6 +6,7 @@ import innovatorsDilemmaImage from '@assets/image_1754163593061.png';
 import teamOfTeamsImage from '@assets/image_1754163624113.png';
 import thinkingFastSlowImage from '@assets/image_1754163752802.png';
 import zeroToOneImage from '@assets/image_1754163785299.png';
+import leanStartupImage from '@assets/image_1754163812492.png';
 
 export default function Books() {
   const bookRecommendations = [
@@ -54,7 +55,8 @@ export default function Books() {
       author: "Eric Ries",
       category: "Business",
       description: "How to innovate with minimum viable products.",
-      color: "from-indigo-600 to-indigo-800"
+      color: "from-indigo-600 to-indigo-800",
+      coverImage: leanStartupImage
     }
   ];
 
