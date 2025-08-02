@@ -1,13 +1,14 @@
 import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
 import Noise from '@/components/Noise';
 import ScrollVelocity from '@/components/ScrollVelocity';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
+import { SubscriptionModal } from '@/components/subscription-modal';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -15,6 +16,7 @@ import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
 export default function Home() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const aiVideoRef = useRef<HTMLVideoElement>(null);
+  const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
 
   useEffect(() => {
     const playVideo = async (videoRef: React.RefObject<HTMLVideoElement>) => {
@@ -736,7 +738,12 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-blue-400 transition-colors">Subscribe</button></li>
+                <li><button 
+                  onClick={() => setShowSubscriptionModal(true)}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Subscribe
+                </button></li>
               </ul>
             </div>
           </div>
@@ -746,6 +753,11 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      
+      <SubscriptionModal 
+        isOpen={showSubscriptionModal}
+        onClose={() => setShowSubscriptionModal(false)}
+      />
     </div>
   );
 }
