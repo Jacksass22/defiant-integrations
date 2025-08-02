@@ -2,6 +2,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
 import { Navigation } from '@/components/navigation';
 import goodStrategyImage from '@assets/goodbadstrat_1754163555535.jpg';
+import innovatorsDilemmaImage from '@assets/image_1754163593061.png';
 
 export default function Books() {
   const bookRecommendations = [
@@ -18,7 +19,8 @@ export default function Books() {
       author: "Clayton M. Christensen",
       category: "Innovation",
       description: "Why great companies fail when faced with disruptive innovation.",
-      color: "from-purple-600 to-purple-800"
+      color: "from-purple-600 to-purple-800",
+      coverImage: innovatorsDilemmaImage
     },
     {
       title: "Team of Teams",
