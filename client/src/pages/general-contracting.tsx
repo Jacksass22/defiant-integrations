@@ -416,7 +416,6 @@ export default function GeneralContracting() {
             <div>
               <h4 className="font-semibold mb-4">Industries</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/" className="hover:text-amber-400 transition-colors">Home</Link></li>
                 <li><Link href="/hvac" className="hover:text-amber-400 transition-colors">HVAC</Link></li>
                 <li><Link href="/plumbing" className="hover:text-amber-400 transition-colors">Plumbing</Link></li>
                 <li><Link href="/electrical" className="hover:text-amber-400 transition-colors">Electrical</Link></li>
@@ -430,9 +429,9 @@ export default function GeneralContracting() {
             <div>
               <h4 className="font-semibold mb-4">Capabilities</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-amber-400 transition-colors">AI Strategy</button></li>
-                <li><button className="hover:text-amber-400 transition-colors">Implementation</button></li>
-                <li><button className="hover:text-amber-400 transition-colors">Scaling</button></li>
+                <li><Link href="/ai-strategy-development" className="hover:text-amber-400 transition-colors">AI Strategy</Link></li>
+                <li><Link href="/system-integration" className="hover:text-amber-400 transition-colors">Implementation</Link></li>
+                <li><Link href="/change-management" className="hover:text-amber-400 transition-colors">Scaling</Link></li>
               </ul>
             </div>
             
@@ -448,7 +447,6 @@ export default function GeneralContracting() {
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-amber-400 transition-colors">Sign In</button></li>
                 <li><button className="hover:text-amber-400 transition-colors">Subscribe</button></li>
               </ul>
             </div>
