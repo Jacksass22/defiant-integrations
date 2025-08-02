@@ -42,9 +42,6 @@ export default function TeamTraining() {
                   Schedule Training Assessment
                   <ArrowRight className="w-5 h-5" />
                 </button>
-                <button className="border-2 border-green-500 text-green-400 px-8 py-4 rounded-xl font-semibold hover:bg-green-500/10 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300">
-                  Download Training Curriculum
-                </button>
               </div>
               
               <div className="flex items-center gap-8 text-sm">
