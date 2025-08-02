@@ -731,7 +731,7 @@ export default function Home() {
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li><button className="hover:text-blue-400 transition-colors">Careers</button></li>
                 <li><button className="hover:text-blue-400 transition-colors">Contact</button></li>
-                <li><button className="hover:text-blue-400 transition-colors">Blog</button></li>
+                <li><Link href="/blog" className="hover:text-blue-400 transition-colors">Blog</Link></li>
               </ul>
             </div>
             
