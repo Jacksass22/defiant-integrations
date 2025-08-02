@@ -5,6 +5,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import SilkBackground from '@/components/SilkBackground';
 import barbershopPhoto from '@assets/Galleryphoto6_1754168857307.jpg';
 import scissorsPhoto from '@assets/pexels-nickoloui-1319458_1754168994778.jpg';
+import schedulingPhoto from '@assets/pexels-picjumbo-com-55570-196650_1754169061015.jpg';
 
 
 export default function Barbershops() {
@@ -225,8 +226,12 @@ export default function Barbershops() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-green-600 to-green-800 h-96 rounded-lg flex items-center justify-center">
-                <Calendar className="w-32 h-32 text-white/20" />
+              <div className="bg-gradient-to-br from-green-600 to-green-800 h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={schedulingPhoto}
+                  alt="Smart scheduling system with calendar and technology for modern barbershop management"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
