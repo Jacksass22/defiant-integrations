@@ -13,9 +13,9 @@ export default function Barbershops() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-gray-700 via-gray-800 to-black">
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-700 via-gray-800 to-black">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="max-w-4xl mx-auto text-center">
             <BlurText
               text="Barbershops: Smart Technology That Actually Works for Your Business"
@@ -24,10 +24,10 @@ export default function Barbershops() {
               direction="top"
               className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight"
             />
-            <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
+            <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
               Attract loyal regulars, reduce wait times, and build the kind of neighborhood reputation that keeps chairs busy and customers coming back every few weeks.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-gray-800 text-white px-8 py-4 font-medium hover:bg-gray-700 transition-colors">
+            <button className="inline-flex items-center space-x-2 bg-gray-800 text-white px-8 py-4 font-medium hover:bg-gray-700 transition-colors rounded-lg">
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -60,29 +60,7 @@ export default function Barbershops() {
               Running a barbershop means balancing tradition with modern customer expectations. You're building regular relationships with guys who want consistent cuts, competing with chain salons and quick-cut places, while trying to keep chairs filled during slow periods and managing walk-ins during busy times.
             </p>
             
-            {/* Stats Grid */}
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-gray-700 mb-4">160%</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">New Customer Increase</h3>
-                <p className="text-gray-600">More new customers with targeted local marketing</p>
-              </div>
-              <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-gray-700 mb-4">70%</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Regular Client Conversion</h3>
-                <p className="text-gray-600">First-time visitors who become regular customers</p>
-              </div>
-              <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-gray-700 mb-4">6x</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">More Engagement</h3>
-                <p className="text-gray-600">On barbering content and craftsmanship showcases</p>
-              </div>
-              <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-gray-700 mb-4">40%</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Wait Time Reduction</h3>
-                <p className="text-gray-600">Fewer complaints with smart queue management</p>
-              </div>
-            </div>
+
 
             <div className="bg-gray-800 text-white p-8 rounded-lg">
               <h3 className="font-serif text-2xl font-bold mb-4">What This Means for Your Business</h3>
@@ -154,7 +132,7 @@ export default function Barbershops() {
                 </div>
                 <div className="bg-gray-100 border-l-4 border-gray-700 p-4">
                   <p className="text-gray-800 font-semibold">
-                    Real Results: 160% increase in new customers and 70% conversion to regular clients
+                    Proven approach that builds lasting customer relationships through professional local presence
                   </p>
                 </div>
               </div>
@@ -193,7 +171,7 @@ export default function Barbershops() {
                 </div>
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4">
                   <p className="text-blue-900 font-semibold">
-                    Real Results: 6x more engagement and 50% increase in walk-in traffic from online discovery
+                    Sophisticated content strategy that showcases craftsmanship and attracts quality clientele
                   </p>
                 </div>
               </div>
@@ -226,7 +204,7 @@ export default function Barbershops() {
                 </div>
                 <div className="bg-green-50 border-l-4 border-green-600 p-4">
                   <p className="text-green-900 font-semibold">
-                    Real Results: 40% reduction in wait time complaints and 50% more appointment consistency
+                    Modern scheduling system that enhances traditional barbershop experience
                   </p>
                 </div>
               </div>
@@ -265,7 +243,7 @@ export default function Barbershops() {
                 </div>
                 <div className="bg-amber-50 border-l-4 border-amber-600 p-4">
                   <p className="text-amber-900 font-semibold">
-                    Real Results: 85% of customers maintain regular 3-4 week cutting schedules
+                    Intelligent automation that strengthens customer relationships and maintains consistent schedules
                   </p>
                 </div>
               </div>
