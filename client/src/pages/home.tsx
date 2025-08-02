@@ -524,18 +524,91 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-0 items-center">
-            <div className="bg-blue-600 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px]">
-              <div className="text-center">
-                <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 sm:mb-8">
-                  <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20"></div>
-                  <div className="absolute inset-4 bg-blue-400 rounded-full opacity-40"></div>
-                  <div className="absolute inset-8 bg-blue-300 rounded-full opacity-60"></div>
-                  <div className="absolute inset-12 bg-white rounded-full flex items-center justify-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-blue-600">23%</div>
+            <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-20 left-20 w-32 h-32 border border-white/20 rounded-full"></div>
+                <div className="absolute top-40 right-16 w-24 h-24 border border-white/15 rounded-full"></div>
+                <div className="absolute bottom-32 left-16 w-20 h-20 border border-white/10 rounded-full"></div>
+                <div className="absolute bottom-20 right-32 w-16 h-16 border border-white/15 rounded-full"></div>
+              </div>
+              
+              <div className="text-center relative z-10">
+                {/* Enhanced Statistical Visualization */}
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-8 sm:mb-10">
+                  {/* Outer Progress Ring */}
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
+                    {/* Background circle */}
+                    <circle
+                      cx="100"
+                      cy="100"
+                      r="85"
+                      fill="none"
+                      stroke="rgba(255,255,255,0.1)"
+                      strokeWidth="8"
+                    />
+                    {/* Progress circle */}
+                    <circle
+                      cx="100"
+                      cy="100"
+                      r="85"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="8"
+                      strokeLinecap="round"
+                      strokeDasharray={`${23 * 5.34} 534`}
+                      className="transition-all duration-2000 ease-out"
+                      style={{
+                        filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.3))'
+                      }}
+                    />
+                  </svg>
+                  
+                  {/* Center Content */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-5xl sm:text-6xl font-bold text-white mb-2">23%</div>
+                      <div className="text-sm sm:text-base text-blue-100 font-medium tracking-wide">
+                        SUCCESS RATE
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Data Points */}
+                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="w-2 h-2 bg-white rounded-full opacity-80"></div>
+                  </div>
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                    <div className="w-2 h-2 bg-white rounded-full opacity-60"></div>
+                  </div>
+                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                    <div className="w-2 h-2 bg-white rounded-full opacity-70"></div>
+                  </div>
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                    <div className="w-2 h-2 bg-white rounded-full opacity-90"></div>
                   </div>
                 </div>
-                <div className="text-white text-base sm:text-lg font-medium">
-                  Only 23% of companies successfully scale AI beyond pilot projects
+                
+                {/* Statistics Text */}
+                <div className="max-w-sm mx-auto">
+                  <div className="text-white text-lg sm:text-xl font-semibold mb-3">
+                    Only 23% of companies successfully scale AI beyond pilot projects
+                  </div>
+                  <div className="text-blue-100 text-sm sm:text-base">
+                    McKinsey Global Survey on AI, 2024
+                  </div>
+                </div>
+                
+                {/* Additional Metrics */}
+                <div className="grid grid-cols-2 gap-6 mt-8 max-w-xs mx-auto">
+                  <div className="text-center">
+                    <div className="text-2xl sm:text-3xl font-bold text-white">77%</div>
+                    <div className="text-xs sm:text-sm text-blue-100">Remain in Pilot</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl sm:text-3xl font-bold text-white">5x</div>
+                    <div className="text-xs sm:text-sm text-blue-100">ROI Potential</div>
+                  </div>
                 </div>
               </div>
             </div>
