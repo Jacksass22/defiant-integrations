@@ -736,7 +736,6 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-blue-400 transition-colors">Sign In</button></li>
                 <li><button className="hover:text-blue-400 transition-colors">Subscribe</button></li>
               </ul>
             </div>
