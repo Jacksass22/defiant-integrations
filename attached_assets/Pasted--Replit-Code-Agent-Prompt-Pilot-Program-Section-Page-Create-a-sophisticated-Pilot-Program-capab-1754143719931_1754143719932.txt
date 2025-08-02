@@ -1,0 +1,99 @@
+# Replit Code Agent Prompt: Pilot Program Section Page
+
+Create a sophisticated Pilot Program capability page showcasing controlled AI implementation and scaling validation. Match the existing McKinsey-level aesthetic with testing and gradual rollout visual elements.
+
+## Page Design Requirements:
+
+### Visual Design:
+- **Hero section**: 50/50 split with content left, phased rollout visualization right
+- **Color scheme**: Primary blues, accent greens for success metrics, professional grays
+- **Premium elements**: Floating cards, staged deployment graphics, success tracking dashboards
+- **Interactive elements**: Pilot timeline animations, success metrics displays, scaling visualizations
+
+## Content Structure:
+
+### Hero Section:
+**Headline**: "Pilot Programs That Prove AI Value Before Full-Scale Deployment"
+**Subheadline**: "Controlled AI implementations that demonstrate real business impact, validate assumptions, and provide the confidence to scale organization-wide."
+
+### Value Metrics (3-column grid):
+- **3-6 months** Typical pilot program duration
+- **$25K-75K** Pilot program investment range
+- **85%** Pilots that progress to full implementation
+
+### Core Pilot Services (4-column grid):
+1. **Controlled Deployment** - Limited-scope implementation with real users and data
+2. **Success Measurement** - Comprehensive metrics tracking and impact analysis
+3. **Risk Management** - Gradual rollout with safety nets and rollback procedures
+4. **Scaling Strategy** - Roadmap from pilot success to organization-wide adoption
+
+### Pilot Development Process:
+**"The SCALE Framework"** - 5-phase pilot methodology:
+Scope → Configure → Activate → Learn → Evolve
+
+### Pilot Program Types (3-column showcase):
+- **Department Pilot**: Single team or department implementation (3-4 months)
+- **Process Pilot**: Specific workflow or business process automation (4-5 months)
+- **Customer Pilot**: Limited customer-facing AI implementation (5-6 months)
+
+### Success Stories (3 horizontal cards):
+- **Sales Team Pilot**: AI lead scoring increased qualified leads by 60% in 3 months
+- **Customer Service Pilot**: Automated support reduced response time by 75%
+- **Operations Pilot**: Inventory optimization saved $200K in first 6 months
+
+### Pilot Program Benefits:
+**Why Start with a Pilot:**
+- Demonstrate ROI with real business metrics
+- Identify and resolve implementation challenges
+- Build organizational confidence and buy-in
+- Validate technical assumptions with real data
+- Create internal champions and success stories
+
+### Investment & Scope:
+**Pilot Packages:**
+- **Team Pilot**: $25K-40K (10-20 users, single process)
+- **Department Pilot**: $40K-60K (50-100 users, multiple workflows)
+- **Enterprise Pilot**: $60K-75K (100+ users, integrated systems)
+
+### Pilot Success Metrics:
+**What We Measure:**
+- Business impact and ROI validation
+- User adoption and satisfaction rates
+- Technical performance and reliability
+- Process efficiency improvements
+- Cost savings and revenue impact
+
+### Pilot to Production Timeline:
+**Typical Journey:**
+- **Month 1**: Pilot setup and initial deployment
+- **Month 2-3**: Active testing and optimization
+- **Month 4**: Results analysis and scaling plan
+- **Month 5-6**: Full implementation preparation
+- **Month 7+**: Organization-wide deployment
+
+### Risk Mitigation:
+**Built-in Safety Measures:**
+- Gradual user onboarding and training
+- Continuous monitoring and performance tracking
+- Rollback procedures for any issues
+- Regular stakeholder communication and reporting
+
+### Call-to-Action:
+**Primary**: "Launch Your AI Pilot Program"
+**Secondary**: Download pilot guide, see case studies, schedule planning session
+
+## Technical Implementation:
+
+### Interactive Features:
+- Pilot timeline with milestone tracking
+- Success metrics dashboard
+- Scaling visualization from pilot to full deployment
+- ROI progression charts
+
+### Brand Consistency:
+- Match existing navigation/footer
+- Use established color palette
+- Maintain professional typography
+- Consistent button styles and spacing
+
+Create a page positioning pilot programs as the strategic bridge between proof of concept and full AI transformation.
