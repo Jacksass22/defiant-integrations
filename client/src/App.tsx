@@ -50,6 +50,7 @@ import ProofOfConcepts from "@/pages/proof-of-concepts";
 import PilotPrograms from "@/pages/pilot-programs";
 import TechnologyEvaluation from "@/pages/technology-evaluation";
 import OurStory from "@/pages/our-story";
+import CompanyValues from "@/pages/company-values";
 import AIRoboticsArticle from "@/pages/ai-robotics-article";
 import AI2025Article from "@/pages/ai-2025-article";
 import NotFound from "@/pages/not-found";
@@ -107,6 +108,7 @@ function Router() {
       <Route path="/pilot-programs" component={PilotPrograms} />
       <Route path="/technology-evaluation" component={TechnologyEvaluation} />
       <Route path="/our-story" component={OurStory} />
+      <Route path="/company-values" component={CompanyValues} />
       <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
       <Route path="/ai-2025-article" component={AI2025Article} />
       <Route component={NotFound} />
