@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { MegaMenu } from './mega-menu';
+import { SubscriptionModal } from './subscription-modal';
 
 const industriesData = [
   {
@@ -111,6 +112,7 @@ const aboutData = [
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
   const [location, setLocation] = useLocation();
 
   const scrollToBlog = (e: React.MouseEvent) => {
@@ -142,6 +144,11 @@ export function Navigation() {
     
     // Close mobile menu if open
     setIsMobileMenuOpen(false);
+  };
+
+  const openSubscriptionModal = () => {
+    setIsSubscriptionModalOpen(true);
+    setIsMobileMenuOpen(false); // Close mobile menu if open
   };
 
   return (
@@ -183,9 +190,12 @@ export function Navigation() {
           
           {/* Right Side - Subscribe, Search */}
           <div className="hidden lg:flex items-center space-x-6">
-            <Link href="/subscribe" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
+            <button 
+              onClick={openSubscriptionModal}
+              className="text-white hover:text-gray-300 transition-colors font-medium text-sm"
+            >
               Subscribe
-            </Link>
+            </button>
             <button className="text-white hover:text-gray-300 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -219,13 +229,22 @@ export function Navigation() {
               Defiant Integration Blog
             </button>
             <div className="pt-6 border-t border-gray-700">
-              <Link href="/subscribe" className="block text-white hover:text-gray-300 transition-colors font-medium">
+              <button 
+                onClick={openSubscriptionModal}
+                className="block text-white hover:text-gray-300 transition-colors font-medium text-left"
+              >
                 Subscribe
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       )}
+      
+      {/* Subscription Modal */}
+      <SubscriptionModal 
+        isOpen={isSubscriptionModalOpen}
+        onClose={() => setIsSubscriptionModalOpen(false)}
+      />
     </nav>
   );
 }
