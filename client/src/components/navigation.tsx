@@ -210,31 +210,55 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-gray-800 border-t border-gray-700">
           <div className="px-6 py-8 space-y-6">
-            <Link href="/industries" className="block text-white hover:text-gray-300 transition-colors font-medium">
-              Industries
-            </Link>
-            <Link href="/capabilities" className="block text-white hover:text-gray-300 transition-colors font-medium">
-              Capabilities
-            </Link>
-            <Link href="/careers" className="block text-white hover:text-gray-300 transition-colors font-medium">
-              Careers
-            </Link>
-            <Link href="/about" className="block text-white hover:text-gray-300 transition-colors font-medium">
-              About Us
-            </Link>
-            <button 
-              onClick={scrollToBlog}
-              className="block text-white hover:text-gray-300 transition-colors font-medium text-left"
-            >
-              Defiant Integration Blog
-            </button>
-            <div className="pt-6 border-t border-gray-700">
-              <button 
-                onClick={openSubscriptionModal}
-                className="block text-white hover:text-gray-300 transition-colors font-medium text-left"
-              >
-                Subscribe
-              </button>
+            {/* Industries Section */}
+            <div>
+              <h3 className="text-white font-semibold mb-3">Industries</h3>
+              <div className="pl-4 space-y-2">
+                <Link href="/hvac" className="block text-gray-300 hover:text-white transition-colors text-sm">HVAC</Link>
+                <Link href="/plumbing" className="block text-gray-300 hover:text-white transition-colors text-sm">Plumbing</Link>
+                <Link href="/electrical" className="block text-gray-300 hover:text-white transition-colors text-sm">Electrical</Link>
+                <Link href="/golf-courses" className="block text-gray-300 hover:text-white transition-colors text-sm">Golf Courses</Link>
+                <Link href="/restaurants-cafes" className="block text-gray-300 hover:text-white transition-colors text-sm">Restaurants & Cafés</Link>
+              </div>
+            </div>
+
+            {/* Capabilities Section */}
+            <div>
+              <h3 className="text-white font-semibold mb-3">Capabilities</h3>
+              <div className="pl-4 space-y-2">
+                <Link href="/ai-strategy-development" className="block text-gray-300 hover:text-white transition-colors text-sm">AI Strategy</Link>
+                <Link href="/system-integration" className="block text-gray-300 hover:text-white transition-colors text-sm">Implementation</Link>
+                <Link href="/change-management" className="block text-gray-300 hover:text-white transition-colors text-sm">Scaling</Link>
+              </div>
+            </div>
+
+            {/* About Us Section */}
+            <div>
+              <h3 className="text-white font-semibold mb-3">About Us</h3>
+              <div className="pl-4 space-y-2">
+                <Link href="/our-story" className="block text-gray-300 hover:text-white transition-colors text-sm">Our Story</Link>
+                <Link href="/company-values" className="block text-gray-300 hover:text-white transition-colors text-sm">Company Values</Link>
+                <Link href="/mission-vision" className="block text-gray-300 hover:text-white transition-colors text-sm">Mission & Vision</Link>
+              </div>
+            </div>
+
+            {/* Connect Section */}
+            <div>
+              <h3 className="text-white font-semibold mb-3">Connect</h3>
+              <div className="pl-4 space-y-2">
+                <button 
+                  onClick={openSubscriptionModal}
+                  className="block text-gray-300 hover:text-white transition-colors text-sm text-left"
+                >
+                  Subscribe
+                </button>
+                <button 
+                  onClick={scrollToBlog}
+                  className="block text-gray-300 hover:text-white transition-colors text-sm text-left"
+                >
+                  Blog
+                </button>
+              </div>
             </div>
           </div>
         </div>
