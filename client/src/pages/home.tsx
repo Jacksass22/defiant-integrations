@@ -631,7 +631,7 @@ export default function Home() {
         </div>
       </section>
       {/* Research & Insights Section */}
-      <section className="py-20 bg-white">
+      <section id="blog" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">MONTHLY DEFIANT INTEGRATION BLOG</h2>

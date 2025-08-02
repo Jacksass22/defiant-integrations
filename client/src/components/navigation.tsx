@@ -141,7 +141,7 @@ export function Navigation() {
               Careers
             </Link>
             <MegaMenu title="About Us" sections={aboutData} />
-            <Link href="/blog" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
+            <Link href="/#blog" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
               Defiant Integration Blog
             </Link>
           </div>
@@ -177,7 +177,7 @@ export function Navigation() {
             <Link href="/about" className="block text-white hover:text-gray-300 transition-colors font-medium">
               About Us
             </Link>
-            <Link href="/blog" className="block text-white hover:text-gray-300 transition-colors font-medium">
+            <Link href="/#blog" className="block text-white hover:text-gray-300 transition-colors font-medium">
               Defiant Integration Blog
             </Link>
             <div className="pt-6 border-t border-gray-700">
