@@ -45,6 +45,7 @@ import ContinuousImprovement from "@/pages/continuous-improvement";
 import SystemIntegration from "@/pages/system-integration";
 import ProcessAutomation from "@/pages/process-automation";
 import DataArchitecture from "@/pages/data-architecture";
+import PerformanceOptimization from "@/pages/performance-optimization";
 import AIRoboticsArticle from "@/pages/ai-robotics-article";
 import AI2025Article from "@/pages/ai-2025-article";
 import NotFound from "@/pages/not-found";
@@ -97,6 +98,7 @@ function Router() {
       <Route path="/system-integration" component={SystemIntegration} />
       <Route path="/process-automation" component={ProcessAutomation} />
       <Route path="/data-architecture" component={DataArchitecture} />
+      <Route path="/performance-optimization" component={PerformanceOptimization} />
       <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
       <Route path="/ai-2025-article" component={AI2025Article} />
       <Route component={NotFound} />
