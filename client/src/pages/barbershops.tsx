@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import SilkBackground from '@/components/SilkBackground';
 import barbershopPhoto from '@assets/Galleryphoto6_1754168857307.jpg';
+import scissorsPhoto from '@assets/pexels-nickoloui-1319458_1754168994778.jpg';
 
 
 export default function Barbershops() {
@@ -144,8 +145,12 @@ export default function Barbershops() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-gray-700 to-black h-96 rounded-lg flex items-center justify-center">
-                <Scissors className="w-32 h-32 text-white/20" />
+              <div className="bg-gradient-to-br from-gray-700 to-black h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={scissorsPhoto}
+                  alt="Professional barbershop tools showcasing traditional craftsmanship"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
