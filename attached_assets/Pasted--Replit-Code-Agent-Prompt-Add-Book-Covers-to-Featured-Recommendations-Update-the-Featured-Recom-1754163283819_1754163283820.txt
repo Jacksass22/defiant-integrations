@@ -1,0 +1,105 @@
+# Replit Code Agent Prompt: Add Book Covers to Featured Recommendations
+
+Update the Featured Recommendations section (/books page) to include actual book cover images while maintaining the current professional design and layout.
+
+## Requirements:
+
+### 1. Current Design Enhancement
+- **Keep existing layout**: Maintain the current 3x2 grid of colored cards
+- **Add book covers**: Overlay book cover images on the colored background cards
+- **Preserve text**: Keep all existing titles, authors, and descriptions
+- **Maintain responsiveness**: Ensure covers look good on all screen sizes
+
+### 2. Book Cover Implementation
+
+**Card Structure Update:**
+```
+[Colored Background Card]
+  ├── [Book Cover Image - positioned in upper portion]
+  ├── [Book Title - below cover]
+  ├── [Author Name - below title]
+  └── [Description - bottom section]
+```
+
+**Cover Image Specifications:**
+- **Size**: Medium resolution (300-400px width max)
+- **Position**: Upper center of each colored card
+- **Styling**: Subtle drop shadow for depth
+- **Aspect ratio**: Standard book proportions (roughly 2:3 ratio)
+
+### 3. Book Cover Sources
+
+**Find covers for these books:**
+1. **Good Strategy Bad Strategy** by Richard Rumelt
+2. **The Innovator's Dilemma** by Clayton M. Christensen  
+3. **Team of Teams** by General Stanley McChrystal
+4. **Thinking, Fast and Slow** by Daniel Kahneman
+5. **Zero to One** by Peter Thiel
+6. **The Lean Startup** by Eric Ries
+
+**Image Sources:**
+- Use **publicly available book covers** from online bookstores
+- **Medium quality images** (not ultra high-res publisher materials)
+- **Standard book cover format** with readable titles
+
+### 4. Design Integration
+
+**Visual Hierarchy:**
+- **Book cover**: Primary visual element in upper 60% of card
+- **Title/Author**: Prominent text below cover
+- **Description**: Supporting text at bottom
+- **Colored backgrounds**: Keep as accent/branding element
+
+**Styling Requirements:**
+- **Professional appearance**: Clean, premium look matching site aesthetic
+- **Hover effects**: Subtle interaction when hovering over cards
+- **Loading optimization**: Compressed images for fast page loads
+- **Accessibility**: Alt text for all book cover images
+
+### 5. Layout Adjustments
+
+**Card Proportions:**
+- **Increase card height** slightly to accommodate book covers
+- **Maintain grid spacing** and responsive behavior
+- **Balance text and image** for optimal visual hierarchy
+- **Preserve mobile experience** with appropriately sized covers
+
+**Typography Updates:**
+- **Ensure text remains readable** against colored backgrounds
+- **Maintain font sizes** and styling consistency
+- **Proper contrast** between text and background colors
+
+### 6. Interactive Elements
+
+**Enhanced User Experience:**
+- **Clickable cards**: Make entire card area clickable (future purchase links)
+- **Hover animations**: Subtle scale or shadow effects on hover
+- **Loading states**: Graceful image loading with placeholders
+- **Fallback handling**: Show colored card if image fails to load
+
+### 7. Performance Considerations
+
+**Optimization:**
+- **Compress images** for fast loading while maintaining quality
+- **Lazy loading**: Load images as they come into viewport
+- **WebP format** if supported, with JPG fallbacks
+- **Responsive images**: Different sizes for mobile vs desktop
+
+### 8. Legal Compliance
+
+**Implementation Notes:**
+- **Editorial use**: Images used for book recommendation purposes
+- **Small disclaimer**: Add subtle text "Book covers used for editorial recommendations"
+- **Attribution ready**: Structure to easily add purchase links later
+- **Fair use compliance**: Medium-sized images with educational commentary
+
+## Expected Result:
+
+Transform the current text-only book recommendation cards into visually engaging book showcases that:
+- **Look professional** and match McKinsey-style business publications
+- **Maintain current branding** with colored backgrounds and typography
+- **Improve user engagement** through visual book recognition
+- **Preserve performance** with optimized images and responsive design
+- **Enable future enhancements** like purchase links and expanded book collections
+
+The final result should look like a premium business publication's book recommendation section while maintaining the site's sophisticated aesthetic and professional credibility.
