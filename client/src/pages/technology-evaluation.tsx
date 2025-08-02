@@ -66,7 +66,7 @@ export default function TechnologyEvaluation() {
               <div className="flex items-center gap-8 text-sm">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-yellow-600" />
-                  <span className="text-gray-600">48-72 Hour Assessment</span>
+                  <span className="text-gray-600">Comprehensive Assessment</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-yellow-600" />
