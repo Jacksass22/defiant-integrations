@@ -50,6 +50,17 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  const scrollToBlog = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const blogElement = document.getElementById('blog');
+    if (blogElement) {
+      blogElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
@@ -749,18 +760,20 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Industries</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-blue-400 transition-colors">Capabilities</button></li>
-                <li><button className="hover:text-blue-400 transition-colors">Featured Insights</button></li>
-                <li><button className="hover:text-blue-400 transition-colors">Locations</button></li>
+                <li><Link href="/hvac" className="hover:text-blue-400 transition-colors">HVAC</Link></li>
+                <li><Link href="/plumbing" className="hover:text-blue-400 transition-colors">Plumbing</Link></li>
+                <li><Link href="/electrical" className="hover:text-blue-400 transition-colors">Electrical</Link></li>
+                <li><Link href="/golf-courses" className="hover:text-blue-400 transition-colors">Golf Courses</Link></li>
+                <li><Link href="/restaurants-cafes" className="hover:text-blue-400 transition-colors">Restaurants & Cafés</Link></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Capabilities</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-blue-400 transition-colors">AI Strategy</button></li>
-                <li><button className="hover:text-blue-400 transition-colors">Implementation</button></li>
-                <li><button className="hover:text-blue-400 transition-colors">Scaling</button></li>
+                <li><Link href="/ai-strategy-development" className="hover:text-blue-400 transition-colors">AI Strategy</Link></li>
+                <li><Link href="/system-integration" className="hover:text-blue-400 transition-colors">Implementation</Link></li>
+                <li><Link href="/change-management" className="hover:text-blue-400 transition-colors">Scaling</Link></li>
               </ul>
             </div>
             
@@ -769,7 +782,12 @@ export default function Home() {
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li><button className="hover:text-blue-400 transition-colors">Careers</button></li>
                 <li><button className="hover:text-blue-400 transition-colors">Contact</button></li>
-                <li><Link href="/blog" className="hover:text-blue-400 transition-colors">Blog</Link></li>
+                <li><button 
+                  onClick={scrollToBlog}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Blog
+                </button></li>
               </ul>
             </div>
             
