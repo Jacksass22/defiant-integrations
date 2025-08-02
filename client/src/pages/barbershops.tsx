@@ -2,7 +2,6 @@ import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera, Globe, Smartphone, Bell, Palette } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import BlurText from '@/components/BlurText';
 
 
 export default function Barbershops() {
@@ -13,9 +12,21 @@ export default function Barbershops() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-700 via-gray-800 to-black">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-navy via-charcoal to-black"></div>
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-electric-blue rounded-full filter blur-3xl animate-pulse"></div>
+            <div className="absolute top-1/3 right-0 w-80 h-80 bg-cyan rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-electric-blue/50 rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          </div>
+          {/* Flowing gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-navy/20 to-transparent animate-gradient-x"></div>
+        </div>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20 z-10"></div>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight">
               Barbershops: Smart Technology That Actually Works for Your Business
@@ -23,7 +34,7 @@ export default function Barbershops() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
               Attract loyal regulars, reduce wait times, and build the kind of neighborhood reputation that keeps chairs busy and customers coming back every few weeks.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-gray-800 text-white px-8 py-4 font-medium hover:bg-gray-700 transition-colors rounded-lg">
+            <button className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 font-medium hover:bg-white/20 transition-all duration-300 rounded-lg">
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
