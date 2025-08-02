@@ -107,15 +107,6 @@ const aboutData = [
       "Instagram",
       "LinkedIn"
     ]
-  },
-  {
-    title: "Locations",
-    items: [
-      "Global Offices",
-      "Regional Teams",
-      "Local Presence",
-      "Contact Info"
-    ]
   }
 ];
 
