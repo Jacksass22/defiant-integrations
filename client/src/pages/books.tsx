@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
 import { Navigation } from '@/components/navigation';
+import goodStrategyImage from '@assets/goodbadstrat_1754163555535.jpg';
 
 export default function Books() {
   const bookRecommendations = [
@@ -9,7 +10,8 @@ export default function Books() {
       author: "Richard Rumelt",
       category: "Strategy",
       description: "Essential reading on what makes strategy truly effective.",
-      color: "from-blue-600 to-blue-800"
+      color: "from-blue-600 to-blue-800",
+      coverImage: goodStrategyImage
     },
     {
       title: "The Innovator's Dilemma",
@@ -98,32 +100,40 @@ export default function Books() {
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform group-hover:scale-105">
                     {/* Book Cover */}
                     <div className="relative h-80 bg-gray-100 flex items-center justify-center p-6">
-                      <div className={`w-full h-full bg-gradient-to-br ${book.color} rounded-lg shadow-xl flex flex-col justify-between p-4 text-white relative overflow-hidden`}>
-                        {/* Book spine design */}
-                        <div className="absolute top-0 left-0 w-1 h-full bg-white/20"></div>
-                        <div className="absolute top-0 left-2 w-px h-full bg-white/10"></div>
-                        
-                        {/* Category badge */}
-                        <div className="text-xs font-medium bg-white/20 px-2 py-1 rounded self-start">
-                          {book.category}
-                        </div>
-                        
-                        {/* Title section */}
-                        <div className="text-center">
-                          <div className="font-serif text-lg font-bold leading-tight mb-2">
-                            {book.title}
+                      {book.coverImage ? (
+                        <img 
+                          src={book.coverImage} 
+                          alt={`${book.title} by ${book.author}`}
+                          className="w-full h-full object-contain rounded-lg shadow-xl"
+                        />
+                      ) : (
+                        <div className={`w-full h-full bg-gradient-to-br ${book.color} rounded-lg shadow-xl flex flex-col justify-between p-4 text-white relative overflow-hidden`}>
+                          {/* Book spine design */}
+                          <div className="absolute top-0 left-0 w-1 h-full bg-white/20"></div>
+                          <div className="absolute top-0 left-2 w-px h-full bg-white/10"></div>
+                          
+                          {/* Category badge */}
+                          <div className="text-xs font-medium bg-white/20 px-2 py-1 rounded self-start">
+                            {book.category}
                           </div>
-                          <div className="text-sm opacity-90 border-t border-white/30 pt-2">
-                            {book.author}
+                          
+                          {/* Title section */}
+                          <div className="text-center">
+                            <div className="font-serif text-lg font-bold leading-tight mb-2">
+                              {book.title}
+                            </div>
+                            <div className="text-sm opacity-90 border-t border-white/30 pt-2">
+                              {book.author}
+                            </div>
+                          </div>
+                          
+                          {/* Publisher-like elements */}
+                          <div className="flex justify-between items-end text-xs opacity-70">
+                            <div>Business</div>
+                            <div>2025</div>
                           </div>
                         </div>
-                        
-                        {/* Publisher-like elements */}
-                        <div className="flex justify-between items-end text-xs opacity-70">
-                          <div>Business</div>
-                          <div>2025</div>
-                        </div>
-                      </div>
+                      )}
                     </div>
                     
                     {/* Book Details */}
