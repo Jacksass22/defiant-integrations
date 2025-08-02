@@ -3,6 +3,7 @@ import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, Trend
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import SilkBackground from '@/components/SilkBackground';
+import barbershopPhoto from '@assets/Galleryphoto6_1754168857307.jpg';
 
 
 export default function Barbershops() {
@@ -152,7 +153,7 @@ export default function Barbershops() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-600 to-gray-800 h-96 rounded-lg overflow-hidden">
                 <img 
-                  src="/attached_assets/Galleryphoto6_1754168857307.jpg" 
+                  src={barbershopPhoto}
                   alt="Professional barbershop haircut showcasing classic craftsmanship and modern style"
                   className="w-full h-full object-cover"
                 />
