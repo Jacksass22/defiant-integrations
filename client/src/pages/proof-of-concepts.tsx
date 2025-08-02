@@ -456,10 +456,10 @@ export default function ProofOfConcepts() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              POC Investment & Timeline
+              POC Packages & Timeline
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Transparent pricing and clear timelines for rapid prototype development
+              Comprehensive proof of concept packages with clear timelines for rapid prototype development
             </p>
           </div>
           
@@ -467,7 +467,6 @@ export default function ProofOfConcepts() {
             {[
               {
                 package: "Basic POC",
-                price: "$10K-15K",
                 timeline: "2-4 weeks",
                 description: "Single AI application prototype with core functionality demonstration",
                 features: ["Working prototype", "Basic integration", "Performance metrics", "Business case"],
@@ -475,7 +474,6 @@ export default function ProofOfConcepts() {
               },
               {
                 package: "Advanced POC",
-                price: "$15K-25K", 
                 timeline: "4-6 weeks",
                 description: "Integrated system prototype with advanced features and testing",
                 features: ["Multi-system integration", "Advanced analytics", "User testing", "ROI analysis"],
@@ -484,7 +482,6 @@ export default function ProofOfConcepts() {
               },
               {
                 package: "Enterprise POC",
-                price: "$25K-40K",
                 timeline: "6-8 weeks",
                 description: "Complex multi-system demonstration with enterprise-grade validation",
                 features: ["Enterprise integration", "Security validation", "Scalability testing", "Implementation roadmap"],
@@ -507,8 +504,7 @@ export default function ProofOfConcepts() {
                 
                 <div className="text-center mb-6">
                   <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">{pkg.package}</h3>
-                  <div className={`text-3xl font-bold text-${pkg.color}-600 mb-2`}>{pkg.price}</div>
-                  <div className="text-gray-600">{pkg.timeline}</div>
+                  <div className={`text-2xl font-bold text-${pkg.color}-600 mb-2`}>{pkg.timeline}</div>
                 </div>
                 
                 <p className="text-gray-600 mb-6 text-center">{pkg.description}</p>
@@ -555,7 +551,7 @@ export default function ProofOfConcepts() {
             <div className="flex flex-wrap justify-center gap-8 text-orange-100">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" />
-                <span>Fixed-Price Development</span>
+                <span>Rapid Development</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" />
