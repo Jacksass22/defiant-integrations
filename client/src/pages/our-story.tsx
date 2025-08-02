@@ -313,63 +313,7 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* Leadership & Team Background */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Leadership Heritage
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experienced leaders with proven track records in business strategy, AI engineering, and successful transformations
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: "Business Strategists",
-                description: "Proven enterprise consulting experience",
-                icon: <Users className="w-6 h-6" />,
-                color: "blue"
-              },
-              {
-                title: "AI Engineers",
-                description: "Global technology expertise",
-                icon: <Brain className="w-6 h-6" />,
-                color: "green"
-              },
-              {
-                title: "Serial Entrepreneurs",
-                description: "Successful business exits",
-                icon: <TrendingUp className="w-6 h-6" />,
-                color: "yellow"
-              },
-              {
-                title: "Deep Experience",
-                description: "20+ years combined AI and business transformation",
-                icon: <Star className="w-6 h-6" />,
-                color: "purple"
-              }
-            ].map((background, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
-              >
-                <div className={`w-12 h-12 bg-${background.color}-100 rounded-xl flex items-center justify-center text-${background.color}-600 mx-auto mb-4`}>
-                  {background.icon}
-                </div>
-                <h3 className="font-serif text-lg font-bold text-gray-900 mb-2">{background.title}</h3>
-                <p className="text-gray-600 text-sm">{background.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Mission & Vision */}
       <section className="py-20">
