@@ -704,14 +704,6 @@ export default function Home() {
               <p className="text-gray-400 mb-6 text-sm sm:text-base">
                 Architecting intelligent transformations that scale.
               </p>
-              <div className="flex space-x-4">
-                <button className="text-gray-400 hover:text-gray-300 transition-colors">
-                  <ExternalLink className="w-5 h-5" />
-                </button>
-                <button className="text-gray-400 hover:text-gray-300 transition-colors">
-                  <ExternalLink className="w-5 h-5" />
-                </button>
-              </div>
             </div>
             
             <div>
