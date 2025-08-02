@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { Navigation } from '@/components/navigation';
 import goodStrategyImage from '@assets/goodbadstrat_1754163555535.jpg';
 import innovatorsDilemmaImage from '@assets/image_1754163593061.png';
+import teamOfTeamsImage from '@assets/image_1754163624113.png';
 
 export default function Books() {
   const bookRecommendations = [
@@ -27,7 +28,8 @@ export default function Books() {
       author: "General Stanley McChrystal",
       category: "Leadership",
       description: "How to build agile, networked organizations.",
-      color: "from-green-600 to-green-800"
+      color: "from-green-600 to-green-800",
+      coverImage: teamOfTeamsImage
     },
     {
       title: "Thinking, Fast and Slow",
