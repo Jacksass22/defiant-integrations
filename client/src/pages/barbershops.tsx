@@ -15,15 +15,11 @@ export default function Barbershops() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-700 via-gray-800 to-black">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="max-w-4xl mx-auto text-center">
-            <BlurText
-              text="Barbershops: Smart Technology That Actually Works for Your Business"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight"
-            />
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight">
+              Barbershops: Smart Technology That Actually Works for Your Business
+            </h1>
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
               Attract loyal regulars, reduce wait times, and build the kind of neighborhood reputation that keeps chairs busy and customers coming back every few weeks.
             </p>
