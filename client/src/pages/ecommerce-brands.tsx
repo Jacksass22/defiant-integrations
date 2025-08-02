@@ -12,10 +12,36 @@ export default function EcommerceBrands() {
       <Navigation />
       <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Enhanced Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(168,85,247,0.4),_transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_rgba(99,102,241,0.3),_transparent_50%)]"></div>
+        
+        {/* Animated geometric elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 border border-purple-400/30 rounded-lg transform rotate-12 animate-pulse"></div>
+        <div className="absolute top-40 right-16 w-16 h-16 border border-indigo-400/30 rounded-full animate-bounce"></div>
+        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-purple-500/20 rounded-lg transform -rotate-45 animate-pulse"></div>
+        <div className="absolute bottom-32 right-1/3 w-8 h-8 bg-indigo-500/30 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+        
+        {/* Shopping/eCommerce icon pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <pattern id="ecom-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="3" cy="3" r="1" fill="rgba(168,85,247,0.6)" />
+                <rect x="12" y="12" width="2" height="2" fill="rgba(99,102,241,0.4)" />
+                <path d="M8 8 L10 8 L10 10 L8 10 Z" fill="rgba(168,85,247,0.3)" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#ecom-pattern)" />
+          </svg>
+        </div>
+        
+        <div className="relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-purple-100 px-4 py-2 rounded-full text-purple-800 text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium mb-6 border border-white/20">
               <ShoppingBag className="w-4 h-4" />
               <span>eCommerce Brands</span>
             </div>
@@ -25,18 +51,19 @@ export default function EcommerceBrands() {
               delay={150}
               animateBy="words"
               direction="top"
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
             />
             
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto leading-relaxed">
               Automate your growth, boost conversion rates, and turn casual browsers into loyal repeat buyers with systems built for modern online brands.
             </p>
             
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
+            <button className="bg-white text-purple-700 hover:bg-purple-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>
+        </div>
         </div>
       </section>
 
