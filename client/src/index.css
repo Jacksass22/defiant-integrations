@@ -103,84 +103,20 @@
     animation: gradient-x 8s ease-in-out infinite;
   }
 
-  /* Silk texture effect */
-  .silk-texture {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: 
-      linear-gradient(115deg, 
-        transparent 0%,
-        rgba(59, 130, 246, 0.08) 15%,
-        rgba(59, 130, 246, 0.15) 20%,
-        rgba(59, 130, 246, 0.2) 25%,
-        rgba(30, 58, 138, 0.25) 30%,
-        rgba(30, 58, 138, 0.2) 35%,
-        rgba(59, 130, 246, 0.15) 40%,
-        rgba(59, 130, 246, 0.08) 45%,
-        transparent 60%,
-        transparent 100%
-      ),
-      linear-gradient(95deg,
-        transparent 0%,
-        transparent 10%,
-        rgba(6, 182, 212, 0.05) 20%,
-        rgba(6, 182, 212, 0.1) 30%,
-        rgba(6, 182, 212, 0.15) 35%,
-        rgba(59, 130, 246, 0.1) 40%,
-        rgba(59, 130, 246, 0.05) 50%,
-        transparent 60%,
-        transparent 100%
-      );
-    background-size: 300% 300%, 250% 250%;
-    animation: silk-flow 20s ease-in-out infinite;
-  }
-
-  .silk-texture::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: 
-      repeating-conic-gradient(
-        from 45deg at 50% 50%,
-        transparent 0deg,
-        rgba(255, 255, 255, 0.02) 5deg,
-        rgba(255, 255, 255, 0.05) 10deg,
-        rgba(255, 255, 255, 0.02) 15deg,
-        transparent 20deg,
-        transparent 90deg
-      );
-    background-size: 60px 60px;
-    animation: silk-shimmer 15s linear infinite;
-    opacity: 0.5;
-    mix-blend-mode: overlay;
-  }
-
-  @keyframes silk-flow {
-    0%, 100% {
-      background-position: 0% 0%, 100% 100%;
-    }
-    25% {
-      background-position: 50% 50%, 50% 50%;
-    }
-    50% {
-      background-position: 100% 100%, 0% 0%;
-    }
-    75% {
-      background-position: 50% 50%, 50% 50%;
-    }
-  }
-
-  @keyframes silk-shimmer {
+  @keyframes shimmer {
     0% {
-      transform: translateX(0) translateY(0) rotate(0deg);
+      transform: translateX(-100%) translateY(-100%);
     }
     100% {
-      transform: translateX(30px) translateY(30px) rotate(360deg);
+      transform: translateX(100%) translateY(100%);
     }
   }
+
+  .animate-shimmer {
+    animation: shimmer 8s linear infinite;
+  }
+
+
 }
 
 @layer components {
