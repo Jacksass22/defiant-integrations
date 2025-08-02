@@ -142,7 +142,7 @@ export default function PilotPrograms() {
       {/* Value Metrics */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 metric: "3-6 months",
@@ -150,13 +150,6 @@ export default function PilotPrograms() {
                 description: "Comprehensive testing and validation timeframe",
                 icon: <Clock className="w-8 h-8" />,
                 color: "green"
-              },
-              {
-                metric: "$25K-75K",
-                title: "Pilot Program Investment Range", 
-                description: "Right-sized investment for controlled validation",
-                icon: <DollarSign className="w-8 h-8" />,
-                color: "blue"
               },
               {
                 metric: "85%",
