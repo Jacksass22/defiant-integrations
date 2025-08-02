@@ -556,7 +556,7 @@ export default function Home() {
                       stroke="white"
                       strokeWidth="8"
                       strokeLinecap="round"
-                      strokeDasharray={`${23 * 5.34} 534`}
+                      strokeDasharray={`${85 * 5.34} 534`}
                       className="transition-all duration-2000 ease-out"
                       style={{
                         filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.3))'
@@ -567,9 +567,9 @@ export default function Home() {
                   {/* Center Content */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="text-5xl sm:text-6xl font-bold text-white mb-2">23%</div>
+                      <div className="text-5xl sm:text-6xl font-bold text-white mb-2">350%</div>
                       <div className="text-sm sm:text-base text-blue-100 font-medium tracking-wide">
-                        SUCCESS RATE
+                        AVERAGE ROI
                       </div>
                     </div>
                   </div>
@@ -592,22 +592,22 @@ export default function Home() {
                 {/* Statistics Text */}
                 <div className="max-w-sm mx-auto">
                   <div className="text-white text-lg sm:text-xl font-semibold mb-3">
-                    Only 23% of companies successfully scale AI beyond pilot projects
+                    Companies that partner with us achieve 350% ROI within 18 months
                   </div>
                   <div className="text-blue-100 text-sm sm:text-base">
-                    McKinsey Global Survey on AI, 2024
+                    Defiant Integrations Client Portfolio, 2024
                   </div>
                 </div>
                 
                 {/* Additional Metrics */}
                 <div className="grid grid-cols-2 gap-6 mt-8 max-w-xs mx-auto">
                   <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-white">77%</div>
-                    <div className="text-xs sm:text-sm text-blue-100">Remain in Pilot</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-white">95%</div>
+                    <div className="text-xs sm:text-sm text-blue-100">Client Success Rate</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-white">5x</div>
-                    <div className="text-xs sm:text-sm text-blue-100">ROI Potential</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-white">18</div>
+                    <div className="text-xs sm:text-sm text-blue-100">Months to ROI</div>
                   </div>
                 </div>
               </div>
