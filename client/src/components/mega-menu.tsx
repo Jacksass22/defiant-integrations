@@ -171,6 +171,10 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                         <Link href="/pilot-programs" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
                         </Link>
+                      ) : item === "Technology Evaluation" ? (
+                        <Link href="/technology-evaluation" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </Link>
                       ) : item === "Technology Roadmapping" ? (
                         <Link href="/technology-roadmapping" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}

@@ -48,6 +48,7 @@ import DataArchitecture from "@/pages/data-architecture";
 import PerformanceOptimization from "@/pages/performance-optimization";
 import ProofOfConcepts from "@/pages/proof-of-concepts";
 import PilotPrograms from "@/pages/pilot-programs";
+import TechnologyEvaluation from "@/pages/technology-evaluation";
 import AIRoboticsArticle from "@/pages/ai-robotics-article";
 import AI2025Article from "@/pages/ai-2025-article";
 import NotFound from "@/pages/not-found";
@@ -103,6 +104,7 @@ function Router() {
       <Route path="/performance-optimization" component={PerformanceOptimization} />
       <Route path="/proof-of-concepts" component={ProofOfConcepts} />
       <Route path="/pilot-programs" component={PilotPrograms} />
+      <Route path="/technology-evaluation" component={TechnologyEvaluation} />
       <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
       <Route path="/ai-2025-article" component={AI2025Article} />
       <Route component={NotFound} />
