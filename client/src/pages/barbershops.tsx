@@ -150,8 +150,12 @@ export default function Barbershops() {
 
             {/* Solution 2 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-600 to-gray-800 h-96 rounded-lg flex items-center justify-center">
-                <Camera className="w-32 h-32 text-white/20" />
+              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-600 to-gray-800 h-96 rounded-lg overflow-hidden">
+                <img 
+                  src="/attached_assets/Galleryphoto6_1754168857307.jpg" 
+                  alt="Professional barbershop haircut showcasing classic craftsmanship and modern style"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-lg mb-6">
