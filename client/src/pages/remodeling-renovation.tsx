@@ -194,6 +194,14 @@ export default function RemodelingRenovation() {
                       <div className="text-sm text-gray-600">Social Engagement</div>
                     </div>
                   </div>
+                  
+                  {/* Automation Indicator */}
+                  <div className="mt-6 flex items-center justify-center space-x-2 bg-white/70 backdrop-blur-sm p-3 rounded-lg border border-amber-300">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-medium text-amber-800">
+                      Automated Tracking • Set Up & Managed by Defiant Integrations
+                    </span>
+                  </div>
                 </div>
               </div>
               
