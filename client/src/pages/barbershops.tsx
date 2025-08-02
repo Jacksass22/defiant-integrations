@@ -17,7 +17,7 @@ export default function Barbershops() {
         {/* Silk Effect Background */}
         <div className="absolute inset-0 z-0">
           <SilkBackground 
-            speed={1.5}
+            speed={0.5}
             scale={1.2}
             color="#1e3a8a"  // Navy blue from our color scheme
           />
