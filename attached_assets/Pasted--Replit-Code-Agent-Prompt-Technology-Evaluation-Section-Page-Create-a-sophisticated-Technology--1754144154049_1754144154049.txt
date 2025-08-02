@@ -1,0 +1,132 @@
+# Replit Code Agent Prompt: Technology Evaluation Section Page
+
+Create a sophisticated Technology Evaluation capability page showcasing current tech stack assessment and upgrade potential analysis. Match the existing McKinsey-level aesthetic with evaluation and optimization visual elements.
+
+## Page Design Requirements:
+
+### Visual Design:
+- **Hero section**: 60/40 split with content left, interactive tech stack analyzer right
+- **Color scheme**: Primary blues, accent yellows for current state, greens for potential upgrades
+- **Premium elements**: Floating cards, tech stack diagrams, before/after comparisons, capability matrices
+- **Interactive elements**: Stack evaluation tools, upgrade potential calculators, ROI comparison charts
+
+## Content Structure:
+
+### Hero Section:
+**Headline**: "Technology Evaluation: Unlock Your Current Stack's Hidden Potential"
+**Subheadline**: "Comprehensive assessment of your existing technology capabilities plus strategic upgrade recommendations that maximize AI potential and business impact."
+
+### Value Metrics (3-column grid):
+- **48-72 hours** Complete tech stack evaluation timeframe
+- **3-10x** Typical capability improvement with strategic upgrades
+- **$50K-500K** Average annual value unlocked through optimization
+
+### Core Evaluation Services (4-column grid):
+1. **Current Stack Assessment** - Deep analysis of existing technology capabilities and limitations
+2. **AI Readiness Analysis** - Evaluation of infrastructure's ability to support AI implementations
+3. **Upgrade Strategy Planning** - Strategic recommendations for maximum impact improvements
+4. **ROI Impact Modeling** - Financial analysis of upgrade investments vs business returns
+
+### Evaluation Framework:
+**"The ASSESS Methodology"** - 6-phase comprehensive evaluation:
+Audit → Survey → Synthesize → Evaluate → Strategic Planning → Scaling Roadmap
+
+### Technology Assessment Areas (3-column showcase):
+- **Infrastructure Capability**: Servers, databases, cloud readiness, scalability potential
+- **Integration Readiness**: API availability, data connectivity, system compatibility
+- **AI Implementation Potential**: Processing power, data quality, automation opportunities
+
+### Current vs Potential Analysis (Interactive comparison):
+**What We Discover:**
+- **Current Capabilities**: What your existing stack can achieve today
+- **Quick Wins**: Immediate improvements with minimal investment ($5K-15K)
+- **Strategic Upgrades**: Major capability improvements with targeted investment ($25K-100K)
+- **Transformation Potential**: Revolutionary capabilities with comprehensive upgrade ($100K+)
+
+### Success Stories (3 horizontal cards):
+- **E-commerce**: Stack optimization enabled 5x faster processing without hardware upgrade
+- **SaaS**: Database improvements reduced costs by 60% while improving performance
+- **Manufacturing**: Infrastructure upgrades enabled $1M predictive maintenance system
+
+### Evaluation Deliverables:
+**Comprehensive Assessment Report:**
+- Current technology capability matrix
+- AI readiness scoring and analysis
+- Prioritized upgrade recommendations
+- ROI projections for each improvement
+- Implementation timeline and resource requirements
+
+### Upgrade Investment Tiers:
+**Strategic Improvement Levels:**
+- **Optimization**: $5K-15K (Configuration and efficiency improvements)
+- **Enhancement**: $15K-50K (Targeted upgrades and new capabilities)
+- **Transformation**: $50K-150K (Major infrastructure and capability expansion)
+
+### Technology Stack Analysis:
+**Areas of Focus:**
+- **Databases**: Performance optimization, scalability assessment, AI-readiness
+- **Cloud Infrastructure**: Cost optimization, performance enhancement, security upgrades
+- **Integration Layer**: API capabilities, data flow efficiency, system connectivity
+- **Security Framework**: Current protection levels, compliance readiness, upgrade needs
+
+### Capability Improvement Examples:
+**Real Transformation Scenarios:**
+- **Database Optimization**: 10x query speed improvement through indexing and architecture changes
+- **Cloud Migration**: 40-60% cost reduction with 3x performance improvement
+- **API Enhancement**: Real-time data processing enabling advanced AI applications
+- **Security Upgrade**: Enterprise-grade protection with compliance certification
+
+### Evaluation Timeline:
+**Rapid Assessment Process:**
+- **Day 1**: Infrastructure audit and data collection
+- **Day 2**: Performance testing and capability analysis
+- **Day 3**: Report generation and strategic recommendation development
+- **Week 2**: Presentation and upgrade planning session
+
+### ROI Analysis Framework:
+**Investment vs Return Modeling:**
+- **Performance Gains**: Speed, reliability, and capability improvements
+- **Cost Savings**: Reduced operational expenses and efficiency gains
+- **Revenue Opportunities**: New capabilities enabling business growth
+- **Risk Mitigation**: Security, compliance, and reliability improvements
+
+### Upgrade Planning Process:
+**Strategic Implementation Roadmap:**
+- **Phase 1**: Quick wins and immediate optimizations (Month 1)
+- **Phase 2**: Strategic upgrades and capability expansion (Months 2-4)
+- **Phase 3**: Advanced features and transformation initiatives (Months 5-8)
+- **Ongoing**: Continuous monitoring and optimization
+
+### Technology Compatibility Matrix:
+**Integration Assessment:**
+- Current system interconnectivity analysis
+- AI platform compatibility evaluation
+- Upgrade path planning and risk assessment
+- Migration strategy and timeline development
+
+### Call-to-Action:
+**Primary**: "Get Your Technology Stack Evaluated"
+**Subtext**: "Free 72-hour assessment reveals your hidden technology potential and upgrade ROI"
+**Secondary**: Download assessment guide, see upgrade examples, schedule evaluation
+
+## Technical Implementation:
+
+### Interactive Features:
+- **Technology stack visualizer**: Interactive diagram of current vs potential capabilities
+- **Upgrade ROI calculator**: Investment vs return analysis tool
+- **Capability comparison charts**: Before/after performance metrics
+- **Assessment timeline tracker**: Visual progress through evaluation process
+
+### Advanced Elements:
+- **Performance benchmark displays**: Current vs optimized system metrics
+- **Cost-benefit analysis charts**: Investment vs savings visualization
+- **Upgrade pathway diagrams**: Visual roadmap from current to enhanced state
+- **Technology compatibility matrix**: Interactive grid showing integration potential
+
+### Brand Consistency:
+- Match existing navigation/footer
+- Use established color palette with evaluation-specific accents
+- Maintain professional typography
+- Consistent button styles and spacing
+
+Create a page positioning technology evaluation as the strategic foundation for AI success, showing how smart upgrades unlock exponential capability improvements.
