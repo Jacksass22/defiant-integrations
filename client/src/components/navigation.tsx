@@ -96,7 +96,6 @@ const aboutData = [
     title: "Company",
     items: [
       "Our Story",
-      "Leadership Team",
       "Company Values",
       "Mission & Vision"
     ]
