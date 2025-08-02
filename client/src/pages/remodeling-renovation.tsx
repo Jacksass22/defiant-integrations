@@ -196,9 +196,17 @@ export default function RemodelingRenovation() {
                   </div>
                   
                   {/* Automation Indicator */}
-                  <div className="mt-6 flex items-center justify-center space-x-2 bg-white/70 backdrop-blur-sm p-3 rounded-lg border border-amber-300">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs font-medium text-amber-800">Completely Automated • Set Up & Managed by Defiant Integrations</span>
+                  <div className="mt-6 space-y-2">
+                    <div className="flex items-center justify-center space-x-2 bg-white/70 backdrop-blur-sm p-3 rounded-lg border border-amber-300">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-medium text-amber-800">Completely Automated • Set Up & Managed by Defiant Integrations</span>
+                    </div>
+                    
+                    {/* DIY Option */}
+                    <div className="flex items-center justify-center space-x-2 bg-white/50 backdrop-blur-sm p-2 rounded-lg border border-amber-200">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span className="text-xs font-medium text-gray-700">Do-It-Yourself Option Available</span>
+                    </div>
                   </div>
                 </div>
               </div>
