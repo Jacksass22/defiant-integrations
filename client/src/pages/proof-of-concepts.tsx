@@ -149,7 +149,7 @@ export default function ProofOfConcepts() {
       {/* Value Metrics */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
                 metric: "2-6 weeks",
@@ -157,13 +157,6 @@ export default function ProofOfConcepts() {
                 description: "Rapid development cycles that deliver demonstrable results",
                 icon: <Clock className="w-8 h-8" />,
                 color: "orange"
-              },
-              {
-                metric: "$10K-25K",
-                title: "Fixed-Price POC Development", 
-                description: "Transparent pricing with no surprises or scope creep",
-                icon: <DollarSign className="w-8 h-8" />,
-                color: "blue"
               },
               {
                 metric: "95%",
