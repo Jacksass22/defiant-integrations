@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Navigation } from '@/components/navigation';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -24,6 +25,8 @@ import {
 export default function ProcessAutomation() {
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
