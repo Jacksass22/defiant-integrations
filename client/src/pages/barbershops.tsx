@@ -1,5 +1,5 @@
 import { Navigation } from '@/components/navigation';
-import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera } from 'lucide-react';
+import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera, Globe, Smartphone, Bell, Palette } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
@@ -247,6 +247,164 @@ export default function Barbershops() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Software & Web Design Section */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+              Complete Booking Software & Web Design Solutions
+            </h2>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+              Everything automated, custom-branded, and built specifically for your barbershop
+            </p>
+          </div>
+
+          {/* Main Features Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {/* Booking Software */}
+            <div className="bg-gray-800/50 p-8 rounded-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 text-blue-400 rounded-lg mb-6">
+                <Calendar className="w-8 h-8" />
+              </div>
+              <h3 className="font-serif text-3xl font-bold mb-6">Smart Booking Software</h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-xl text-blue-400 mb-3">Automated Scheduling</h4>
+                  <ul className="space-y-2 text-gray-200">
+                    <li>• Online appointment booking available 24/7</li>
+                    <li>• Walk-in queue management with real-time updates</li>
+                    <li>• Multiple barber scheduling with individual calendars</li>
+                    <li>• Recurring appointment automation for regular clients</li>
+                    <li>• Buffer time and break management</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-xl text-blue-400 mb-3">Automated Client Communication</h4>
+                  <ul className="space-y-2 text-gray-200">
+                    <li>• Appointment confirmations via text and email</li>
+                    <li>• Automated reminder system (24hr and 2hr before)</li>
+                    <li>• No-show and cancellation follow-ups</li>
+                    <li>• Birthday and holiday greetings</li>
+                    <li>• Promotional campaigns for slow periods</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-xl text-blue-400 mb-3">Smart Reminders</h4>
+                  <ul className="space-y-2 text-gray-200">
+                    <li>• Custom reminder timing based on client preferences</li>
+                    <li>• Regular cut cycle tracking (every 2-4 weeks)</li>
+                    <li>• Seasonal grooming reminders</li>
+                    <li>• Special event preparation notifications</li>
+                    <li>• "It's time for your cut" intelligent suggestions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Web Design */}
+            <div className="bg-gray-800/50 p-8 rounded-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 text-purple-400 rounded-lg mb-6">
+                <Globe className="w-8 h-8" />
+              </div>
+              <h3 className="font-serif text-3xl font-bold mb-6">Custom Web Design</h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-xl text-purple-400 mb-3">Brand-Custom Design</h4>
+                  <ul className="space-y-2 text-gray-200">
+                    <li>• Unique design reflecting your barbershop's personality</li>
+                    <li>• Custom color schemes and typography</li>
+                    <li>• Professional photography integration</li>
+                    <li>• Mobile-first responsive design</li>
+                    <li>• Local SEO optimization</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-xl text-purple-400 mb-3">Advanced Features</h4>
+                  <ul className="space-y-2 text-gray-200">
+                    <li>• Barber profile pages with specialties</li>
+                    <li>• Service menu with pricing and descriptions</li>
+                    <li>• Photo gallery showcasing work</li>
+                    <li>• Customer testimonials and reviews</li>
+                    <li>• Contact and location information</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-xl text-purple-400 mb-3">Integration & Analytics</h4>
+                  <ul className="space-y-2 text-gray-200">
+                    <li>• Seamless booking system integration</li>
+                    <li>• Google My Business synchronization</li>
+                    <li>• Social media feed integration</li>
+                    <li>• Performance tracking and analytics</li>
+                    <li>• Customer behavior insights</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Custom Requests Section */}
+          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-8 rounded-lg border border-blue-500/30">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg mb-4">
+                <Palette className="w-8 h-8" />
+              </div>
+              <h3 className="font-serif text-3xl font-bold mb-4">Custom Requests Available</h3>
+              <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+                Every barbershop is unique. We build custom solutions that fit your specific needs and vision.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg mb-3">
+                  <Smartphone className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-lg mb-2">Mobile App</h4>
+                <p className="text-gray-300 text-sm">Custom branded mobile app for your barbershop</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-500/20 text-purple-400 rounded-lg mb-3">
+                  <Bell className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-lg mb-2">Advanced Notifications</h4>
+                <p className="text-gray-300 text-sm">Push notifications, voice calls, and custom messaging</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 text-green-400 rounded-lg mb-3">
+                  <DollarSign className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-lg mb-2">Payment Integration</h4>
+                <p className="text-gray-300 text-sm">Accept deposits, process payments, and manage loyalty programs</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-amber-500/20 text-amber-400 rounded-lg mb-3">
+                  <TrendingUp className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-lg mb-2">Advanced Analytics</h4>
+                <p className="text-gray-300 text-sm">Detailed reporting, customer insights, and business intelligence</p>
+              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-gray-200 mb-4">
+                Have a specific requirement? We build exactly what your barbershop needs.
+              </p>
+              <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 font-medium hover:from-blue-700 hover:to-purple-700 transition-colors rounded-lg">
+                <span>Discuss Custom Requirements</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
