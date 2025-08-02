@@ -18,9 +18,7 @@ import {
   Phone,
   GitMerge,
   Gauge,
-  PieChart,
-  Calculator,
-  Calendar
+  PieChart
 } from 'lucide-react';
 
 export default function ProcessAutomation() {
@@ -445,92 +443,7 @@ export default function ProcessAutomation() {
         </div>
       </section>
 
-      {/* ROI Calculator Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Calculate Your Automation ROI
-            </h2>
-            <p className="text-xl text-gray-600">
-              See exactly how much time and money you could save with process automation
-            </p>
-          </div>
-          
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Input Section */}
-              <div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-6">Current State</h3>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Manual hours per week</label>
-                    <input type="number" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="40" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Average hourly cost ($)</label>
-                    <input type="number" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="25" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Number of team members</label>
-                    <input type="number" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="5" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Process complexity</label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                      <option>Simple (60% time savings)</option>
-                      <option>Moderate (70% time savings)</option>
-                      <option>Complex (80% time savings)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Results Section */}
-              <div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-6">Automation Benefits</h3>
-                <div className="space-y-6">
-                  <div className="bg-green-50 rounded-xl p-4">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Calculator className="w-5 h-5 text-green-600" />
-                      <span className="font-semibold text-green-800">Annual Time Savings</span>
-                    </div>
-                    <div className="text-2xl font-bold text-green-600">8,320 hours</div>
-                    <div className="text-sm text-green-700">Per year across team</div>
-                  </div>
-                  
-                  <div className="bg-blue-50 rounded-xl p-4">
-                    <div className="flex items-center gap-3 mb-2">
-                      <PieChart className="w-5 h-5 text-blue-600" />
-                      <span className="font-semibold text-blue-800">Cost Savings</span>
-                    </div>
-                    <div className="text-2xl font-bold text-blue-600">$208,000</div>
-                    <div className="text-sm text-blue-700">Annual cost reduction</div>
-                  </div>
-                  
-                  <div className="bg-purple-50 rounded-xl p-4">
-                    <div className="flex items-center gap-3 mb-2">
-                      <TrendingUp className="w-5 h-5 text-purple-600" />
-                      <span className="font-semibold text-purple-800">ROI</span>
-                    </div>
-                    <div className="text-2xl font-bold text-purple-600">520%</div>
-                    <div className="text-sm text-purple-700">Return on investment</div>
-                  </div>
-                  
-                  <div className="bg-orange-50 rounded-xl p-4">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Calendar className="w-5 h-5 text-orange-600" />
-                      <span className="font-semibold text-orange-800">Payback Period</span>
-                    </div>
-                    <div className="text-2xl font-bold text-orange-600">2.3 months</div>
-                    <div className="text-sm text-orange-700">Time to break even</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-br from-blue-600 to-cyan-700">
