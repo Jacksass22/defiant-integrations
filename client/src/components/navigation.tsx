@@ -176,13 +176,13 @@ export function Navigation() {
           <div className="hidden lg:flex items-center space-x-10">
             <MegaMenu title="Industries" sections={industriesData} />
             <MegaMenu title="Capabilities" sections={capabilitiesData} />
-            <Link href="/careers" className="text-white hover:text-gray-300 transition-colors font-medium text-sm">
+            <Link href="/careers" className="text-white hover:text-gray-300 transition-colors font-medium text-[14px]">
               Careers
             </Link>
             <MegaMenu title="About Us" sections={aboutData} />
             <button 
               onClick={scrollToBlog}
-              className="text-white hover:text-gray-300 transition-colors font-medium text-sm"
+              className="text-white hover:text-gray-300 transition-colors font-medium text-[14px]"
             >
               Defiant Integration Blog
             </button>
@@ -192,7 +192,7 @@ export function Navigation() {
           <div className="hidden lg:flex items-center space-x-6">
             <button 
               onClick={openSubscriptionModal}
-              className="text-white hover:text-gray-300 transition-colors font-medium text-sm"
+              className="text-white hover:text-gray-300 transition-colors font-medium text-[14px]"
             >
               Subscribe
             </button>

@@ -21,7 +21,7 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors font-medium text-sm">
+      <button className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors font-medium text-[14px]">
         <span>{title}</span>
         <ChevronDown className="w-4 h-4" />
       </button>
