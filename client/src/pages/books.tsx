@@ -4,6 +4,7 @@ import { Navigation } from '@/components/navigation';
 import goodStrategyImage from '@assets/goodbadstrat_1754163555535.jpg';
 import innovatorsDilemmaImage from '@assets/image_1754163593061.png';
 import teamOfTeamsImage from '@assets/image_1754163624113.png';
+import thinkingFastSlowImage from '@assets/image_1754163752802.png';
 
 export default function Books() {
   const bookRecommendations = [
@@ -36,7 +37,8 @@ export default function Books() {
       author: "Daniel Kahneman",
       category: "Decision Making",
       description: "Understanding how we make decisions and judgments.",
-      color: "from-orange-600 to-orange-800"
+      color: "from-orange-600 to-orange-800",
+      coverImage: thinkingFastSlowImage
     },
     {
       title: "Zero to One",
