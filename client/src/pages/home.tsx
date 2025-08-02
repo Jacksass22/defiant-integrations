@@ -118,7 +118,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-20">
             {/* Smart AI Solutions */}
-            <div className="group relative bg-gray-50 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-200">
+            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               
               <div className="relative">
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
 
             {/* Web & Digital Tools */}
-            <div className="group relative bg-gray-50 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-200">
+            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               
               <div className="relative">
@@ -203,7 +203,7 @@ export default function Home() {
             </div>
 
             {/* Data & Analytics */}
-            <div className="group relative bg-gray-50 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-200">
+            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-600 to-violet-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               
               <div className="relative">
@@ -245,7 +245,7 @@ export default function Home() {
             </div>
 
             {/* Strategy & Development */}
-            <div className="group relative bg-gray-50 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-200">
+            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-600 to-amber-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               
               <div className="relative">
