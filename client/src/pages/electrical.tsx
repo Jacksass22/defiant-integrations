@@ -3,9 +3,12 @@ import { ArrowRight, Clock, DollarSign, Shield, Calendar, FileCheck, TrendingUp,
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 
 export default function Electrical() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -26,7 +29,10 @@ export default function Electrical() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Handle more projects, stay compliant, and grow your electrical business without the administrative headaches.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-white text-orange-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="inline-flex items-center space-x-2 bg-white text-orange-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>

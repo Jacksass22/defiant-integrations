@@ -1,0 +1,211 @@
+Create a premium lead capture form for Defiant Integrations - a McKinsey-level AI transformation consulting firm that helps businesses implement intelligent systems to automate operations, increase revenue, and scale efficiently. The form should position us as strategic partners who deliver measurable ROI through industry-specific AI solutions.
+Form Structure & Fields:
+Section 1: Contact Information
+
+Full Name (required, text input)
+Email Address (required, email validation)
+Phone Number (optional, phone format)
+Company Name (required, text input)
+Job Title/Role (required, text input)
+
+Section 2: Business Context
+
+Industry (required dropdown):
+
+HVAC Services
+Plumbing Services
+Electrical Services
+Landscaping Services
+Roofing Services
+Painting Services
+General Contracting
+Cleaning Services
+Remodeling & Renovation
+Restaurants & Cafés
+Beauty Salons & Spas
+Barbershops
+Gyms & Personal Trainers
+Wellness & Life Coaches
+Pet Grooming & Boarding
+Golf Courses
+Brick-and-Mortar Retail
+E-commerce Brands
+Cannabis Retail & Growers
+Specialty Food Makers
+Local Boutiques
+Real Estate Agencies
+Law Firms
+Accounting & Tax Services
+Insurance Brokers
+HR & Recruiting
+Business Consultants
+Other
+
+
+Company Size (required dropdown):
+
+1-10 employees
+11-50 employees
+51-200 employees
+201-1000 employees
+1000+ employees
+
+
+Current Technology Maturity (required dropdown):
+
+Beginner (Just getting started)
+Intermediate (Some digital tools in place)
+Advanced (Digitally mature organization)
+
+
+
+Section 3: AI Transformation Goals
+
+What specific business challenges are you looking to solve with AI? (required, large textarea, placeholder: "Examples: Automate customer scheduling, reduce manual data entry, improve lead qualification, optimize inventory management, enhance customer service, streamline operations...")
+Which areas of your business need the most improvement? (required, multiple select):
+
+Customer acquisition & lead generation
+Operations & process automation
+Customer service & support
+Data management & analytics
+Marketing & sales efficiency
+Inventory & supply chain
+Financial management & reporting
+Team productivity & collaboration
+Quality control & compliance
+Other
+
+
+What's driving this AI initiative? (required dropdown):
+
+Need to reduce operational costs
+Want to increase revenue/sales
+Struggling with manual processes
+Competitors are gaining advantage
+Looking to scale the business
+Customer demands/expectations
+Regulatory or compliance requirements
+Other
+
+
+Timeline for AI Implementation (required dropdown):
+
+Ready to start immediately (1-30 days)
+1-3 months
+3-6 months
+6-12 months
+Just exploring possibilities
+
+
+
+Section 4: Investment & Decision Making
+
+Investment Range for AI Transformation (required dropdown):
+
+$1K - $5K (Small automation project)
+$5K - $15K (Process optimization)
+$15K - $35K (Department transformation)
+$35K - $75K (Multi-system integration)
+$75K - $150K (Company-wide implementation)
+$150K - $300K (Enterprise transformation)
+$300K - $500K (Large-scale AI initiative)
+$500K+ (Complete business transformation)
+Not sure yet / Need consultation
+
+
+Expected ROI Timeline (required dropdown):
+
+3-6 months
+6-12 months
+1-2 years
+2+ years
+Unsure
+
+
+Decision Making Process (required dropdown):
+
+I make the final decisions
+I'm the primary influencer
+Part of a decision committee
+Researching for leadership team
+Getting preliminary information
+
+
+
+Technical Requirements:
+Frontend:
+
+Modern, responsive design matching Defiant Integrations branding
+Multi-step form with progress indicator
+Form validation with helpful error messages
+Professional typography and spacing
+Mobile-friendly design
+Smooth transitions between steps
+
+Backend:
+
+Form submission handling
+Data validation and sanitization
+Webhook integration to send data to: https://adk.defiantintegration.com/webhook/lead-capture
+Error handling and user feedback
+Success page with next steps
+
+Data Payload:
+When form is submitted, send POST request to webhook with this JSON structure:
+json{
+  "source": "website_typeform",
+  "timestamp": "2025-08-02T10:30:00.000Z",
+  "contactInfo": {
+    "fullName": "string",
+    "email": "string",
+    "phone": "string",
+    "company": "string",
+    "jobTitle": "string"
+  },
+  "businessContext": {
+    "industry": "string",
+    "companySize": "string",
+    "techMaturity": "string"
+  },
+  "aiNeeds": {
+    "businessChallenges": "string",
+    "improvementAreas": ["string"],
+    "drivingFactor": "string",
+    "timeline": "string"
+  },
+  "qualification": {
+    "investmentRange": "string",
+    "roiTimeline": "string",
+    "decisionProcess": "string"
+  }
+}
+UX/UI Guidelines:
+
+Use clean, professional design with plenty of white space
+Include subtle animations and micro-interactions
+Show progress through the form (Step 1 of 4, etc.)
+Use conditional logic where appropriate
+Include helpful placeholder text and descriptions
+Success state should thank user and explain next steps
+Error states should be clear and actionable
+
+Additional Features:
+
+Form analytics (track completion rates, drop-off points)
+Option to save progress (optional)
+Thank you page with expected follow-up timeline
+Integration with Google Analytics/tracking pixels
+GDPR/privacy compliance notice
+
+Success Page Content:
+"Thank you for your interest in AI transformation with Defiant Integrations!
+We've received your strategic consultation request and our team is reviewing your specific needs. Based on your responses, we'll prepare a customized approach for your industry and business challenges.
+What happens next:
+
+Strategic Review (24 hours) - Our team analyzes your requirements
+Initial Consultation (2-3 business days) - 30-minute discovery call
+Custom Proposal (Within 1 week) - Tailored AI transformation roadmap
+
+You'll hear from our senior consultant within 24 hours to schedule your complimentary strategic consultation.
+In the meantime, feel free to explore our [industry-specific case studies] or check out our [ROI Calculator] to see potential returns from AI implementation."
+Create this as a complete, production-ready application that can be deployed immediately and integrated into the Defiant Integrations website.
