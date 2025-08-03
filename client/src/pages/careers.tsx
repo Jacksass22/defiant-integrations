@@ -415,7 +415,7 @@ export default function CareersPage() {
               <div className="bg-gray-50 p-6 rounded-lg mb-8">
                 <h3 className="font-semibold text-gray-900 mb-3">What happens next?</h3>
                 <ul className="text-sm text-gray-600 space-y-2 text-left">
-                  <li>• Our team will review your application within 5-7 business days</li>
+                  <li>• Our team will get back to you. </li>
                   <li>• If there's a potential fit, we'll reach out to schedule an initial conversation</li>
                   <li>• You'll receive updates via email at {formData.email}</li>
                 </ul>
