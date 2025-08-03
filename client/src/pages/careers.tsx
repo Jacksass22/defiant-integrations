@@ -69,6 +69,23 @@ export default function CareersPage() {
     setFormData({ ...formData, resume: file });
   };
 
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files?.[0] || null;
+    if (file && (file.type === 'application/pdf' || file.type.includes('document'))) {
+      setFormData({ ...formData, resume: file });
+    }
+  };
+
+  const triggerFileInput = () => {
+    const fileInput = document.getElementById('resume-upload') as HTMLInputElement;
+    fileInput?.click();
+  };
+
   const handleSubmit = () => {
     // Handle form submission
     console.log('Form submitted:', formData);
@@ -259,20 +276,24 @@ export default function CareersPage() {
                 Resume Upload
               </h3>
               
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
+              <div 
+                className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors cursor-pointer"
+                onDragOver={handleDragOver}
+                onDrop={handleDrop}
+                onClick={triggerFileInput}
+              >
                 <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <div className="mb-4">
-                  <label className="cursor-pointer">
-                    <span className="text-blue-600 hover:text-blue-700 font-medium">
-                      Click to upload your resume
-                    </span>
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleFileUpload}
-                      className="hidden"
-                    />
-                  </label>
+                  <span className="text-blue-600 hover:text-blue-700 font-medium">
+                    Click to upload your resume
+                  </span>
+                  <input
+                    id="resume-upload"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
                   <p className="text-gray-500 text-sm mt-2">
                     or drag and drop your file here
                   </p>
@@ -283,7 +304,7 @@ export default function CareersPage() {
                 
                 {formData.resume && (
                   <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-                    <div className="flex items-center text-green-700">
+                    <div className="flex items-center justify-center text-green-700">
                       <CheckCircle className="w-5 h-5 mr-2" />
                       <span className="font-medium">{formData.resume.name}</span>
                     </div>
