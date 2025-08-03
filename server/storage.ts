@@ -46,7 +46,8 @@ export class MemStorage implements IStorage {
       ...insertApplication, 
       id,
       submittedAt: new Date(),
-      status: insertApplication.status || "pending"
+      status: insertApplication.status || "pending",
+      resumeFileName: insertApplication.resumeFileName || null
     };
     this.careerApplications.set(id, application);
     return application;

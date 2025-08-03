@@ -1,0 +1,360 @@
+{
+  "name": "job application defiant",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "career-application",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "6acddb66-5b25-4517-a9ec-6f6a3025ac6e",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        400,
+        -180
+      ],
+      "webhookId": "career-application"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1ThTCmlQX0n4TIAuU5KCMP6a703Y3hZmMvRF5fCUXtqc",
+          "mode": "list",
+          "cachedResultName": "Defiant Blog Email list",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThTCmlQX0n4TIAuU5KCMP6a703Y3hZmMvRF5fCUXtqc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1841060382,
+          "mode": "list",
+          "cachedResultName": "Application form",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThTCmlQX0n4TIAuU5KCMP6a703Y3hZmMvRF5fCUXtqc/edit#gid=1841060382"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $now.toDateTime() }}",
+            "ID": "={{ $json.id }}",
+            "Career Path": "={{ $json.careerPath }}",
+            "First Name": "={{ $json.firstName }}",
+            "Last Name": "={{ $json.lastName }}",
+            "Email": "={{ $json.email }}",
+            "Phone": "={{ $json.phone }}",
+            "Resume File": "={{ $json.resumeFileName }}",
+            "Question": "={{ $json.randomQuestion }}",
+            "Answer": "={{ $json.randomAnswer }}",
+            "Status": "={{ $json.status }}",
+            "Submitted At": "={{ $json.submittedAt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Career Path",
+              "displayName": "Career Path",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "First Name",
+              "displayName": "First Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last Name",
+              "displayName": "Last Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Resume File",
+              "displayName": "Resume File",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Question",
+              "displayName": "Question",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Answer",
+              "displayName": "Answer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Submitted At",
+              "displayName": "Submitted At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d2e7da46-82bd-4793-ab95-4ba222d9cae6",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        620,
+        -180
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "JbOz1JrGQJqrZW1M",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "867bb2dd-1006-4a55-85e8-6845b188b776",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        840,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "condition1",
+              "leftValue": "={{ $json.careerPath }}",
+              "rightValue": "developer",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9e550a0c-f8c9-4a38-ae38-a87dbf703f8e",
+      "name": "Check Career Path",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        600,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "eea58b75-a04e-4f66-a2fe-81b7baf4eec2",
+      "name": "Set Developer Priority",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        880,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "98ddb5e4-790a-46d2-adcb-94dea254d247",
+      "name": "Set General Priority",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        860,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "Team@defiantintegration.com",
+        "subject": "Job Application",
+        "message": "Big ZA job App",
+        "options": {}
+      },
+      "id": "dd2223a2-5b21-405a-82da-80e3e15c9111",
+      "name": "Send Email Notification",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        60
+      ],
+      "webhookId": "afe7c3ec-909d-4281-980d-aedb5b7f57b1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "ep9Cb7h8ZrVsTQFQ",
+          "name": "test email"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check Career Path",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Career Path": {
+      "main": [
+        [
+          {
+            "node": "Set Developer Priority",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set General Priority",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Developer Priority": {
+      "main": [
+        [
+          {
+            "node": "Send Email Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set General Priority": {
+      "main": [
+        [
+          {
+            "node": "Send Email Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4536afc1-aced-4553-89b7-015ec0dfbaea",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "87a0453c621b4f83e0b301c616bca6d098e1b6280c9ee4046453bdb20443cac3"
+  },
+  "id": "SR9hesg9e5t6sUMt",
+  "tags": []
+}
