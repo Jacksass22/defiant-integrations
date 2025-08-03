@@ -521,14 +521,14 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
                   <SelectValue placeholder="Select investment range" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="$1K - $5K (Small automation project)">$1K - $5K (Small automation project)</SelectItem>
-                  <SelectItem value="$5K - $15K (Process optimization)">$5K - $15K (Process optimization)</SelectItem>
-                  <SelectItem value="$15K - $35K (Department transformation)">$15K - $35K (Department transformation)</SelectItem>
-                  <SelectItem value="$35K - $75K (Multi-system integration)">$35K - $75K (Multi-system integration)</SelectItem>
-                  <SelectItem value="$75K - $150K (Company-wide implementation)">$75K - $150K (Company-wide implementation)</SelectItem>
-                  <SelectItem value="$150K - $300K (Enterprise transformation)">$150K - $300K (Enterprise transformation)</SelectItem>
-                  <SelectItem value="$300K - $500K (Large-scale AI initiative)">$300K - $500K (Large-scale AI initiative)</SelectItem>
-                  <SelectItem value="$500K+ (Complete business transformation)">$500K+ (Complete business transformation)</SelectItem>
+                  <SelectItem value="$1K - $5K">$1K - $5K</SelectItem>
+                  <SelectItem value="$5K - $15K">$5K - $15K</SelectItem>
+                  <SelectItem value="$15K - $35K">$15K - $35K</SelectItem>
+                  <SelectItem value="$35K - $75K">$35K - $75K</SelectItem>
+                  <SelectItem value="$75K - $150K">$75K - $150K</SelectItem>
+                  <SelectItem value="$150K - $300K">$150K - $300K</SelectItem>
+                  <SelectItem value="$300K - $500K">$300K - $500K</SelectItem>
+                  <SelectItem value="$500K+">$500K+</SelectItem>
                   <SelectItem value="Not sure yet / Need consultation">Not sure yet / Need consultation</SelectItem>
                 </SelectContent>
               </Select>
