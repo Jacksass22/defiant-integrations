@@ -3,6 +3,8 @@ import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, Trend
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import SilkBackground from '@/components/SilkBackground';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 import barbershopPhoto from '@assets/Galleryphoto6_1754168857307.jpg';
 import scissorsPhoto from '@assets/pexels-nickoloui-1319458_1754168994778.jpg';
 import schedulingPhoto from '@assets/pexels-picjumbo-com-55570-196650_1754169061015.jpg';
@@ -10,6 +12,7 @@ import schedulingPhoto from '@assets/pexels-picjumbo-com-55570-196650_1754169061
 
 export default function Barbershops() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -37,7 +40,10 @@ export default function Barbershops() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
               Attract loyal regulars, reduce wait times, and build the kind of neighborhood reputation that keeps chairs busy and customers coming back every few weeks.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 font-medium hover:bg-white/20 transition-all duration-300 rounded-lg">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 font-medium hover:bg-white/20 transition-all duration-300 rounded-lg"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -532,7 +538,10 @@ export default function Barbershops() {
           <p className="text-2xl font-semibold mb-12">
             Ready to see what this looks like for your business?
           </p>
-          <button className="inline-flex items-center space-x-2 bg-gray-600 text-white px-8 py-4 font-medium hover:bg-gray-700 transition-colors text-lg">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="inline-flex items-center space-x-2 bg-gray-600 text-white px-8 py-4 font-medium hover:bg-gray-700 transition-colors text-lg"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -601,6 +610,13 @@ export default function Barbershops() {
           </div>
         </div>
       </footer>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Barbershop Technology Assessment"
+        subtitle="Get a customized strategy for modernizing your barbershop"
+      />
     </div>
   );
 }

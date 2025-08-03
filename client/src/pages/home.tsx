@@ -9,6 +9,7 @@ import ScrollVelocity from '@/components/ScrollVelocity';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
 import { SubscriptionModal } from '@/components/subscription-modal';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
 import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
@@ -17,6 +18,7 @@ export default function Home() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const aiVideoRef = useRef<HTMLVideoElement>(null);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
 
   useEffect(() => {
     const playVideo = async (videoRef: React.RefObject<HTMLVideoElement>) => {
@@ -96,7 +98,10 @@ export default function Home() {
               className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold mb-8 sm:mb-12 lg:mb-16 text-white leading-tight"
             />
             <div className="mt-8 sm:mt-12 lg:mt-16">
-              <button className="bg-white text-gray-900 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium hover:bg-gray-100 transition-all inline-flex items-center space-x-2">
+              <button 
+                onClick={() => setShowLeadCaptureModal(true)}
+                className="bg-white text-gray-900 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium hover:bg-gray-100 transition-all inline-flex items-center space-x-2"
+              >
                 <span>Get started</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
@@ -813,6 +818,13 @@ export default function Home() {
       <SubscriptionModal 
         isOpen={showSubscriptionModal}
         onClose={() => setShowSubscriptionModal(false)}
+      />
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Start Your AI Transformation"
+        subtitle="Get a customized strategy consultation"
       />
     </div>
   );

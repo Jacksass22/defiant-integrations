@@ -3,9 +3,12 @@ import { ArrowRight, Clock, DollarSign, Sparkles, Calendar, MessageSquare, Trend
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 
 export default function BeautySalonsSpas() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -26,7 +29,10 @@ export default function BeautySalonsSpas() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Attract premium clients, reduce no-shows, and build the kind of loyal relationships that keep appointment books full and stylists busy.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-white text-purple-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="inline-flex items-center space-x-2 bg-white text-purple-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -461,6 +467,13 @@ export default function BeautySalonsSpas() {
           </div>
         </div>
       </footer>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Beauty & Spa Technology Assessment"
+        subtitle="Get a customized strategy for your salon or spa"
+      />
     </div>
   );
 }
