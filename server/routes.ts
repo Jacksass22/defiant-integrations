@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { insertCareerApplicationSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -42,6 +43,58 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error('Subscription error:', error);
       res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  // Career application submission endpoint
+  app.post('/api/career-application', async (req, res) => {
+    try {
+      // Validate the request body
+      const validatedData = insertCareerApplicationSchema.parse(req.body);
+      
+      // Store in database
+      const application = await storage.createCareerApplication(validatedData);
+      
+      // Prepare data for Google Sheets via n8n
+      const sheetData = {
+        id: application.id,
+        careerPath: application.careerPath,
+        firstName: application.firstName,
+        lastName: application.lastName,
+        email: application.email,
+        phone: application.phone,
+        resumeFileName: application.resumeFileName || 'No resume uploaded',
+        randomQuestion: application.randomQuestion,
+        randomAnswer: application.randomAnswer,
+        submittedAt: application.submittedAt?.toISOString() || new Date().toISOString(),
+        status: application.status
+      };
+
+      // Forward to n8n webhook for Google Sheets
+      const webhookResponse = await fetch('https://adk.defiantintegration.com/webhook/career-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sheetData)
+      });
+
+      if (!webhookResponse.ok) {
+        console.error('n8n webhook error:', webhookResponse.status, webhookResponse.statusText);
+      }
+
+      res.json({ 
+        success: true, 
+        message: 'Application submitted successfully!',
+        applicationId: application.id 
+      });
+    } catch (error) {
+      console.error('Career application error:', error);
+      if (error instanceof Error && error.name === 'ZodError') {
+        res.status(400).json({ error: 'Invalid application data', details: (error as any).errors });
+      } else {
+        res.status(500).json({ error: 'Internal server error' });
+      }
     }
   });
 

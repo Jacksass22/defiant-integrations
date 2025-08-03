@@ -86,10 +86,42 @@ export default function CareersPage() {
     fileInput?.click();
   };
 
-  const handleSubmit = () => {
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    setCurrentStep(6); // Success step
+  const handleSubmit = async () => {
+    try {
+      const submissionData = {
+        careerPath: formData.careerPath,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        resumeFileName: formData.resume?.name || null,
+        randomQuestion: formData.randomQuestion,
+        randomAnswer: formData.randomAnswer,
+        status: 'pending'
+      };
+
+      const response = await fetch('/api/career-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Application submitted successfully:', result);
+        setCurrentStep(6); // Success step
+      } else {
+        const errorData = await response.json();
+        console.error('Submission error:', errorData);
+        // You could add error handling UI here
+        alert('There was an error submitting your application. Please try again.');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('There was a network error. Please check your connection and try again.');
+    }
   };
 
   const getCareerPathInfo = (path: CareerPath) => {
