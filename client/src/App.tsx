@@ -55,6 +55,7 @@ import CompanyValues from "@/pages/company-values";
 import MissionVision from "@/pages/mission-vision";
 import AIRoboticsArticle from "@/pages/ai-robotics-article";
 import AI2025Article from "@/pages/ai-2025-article";
+import Careers from "@/pages/careers";
 import NotFound from "@/pages/not-found";
 
 
@@ -116,6 +117,7 @@ function Router() {
       <Route path="/mission-vision" component={MissionVision} />
       <Route path="/ai-robotics-article" component={AIRoboticsArticle} />
       <Route path="/ai-2025-article" component={AI2025Article} />
+      <Route path="/careers" component={Careers} />
       <Route component={NotFound} />
     </Switch>
     </>
