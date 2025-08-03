@@ -234,6 +234,7 @@ export function Navigation() {
                 <Link href="/our-story" className="block text-gray-300 hover:text-white transition-colors text-sm">Our Story</Link>
                 <Link href="/company-values" className="block text-gray-300 hover:text-white transition-colors text-sm">Company Values</Link>
                 <Link href="/mission-vision" className="block text-gray-300 hover:text-white transition-colors text-sm">Mission & Vision</Link>
+                <Link href="/careers" className="block text-gray-300 hover:text-white transition-colors text-sm">Careers</Link>
               </div>
             </div>
 
