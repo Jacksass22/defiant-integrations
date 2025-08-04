@@ -3,9 +3,12 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 
 export default function LawFirms() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -32,7 +35,10 @@ export default function LawFirms() {
               Streamline casework, increase client retention, and grow your firm with systems that prioritize security, compliance, and data control—so you can focus on winning, not worrying.
             </p>
             
-            <button className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -382,12 +388,23 @@ export default function LawFirms() {
           <p className="text-xl text-slate-200 mb-8">
             We help law firms implement automation systems built for legal use, with end-to-end encryption, audit-ready reporting, and local deployment options.
           </p>
-          <button className="bg-white text-slate-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="bg-white text-slate-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Transform Your Law Firm"
+        subtitle="Get a customized assessment for your legal practice"
+      />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
