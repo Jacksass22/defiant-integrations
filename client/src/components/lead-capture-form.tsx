@@ -204,7 +204,7 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
         }
       };
 
-      const response = await fetch('https://adk.defiantintegration.com/webhook/lead-capture', {
+      const response = await fetch('/api/lead-capture', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
