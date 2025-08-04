@@ -538,7 +538,7 @@ export default function SystemIntegration() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 category: "E-commerce Platforms",
@@ -569,6 +569,12 @@ export default function SystemIntegration() {
                 technologies: ["QuickBooks", "Xero", "FreshBooks", "NetSuite"],
                 color: "cyan",
                 icon: <DollarSign className="w-6 h-6" />
+              },
+              {
+                category: "Productivity & Collaboration",
+                technologies: ["Microsoft 365", "Slack", "Google Workspace", "Zoom"],
+                color: "indigo",
+                icon: <Users className="w-6 h-6" />
               }
             ].map((stack, index) => (
               <motion.div
