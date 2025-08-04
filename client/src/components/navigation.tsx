@@ -105,8 +105,7 @@ const aboutData = [
     title: "Social Media",
     items: [
       "Instagram",
-      "TikTok",
-      "LinkedIn"
+      "TikTok"
     ]
   }
 ];

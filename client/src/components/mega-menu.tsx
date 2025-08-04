@@ -211,10 +211,6 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                         <a href="https://www.tiktok.com/@defiantintegrations?_t=ZP-8ybFFVPAkJi&_r=1" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
                         </a>
-                      ) : item === "LinkedIn" ? (
-                        <a href="https://linkedin.com/company/defiant-integrations" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors block py-1">
-                          {item}
-                        </a>
                       ) : item === "Our Story" ? (
                         <Link href="/our-story" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
