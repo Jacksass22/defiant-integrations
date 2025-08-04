@@ -203,6 +203,10 @@ export function MegaMenu({ title, sections }: MegaMenuProps) {
                         <Link href="/golf-courses" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
                         </Link>
+                      ) : item === "Instagram" ? (
+                        <a href="https://www.instagram.com/defiantintegration/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors block py-1">
+                          {item}
+                        </a>
                       ) : item === "TikTok" ? (
                         <a href="https://tiktok.com/@defiantintegrations" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors block py-1">
                           {item}
