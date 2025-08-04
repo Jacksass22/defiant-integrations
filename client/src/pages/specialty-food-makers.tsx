@@ -1,11 +1,14 @@
-import { ArrowRight, CheckCircle, ChefHat, TrendingUp, Users, Package } from 'lucide-react';
+import { ArrowRight, CheckCircle, ChefHat, TrendingUp, Users, Package, DollarSign, Clock } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useState } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '../components/lead-capture-modal';
 
 export default function SpecialtyFoodMakers() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -32,7 +35,10 @@ export default function SpecialtyFoodMakers() {
               Turn handcrafted quality into scalable success with systems that attract loyal customers, streamline fulfillment, and boost your bottom line—without losing your artisanal edge.
             </p>
             
-            <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -435,12 +441,23 @@ export default function SpecialtyFoodMakers() {
           <p className="text-xl text-amber-100 mb-8">
             Let's build the systems that support your passion—and scale it sustainably.
           </p>
-          <button className="bg-white text-amber-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="bg-white text-amber-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Transform Your Food Business"
+        subtitle="Get a customized assessment for your specialty food business"
+      />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
