@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertCareerApplicationSchema } from "@shared/schema";
+import { insertCareerApplicationSchema, insertLeadCaptureSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -43,6 +43,61 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error('Subscription error:', error);
       res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  // Lead capture form submission endpoint
+  app.post('/api/lead-capture', async (req, res) => {
+    try {
+      // Extract the form data from the nested structure
+      const {
+        contactInfo,
+        businessContext,
+        aiNeeds,
+        qualification,
+        source = "website_typeform"
+      } = req.body;
+
+      // Flatten the data structure for database storage
+      const flattenedData = {
+        fullName: contactInfo?.fullName,
+        email: contactInfo?.email,
+        phone: contactInfo?.phone,
+        company: contactInfo?.company,
+        jobTitle: contactInfo?.jobTitle,
+        industry: businessContext?.industry,
+        companySize: businessContext?.companySize,
+        techMaturity: businessContext?.techMaturity,
+        businessChallenges: aiNeeds?.businessChallenges,
+        improvementAreas: aiNeeds?.improvementAreas,
+        drivingFactor: aiNeeds?.drivingFactor,
+        timeline: aiNeeds?.timeline,
+        investmentRange: qualification?.investmentRange,
+        roiTimeline: qualification?.roiTimeline,
+        decisionProcess: qualification?.decisionProcess,
+        source
+      };
+
+      // Validate the flattened data
+      const validatedData = insertLeadCaptureSchema.parse(flattenedData);
+      
+      // Store in database
+      const leadCapture = await storage.createLeadCapture(validatedData);
+      
+      console.log('Lead capture stored:', leadCapture.id);
+
+      res.json({ 
+        success: true, 
+        message: 'Lead capture submitted successfully!',
+        leadId: leadCapture.id 
+      });
+    } catch (error) {
+      console.error('Lead capture error:', error);
+      if (error instanceof Error && error.name === 'ZodError') {
+        res.status(400).json({ error: 'Invalid lead capture data', details: (error as any).errors });
+      } else {
+        res.status(500).json({ error: 'Internal server error' });
+      }
     }
   });
 

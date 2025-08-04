@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser, careerApplications, type CareerApplication, type InsertCareerApplication } from "@shared/schema";
+import { users, type User, type InsertUser, careerApplications, type CareerApplication, type InsertCareerApplication, leadCaptures, type LeadCapture, type InsertLeadCapture } from "@shared/schema";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -8,19 +8,24 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   createCareerApplication(application: InsertCareerApplication): Promise<CareerApplication>;
+  createLeadCapture(leadCapture: InsertLeadCapture): Promise<LeadCapture>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private careerApplications: Map<number, CareerApplication>;
+  private leadCaptures: Map<number, LeadCapture>;
   currentUserId: number;
   currentApplicationId: number;
+  currentLeadCaptureId: number;
 
   constructor() {
     this.users = new Map();
     this.careerApplications = new Map();
+    this.leadCaptures = new Map();
     this.currentUserId = 1;
     this.currentApplicationId = 1;
+    this.currentLeadCaptureId = 1;
   }
 
   async getUser(id: number): Promise<User | undefined> {
@@ -51,6 +56,20 @@ export class MemStorage implements IStorage {
     };
     this.careerApplications.set(id, application);
     return application;
+  }
+
+  async createLeadCapture(insertLeadCapture: InsertLeadCapture): Promise<LeadCapture> {
+    const id = this.currentLeadCaptureId++;
+    const leadCapture: LeadCapture = {
+      ...insertLeadCapture,
+      id,
+      submittedAt: new Date(),
+      status: insertLeadCapture.status || "new",
+      source: insertLeadCapture.source || "website_typeform",
+      phone: insertLeadCapture.phone || null
+    };
+    this.leadCaptures.set(id, leadCapture);
+    return leadCapture;
   }
 }
 
