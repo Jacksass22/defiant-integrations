@@ -126,7 +126,11 @@ Investment & Decision Making:
             customField3: aiNeeds?.timeline
           };
 
-          const crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
+          // Try different EspoCRM API authentication methods
+          let crmResponse;
+          
+          // Method 1: X-Api-Key header
+          crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -135,11 +139,41 @@ Investment & Decision Making:
             body: JSON.stringify(crmLeadData)
           });
 
+          // If that fails, try Method 2: Authorization header
+          if (!crmResponse.ok) {
+            crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `ApiKey ${espoCrmApiKey}`
+              },
+              body: JSON.stringify(crmLeadData)
+            });
+          }
+
+          // If that fails, try Method 3: Bearer token
+          if (!crmResponse.ok) {
+            crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${espoCrmApiKey}`
+              },
+              body: JSON.stringify(crmLeadData)
+            });
+          }
+
           if (crmResponse.ok) {
-            const crmResult = await crmResponse.json();
-            console.log('Lead created in EspoCRM:', crmResult.id);
+            try {
+              const crmResult = await crmResponse.json();
+              console.log('Lead created in EspoCRM:', crmResult.id);
+            } catch (parseError) {
+              console.log('Lead created in EspoCRM (no JSON response)');
+            }
           } else {
-            console.error('EspoCRM API error:', crmResponse.status, await crmResponse.text());
+            const errorText = await crmResponse.text();
+            console.error('EspoCRM API error:', crmResponse.status, errorText);
+            console.error('API URL attempted:', `${espoCrmUrl}/api/v1/Lead`);
           }
         }
       } catch (crmError) {
