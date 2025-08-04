@@ -43,42 +43,58 @@ export default function AIStrategyDevelopment() {
               In today's race toward AI adoption, most businesses don't have a technology problem. They have a strategy gap.
             </p>
             
-            <div className="bg-white p-8 shadow-lg rounded-lg mb-12">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">
-                Executives know AI is important. What they often don't know is:
-              </h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm font-bold">?</span>
+            <div className="relative bg-gradient-to-br from-white to-gray-50 p-8 shadow-2xl rounded-xl mb-12 overflow-hidden group hover:shadow-3xl transition-all duration-500 border border-gray-200/50">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-100/20 to-orange-100/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">
+                  Executives know AI is important. What they often don't know is:
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="flex items-start space-x-3 group/item hover:transform hover:scale-105 transition-all duration-200">
+                    <div className="w-8 h-8 bg-gradient-to-br from-red-100 to-red-200 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover/item:shadow-lg transition-all duration-200">
+                      <span className="text-sm font-bold">?</span>
+                    </div>
+                    <span className="text-gray-700 group-hover/item:text-gray-900 transition-colors duration-200">Which use cases are worth pursuing</span>
                   </div>
-                  <span className="text-gray-700">Which use cases are worth pursuing</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm font-bold">?</span>
+                  <div className="flex items-start space-x-3 group/item hover:transform hover:scale-105 transition-all duration-200">
+                    <div className="w-8 h-8 bg-gradient-to-br from-red-100 to-red-200 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover/item:shadow-lg transition-all duration-200">
+                      <span className="text-sm font-bold">?</span>
+                    </div>
+                    <span className="text-gray-700 group-hover/item:text-gray-900 transition-colors duration-200">Where to start with their existing infrastructure</span>
                   </div>
-                  <span className="text-gray-700">Where to start with their existing infrastructure</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm font-bold">?</span>
+                  <div className="flex items-start space-x-3 group/item hover:transform hover:scale-105 transition-all duration-200">
+                    <div className="w-8 h-8 bg-gradient-to-br from-red-100 to-red-200 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover/item:shadow-lg transition-all duration-200">
+                      <span className="text-sm font-bold">?</span>
+                    </div>
+                    <span className="text-gray-700 group-hover/item:text-gray-900 transition-colors duration-200">How to align AI with their core business priorities</span>
                   </div>
-                  <span className="text-gray-700">How to align AI with their core business priorities</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm font-bold">?</span>
+                  <div className="flex items-start space-x-3 group/item hover:transform hover:scale-105 transition-all duration-200">
+                    <div className="w-8 h-8 bg-gradient-to-br from-red-100 to-red-200 text-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover/item:shadow-lg transition-all duration-200">
+                      <span className="text-sm font-bold">?</span>
+                    </div>
+                    <span className="text-gray-700 group-hover/item:text-gray-900 transition-colors duration-200">How to avoid fragmented pilots that never scale</span>
                   </div>
-                  <span className="text-gray-700">How to avoid fragmented pilots that never scale</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-blue-900 text-white p-8 rounded-lg">
-              <p className="text-xl font-semibold mb-4">
-                At Defiant Integrations, we help ambitious businesses move from guesswork to a clear, customized AI strategy—one that generates outcomes, not overwhelm.
-              </p>
+            <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white p-8 rounded-xl overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-blue-600/30">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <p className="text-xl font-semibold mb-4">
+                  At Defiant Integrations, we help ambitious businesses move from guesswork to a clear, customized AI strategy—one that generates outcomes, not overwhelm.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -168,10 +184,18 @@ export default function AIStrategyDevelopment() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <p className="text-gray-700 font-medium">
-                  This isn't an off-the-shelf strategy deck. It's a business operating system redesign—customized for your real constraints, team capacity, and industry dynamics.
-                </p>
+              <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-500 border border-gray-200/50">
+                {/* Shimmer overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-100/30 to-purple-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <p className="text-gray-700 font-medium group-hover:text-gray-900 transition-colors duration-300">
+                    This isn't an off-the-shelf strategy deck. It's a business operating system redesign—customized for your real constraints, team capacity, and industry dynamics.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -190,72 +214,120 @@ export default function AIStrategyDevelopment() {
           </div>
 
           <div className="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                1
+            <div className="relative bg-gradient-to-br from-white to-gray-50 p-6 shadow-2xl rounded-xl text-center overflow-hidden group hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200/50">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  1
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors duration-300">
+                  Operational Mapping
+                </h3>
+                <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                  We capture and structure your existing processes, decision points, and data landscape.
+                </p>
               </div>
-              <h3 className="font-serif text-lg font-bold text-gray-900 mb-3">
-                Operational Mapping
-              </h3>
-              <p className="text-sm text-gray-600">
-                We capture and structure your existing processes, decision points, and data landscape.
-              </p>
             </div>
 
-            <div className="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                2
+            <div className="relative bg-gradient-to-br from-white to-gray-50 p-6 shadow-2xl rounded-xl text-center overflow-hidden group hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200/50">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  2
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors duration-300">
+                  Infrastructure Alignment
+                </h3>
+                <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                  We consolidate templates, assets, workflows, and tooling into a unified foundation.
+                </p>
               </div>
-              <h3 className="font-serif text-lg font-bold text-gray-900 mb-3">
-                Infrastructure Alignment
-              </h3>
-              <p className="text-sm text-gray-600">
-                We consolidate templates, assets, workflows, and tooling into a unified foundation.
-              </p>
             </div>
 
-            <div className="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                3
+            <div className="relative bg-gradient-to-br from-white to-gray-50 p-6 shadow-2xl rounded-xl text-center overflow-hidden group hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200/50">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  3
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors duration-300">
+                  Opportunity Identification
+                </h3>
+                <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                  We locate the most valuable use cases for AI, automation, and augmentation across the business.
+                </p>
               </div>
-              <h3 className="font-serif text-lg font-bold text-gray-900 mb-3">
-                Opportunity Identification
-              </h3>
-              <p className="text-sm text-gray-600">
-                We locate the most valuable use cases for AI, automation, and augmentation across the business.
-              </p>
             </div>
 
-            <div className="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                4
+            <div className="relative bg-gradient-to-br from-white to-gray-50 p-6 shadow-2xl rounded-xl text-center overflow-hidden group hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200/50">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  4
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors duration-300">
+                  Intelligent Integration Planning
+                </h3>
+                <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                  We map how to embed intelligent tools into existing workflows—with minimal disruption.
+                </p>
               </div>
-              <h3 className="font-serif text-lg font-bold text-gray-900 mb-3">
-                Intelligent Integration Planning
-              </h3>
-              <p className="text-sm text-gray-600">
-                We map how to embed intelligent tools into existing workflows—with minimal disruption.
-              </p>
             </div>
 
-            <div className="bg-white p-6 shadow-lg rounded-lg text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                5
+            <div className="relative bg-gradient-to-br from-white to-gray-50 p-6 shadow-2xl rounded-xl text-center overflow-hidden group hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200/50">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  5
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors duration-300">
+                  Measurement & Refinement
+                </h3>
+                <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                  We define success metrics and build systems to ensure continuous improvement.
+                </p>
               </div>
-              <h3 className="font-serif text-lg font-bold text-gray-900 mb-3">
-                Measurement & Refinement
-              </h3>
-              <p className="text-sm text-gray-600">
-                We define success metrics and build systems to ensure continuous improvement.
-              </p>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 max-w-2xl mx-auto">
-              <p className="text-blue-900 font-semibold text-lg">
-                We use AI to enhance your systems. Not replace your people.
-              </p>
+            <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-600 p-6 max-w-2xl mx-auto rounded-r-xl overflow-hidden group hover:shadow-lg transition-all duration-500 border-r border-t border-b border-blue-200/50">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-200/30 to-cyan-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <p className="text-blue-900 font-semibold text-lg group-hover:text-blue-800 transition-colors duration-300">
+                  We use AI to enhance your systems. Not replace your people.
+                </p>
+              </div>
             </div>
           </div>
         </div>
