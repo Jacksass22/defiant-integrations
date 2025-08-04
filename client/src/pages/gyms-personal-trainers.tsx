@@ -3,9 +3,12 @@ import { ArrowRight, Clock, DollarSign, Dumbbell, Calendar, MessageSquare, Trend
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 
 export default function GymsPersonalTrainers() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -26,7 +29,10 @@ export default function GymsPersonalTrainers() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Attract committed members, reduce churn, and build the kind of supportive fitness community that transforms bodies and lives.
             </p>
-            <button className="inline-flex items-center space-x-2 bg-white text-orange-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="inline-flex items-center space-x-2 bg-white text-orange-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -393,12 +399,23 @@ export default function GymsPersonalTrainers() {
           <p className="text-2xl font-semibold mb-12">
             Ready to see what this looks like for your business?
           </p>
-          <button className="inline-flex items-center space-x-2 bg-red-600 text-white px-8 py-4 font-medium hover:bg-red-700 transition-colors text-lg">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="inline-flex items-center space-x-2 bg-red-600 text-white px-8 py-4 font-medium hover:bg-red-700 transition-colors text-lg"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Transform Your Fitness Business"
+        subtitle="Get a customized assessment for your gym or personal training business"
+      />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">

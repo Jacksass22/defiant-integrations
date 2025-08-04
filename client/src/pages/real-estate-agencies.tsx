@@ -3,9 +3,12 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 
 export default function RealEstateAgencies() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -32,7 +35,10 @@ export default function RealEstateAgencies() {
               Get more listings, close more deals, and keep clients for life with intelligent automations designed to turn agents into top producers—and your brokerage into a modern powerhouse.
             </p>
             
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -432,12 +438,23 @@ export default function RealEstateAgencies() {
           <p className="text-xl text-blue-100 mb-8">
             We help agents and brokerages deliver professional, repeatable experiences that win listings and drive growth—without burning out.
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Transform Your Real Estate Business"
+        subtitle="Get a customized assessment for your real estate agency"
+      />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">

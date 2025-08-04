@@ -3,9 +3,12 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 
 export default function InsuranceBrokers() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -32,7 +35,10 @@ export default function InsuranceBrokers() {
               Generate qualified leads, automate renewals, and build lifelong policyholder relationships—all while staying compliant and focused on what you do best: protecting your clients.
             </p>
             
-            <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -454,12 +460,23 @@ export default function InsuranceBrokers() {
           <p className="text-xl text-orange-100 mb-8">
             We help independent brokers and small agencies implement automation systems that handle the follow-up, cross-sells, compliance, and client experience.
           </p>
-          <button className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Transform Your Insurance Business"
+        subtitle="Get a customized assessment for your insurance brokerage"
+      />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
