@@ -360,16 +360,24 @@ export default function AIStrategyDevelopment() {
               </p>
             </div>
 
-            <div className="bg-blue-800 p-8 rounded-lg">
-              <h4 className="font-serif text-xl font-bold mb-4">Cross-Industry Expertise</h4>
-              <div className="grid grid-cols-2 gap-2 text-sm text-gray-300">
-                <div>• HVAC & Trades</div>
-                <div>• Legal & Professional</div>
-                <div>• Healthcare & Wellness</div>
-                <div>• Retail & eCommerce</div>
-                <div>• Real Estate</div>
-                <div>• Food & Hospitality</div>
-                <div>• And 21+ more industries</div>
+            <div className="relative bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 p-8 rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-blue-600/30">
+              {/* Shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <h4 className="font-serif text-xl font-bold mb-4 text-white">Cross-Industry Expertise</h4>
+                <div className="grid grid-cols-2 gap-2 text-sm text-gray-200">
+                  <div className="hover:text-white transition-colors duration-200">• HVAC & Trades</div>
+                  <div className="hover:text-white transition-colors duration-200">• Legal & Professional</div>
+                  <div className="hover:text-white transition-colors duration-200">• Healthcare & Wellness</div>
+                  <div className="hover:text-white transition-colors duration-200">• Retail & eCommerce</div>
+                  <div className="hover:text-white transition-colors duration-200">• Real Estate</div>
+                  <div className="hover:text-white transition-colors duration-200">• Food & Hospitality</div>
+                  <div className="hover:text-white transition-colors duration-200">• And 21+ more industries</div>
+                </div>
               </div>
             </div>
           </div>
