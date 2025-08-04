@@ -517,10 +517,8 @@ export default function Home() {
             <div className="relative">
               <ScrollVelocity
                 texts={[
-                  "AI phone systems · Chatbot implementation · Customer journey mapping · Personalization engines · Feedback collection systems · Retention automation ·",
-                  "Google Ads optimization · SEO implementation · Social media automation · Content marketing systems · Email marketing automation · Local search optimization ·",
-                  "System performance monitoring · Optimization cycles · Health checks · Proactive maintenance · Continuous improvement protocols · Cart abandonment recovery ·",
-                  "Automated customer onboarding · Dynamic pricing optimization · Multi-channel inventory synchronization · Customer segmentation · Automated review collection ·"
+                  "AI phone systems · Chatbot implementation · Customer journey mapping · Personalization engines · Feedback collection systems · Retention automation · Google Ads optimization · SEO implementation ·",
+                  "Social media automation · Content marketing systems · Email marketing automation · System performance monitoring · Health checks · Proactive maintenance · Continuous improvement protocols ·"
                 ]}
                 velocity={50}
                 className="text-gray-800"
