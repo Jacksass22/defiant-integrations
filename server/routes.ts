@@ -86,6 +86,67 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       console.log('Lead capture stored:', leadCapture.id);
 
+      // Send to EspoCRM
+      try {
+        const espoCrmUrl = process.env.ESPOCRM_URL;
+        const espoCrmApiKey = process.env.ESPOCRM_API_KEY;
+        
+        if (espoCrmUrl && espoCrmApiKey) {
+          // Prepare lead data for EspoCRM
+          const crmLeadData = {
+            firstName: contactInfo?.fullName?.split(' ')[0] || '',
+            lastName: contactInfo?.fullName?.split(' ').slice(1).join(' ') || contactInfo?.fullName || '',
+            emailAddress: contactInfo?.email,
+            phoneNumber: contactInfo?.phone || '',
+            accountName: contactInfo?.company,
+            title: contactInfo?.jobTitle,
+            industry: businessContext?.industry,
+            source: 'Website',
+            status: 'New',
+            description: `
+Business Context:
+- Company Size: ${businessContext?.companySize}
+- Tech Maturity: ${businessContext?.techMaturity}
+- Industry: ${businessContext?.industry}
+
+AI Transformation Goals:
+- Business Challenges: ${aiNeeds?.businessChallenges}
+- Improvement Areas: ${aiNeeds?.improvementAreas?.join(', ')}
+- Driving Factor: ${aiNeeds?.drivingFactor}
+- Timeline: ${aiNeeds?.timeline}
+
+Investment & Decision Making:
+- Investment Range: ${qualification?.investmentRange}
+- ROI Timeline: ${qualification?.roiTimeline}
+- Decision Process: ${qualification?.decisionProcess}
+            `.trim(),
+            // Custom fields for additional data
+            customField1: businessContext?.companySize,
+            customField2: qualification?.investmentRange,
+            customField3: aiNeeds?.timeline
+          };
+
+          const crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Api-Key': espoCrmApiKey
+            },
+            body: JSON.stringify(crmLeadData)
+          });
+
+          if (crmResponse.ok) {
+            const crmResult = await crmResponse.json();
+            console.log('Lead created in EspoCRM:', crmResult.id);
+          } else {
+            console.error('EspoCRM API error:', crmResponse.status, await crmResponse.text());
+          }
+        }
+      } catch (crmError) {
+        console.error('EspoCRM integration error:', crmError);
+        // Don't fail the entire request if CRM integration fails
+      }
+
       res.json({ 
         success: true, 
         message: 'Lead capture submitted successfully!',
