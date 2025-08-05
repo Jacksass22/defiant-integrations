@@ -528,11 +528,14 @@ export default function Home() {
           </div>
             
           <div className="text-center mt-16">
-            <Link href="/capabilities" className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-lg font-normal text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-lg font-normal text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
               <span className="relative">See How We Can Help Your Business</span>
               <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               <div className="absolute inset-0 rounded-lg bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
