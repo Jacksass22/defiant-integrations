@@ -92,7 +92,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
                 headers: {
                   'Content-Type': 'application/json',
                   ...auth.headers
-                }
+                } as HeadersInit
               });
               
               const contentType = response.headers.get('content-type') || '';
@@ -118,7 +118,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
                   headers: {
                     'Content-Type': 'application/json',
                     ...auth.headers
-                  },
+                  } as HeadersInit,
                   body: JSON.stringify({
                     name: 'Test Lead',
                     firstName: 'Test',
@@ -275,6 +275,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
           const firstName = nameParts[0] || 'Unknown';
           const lastName = nameParts.slice(1).join(' ') || '';
           
+          // Convert investment range to numeric opportunity amount
+          const investmentRange = qualification?.investmentRange || '';
+          let opportunityAmount = null;
+          
+          if (investmentRange.includes('$500K+') || investmentRange.includes('$500,000+')) {
+            opportunityAmount = 500000;
+          } else if (investmentRange.includes('$100K+') || investmentRange.includes('$100,000+')) {
+            opportunityAmount = 100000;
+          } else if (investmentRange.includes('$50K-$100K') || investmentRange.includes('$50,000-$100,000')) {
+            opportunityAmount = 75000;
+          } else if (investmentRange.includes('$25K-$50K') || investmentRange.includes('$25,000-$50,000')) {
+            opportunityAmount = 37500;
+          } else if (investmentRange.includes('$15K-$25K') || investmentRange.includes('$15,000-$25,000')) {
+            opportunityAmount = 20000;
+          } else if (investmentRange.includes('$10K-$15K') || investmentRange.includes('$10,000-$15,000')) {
+            opportunityAmount = 12500;
+          } else if (investmentRange.includes('$5K-$15K') || investmentRange.includes('$5,000-$15,000')) {
+            opportunityAmount = 10000;
+          } else if (investmentRange.includes('$5K-$10K') || investmentRange.includes('$5,000-$10,000')) {
+            opportunityAmount = 7500;
+          } else if (investmentRange.includes('$1K-$5K') || investmentRange.includes('$1,000-$5,000')) {
+            opportunityAmount = 3000;
+          } else if (investmentRange.includes('Under $1K') || investmentRange.includes('Under $1,000')) {
+            opportunityAmount = 500;
+          }
+
           // Map form data to actual EspoCRM field names
           const crmLeadData: any = {
             // Primary contact fields
@@ -287,20 +313,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
             accountName: contactInfo?.company || '',
             title: contactInfo?.jobTitle || '',
             
-            // Business context - skip industry field due to validation constraints
+            // Business context - map industry directly to industry field
+            industry: businessContext?.industry || '',
             
             // Lead management fields
             status: 'New',
             source: 'Web Site',
             
-            // Investment as opportunity amount (convert range to number)
-            opportunityAmount: qualification?.investmentRange?.includes('$500K+') ? 500000 :
-                              qualification?.investmentRange?.includes('$100,000+') ? 100000 :
-                              qualification?.investmentRange?.includes('$50,000-$100,000') ? 75000 :
-                              qualification?.investmentRange?.includes('$25,000-$50,000') ? 37500 :
-                              qualification?.investmentRange?.includes('$10,000-$25,000') ? 17500 :
-                              qualification?.investmentRange?.includes('$5,000-$10,000') ? 7500 :
-                              qualification?.investmentRange?.includes('$1,000-$5,000') ? 3000 : null,
+            // Investment as opportunity amount
+            opportunityAmount: opportunityAmount,
             
             // Comprehensive description with business details
             description: [
