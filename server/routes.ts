@@ -275,45 +275,57 @@ export async function registerRoutes(app: Express): Promise<Server> {
           const firstName = nameParts[0] || 'Unknown';
           const lastName = nameParts.slice(1).join(' ') || '';
           
-          // Build comprehensive lead data with all form information in description
-          // Since field mapping isn't working, put everything in description until field schema is resolved
-          const crmLeadData = {
+          // Map form data to actual EspoCRM field names
+          const crmLeadData: any = {
+            // Primary contact fields
+            firstName: firstName,
+            lastName: lastName || 'Contact',
+            emailAddress: contactInfo?.email || '',
+            // phoneNumber: contactInfo?.phone || '', // Temporarily disabled due to EspoCRM validation
+            
+            // Company and job information
+            accountName: contactInfo?.company || '',
+            title: contactInfo?.jobTitle || '',
+            
+            // Business context - skip industry field due to validation constraints
+            
+            // Lead management fields
+            status: 'New',
+            source: 'Web Site',
+            
+            // Investment as opportunity amount (convert range to number)
+            opportunityAmount: qualification?.investmentRange?.includes('$500K+') ? 500000 :
+                              qualification?.investmentRange?.includes('$100,000+') ? 100000 :
+                              qualification?.investmentRange?.includes('$50,000-$100,000') ? 75000 :
+                              qualification?.investmentRange?.includes('$25,000-$50,000') ? 37500 :
+                              qualification?.investmentRange?.includes('$10,000-$25,000') ? 17500 :
+                              qualification?.investmentRange?.includes('$5,000-$10,000') ? 7500 :
+                              qualification?.investmentRange?.includes('$1,000-$5,000') ? 3000 : null,
+            
+            // Comprehensive description with business details
             description: [
-              `=== LEAD CAPTURE FORM SUBMISSION ===`,
-              `Lead ID: ${leadCapture.id}`,
-              `Submitted: ${new Date().toISOString()}`,
-              ``,
-              `=== CONTACT INFORMATION ===`,
-              `Name: ${fullName}`,
-              `Email: ${contactInfo?.email || 'Not provided'}`,
+              `Lead ID: ${leadCapture.id} | Submitted: ${new Date().toLocaleDateString()}`,
               `Phone: ${contactInfo?.phone || 'Not provided'}`,
-              `Company: ${contactInfo?.company || 'Not provided'}`,
-              `Job Title: ${contactInfo?.jobTitle || 'Not provided'}`,
-              ``,
-              `=== BUSINESS CONTEXT ===`,
-              `Industry: ${businessContext?.industry || 'Not specified'}`,
-              `Company Size: ${businessContext?.companySize || 'Not specified'}`,
-              `Tech Maturity: ${businessContext?.techMaturity || 'Not specified'}`,
-              ``,
-              `=== AI NEEDS & CHALLENGES ===`,
-              `Business Challenges: ${aiNeeds?.businessChallenges || 'Not specified'}`,
+              '',
+              `Business Challenge: ${aiNeeds?.businessChallenges || 'Not specified'}`,
               `Improvement Areas: ${aiNeeds?.improvementAreas?.join(', ') || 'Not specified'}`,
               `Driving Factor: ${aiNeeds?.drivingFactor || 'Not specified'}`,
               `Timeline: ${aiNeeds?.timeline || 'Not specified'}`,
-              ``,
-              `=== QUALIFICATION ===`,
-              `Investment Range: ${qualification?.investmentRange || 'Not specified'}`,
+              '',
+              `Industry: ${businessContext?.industry || 'Not specified'}`,
+              `Company Size: ${businessContext?.companySize || 'Not specified'}`,
+              `Tech Maturity: ${businessContext?.techMaturity || 'Not specified'}`,
               `ROI Timeline: ${qualification?.roiTimeline || 'Not specified'}`,
-              `Decision Process: ${qualification?.decisionProcess || 'Not specified'}`,
-              ``,
-              `=== SOURCE ===`,
-              `Lead Source: Website Lead Capture Form`,
-              `Form Page: ${contactInfo?.company ? 'Industry-specific' : 'General'} Page`
-            ].join('\n'),
-            
-            // Try a very minimal approach - just description
-            status: 'New'
+              `Decision Process: ${qualification?.decisionProcess || 'Not specified'}`
+            ].join('\n')
           };
+
+          // Remove empty fields to avoid validation issues
+          Object.keys(crmLeadData).forEach(key => {
+            if (crmLeadData[key] === '' || crmLeadData[key] === null || crmLeadData[key] === undefined) {
+              delete crmLeadData[key];
+            }
+          });
 
           console.log('Mapped EspoCRM data:', JSON.stringify(crmLeadData, null, 2));
 
@@ -359,6 +371,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         res.status(500).json({ error: 'Internal server error' });
       }
+    }
+  });
+
+  // Test endpoint to check EspoCRM field names
+  app.get('/api/test-espocrm-fields', async (req, res) => {
+    try {
+      const espoCrmUrl = process.env.ESPOCRM_URL;
+      const espoCrmApiKey = process.env.ESPOCRM_API_KEY;
+      
+      if (!espoCrmUrl || !espoCrmApiKey) {
+        return res.json({ error: 'EspoCRM credentials not configured' });
+      }
+
+      const baseUrl = espoCrmUrl.replace(/#.*$/, '').replace(/\/$/, '');
+      
+      // Get a sample lead to see what fields exist
+      const leadResponse = await fetch(`${baseUrl}/api/v1/Lead?maxSize=1`, {
+        headers: { 'X-Api-Key': espoCrmApiKey }
+      });
+      
+      if (leadResponse.ok) {
+        const leads = await leadResponse.json();
+        res.json({ 
+          message: 'EspoCRM Lead field analysis',
+          sampleLead: leads.list?.[0] || {},
+          totalLeads: leads.total,
+          availableFields: leads.list?.[0] ? Object.keys(leads.list[0]) : [],
+          apiStatus: 'Working'
+        });
+      } else {
+        res.json({ 
+          error: 'Could not fetch EspoCRM data',
+          status: leadResponse.status,
+          statusText: leadResponse.statusText
+        });
+      }
+    } catch (error) {
+      res.json({ error: 'Failed to connect to EspoCRM', details: error.message });
     }
   });
 
