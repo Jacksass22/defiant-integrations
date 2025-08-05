@@ -698,7 +698,7 @@ export default function Home() {
           
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Featured Article */}
-            <div className="bg-white shadow-lg">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
                 <TrueFocus 
                   sentence="INNOVATION IN AI"
@@ -724,7 +724,7 @@ export default function Home() {
             </div>
             
             {/* Second Article */}
-            <div className="bg-white shadow-lg">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
               <div className="h-48 sm:h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center relative overflow-hidden">
                 <Noise
                   patternSize={250}
