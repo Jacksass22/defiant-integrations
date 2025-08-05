@@ -204,53 +204,129 @@ export function Navigation() {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-gray-800 border-t border-gray-700">
-          <div className="px-6 py-8 space-y-6">
-            {/* Industries Section */}
+          <div className="max-h-[80vh] overflow-y-auto px-6 py-8 space-y-6">
+            {/* Industries Section - Complete with all categories */}
             <div>
-              <h3 className="text-white font-semibold mb-3">Industries</h3>
-              <div className="pl-4 space-y-2">
-                <Link href="/hvac" className="block text-gray-300 hover:text-white transition-colors text-sm">HVAC</Link>
-                <Link href="/plumbing" className="block text-gray-300 hover:text-white transition-colors text-sm">Plumbing</Link>
-                <Link href="/electrical" className="block text-gray-300 hover:text-white transition-colors text-sm">Electrical</Link>
-                <Link href="/golf-courses" className="block text-gray-300 hover:text-white transition-colors text-sm">Golf Courses</Link>
-                <Link href="/restaurants-cafes" className="block text-gray-300 hover:text-white transition-colors text-sm">Restaurants & Cafés</Link>
+              <h3 className="text-white font-semibold mb-3 text-base">Industries</h3>
+              <div className="space-y-4">
+                {industriesData.map((category, categoryIndex) => (
+                  <div key={categoryIndex}>
+                    <h4 className="text-gray-300 font-medium text-sm mb-2 pl-2">{category.title}</h4>
+                    <div className="pl-4 space-y-2">
+                      {category.items.map((item, itemIndex) => {
+                        // Convert item name to URL slug
+                        const slug = item.toLowerCase()
+                          .replace(/&/g, '')
+                          .replace(/\s+/g, '-')
+                          .replace(/[^a-z0-9-]/g, '');
+                        
+                        return (
+                          <Link 
+                            key={itemIndex}
+                            href={`/${slug}`} 
+                            className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Capabilities Section */}
+            {/* Capabilities Section - Complete with all categories */}
             <div>
-              <h3 className="text-white font-semibold mb-3">Capabilities</h3>
-              <div className="pl-4 space-y-2">
-                <Link href="/ai-strategy-development" className="block text-gray-300 hover:text-white transition-colors text-sm">AI Strategy</Link>
-                <Link href="/system-integration" className="block text-gray-300 hover:text-white transition-colors text-sm">Implementation</Link>
-                <Link href="/change-management" className="block text-gray-300 hover:text-white transition-colors text-sm">Scaling</Link>
+              <h3 className="text-white font-semibold mb-3 text-base">Capabilities</h3>
+              <div className="space-y-4">
+                {capabilitiesData.map((category, categoryIndex) => (
+                  <div key={categoryIndex}>
+                    <h4 className="text-gray-300 font-medium text-sm mb-2 pl-2">{category.title}</h4>
+                    <div className="pl-4 space-y-2">
+                      {category.items.map((item, itemIndex) => {
+                        // Convert item name to URL slug
+                        const slug = item.toLowerCase()
+                          .replace(/&/g, '')
+                          .replace(/\s+/g, '-')
+                          .replace(/[^a-z0-9-]/g, '');
+                        
+                        return (
+                          <Link 
+                            key={itemIndex}
+                            href={`/${slug}`} 
+                            className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* About Us Section */}
             <div>
-              <h3 className="text-white font-semibold mb-3">About Us</h3>
-              <div className="pl-4 space-y-2">
-                <Link href="/our-story" className="block text-gray-300 hover:text-white transition-colors text-sm">Our Story</Link>
-                <Link href="/company-values" className="block text-gray-300 hover:text-white transition-colors text-sm">Company Values</Link>
-                <Link href="/mission-vision" className="block text-gray-300 hover:text-white transition-colors text-sm">Mission & Vision</Link>
-                <Link href="/careers" className="block text-gray-300 hover:text-white transition-colors text-sm">Careers</Link>
+              <h3 className="text-white font-semibold mb-3 text-base">About Us</h3>
+              <div className="space-y-4">
+                {aboutData.map((category, categoryIndex) => (
+                  <div key={categoryIndex}>
+                    <h4 className="text-gray-300 font-medium text-sm mb-2 pl-2">{category.title}</h4>
+                    <div className="pl-4 space-y-2">
+                      {category.items.map((item, itemIndex) => {
+                        // Convert item name to URL slug
+                        const slug = item.toLowerCase()
+                          .replace(/&/g, '')
+                          .replace(/\s+/g, '-')
+                          .replace(/[^a-z0-9-]/g, '');
+                        
+                        return (
+                          <Link 
+                            key={itemIndex}
+                            href={`/${slug}`} 
+                            className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Connect Section */}
+            {/* Additional Links */}
             <div>
-              <h3 className="text-white font-semibold mb-3">Connect</h3>
+              <h3 className="text-white font-semibold mb-3 text-base">More</h3>
               <div className="pl-4 space-y-2">
+                <Link 
+                  href="/careers" 
+                  className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Careers
+                </Link>
                 <button 
-                  onClick={openSubscriptionModal}
-                  className="block text-gray-300 hover:text-white transition-colors text-sm text-left"
+                  onClick={() => {
+                    openSubscriptionModal();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block text-gray-400 hover:text-white transition-colors text-sm text-left py-1"
                 >
                   Subscribe
                 </button>
                 <button 
-                  onClick={scrollToBlog}
-                  className="block text-gray-300 hover:text-white transition-colors text-sm text-left"
+                  onClick={(e) => {
+                    scrollToBlog(e);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block text-gray-400 hover:text-white transition-colors text-sm text-left py-1"
                 >
                   Blog
                 </button>
