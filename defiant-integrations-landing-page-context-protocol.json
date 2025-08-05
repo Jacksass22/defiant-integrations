@@ -1,0 +1,466 @@
+{
+  "landing_page_context_protocol": {
+    "project_meta": {
+      "title": "Defiant Integrations - Premium AI Consulting Website",
+      "description": "Comprehensive landing page for enterprise AI transformation consulting firm",
+      "technology_stack": {
+        "frontend": "React 18 + TypeScript",
+        "styling": "Tailwind CSS",
+        "ui_components": "Radix UI + shadcn/ui",
+        "routing": "Wouter",
+        "backend": "Express.js + Node.js",
+        "database": "PostgreSQL + Drizzle ORM",
+        "build_tool": "Vite",
+        "state_management": "TanStack Query + React hooks"
+      },
+      "deployment": "Replit",
+      "crm_integration": "EspoCRM API"
+    },
+    "page_structure": {
+      "navigation": {
+        "component": "Navigation",
+        "location": "client/src/components/navigation.tsx",
+        "features": [
+          "Mega menu with industry dropdowns",
+          "Responsive mobile navigation",
+          "Premium branding with logo",
+          "Lead capture integration"
+        ]
+      },
+      "hero_section": {
+        "type": "Full-screen video background",
+        "video_asset": "3866539-hd_1920_1080_25fps_1752668973005.mp4",
+        "headline": {
+          "component": "BlurText",
+          "text": "What's your next intelligent breakthrough?",
+          "animation": "Word-by-word blur reveal",
+          "typography": "Serif, 3xl-8xl responsive"
+        },
+        "cta_button": {
+          "text": "Get started",
+          "action": "opens LeadCaptureModal",
+          "styling": "White button with hover animations"
+        },
+        "fallback_background": "Gradient from gray-900 to gray-800",
+        "overlay": "Black 50% opacity"
+      },
+      "what_we_do_section": {
+        "background": "Gradient with radial dot pattern",
+        "title": {
+          "component": "TextType",
+          "variations": ["What We Do", "How We Transform", "What We Build"],
+          "typography": "Serif 4xl-6xl"
+        },
+        "services_grid": {
+          "layout": "4-column responsive grid",
+          "cards": [
+            {
+              "title": "Smart AI Solutions",
+              "color_theme": "Blue gradient",
+              "icon": "Computer/Monitor SVG",
+              "features": [
+                "Custom AI assistants that handle real business tasks",
+                "AI voice agents and intelligent receptionists",
+                "Automated workflows that save time and reduce errors",
+                "Industry-specific AI tools trained for your business"
+              ],
+              "hover_effects": [
+                "Scale transform on hover",
+                "Enhanced shadow",
+                "Top border animation"
+              ]
+            },
+            {
+              "title": "Web & Digital Tools",
+              "color_theme": "Emerald gradient",
+              "icon": "Globe SVG",
+              "features": [
+                "Custom websites and web applications",
+                "AI-powered chatbots and customer service tools",
+                "Intelligent website search and recommendations",
+                "SEO automation and lead generation systems"
+              ]
+            },
+            {
+              "title": "Data & Analytics",
+              "color_theme": "Violet gradient",
+              "icon": "Bar chart SVG",
+              "features": [
+                "Turn your business data into actionable insights",
+                "Automated inventory tracking and management",
+                "Performance dashboards and reporting",
+                "Predictive analytics for better decision-making"
+              ]
+            },
+            {
+              "title": "Strategy & Development",
+              "color_theme": "Amber gradient",
+              "icon": "Lightbulb SVG",
+              "features": [
+                "Full-service strategy consulting",
+                "Custom app development from concept to launch",
+                "Secure, professional development using Python and modern frameworks",
+                "Ongoing support and optimization"
+              ]
+            }
+          ]
+        }
+      },
+      "online_business_optimization": {
+        "background": "Slate-100 with border",
+        "title": "Online Business Acceleration",
+        "subtitle": "Specialized solutions for digital businesses ready to scale smarter through intelligent automation and optimization",
+        "solution_cards": [
+          {
+            "title": "Revenue Optimization",
+            "visual_header": "Blue gradient with dot pattern",
+            "icon": "TrendingUp",
+            "description": "Transform your website visitors into paying customers with AI-powered conversion tools, dynamic pricing algorithms, and intelligent sales funnels that automatically adapt to user behavior patterns and market conditions."
+          },
+          {
+            "title": "Scaling Solutions",
+            "visual_header": "Emerald gradient with circuit pattern",
+            "icon": "Target",
+            "description": "Build robust infrastructure that grows seamlessly with your business demands, featuring cloud-native architectures, automated load balancing, and intelligent resource allocation that scales from startup to enterprise-level traffic."
+          },
+          {
+            "title": "Customer Retention",
+            "visual_header": "Violet gradient with particle pattern",
+            "icon": "Repeat",
+            "description": "Keep customers engaged and coming back with intelligent engagement systems, personalized communication workflows, loyalty program automation, and predictive analytics that identify at-risk customers before they churn."
+          },
+          {
+            "title": "Automation-First",
+            "visual_header": "Amber gradient with gear pattern",
+            "icon": "Settings",
+            "description": "Free up your valuable time to focus on strategic growth by automating repetitive tasks, streamlining operations with intelligent workflows, and implementing smart systems that handle everything from customer service to inventory management."
+          }
+        ],
+        "scrolling_solutions": {
+          "component": "ScrollVelocity",
+          "title": {
+            "component": "ShinyText",
+            "text": "Online Business Solutions We Implement"
+          },
+          "content": [
+            "AI phone systems · Chatbot implementation · Customer journey mapping · Personalization engines · Feedback collection systems · Retention automation · Google Ads optimization · SEO implementation ·",
+            "Social media automation · Content marketing systems · Email marketing automation · System performance monitoring · Health checks · Proactive maintenance · Continuous improvement protocols ·"
+          ]
+        },
+        "cta_button": {
+          "text": "See How We Can Help Your Business",
+          "action": "opens LeadCaptureModal",
+          "styling": "Gradient blue button with hover animations"
+        }
+      },
+      "authority_research_hook": {
+        "layout": "Two-column split",
+        "left_panel": {
+          "background": "Blue gradient with neural network animation",
+          "visual_elements": [
+            "Animated pulsing nodes",
+            "Connecting lines with staggered animations",
+            "Geometric shapes with rotation effects"
+          ],
+          "content": {
+            "title": "Intelligence Amplified",
+            "subtitle": "Transforming complexity into competitive advantage through sophisticated AI integration"
+          }
+        },
+        "right_panel": {
+          "background": "Gray-50",
+          "content": {
+            "headline": "Why Most Strategies Fail—And How the Best Beat the Odds",
+            "description": "Only one in five companies believe they meet the bar for high-quality strategy. What do these strategy champions have in common? They excel at designing bold strategies—and are even better at mobilizing their organizations to execute them.",
+            "cta_link": {
+              "text": "Build a Strategy That Actually Delivers",
+              "href": "/strategy-article"
+            }
+          }
+        }
+      },
+      "digital_transformation_section": {
+        "layout": "Two-column split (reversed)",
+        "left_panel": {
+          "background": "Gray-50",
+          "content": {
+            "headline": "The Digital Edge: Empowering Every Employee for the Tech-Driven Future",
+            "description": "Digital transformation success requires more than technology—it demands a fundamental shift in how organizations think, work, and deliver value in an increasingly connected world.",
+            "cta_link": {
+              "text": "Read the Full Transformation Guide",
+              "href": "/transformation-guide"
+            }
+          }
+        },
+        "right_panel": {
+          "background": "Video background with overlay",
+          "video_asset": "3129977-uhd_3840_2160_30fps_1753396464422.mp4",
+          "overlay_content": {
+            "title": "Future Forward",
+            "subtitle": "Building tomorrow's competitive advantages today through intelligent system design"
+          }
+        }
+      },
+      "blog_section": {
+        "id": "blog",
+        "title": "MONTHLY DEFIANT INTEGRATION BLOG",
+        "layout": "Two-column grid",
+        "articles": [
+          {
+            "title": "How AI Is Powering the Next Generation of Robotics",
+            "date": "August, 2025",
+            "description": "From humanoid assistants to autonomous manufacturing bots, artificial intelligence is transforming robotics into a force multiplier for industries worldwide.",
+            "visual_component": "TrueFocus with 'INNOVATION IN AI'",
+            "background": "Blue gradient",
+            "link": "/ai-robotics-article",
+            "hover_effects": [
+              "Scale transform (hover:scale-105)",
+              "Enhanced shadow (hover:shadow-2xl)",
+              "Smooth transitions (duration-300)"
+            ]
+          },
+          {
+            "title": "AI in 2025: What Comes Next for Intelligent Systems",
+            "date": "August, 2025",
+            "description": "From agentic AI to personal superintelligence, artificial intelligence stands beyond hype as the foundation of enterprise, science, and everyday technology.",
+            "visual_component": "Noise component with 'FUTURE' text",
+            "background": "Green gradient",
+            "link": "/ai-2025-article",
+            "hover_effects": [
+              "Scale transform (hover:scale-105)",
+              "Enhanced shadow (hover:shadow-2xl)",
+              "Smooth transitions (duration-300)"
+            ]
+          }
+        ]
+      },
+      "featured_recommendations": {
+        "background": "Dark gray with books image",
+        "image_asset": "pexels-cottonbro-6344231_1753396631670.jpg",
+        "content": {
+          "title": "Featured Recommendations",
+          "subtitle": "Essential reading for business leaders navigating digital transformation",
+          "cta_button": {
+            "text": "View All Recommendations",
+            "action": "opens LeadCaptureModal",
+            "styling": "White button with blue text"
+          }
+        }
+      },
+      "footer": {
+        "background": "Gray-900",
+        "sections": [
+          {
+            "title": "Company Info",
+            "content": "Defiant Integrations tagline and description"
+          },
+          {
+            "title": "Industries",
+            "links": [
+              "HVAC", "Plumbing", "Electrical", "Landscaping", "Restaurants & Cafés"
+            ]
+          },
+          {
+            "title": "Capabilities",
+            "links": [
+              "AI Strategy", "Implementation", "Scaling"
+            ]
+          },
+          {
+            "title": "About Us",
+            "buttons": [
+              {
+                "text": "Careers",
+                "action": "opens LeadCaptureModal"
+              },
+              {
+                "text": "Contact", 
+                "action": "opens LeadCaptureModal"
+              },
+              {
+                "text": "Blog",
+                "action": "navigates to /#blog"
+              }
+            ]
+          },
+          {
+            "title": "Connect",
+            "buttons": [
+              {
+                "text": "Subscribe",
+                "action": "opens SubscriptionModal"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "interactive_components": {
+      "lead_capture_modal": {
+        "component": "LeadCaptureModal",
+        "location": "client/src/components/lead-capture-modal.tsx",
+        "integration": "EspoCRM API",
+        "fields": [
+          "firstName",
+          "lastName", 
+          "emailAddress",
+          "accountName",
+          "title",
+          "opportunityAmount"
+        ],
+        "validation": "Zod schema validation",
+        "triggers": [
+          "Hero CTA button",
+          "What We Do section CTA",
+          "Online Business section CTA", 
+          "Footer Contact/Careers buttons",
+          "Featured Recommendations CTA"
+        ]
+      },
+      "subscription_modal": {
+        "component": "SubscriptionModal",
+        "location": "client/src/components/subscription-modal.tsx",
+        "triggers": [
+          "Footer Subscribe button",
+          "Navigation Subscribe link"
+        ]
+      },
+      "animated_components": {
+        "BlurText": {
+          "location": "client/src/components/BlurText.tsx",
+          "usage": "Hero headline animation",
+          "animation_type": "Word-by-word blur reveal"
+        },
+        "TextType": {
+          "location": "client/src/components/TextType.tsx", 
+          "usage": "What We Do section title",
+          "animation_type": "Typewriter effect with multiple strings"
+        },
+        "TrueFocus": {
+          "location": "client/src/components/TrueFocus.tsx",
+          "usage": "Blog article visual",
+          "animation_type": "Focus blur animation"
+        },
+        "Noise": {
+          "location": "client/src/components/Noise.tsx",
+          "usage": "Blog article background",
+          "animation_type": "Animated noise pattern"
+        },
+        "ScrollVelocity": {
+          "location": "client/src/components/ScrollVelocity.tsx",
+          "usage": "Online business solutions ticker",
+          "animation_type": "Horizontal scrolling text"
+        },
+        "ShinyText": {
+          "location": "client/src/components/ShinyText.tsx",
+          "usage": "Section headers",
+          "animation_type": "Shimmer text effect"
+        }
+      }
+    },
+    "design_system": {
+      "color_palette": {
+        "primary": "Blue gradient series (blue-600 to blue-800)",
+        "secondary": "Emerald, Violet, Amber gradients",
+        "neutral": "Gray scale (gray-50 to gray-900)",
+        "background": "White primary, gray-50 alternate"
+      },
+      "typography": {
+        "heading": "font-serif (Playfair Display equivalent)",
+        "body": "font-sans (Inter equivalent)", 
+        "technical": "font-mono (JetBrains Mono equivalent)",
+        "sizes": "Responsive scaling (text-3xl to text-8xl)"
+      },
+      "spacing": {
+        "sections": "py-16 to py-32",
+        "containers": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+        "grid_gaps": "gap-6 to gap-10"
+      },
+      "animations": {
+        "hover_effects": [
+          "transform hover:-translate-y-2",
+          "hover:scale-105",
+          "hover:shadow-2xl",
+          "transition-all duration-300/500"
+        ],
+        "background_patterns": [
+          "Radial gradients",
+          "SVG patterns", 
+          "Animated overlays"
+        ]
+      }
+    },
+    "performance_optimizations": {
+      "video_handling": {
+        "autoplay_fallback": "User interaction event listeners",
+        "preload": "metadata",
+        "attributes": ["muted", "playsInline", "loop"]
+      },
+      "image_optimization": {
+        "format": "Modern formats where supported",
+        "loading": "Lazy loading for below-fold content"
+      },
+      "code_splitting": {
+        "dynamic_imports": "Component-level splitting",
+        "route_based": "Page-level code splitting"
+      }
+    },
+    "accessibility": {
+      "semantic_html": "Proper heading hierarchy, landmarks",
+      "keyboard_navigation": "Focus management for modals",
+      "screen_readers": "ARIA labels and descriptions",
+      "color_contrast": "WCAG AA compliance"
+    },
+    "conversion_optimization": {
+      "lead_capture_strategy": {
+        "trigger_points": [
+          "Hero section primary CTA",
+          "Service section secondary CTA", 
+          "Footer multiple touchpoints",
+          "Authority section social proof"
+        ],
+        "form_optimization": [
+          "Multi-step progressive disclosure",
+          "Real-time validation feedback",
+          "Clear value proposition"
+        ]
+      },
+      "user_journey": {
+        "awareness": "Hero video and headline",
+        "interest": "Service breakdown and benefits", 
+        "consideration": "Authority content and case studies",
+        "action": "Multiple CTA opportunities",
+        "retention": "Blog content and newsletter signup"
+      }
+    },
+    "technical_architecture": {
+      "state_management": {
+        "local_state": "React useState hooks",
+        "modal_state": "Component-level state management",
+        "form_state": "React Hook Form integration"
+      },
+      "api_integration": {
+        "crm": "EspoCRM REST API",
+        "validation": "Zod schema validation",
+        "error_handling": "Try-catch with user feedback"
+      },
+      "build_configuration": {
+        "bundler": "Vite",
+        "typescript": "Strict mode enabled",
+        "css": "Tailwind CSS with custom configurations"
+      }
+    },
+    "maintenance_considerations": {
+      "content_updates": {
+        "blog_articles": "Component-based structure for easy additions",
+        "service_offerings": "Grid system accommodates new services",
+        "testimonials": "Modular design for rotating content"
+      },
+      "performance_monitoring": {
+        "metrics": "Core Web Vitals tracking recommended",
+        "optimization": "Image compression and code splitting",
+        "caching": "Browser caching strategies"
+      }
+    }
+  }
+}
