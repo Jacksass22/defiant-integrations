@@ -210,9 +210,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let webhookSuccess = false;
       let crmSuccess = false;
       
-      // Send to n8n webhook first (primary method)
+      // Send to multiple webhook endpoints (try all possible endpoints)
+      const webhookEndpoints = [
+        'https://adk.defiantintegration.com/webhook/lead-capture',
+        'https://adk.defiantintegration.com/webhook-test/lead-capture',
+        'https://defiantintegration.com/webhook/lead-capture',
+        'https://defiantintegration.com/webhook-test/lead-capture'
+      ];
+      
       try {
-        console.log('📤 Sending lead to n8n webhook...');
+        console.log('📤 Sending lead to webhook endpoints...');
         const webhookData = {
           type: 'lead_capture',
           timestamp: new Date().toISOString(),
@@ -243,20 +250,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
           source: source
         };
         
-        const webhookResponse = await fetch('https://adk.defiantintegration.com/webhook/lead-capture', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(webhookData)
-        });
-        
-        if (webhookResponse.ok) {
-          console.log('✅ Lead sent to n8n webhook successfully');
-          webhookSuccess = true;
-        } else {
-          console.log('❌ Webhook failed:', webhookResponse.status, await webhookResponse.text());
+        // Try each webhook endpoint
+        for (const endpoint of webhookEndpoints) {
+          try {
+            console.log(`📤 Trying webhook: ${endpoint}`);
+            const webhookResponse = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(webhookData)
+            });
+            
+            if (webhookResponse.ok) {
+              console.log(`✅ Webhook success at: ${endpoint}`);
+              webhookSuccess = true;
+              break; // Stop trying other endpoints if one succeeds
+            } else {
+              console.log(`❌ Webhook failed at ${endpoint}:`, webhookResponse.status, await webhookResponse.text());
+            }
+          } catch (singleWebhookError) {
+            console.log(`❌ Webhook error at ${endpoint}:`, singleWebhookError);
+          }
         }
       } catch (webhookError) {
-        console.error('❌ Webhook error:', webhookError);
+        console.error('❌ All webhook attempts failed:', webhookError);
       }
       
       // Also attempt direct EspoCRM integration (secondary method)
@@ -313,8 +329,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
             accountName: contactInfo?.company || '',
             title: contactInfo?.jobTitle || '',
             
-            // Business context - map industry directly to industry field
-            industry: businessContext?.industry || '',
+            // Business context - remove industry field due to EspoCRM validation constraints
+            // Industry will be included in description field instead
             
             // Lead management fields
             status: 'New',
@@ -341,12 +357,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
             ].join('\n')
           };
 
-          // Remove empty fields to avoid validation issues
+          // Remove empty fields and ensure opportunity amount is properly set
           Object.keys(crmLeadData).forEach(key => {
             if (crmLeadData[key] === '' || crmLeadData[key] === null || crmLeadData[key] === undefined) {
               delete crmLeadData[key];
             }
           });
+          
+          // Ensure opportunity amount is set as a number, not null
+          if (opportunityAmount !== null) {
+            crmLeadData.opportunityAmount = opportunityAmount;
+          }
 
           console.log('Mapped EspoCRM data:', JSON.stringify(crmLeadData, null, 2));
 
