@@ -17,7 +17,7 @@ export function LeadCaptureModal({
 }: LeadCaptureModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl w-full max-h-[90vh] overflow-y-auto p-0 bg-transparent border-none shadow-none">
+      <DialogContent className="max-w-4xl w-full max-h-[90vh] overflow-y-auto p-4 bg-transparent border-none shadow-none">
         <DialogHeader className="sr-only">
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{subtitle}</DialogDescription>
@@ -25,7 +25,7 @@ export function LeadCaptureModal({
         <div className="relative">
           <button
             onClick={() => onOpenChange(false)}
-            className="absolute -top-4 -right-4 z-50 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
+            className="absolute top-2 right-2 z-50 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
           >
             <X className="w-6 h-6 text-gray-600" />
           </button>
