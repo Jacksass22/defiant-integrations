@@ -1,0 +1,58 @@
+help you get this working.
+The Main Issues:
+
+EspoCRM API is returning 301 redirects (URL structure issue)
+API permissions still aren't properly configured
+Your role assignment may not have taken effect
+
+Let's Fix This Step by Step:
+Step 1: Fix the API URL Structure
+Your EspoCRM might need a different API URL format. Let's test these variations:EspoCRM URL Testing ScriptCode // Test different EspoCRM API URL formats to find the correct one
+
+async function testEspoCRMUrls() {
+  const baseUrl = process.env.ESPOCRM_URL;
+  const apiKey = process.env.ESPOCRM_API_KEY;
+  
+  // Different URL patterns to test
+  const urlsToTest =Step 2: Quick Permission Check
+First, let's verify your role was actually assigned to the API user:
+
+Go back to your API user (website_type_form)
+Check if the role is selected in the "Roles" dropdown
+If not selected, choose the role you created and Save
+
+Step 3: Alternative EspoCRM Setup
+Your EspoCRM might be configured differently. Try these steps:
+
+In EspoCRM Admin, go to:
+
+Administration → API
+Check if "API Enabled" is turned ON
+
+
+Try creating an Admin API user instead:
+
+Administration → Users
+Create new user with Admin role
+Set as API user
+
+
+
+Step 4: Test the Diagnostic
+Add the diagnostic code above to your server and then visit:
+GET /api/diagnose-espocrm
+This will test different URL patterns and auth methods to find what works.
+Step 5: Alternative Solution - Use Webhooks
+Since you mentioned n8n webhooks are working, we could:
+
+Keep the webhook working (which is already functioning)
+Set up n8n workflow to receive webhook data and push to EspoCRM
+This is often more reliable than direct API integration
+
+Quick Questions:
+
+Is your EspoCRM installed in a subfolder (like /espocrm/)?
+Did you successfully assign the role to your API user?
+Would you prefer to use the n8n webhook approach instead?
+
+The webhook approach might be simpler and more reliable. What would you prefer to try first?RetryClaude can make mistakes. Please double-check responses.Research Sonnet 4

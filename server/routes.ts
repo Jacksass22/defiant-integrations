@@ -46,8 +46,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // EspoCRM connection test endpoint
-  app.get('/api/test-espocrm', async (req, res) => {
+  // Comprehensive EspoCRM diagnostic endpoint
+  app.get('/api/diagnose-espocrm', async (req, res) => {
     try {
       const espoCrmUrl = process.env.ESPOCRM_URL;
       const espoCrmApiKey = process.env.ESPOCRM_API_KEY;
@@ -60,27 +60,105 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // Clean the URL - remove hash fragments and trailing slashes
-      let baseUrl = espoCrmUrl.replace(/#.*$/, ''); // Remove hash fragment
-      baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+      const baseUrl = espoCrmUrl.replace(/#.*$/, '').replace(/\/$/, '');
+      const results: any[] = [];
       
-      // Test connection with a simple GET request first
-      const testResponse = await fetch(`${baseUrl}/api/v1/App/info`, {
-        method: 'GET',
-        headers: {
-          'X-Api-Key': espoCrmApiKey
+      // Test different URL patterns and auth methods
+      const urlPatterns = [
+        `${baseUrl}/api/v1`,
+        `${baseUrl}/api`,
+        `${baseUrl}/espocrm/api/v1`,
+        `${baseUrl}/espocrm/api`,
+        `${baseUrl}/public/api/v1`,
+        `${baseUrl}/crm/api/v1`
+      ];
+      
+      const authMethods = [
+        { name: 'X-Api-Key', headers: { 'X-Api-Key': espoCrmApiKey } },
+        { name: 'Authorization Bearer', headers: { 'Authorization': `Bearer ${espoCrmApiKey}` } },
+        { name: 'Authorization ApiKey', headers: { 'Authorization': `ApiKey ${espoCrmApiKey}` } },
+        { name: 'Espo-Api-Key', headers: { 'Espo-Api-Key': espoCrmApiKey } }
+      ];
+      
+      const endpoints = ['/App/info', '/Lead', '/Leads', ''];
+      
+      for (const urlPattern of urlPatterns) {
+        for (const auth of authMethods) {
+          for (const endpoint of endpoints) {
+            try {
+              const testUrl = `${urlPattern}${endpoint}`;
+              const response = await fetch(testUrl, {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  ...auth.headers
+                }
+              });
+              
+              const contentType = response.headers.get('content-type') || '';
+              const isJson = contentType.includes('application/json');
+              const responseText = await response.text();
+              
+              results.push({
+                url: testUrl,
+                authMethod: auth.name,
+                status: response.status,
+                contentType,
+                isJson,
+                isSuccess: response.ok && isJson,
+                responsePreview: responseText.substring(0, 200),
+                redirected: response.redirected,
+                finalUrl: response.url
+              });
+              
+              // If we found a working endpoint, also test Lead creation
+              if (response.ok && isJson && endpoint === '/Lead') {
+                const createResponse = await fetch(testUrl, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    ...auth.headers
+                  },
+                  body: JSON.stringify({
+                    name: 'Test Lead',
+                    firstName: 'Test',
+                    lastName: 'Lead',
+                    emailAddress: 'test@example.com'
+                  })
+                });
+                
+                results.push({
+                  url: testUrl,
+                  authMethod: auth.name,
+                  method: 'POST',
+                  status: createResponse.status,
+                  contentType: createResponse.headers.get('content-type'),
+                  isJson: createResponse.headers.get('content-type')?.includes('application/json'),
+                  isSuccess: createResponse.ok,
+                  responsePreview: (await createResponse.text()).substring(0, 200)
+                });
+              }
+            } catch (error) {
+              results.push({
+                url: `${urlPattern}${endpoint}`,
+                authMethod: auth.name,
+                error: (error as Error).message
+              });
+            }
+          }
         }
-      });
-
-      const responseText = await testResponse.text();
+      }
+      
+      // Find working configurations
+      const workingConfigs = results.filter(r => r.isSuccess);
       
       res.json({
-        url: baseUrl,
-        status: testResponse.status,
-        statusText: testResponse.statusText,
-        headers: Object.fromEntries(testResponse.headers.entries()),
-        response: responseText.substring(0, 500)
+        baseUrl,
+        totalTests: results.length,
+        workingConfigurations: workingConfigs,
+        allResults: results.sort((a, b) => (b.isSuccess ? 1 : 0) - (a.isSuccess ? 1 : 0))
       });
+      
     } catch (error) {
       const err = error as Error;
       res.json({ error: err.message, stack: err.stack });
@@ -127,116 +205,108 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       console.log('Lead capture stored:', leadCapture.id);
 
-      // Send to EspoCRM with webhook fallback
+      // Primary: Send to n8n webhook (most reliable)
+      // Secondary: Try EspoCRM direct integration
+      let webhookSuccess = false;
       let crmSuccess = false;
       
+      // Send to n8n webhook first (primary method)
+      try {
+        console.log('📤 Sending lead to n8n webhook...');
+        const webhookData = {
+          type: 'lead_capture',
+          timestamp: new Date().toISOString(),
+          leadId: leadCapture.id,
+          contact: {
+            name: contactInfo?.fullName,
+            email: contactInfo?.email,
+            phone: contactInfo?.phone,
+            company: contactInfo?.company,
+            title: contactInfo?.jobTitle
+          },
+          business: {
+            industry: businessContext?.industry,
+            size: businessContext?.companySize,
+            techMaturity: businessContext?.techMaturity
+          },
+          goals: {
+            challenges: aiNeeds?.businessChallenges,
+            improvements: aiNeeds?.improvementAreas,
+            driver: aiNeeds?.drivingFactor,
+            timeline: aiNeeds?.timeline
+          },
+          qualification: {
+            investment: qualification?.investmentRange,
+            roiTimeline: qualification?.roiTimeline,
+            process: qualification?.decisionProcess
+          },
+          source: source
+        };
+        
+        const webhookResponse = await fetch('https://adk.defiantintegration.com/webhook/lead-capture', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(webhookData)
+        });
+        
+        if (webhookResponse.ok) {
+          console.log('✅ Lead sent to n8n webhook successfully');
+          webhookSuccess = true;
+        } else {
+          console.log('❌ Webhook failed:', webhookResponse.status, await webhookResponse.text());
+        }
+      } catch (webhookError) {
+        console.error('❌ Webhook error:', webhookError);
+      }
+      
+      // Also attempt direct EspoCRM integration (secondary method)
       try {
         const espoCrmUrl = process.env.ESPOCRM_URL;
         const espoCrmApiKey = process.env.ESPOCRM_API_KEY;
         
         if (espoCrmUrl && espoCrmApiKey) {
-          // Clean the URL - remove hash fragments and trailing slashes
-          let baseUrl = espoCrmUrl.replace(/#.*$/, ''); // Remove hash fragment
-          baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+          const baseUrl = espoCrmUrl.replace(/#.*$/, '').replace(/\/$/, '');
+          console.log('🔄 Attempting direct EspoCRM integration...');
           
-          // Test basic API access first
-          console.log('🔍 Testing EspoCRM API access...');
-          const testResponse = await fetch(`${baseUrl}/api/v1/App/info`, {
-            method: 'GET',
-            headers: { 'X-Api-Key': espoCrmApiKey }
+          const crmLeadData = {
+            name: contactInfo?.fullName,
+            firstName: contactInfo?.fullName?.split(' ')[0] || '',
+            lastName: contactInfo?.fullName?.split(' ').slice(1).join(' ') || 'Unknown',
+            emailAddress: contactInfo?.email,
+            phoneNumber: contactInfo?.phone || '',
+            accountName: contactInfo?.company,
+            title: contactInfo?.jobTitle,
+            source: 'Website',
+            status: 'New',
+            description: `Lead ID: ${leadCapture.id}\nBusiness: ${contactInfo?.company}\nIndustry: ${businessContext?.industry}\nSize: ${businessContext?.companySize}\nChallenges: ${aiNeeds?.businessChallenges}\nInvestment: ${qualification?.investmentRange}`
+          };
+
+          const leadResponse = await fetch(`${baseUrl}/api/v1/Lead`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Api-Key': espoCrmApiKey
+            } as HeadersInit,
+            body: JSON.stringify(crmLeadData)
           });
           
-          console.log('API Test Response:', testResponse.status, testResponse.headers.get('content-type'));
-          
-          if (testResponse.ok && testResponse.headers.get('content-type')?.includes('application/json')) {
-            console.log('✅ EspoCRM API is accessible');
-            
-            // Prepare lead data for EspoCRM
-            const crmLeadData = {
-              name: contactInfo?.fullName,
-              firstName: contactInfo?.fullName?.split(' ')[0] || '',
-              lastName: contactInfo?.fullName?.split(' ').slice(1).join(' ') || 'Unknown',
-              emailAddress: contactInfo?.email,
-              phoneNumber: contactInfo?.phone || '',
-              accountName: contactInfo?.company,
-              title: contactInfo?.jobTitle,
-              source: 'Website',
-              status: 'New',
-              description: `Business: ${contactInfo?.company}\nIndustry: ${businessContext?.industry}\nSize: ${businessContext?.companySize}\nChallenges: ${aiNeeds?.businessChallenges}\nInvestment: ${qualification?.investmentRange}`
-            };
-
-            // Try creating the lead
-            const leadResponse = await fetch(`${baseUrl}/api/v1/Lead`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-Api-Key': espoCrmApiKey
-              },
-              body: JSON.stringify(crmLeadData)
-            });
-            
-            if (leadResponse.ok && leadResponse.headers.get('content-type')?.includes('application/json')) {
-              const leadResult = await leadResponse.json();
-              console.log('✅ Lead created in EspoCRM:', leadResult.id);
-              crmSuccess = true;
-            } else {
-              const errorText = await leadResponse.text();
-              console.log('❌ Lead creation failed:', leadResponse.status, errorText.substring(0, 200));
-            }
+          if (leadResponse.ok && leadResponse.headers.get('content-type')?.includes('application/json')) {
+            const leadResult = await leadResponse.json();
+            console.log('✅ Lead also created directly in EspoCRM:', leadResult.id);
+            crmSuccess = true;
           } else {
-            console.log('❌ EspoCRM API not accessible - permissions may be insufficient');
+            console.log('❌ Direct EspoCRM creation failed, but webhook succeeded');
           }
         }
       } catch (crmError) {
-        console.error('EspoCRM API error:', crmError);
+        console.log('❌ Direct EspoCRM attempt failed, webhook is primary method');
       }
       
-      // Fallback: Send to n8n webhook as backup
-      if (!crmSuccess) {
-        try {
-          console.log('📤 Sending lead to n8n webhook as backup...');
-          const webhookData = {
-            type: 'lead_capture',
-            timestamp: new Date().toISOString(),
-            contact: {
-              name: contactInfo?.fullName,
-              email: contactInfo?.email,
-              phone: contactInfo?.phone,
-              company: contactInfo?.company,
-              title: contactInfo?.jobTitle
-            },
-            business: {
-              industry: businessContext?.industry,
-              size: businessContext?.companySize,
-              techMaturity: businessContext?.techMaturity
-            },
-            goals: {
-              challenges: aiNeeds?.businessChallenges,
-              improvements: aiNeeds?.improvementAreas,
-              driver: aiNeeds?.drivingFactor,
-              timeline: aiNeeds?.timeline
-            },
-            qualification: {
-              investment: qualification?.investmentRange,
-              roiTimeline: qualification?.roiTimeline,
-              process: qualification?.decisionProcess
-            }
-          };
-          
-          const webhookResponse = await fetch('https://adk.defiantintegration.com/webhook/lead-capture', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(webhookData)
-          });
-          
-          if (webhookResponse.ok) {
-            console.log('✅ Lead sent to n8n webhook successfully');
-          } else {
-            console.log('❌ Webhook also failed:', webhookResponse.status);
-          }
-        } catch (webhookError) {
-          console.error('Webhook error:', webhookError);
-        }
+      // Log final status
+      if (webhookSuccess || crmSuccess) {
+        console.log(`✅ Lead delivery status: Webhook=${webhookSuccess}, DirectCRM=${crmSuccess}`);
+      } else {
+        console.error('❌ All lead delivery methods failed');
       }
 
       res.json({ 
