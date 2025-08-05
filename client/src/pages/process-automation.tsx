@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Navigation } from '@/components/navigation';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -23,6 +25,7 @@ import {
 } from 'lucide-react';
 
 export default function ProcessAutomation() {
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -47,7 +50,10 @@ export default function ProcessAutomation() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                <button 
+                  onClick={() => setShowLeadCaptureModal(true)}
+                  className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                >
                   Discover Your Automation Potential
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -464,7 +470,10 @@ export default function ProcessAutomation() {
             </p>
             
             <div className="flex justify-center mb-8">
-              <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => setShowLeadCaptureModal(true)}
+                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
                 Schedule Process Assessment
               </button>
             </div>
@@ -486,6 +495,11 @@ export default function ProcessAutomation() {
           </motion.div>
         </div>
       </section>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+      />
     </div>
   );
 }

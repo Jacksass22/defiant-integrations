@@ -1,7 +1,9 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
+import { useState } from 'react';
 import { Navigation } from '@/components/navigation';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 
@@ -10,6 +12,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, L
 
 export default function AIAdoptionArticle() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   // Chart data for AI Implementation Challenges
   const challengesChartData = {
@@ -411,15 +414,23 @@ export default function AIAdoptionArticle() {
               <p className="text-gray-300 mb-6">
                 Don't let your AI initiatives become another statistic. Partner with Defiant Integrations to build the organizational capabilities that turn AI potential into business reality.
               </p>
-              <Link href="/" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              <button 
+                onClick={() => setShowLeadCaptureModal(true)}
+                className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              >
                 Learn More About Our Approach
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
 
       </div>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+      />
     </div>
   );
 }

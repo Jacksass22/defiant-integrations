@@ -1,6 +1,8 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
+import { useState } from 'react';
 import { Navigation } from '@/components/navigation';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import goodStrategyImage from '@assets/goodbadstrat_1754163555535.jpg';
 import innovatorsDilemmaImage from '@assets/image_1754163593061.png';
 import teamOfTeamsImage from '@assets/image_1754163624113.png';
@@ -9,6 +11,8 @@ import zeroToOneImage from '@assets/image_1754163785299.png';
 import leanStartupImage from '@assets/image_1754163812492.png';
 
 export default function Books() {
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
+  
   const bookRecommendations = [
     {
       title: "Good Strategy Bad Strategy",
@@ -169,7 +173,10 @@ export default function Books() {
               Have a book that transformed your thinking? Share your recommendation and 
               join our community of leaders shaping the future of business.
             </p>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            >
               Submit Your Recommendation
             </button>
             
@@ -183,6 +190,11 @@ export default function Books() {
           </div>
         </div>
       </div>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+      />
     </div>
   );
 }

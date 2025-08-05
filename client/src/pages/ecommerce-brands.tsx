@@ -1,11 +1,14 @@
 import { ArrowRight, CheckCircle, ShoppingBag, TrendingUp, Users, Zap } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
+import { useState } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 
 export default function EcommerceBrands() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -58,7 +61,10 @@ export default function EcommerceBrands() {
               Automate your growth, boost conversion rates, and turn casual browsers into loyal repeat buyers with systems built for modern online brands.
             </p>
             
-            <button className="bg-white text-purple-700 hover:bg-purple-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="bg-white text-purple-700 hover:bg-purple-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -459,7 +465,10 @@ export default function EcommerceBrands() {
           <p className="text-xl text-purple-100 mb-8">
             We help you build that system. Whether you're trying to scale to your first $100K month or looking to cut costs while growing LTV—we've got you.
           </p>
-          <button className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -527,6 +536,11 @@ export default function EcommerceBrands() {
         </div>
       </footer>
       </div>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+      />
     </div>
   );
 }
