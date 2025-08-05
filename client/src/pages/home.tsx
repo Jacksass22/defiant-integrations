@@ -100,7 +100,7 @@ export default function Home() {
             <div className="mt-8 sm:mt-12 lg:mt-16">
               <button 
                 onClick={() => setShowLeadCaptureModal(true)}
-                className="bg-white text-gray-900 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium hover:bg-gray-100 transition-all inline-flex items-center space-x-2"
+                className="bg-white text-gray-900 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg hover:bg-gray-100 hover:shadow-lg hover:scale-105 transform transition-all duration-300 inline-flex items-center space-x-2"
               >
                 <span>Get started</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
