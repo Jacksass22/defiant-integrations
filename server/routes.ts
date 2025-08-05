@@ -267,19 +267,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
         if (espoCrmUrl && espoCrmApiKey) {
           const baseUrl = espoCrmUrl.replace(/#.*$/, '').replace(/\/$/, '');
           console.log('🔄 Attempting direct EspoCRM integration...');
+          console.log('Form data received:', { contactInfo, businessContext, aiNeeds, qualification });
+          
+          // Properly map form data to EspoCRM fields
+          const fullName = contactInfo?.fullName || '';
+          const nameParts = fullName.trim().split(' ');
+          const firstName = nameParts[0] || 'Unknown';
+          const lastName = nameParts.slice(1).join(' ') || '';
           
           const crmLeadData = {
-            name: contactInfo?.fullName,
-            firstName: contactInfo?.fullName?.split(' ')[0] || '',
-            lastName: contactInfo?.fullName?.split(' ').slice(1).join(' ') || 'Unknown',
-            emailAddress: contactInfo?.email,
+            // Required fields for EspoCRM Lead
+            firstName: firstName,
+            lastName: lastName || 'Contact',
+            emailAddress: contactInfo?.email || '',
+            
+            // Optional but important fields
             phoneNumber: contactInfo?.phone || '',
-            accountName: contactInfo?.company,
-            title: contactInfo?.jobTitle,
-            source: 'Website',
+            accountName: contactInfo?.company || '',
+            title: contactInfo?.jobTitle || '',
+            
+            // Standard lead fields
+            source: 'Website Form',
             status: 'New',
-            description: `Lead ID: ${leadCapture.id}\nBusiness: ${contactInfo?.company}\nIndustry: ${businessContext?.industry}\nSize: ${businessContext?.companySize}\nChallenges: ${aiNeeds?.businessChallenges}\nInvestment: ${qualification?.investmentRange}`
+            
+            // Business context in description
+            description: [
+              `Lead ID: ${leadCapture.id}`,
+              `Company: ${contactInfo?.company || 'N/A'}`,
+              `Industry: ${businessContext?.industry || 'N/A'}`,
+              `Company Size: ${businessContext?.companySize || 'N/A'}`,
+              `Tech Maturity: ${businessContext?.techMaturity || 'N/A'}`,
+              ``,
+              `Business Challenges: ${aiNeeds?.businessChallenges || 'N/A'}`,
+              `Improvement Areas: ${aiNeeds?.improvementAreas?.join(', ') || 'N/A'}`,
+              `Driving Factor: ${aiNeeds?.drivingFactor || 'N/A'}`,
+              `Timeline: ${aiNeeds?.timeline || 'N/A'}`,
+              ``,
+              `Investment Range: ${qualification?.investmentRange || 'N/A'}`,
+              `ROI Timeline: ${qualification?.roiTimeline || 'N/A'}`,
+              `Decision Process: ${qualification?.decisionProcess || 'N/A'}`
+            ].join('\n'),
+            
+            // Additional fields that might be available in EspoCRM
+            website: contactInfo?.company ? `${contactInfo.company.toLowerCase().replace(/\s+/g, '')}.com` : '',
+            leadSource: 'Website Lead Capture Form'
           };
+
+          console.log('Mapped EspoCRM data:', JSON.stringify(crmLeadData, null, 2));
 
           const leadResponse = await fetch(`${baseUrl}/api/v1/Lead`, {
             method: 'POST',
