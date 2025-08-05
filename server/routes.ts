@@ -275,42 +275,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
           const firstName = nameParts[0] || 'Unknown';
           const lastName = nameParts.slice(1).join(' ') || '';
           
+          // Build comprehensive lead data with all form information in description
+          // Since field mapping isn't working, put everything in description until field schema is resolved
           const crmLeadData = {
-            // Required fields for EspoCRM Lead
-            firstName: firstName,
-            lastName: lastName || 'Contact',
-            emailAddress: contactInfo?.email || '',
-            
-            // Optional but important fields
-            phoneNumber: contactInfo?.phone || '',
-            accountName: contactInfo?.company || '',
-            title: contactInfo?.jobTitle || '',
-            
-            // Standard lead fields
-            source: 'Website Form',
-            status: 'New',
-            
-            // Business context in description
             description: [
+              `=== LEAD CAPTURE FORM SUBMISSION ===`,
               `Lead ID: ${leadCapture.id}`,
-              `Company: ${contactInfo?.company || 'N/A'}`,
-              `Industry: ${businessContext?.industry || 'N/A'}`,
-              `Company Size: ${businessContext?.companySize || 'N/A'}`,
-              `Tech Maturity: ${businessContext?.techMaturity || 'N/A'}`,
+              `Submitted: ${new Date().toISOString()}`,
               ``,
-              `Business Challenges: ${aiNeeds?.businessChallenges || 'N/A'}`,
-              `Improvement Areas: ${aiNeeds?.improvementAreas?.join(', ') || 'N/A'}`,
-              `Driving Factor: ${aiNeeds?.drivingFactor || 'N/A'}`,
-              `Timeline: ${aiNeeds?.timeline || 'N/A'}`,
+              `=== CONTACT INFORMATION ===`,
+              `Name: ${fullName}`,
+              `Email: ${contactInfo?.email || 'Not provided'}`,
+              `Phone: ${contactInfo?.phone || 'Not provided'}`,
+              `Company: ${contactInfo?.company || 'Not provided'}`,
+              `Job Title: ${contactInfo?.jobTitle || 'Not provided'}`,
               ``,
-              `Investment Range: ${qualification?.investmentRange || 'N/A'}`,
-              `ROI Timeline: ${qualification?.roiTimeline || 'N/A'}`,
-              `Decision Process: ${qualification?.decisionProcess || 'N/A'}`
+              `=== BUSINESS CONTEXT ===`,
+              `Industry: ${businessContext?.industry || 'Not specified'}`,
+              `Company Size: ${businessContext?.companySize || 'Not specified'}`,
+              `Tech Maturity: ${businessContext?.techMaturity || 'Not specified'}`,
+              ``,
+              `=== AI NEEDS & CHALLENGES ===`,
+              `Business Challenges: ${aiNeeds?.businessChallenges || 'Not specified'}`,
+              `Improvement Areas: ${aiNeeds?.improvementAreas?.join(', ') || 'Not specified'}`,
+              `Driving Factor: ${aiNeeds?.drivingFactor || 'Not specified'}`,
+              `Timeline: ${aiNeeds?.timeline || 'Not specified'}`,
+              ``,
+              `=== QUALIFICATION ===`,
+              `Investment Range: ${qualification?.investmentRange || 'Not specified'}`,
+              `ROI Timeline: ${qualification?.roiTimeline || 'Not specified'}`,
+              `Decision Process: ${qualification?.decisionProcess || 'Not specified'}`,
+              ``,
+              `=== SOURCE ===`,
+              `Lead Source: Website Lead Capture Form`,
+              `Form Page: ${contactInfo?.company ? 'Industry-specific' : 'General'} Page`
             ].join('\n'),
             
-            // Additional fields that might be available in EspoCRM
-            website: contactInfo?.company ? `${contactInfo.company.toLowerCase().replace(/\s+/g, '')}.com` : '',
-            leadSource: 'Website Lead Capture Form'
+            // Try a very minimal approach - just description
+            status: 'New'
           };
 
           console.log('Mapped EspoCRM data:', JSON.stringify(crmLeadData, null, 2));
@@ -326,10 +328,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
           
           if (leadResponse.ok && leadResponse.headers.get('content-type')?.includes('application/json')) {
             const leadResult = await leadResponse.json();
-            console.log('✅ Lead also created directly in EspoCRM:', leadResult.id);
+            console.log('✅ Lead created in EspoCRM:', leadResult.id);
+            console.log('EspoCRM Response:', JSON.stringify(leadResult, null, 2));
             crmSuccess = true;
           } else {
-            console.log('❌ Direct EspoCRM creation failed, but webhook succeeded');
+            const errorText = await leadResponse.text();
+            console.log('❌ EspoCRM API Error:', leadResponse.status, errorText);
           }
         }
       } catch (crmError) {
