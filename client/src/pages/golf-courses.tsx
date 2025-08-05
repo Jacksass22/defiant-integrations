@@ -6,9 +6,12 @@ import TrueFocus from '@/components/TrueFocus';
 import { motion } from 'framer-motion';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { useState } from 'react';
 
 export default function GolfCourses() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -47,10 +50,18 @@ export default function GolfCourses() {
                 Run a smoother pro shop, handle more calls at once, and never miss a tee time again with intelligent systems that eliminate friction and delight guests.
               </p>
               
-              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center space-x-2 shadow-lg">
+              <motion.button 
+                onClick={() => setShowLeadCaptureModal(true)}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
                 <span>Start Your Free Discovery Call</span>
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </section>
@@ -523,9 +534,13 @@ export default function GolfCourses() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 <motion.button 
-                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setShowLeadCaptureModal(true)}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
+                  }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-300 inline-flex items-center space-x-2 shadow-lg"
+                  className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-300 inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <Calendar className="w-5 h-5" />
                   <span>Start Your Free Discovery Call</span>
@@ -533,9 +548,14 @@ export default function GolfCourses() {
                 </motion.button>
                 
                 <motion.button 
-                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setShowLeadCaptureModal(true)}
+                  whileHover={{ 
+                    scale: 1.05,
+                    backgroundColor: "rgba(255, 255, 255, 1)",
+                    color: "rgb(22 163 74)"
+                  }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 inline-flex items-center space-x-2"
+                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 inline-flex items-center space-x-2 transform hover:-translate-y-1"
                 >
                   <MapPin className="w-5 h-5" />
                   <span>See Our Case Studies</span>
@@ -615,10 +635,10 @@ export default function GolfCourses() {
               <div>
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2 text-gray-400 text-sm">
-                  <li><a href="#" className="hover:text-green-400 transition-colors">About</a></li>
-                  <li><a href="#" className="hover:text-green-400 transition-colors">Careers</a></li>
-                  <li><a href="#" className="hover:text-green-400 transition-colors">Contact</a></li>
-                  <li><a href="#" className="hover:text-green-400 transition-colors">Blog</a></li>
+                  <li><button onClick={() => setShowLeadCaptureModal(true)} className="hover:text-green-400 transition-colors">About</button></li>
+                  <li><button onClick={() => setShowLeadCaptureModal(true)} className="hover:text-green-400 transition-colors">Careers</button></li>
+                  <li><button onClick={() => setShowLeadCaptureModal(true)} className="hover:text-green-400 transition-colors">Contact</button></li>
+                  <li><Link href="/#blog" className="hover:text-green-400 transition-colors">Blog</Link></li>
                 </ul>
               </div>
             </div>
@@ -629,6 +649,13 @@ export default function GolfCourses() {
           </div>
         </footer>
       </div>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+        title="Golf Course Discovery Call"
+        subtitle="Let's discuss how intelligent automation can transform your course operations"
+      />
     </div>
   );
 }
