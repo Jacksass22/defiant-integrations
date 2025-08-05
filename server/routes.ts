@@ -188,7 +188,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         companySize: businessContext?.companySize,
         techMaturity: businessContext?.techMaturity,
         businessChallenges: aiNeeds?.businessChallenges,
-        improvementAreas: aiNeeds?.improvementAreas,
+        improvementAreas: aiNeeds?.improvementAreas?.join(', '),
         drivingFactor: aiNeeds?.drivingFactor,
         timeline: aiNeeds?.timeline,
         investmentRange: qualification?.investmentRange,
@@ -213,9 +213,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send to multiple webhook endpoints (try all possible endpoints)
       const webhookEndpoints = [
         'https://adk.defiantintegration.com/webhook/lead-capture',
-        'https://adk.defiantintegration.com/webhook-test/lead-capture',
         'https://defiantintegration.com/webhook/lead-capture',
-        'https://defiantintegration.com/webhook-test/lead-capture'
+        'https://n8n.defiantintegration.com/webhook/lead-capture',
+        'https://hooks.zapier.com/hooks/catch/17775041/b8x7abr/',
+        'https://adk.defiantintegration.com/webhook-test/lead-capture'
       ];
       
       try {
@@ -262,6 +263,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             
             if (webhookResponse.ok) {
               console.log(`✅ Webhook success at: ${endpoint}`);
+              console.log(`Response status: ${webhookResponse.status}`);
               webhookSuccess = true;
               break; // Stop trying other endpoints if one succeeds
             } else {
@@ -328,9 +330,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
             // Company and job information
             accountName: contactInfo?.company || '',
             title: contactInfo?.jobTitle || '',
-            
-            // Business context - remove industry field due to EspoCRM validation constraints
-            // Industry will be included in description field instead
             
             // Lead management fields
             status: 'New',
