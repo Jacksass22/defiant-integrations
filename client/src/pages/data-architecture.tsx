@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Navigation } from '@/components/navigation';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -30,6 +32,7 @@ import {
 } from 'lucide-react';
 
 export default function DataArchitecture() {
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -53,7 +56,10 @@ export default function DataArchitecture() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                <button 
+                  onClick={() => setShowLeadCaptureModal(true)}
+                  className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                >
                   Assess Your Data Architecture Readiness
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -540,7 +546,10 @@ export default function DataArchitecture() {
             </p>
             
             <div className="flex justify-center mb-8">
-              <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => setShowLeadCaptureModal(true)}
+                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
                 Assess Your Data Architecture Readiness
               </button>
             </div>
@@ -562,6 +571,11 @@ export default function DataArchitecture() {
           </motion.div>
         </div>
       </section>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+      />
     </div>
   );
 }

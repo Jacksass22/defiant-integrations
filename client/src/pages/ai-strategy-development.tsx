@@ -1,11 +1,14 @@
 import { Navigation } from '@/components/navigation';
 import { ArrowRight, Target, Map, Users, TrendingUp, CheckCircle, Clock, Lightbulb } from 'lucide-react';
 import { Link } from 'wouter';
+import { useState } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import BlurText from '@/components/BlurText';
 
 export default function AIStrategyDevelopment() {
   useScrollToTop();
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -25,7 +28,10 @@ export default function AIStrategyDevelopment() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Designing Intelligent Transformation, Not Just Technology Experiments
             </p>
-            <button className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors">
+            <button 
+              onClick={() => setShowLeadCaptureModal(true)}
+              className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors"
+            >
               <span>Book Your AI Readiness Session</span>
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -467,7 +473,10 @@ export default function AIStrategyDevelopment() {
           <p className="text-2xl font-semibold mb-12">
             Defiant Integrations. What's your next intelligent breakthrough?
           </p>
-          <button className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors text-lg">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors text-lg"
+          >
             <span>Book Your AI Readiness Session</span>
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -528,6 +537,11 @@ export default function AIStrategyDevelopment() {
           </div>
         </div>
       </footer>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+      />
     </div>
   );
 }

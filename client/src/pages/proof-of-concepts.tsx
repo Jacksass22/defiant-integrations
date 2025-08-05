@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Navigation } from '@/components/navigation';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -30,6 +32,7 @@ import {
 } from 'lucide-react';
 
 export default function ProofOfConcepts() {
+  const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -54,7 +57,10 @@ export default function ProofOfConcepts() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button className="bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                <button 
+                  onClick={() => setShowLeadCaptureModal(true)}
+                  className="bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+                >
                   Start Your AI Proof of Concept
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -536,7 +542,10 @@ export default function ProofOfConcepts() {
             </p>
             
             <div className="flex justify-center mb-8">
-              <button className="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => setShowLeadCaptureModal(true)}
+                className="bg-white text-orange-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
                 Start Your Proof of Concept Today
               </button>
             </div>
@@ -558,6 +567,11 @@ export default function ProofOfConcepts() {
           </motion.div>
         </div>
       </section>
+      
+      <LeadCaptureModal
+        open={showLeadCaptureModal}
+        onOpenChange={setShowLeadCaptureModal}
+      />
     </div>
   );
 }
