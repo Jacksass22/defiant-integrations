@@ -46,6 +46,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // EspoCRM connection test endpoint
+  app.get('/api/test-espocrm', async (req, res) => {
+    try {
+      const espoCrmUrl = process.env.ESPOCRM_URL;
+      const espoCrmApiKey = process.env.ESPOCRM_API_KEY;
+      
+      if (!espoCrmUrl || !espoCrmApiKey) {
+        return res.json({ 
+          error: 'Missing EspoCRM configuration',
+          hasUrl: !!espoCrmUrl,
+          hasApiKey: !!espoCrmApiKey
+        });
+      }
+
+      // Clean the URL - remove hash fragments and trailing slashes
+      let baseUrl = espoCrmUrl.replace(/#.*$/, ''); // Remove hash fragment
+      baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+      
+      // Test connection with a simple GET request first
+      const testResponse = await fetch(`${baseUrl}/api/v1/App/info`, {
+        method: 'GET',
+        headers: {
+          'X-Api-Key': espoCrmApiKey
+        }
+      });
+
+      const responseText = await testResponse.text();
+      
+      res.json({
+        url: baseUrl,
+        status: testResponse.status,
+        statusText: testResponse.statusText,
+        headers: Object.fromEntries(testResponse.headers.entries()),
+        response: responseText.substring(0, 500)
+      });
+    } catch (error) {
+      const err = error as Error;
+      res.json({ error: err.message, stack: err.stack });
+    }
+  });
+
   // Lead capture form submission endpoint
   app.post('/api/lead-capture', async (req, res) => {
     try {
@@ -91,90 +132,109 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const espoCrmUrl = process.env.ESPOCRM_URL;
         const espoCrmApiKey = process.env.ESPOCRM_API_KEY;
         
+        console.log('EspoCRM URL:', espoCrmUrl);
+        console.log('EspoCRM API Key exists:', !!espoCrmApiKey);
+        
         if (espoCrmUrl && espoCrmApiKey) {
-          // Prepare lead data for EspoCRM
+          // Clean the URL - remove hash fragments and trailing slashes
+          let baseUrl = espoCrmUrl.replace(/#.*$/, ''); // Remove hash fragment
+          baseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+          
+          // Prepare lead data for EspoCRM with simpler field mapping
           const crmLeadData = {
+            name: contactInfo?.fullName,
             firstName: contactInfo?.fullName?.split(' ')[0] || '',
-            lastName: contactInfo?.fullName?.split(' ').slice(1).join(' ') || contactInfo?.fullName || '',
+            lastName: contactInfo?.fullName?.split(' ').slice(1).join(' ') || 'Unknown',
             emailAddress: contactInfo?.email,
             phoneNumber: contactInfo?.phone || '',
             accountName: contactInfo?.company,
             title: contactInfo?.jobTitle,
-            industry: businessContext?.industry,
             source: 'Website',
             status: 'New',
-            description: `
-Business Context:
-- Company Size: ${businessContext?.companySize}
-- Tech Maturity: ${businessContext?.techMaturity}
-- Industry: ${businessContext?.industry}
-
-AI Transformation Goals:
-- Business Challenges: ${aiNeeds?.businessChallenges}
-- Improvement Areas: ${aiNeeds?.improvementAreas?.join(', ')}
-- Driving Factor: ${aiNeeds?.drivingFactor}
-- Timeline: ${aiNeeds?.timeline}
-
-Investment & Decision Making:
-- Investment Range: ${qualification?.investmentRange}
-- ROI Timeline: ${qualification?.roiTimeline}
-- Decision Process: ${qualification?.decisionProcess}
-            `.trim(),
-            // Custom fields for additional data
-            customField1: businessContext?.companySize,
-            customField2: qualification?.investmentRange,
-            customField3: aiNeeds?.timeline
+            description: `Business: ${contactInfo?.company}\nIndustry: ${businessContext?.industry}\nSize: ${businessContext?.companySize}\nChallenges: ${aiNeeds?.businessChallenges}\nInvestment: ${qualification?.investmentRange}`
           };
 
-          // Try different EspoCRM API authentication methods
-          let crmResponse;
+          console.log('Sending to EspoCRM:', JSON.stringify(crmLeadData, null, 2));
+
+          // Try the most common EspoCRM authentication methods
+          const authMethods: Record<string, string>[] = [
+            { 'X-Api-Key': espoCrmApiKey },
+            { 'Authorization': `ApiKey ${espoCrmApiKey}` },
+            { 'Authorization': `Bearer ${espoCrmApiKey}` },
+            { 'Espo-Api-Key': espoCrmApiKey }
+          ];
+
+          // Try different API endpoints that EspoCRM commonly uses
+          const apiEndpoints = [
+            '/api/v1/Lead',
+            '/api/v1/Leads',
+            '/api/Lead',
+            '/api/Leads'
+          ];
           
-          // Method 1: X-Api-Key header
-          crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Api-Key': espoCrmApiKey
-            },
-            body: JSON.stringify(crmLeadData)
-          });
+          let success = false;
+          
+          for (const endpoint of apiEndpoints) {
+            console.log(`\n🔄 Trying endpoint: ${endpoint}`);
+            
+            for (const authHeaders of authMethods) {
+              try {
+                console.log('  Auth method:', Object.keys(authHeaders)[0]);
+                
+                const headers: Record<string, string> = {
+                  'Content-Type': 'application/json',
+                  ...authHeaders
+                };
+                
+                const crmResponse = await fetch(`${baseUrl}${endpoint}`, {
+                  method: 'POST',
+                  headers,
+                  body: JSON.stringify(crmLeadData)
+                });
 
-          // If that fails, try Method 2: Authorization header
-          if (!crmResponse.ok) {
-            crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `ApiKey ${espoCrmApiKey}`
-              },
-              body: JSON.stringify(crmLeadData)
-            });
-          }
-
-          // If that fails, try Method 3: Bearer token
-          if (!crmResponse.ok) {
-            crmResponse = await fetch(`${espoCrmUrl}/api/v1/Lead`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${espoCrmApiKey}`
-              },
-              body: JSON.stringify(crmLeadData)
-            });
-          }
-
-          if (crmResponse.ok) {
-            try {
-              const crmResult = await crmResponse.json();
-              console.log('Lead created in EspoCRM:', crmResult.id);
-            } catch (parseError) {
-              console.log('Lead created in EspoCRM (no JSON response)');
+                console.log('  Response status:', crmResponse.status);
+                console.log('  Content-Type:', crmResponse.headers.get('content-type'));
+                
+                if (crmResponse.ok && crmResponse.headers.get('content-type')?.includes('application/json')) {
+                  try {
+                    const crmResult = await crmResponse.json();
+                    console.log('✅ Lead created in EspoCRM:', crmResult);
+                    success = true;
+                    break;
+                  } catch (parseError) {
+                    console.log('❌ JSON parse error despite content-type');
+                  }
+                } else if (crmResponse.ok) {
+                  const responseText = await crmResponse.text();
+                  if (responseText.includes('<!DOCTYPE') || responseText.includes('<html>')) {
+                    console.log('❌ Received HTML response - API endpoint may be incorrect');
+                  } else {
+                    console.log('✅ Lead created (non-JSON response):', responseText.substring(0, 100));
+                    success = true;
+                    break;
+                  }
+                } else {
+                  const errorText = await crmResponse.text();
+                  console.log(`❌ Failed (${crmResponse.status}):`, errorText.substring(0, 100));
+                }
+              } catch (methodError) {
+                const error = methodError as Error;
+                console.log('❌ Auth error:', error.message);
+              }
             }
-          } else {
-            const errorText = await crmResponse.text();
-            console.error('EspoCRM API error:', crmResponse.status, errorText);
-            console.error('API URL attempted:', `${espoCrmUrl}/api/v1/Lead`);
+            
+            if (success) break;
           }
+          
+          if (!success) {
+            console.error('❌ All authentication methods failed');
+            console.error('Please check:');
+            console.error('1. EspoCRM URL is correct and accessible');
+            console.error('2. API Key is valid and has Lead creation permissions');
+            console.error('3. EspoCRM API is enabled in Administration > API');
+          }
+        } else {
+          console.error('Missing EspoCRM configuration');
         }
       } catch (crmError) {
         console.error('EspoCRM integration error:', crmError);
