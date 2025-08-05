@@ -4,11 +4,13 @@ import { Link } from 'wouter';
 import { useState } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import { SubscriptionModal } from '@/components/subscription-modal';
 import BlurText from '@/components/BlurText';
 
 export default function AIStrategyDevelopment() {
   useScrollToTop();
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
+  const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -518,16 +520,31 @@ export default function AIStrategyDevelopment() {
             <div>
               <h4 className="font-semibold mb-4">About Us</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-blue-400 transition-colors">Careers</button></li>
-                <li><button className="hover:text-blue-400 transition-colors">Contact</button></li>
-                <li><button className="hover:text-blue-400 transition-colors">Blog</button></li>
+                <li><button 
+                  onClick={() => setShowLeadCaptureModal(true)}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Careers
+                </button></li>
+                <li><button 
+                  onClick={() => setShowLeadCaptureModal(true)}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Contact
+                </button></li>
+                <li><Link href="/#blog" className="hover:text-blue-400 transition-colors">Blog</Link></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-blue-400 transition-colors">Subscribe</button></li>
+                <li><button 
+                  onClick={() => setShowSubscriptionModal(true)}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Subscribe
+                </button></li>
               </ul>
             </div>
           </div>
@@ -541,6 +558,11 @@ export default function AIStrategyDevelopment() {
       <LeadCaptureModal
         open={showLeadCaptureModal}
         onOpenChange={setShowLeadCaptureModal}
+      />
+      
+      <SubscriptionModal 
+        isOpen={showSubscriptionModal}
+        onClose={() => setShowSubscriptionModal(false)}
       />
     </div>
   );

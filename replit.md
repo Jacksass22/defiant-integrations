@@ -1,7 +1,7 @@
 # Defiant Integrations - Premium Consulting Website
 
 ## Overview
-This project is a premium consulting website for Defiant Integrations, aiming to establish a digital presence comparable to leading firms like McKinsey & Company. It's a modern full-stack web application designed to showcase high-end consulting services, focusing on various industry-specific solutions and strategic capabilities. The project's ambition is to provide a sophisticated and authoritative online platform for a consulting firm.
+This project is a premium consulting website for Defiant Integrations, aiming to establish a digital presence comparable to leading firms like McKinsey & Company. It's a modern full-stack web application designed to showcase high-end consulting services, focusing on various industry-specific solutions and strategic capabilities. The project features comprehensive lead capture functionality integrated with EspoCRM for automated lead processing across all major pages and interactions.
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
@@ -30,9 +30,16 @@ Preferred communication style: Simple, everyday language.
 
 ### Key Features and Components
 - **Navigation System**: Features a mega menu with industry-specific dropdowns, designed to be responsive and mobile-first. Industry categories include Trades, Consumer Services, Retail, and Professional Services, with 27 dedicated industry pages.
+- **Lead Capture System**: Comprehensive modal-based lead capture functionality integrated across all major pages with direct EspoCRM integration for automated lead processing. Features multi-step forms with proper validation and error handling.
 - **Database Schema**: Includes basic user management with username/password authentication. Schema managed with Drizzle ORM, supporting type-safe operations and migrations.
-- **UI Components**: Built upon accessible Radix UI primitives and custom branded components.
+- **UI Components**: Built upon accessible Radix UI primitives and custom branded components with enhanced hover animations and interactive elements.
 - **Data Flow**: RESTful API endpoints, TanStack Query for client-server communication (caching, synchronization, error states), and shared TypeScript types for end-to-end type safety.
+
+### Recent Major Updates (January 2025)
+- **Lead Capture Rollout**: Successfully implemented lead capture modal functionality across 10+ key pages including home, ai-strategy-development, technology-evaluation, data-architecture, process-automation, books, proof-of-concepts, and ai-adoption-article
+- **EspoCRM Integration**: Full integration with EspoCRM API for automatic lead processing with proper field mapping (firstName, lastName, emailAddress, accountName, title, opportunityAmount)
+- **Footer Functionality**: Updated footer buttons across all pages to trigger appropriate modals (lead capture for Contact/Careers, subscription modal for Subscribe, proper navigation for Blog)
+- **UI Enhancements**: Added hover animations to blog cards, improved modal close button visibility, and enhanced user experience across interactive elements
 
 ### Key Architectural Decisions
 - **Database**: PostgreSQL with Neon Database for reliability, scalability, and cost efficiency, combined with Drizzle ORM for type-safe queries.
