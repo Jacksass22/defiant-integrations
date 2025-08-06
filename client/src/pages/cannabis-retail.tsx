@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ArrowRight, CheckCircle, Leaf, TrendingUp, Users, Shield } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
@@ -5,10 +6,12 @@ import LightRays from '@/components/LightRays';
 import BlurText from '@/components/BlurText';
 import Galaxy from '@/components/Galaxy';
 import TiltedCard from '@/components/TiltedCard';
+import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function CannabisRetail() {
   useScrollToTop();
+  const [isLeadCaptureOpen, setIsLeadCaptureOpen] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
@@ -598,8 +601,9 @@ export default function CannabisRetail() {
             rotateAmplitude={8}
             isButton={true}
             className="inline-block"
+            onClick={() => setIsLeadCaptureOpen(true)}
           >
-            <div className="relative group bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 rounded-full overflow-hidden transition-all duration-500 hover:bg-white/20 hover:border-white/30">
+            <div className="relative group bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 rounded-full overflow-hidden transition-all duration-500 hover:bg-white/20 hover:border-white/30 cursor-pointer">
               {/* Orbital rings animation */}
               <div className="absolute inset-0 opacity-30">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-24 border border-white/20 rounded-full transform rotate-45 animate-orbit-slow"></div>
@@ -685,9 +689,9 @@ export default function CannabisRetail() {
               <h4 className="font-semibold mb-4 text-gray-300">Company</h4>
               <ul className="space-y-2 text-gray-500 text-sm">
                 <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                <li><button onClick={() => setIsLeadCaptureOpen(true)} className="hover:text-white transition-colors text-left">Careers</button></li>
+                <li><button onClick={() => setIsLeadCaptureOpen(true)} className="hover:text-white transition-colors text-left">Contact</button></li>
+                <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               </ul>
             </div>
           </div>
@@ -697,6 +701,12 @@ export default function CannabisRetail() {
           </div>
         </div>
       </footer>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        open={isLeadCaptureOpen}
+        onOpenChange={setIsLeadCaptureOpen}
+      />
       </div>
     </div>
   );
