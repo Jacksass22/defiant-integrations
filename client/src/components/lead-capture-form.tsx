@@ -236,58 +236,94 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
 
   if (isSubmitted) {
     return (
-      <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-2xl">
-        <div className="text-center mb-8">
-          <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-6" />
-          <h2 className="font-serif text-3xl font-bold text-gray-900 mb-4">
-            Excellent! Let's Schedule Your Consultation
+      <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-2xl relative overflow-hidden">
+        {/* Success Header */}
+        <div className="text-center mb-6">
+          <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4 animate-bounce" />
+          <h2 className="font-serif text-3xl font-bold text-gray-900 mb-2">
+            Perfect! One More Step...
           </h2>
-          <p className="text-lg text-gray-600 mb-2">
-            Thank you for completing the assessment, {formData.fullName}!
+          <p className="text-lg text-gray-600">
+            Thank you {formData.fullName}! Your information is saved.
           </p>
-          <p className="text-gray-600 mb-6">
-            Your information has been received. Now let's find the perfect time to discuss your {formData.industry} business transformation.
-          </p>
+        </div>
+        
+        {/* Animated Call-to-Action Section */}
+        <div className="relative mb-8">
+          {/* Pulsing Background Effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl animate-pulse opacity-20"></div>
           
-          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg mb-8">
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <Calendar className="w-6 h-6 text-blue-600" />
-              <h3 className="font-serif text-xl font-bold text-gray-900">Book Your Strategic Consultation</h3>
+          {/* Main CTA Container */}
+          <div className="relative bg-gradient-to-r from-blue-600 to-cyan-600 p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
+            {/* Animated Badge */}
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span className="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-bold animate-bounce shadow-lg">
+                🔥 LIMITED SLOTS AVAILABLE
+              </span>
             </div>
-            <p className="text-gray-700 mb-4">
-              Select a time that works best for you. Our AI transformation experts are ready to discuss:
-            </p>
-            <div className="flex flex-wrap justify-center gap-2 text-sm">
-              <span className="bg-white px-3 py-1 rounded-full text-gray-700">
-                ✓ Your specific {formData.industry.toLowerCase()} challenges
-              </span>
-              <span className="bg-white px-3 py-1 rounded-full text-gray-700">
-                ✓ ROI projections for your {formData.investmentRange} budget
-              </span>
-              <span className="bg-white px-3 py-1 rounded-full text-gray-700">
-                ✓ Implementation timeline: {formData.timeline}
-              </span>
+            
+            {/* Main CTA Content */}
+            <div className="text-center text-white">
+              <h3 className="text-4xl font-bold mb-3 animate-pulse">
+                ⬇️ BOOK YOUR FREE CONSULTATION NOW ⬇️
+              </h3>
+              <p className="text-xl mb-4 font-semibold">
+                Lock in your transformation strategy session while spots last!
+              </p>
+              
+              {/* Benefits Pills */}
+              <div className="flex flex-wrap justify-center gap-3 mb-6">
+                <span className="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-white font-medium">
+                  💎 {formData.investmentRange} Investment Plan
+                </span>
+                <span className="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-white font-medium">
+                  🚀 {formData.timeline} Implementation
+                </span>
+                <span className="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-white font-medium">
+                  📈 Custom {formData.industry} Strategy
+                </span>
+              </div>
+              
+              {/* Animated Arrow */}
+              <div className="animate-bounce text-5xl mb-2">
+                ⬇️
+              </div>
             </div>
           </div>
+        </div>
+        
+        {/* Calendly Widget with Enhanced Styling */}
+        <div className="relative">
+          {/* Glowing Border Effect */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 rounded-lg opacity-75 blur animate-pulse"></div>
           
-          {/* Calendly Widget */}
-          <div className="bg-gray-50 rounded-lg p-4 shadow-inner">
+          {/* Widget Container */}
+          <div className="relative bg-white rounded-lg p-6 shadow-2xl">
+            <div className="absolute top-2 right-2">
+              <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                LIVE CALENDAR
+              </span>
+            </div>
+            
             <CalendlyWidget 
-              height="600px"
+              height="650px"
               className="rounded-lg overflow-hidden"
             />
           </div>
-          
-          <p className="text-gray-500 text-sm mt-6">
-            Can't find a time that works? We'll reach out within 24 hours to find a convenient slot for you.
-          </p>
-          
-          {onClose && (
+        </div>
+        
+        {/* Bottom Note */}
+        <p className="text-gray-500 text-sm mt-6 text-center">
+          Can't find a time? We'll call you within 24 hours at {formData.phone || 'your provided number'}.
+        </p>
+        
+        {onClose && (
+          <div className="text-center mt-6">
             <Button onClick={onClose} className="bg-blue-600 hover:bg-blue-700">
               Continue Exploring
             </Button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     );
   }
