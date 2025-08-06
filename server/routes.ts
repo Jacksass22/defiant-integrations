@@ -188,7 +188,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         companySize: businessContext?.companySize,
         techMaturity: businessContext?.techMaturity,
         businessChallenges: aiNeeds?.businessChallenges,
-        improvementAreas: aiNeeds?.improvementAreas?.join(', '),
+        improvementAreas: Array.isArray(aiNeeds?.improvementAreas) 
+          ? aiNeeds.improvementAreas 
+          : [aiNeeds?.improvementAreas].filter(Boolean),
         drivingFactor: aiNeeds?.drivingFactor,
         timeline: aiNeeds?.timeline,
         investmentRange: qualification?.investmentRange,
