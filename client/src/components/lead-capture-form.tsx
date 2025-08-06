@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronRight, ChevronLeft, CheckCircle, AlertCircle } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CheckCircle, AlertCircle, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
+import { CalendlyWidget } from '@/components/calendly-widget';
 
 interface FormData {
   // Contact Information
@@ -235,45 +236,50 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
 
   if (isSubmitted) {
     return (
-      <div className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-2xl">
-        <div className="text-center">
+      <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-2xl">
+        <div className="text-center mb-8">
           <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-6" />
           <h2 className="font-serif text-3xl font-bold text-gray-900 mb-4">
-            Thank You for Your Interest!
+            Excellent! Let's Schedule Your Consultation
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            We've received your strategic consultation request and our team is reviewing your specific needs.
+          <p className="text-lg text-gray-600 mb-2">
+            Thank you for completing the assessment, {formData.fullName}!
+          </p>
+          <p className="text-gray-600 mb-6">
+            Your information has been received. Now let's find the perfect time to discuss your {formData.industry} business transformation.
           </p>
           
-          <div className="bg-blue-50 p-6 rounded-lg mb-8">
-            <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">What happens next:</h3>
-            <div className="space-y-3 text-left">
-              <div className="flex items-start space-x-3">
-                <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">1</div>
-                <div>
-                  <p className="font-semibold text-gray-900">Strategic Review (24 hours)</p>
-                  <p className="text-gray-600">Our team analyzes your requirements</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">2</div>
-                <div>
-                  <p className="font-semibold text-gray-900">Initial Consultation (2-3 business days)</p>
-                  <p className="text-gray-600">30-minute discovery call</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">3</div>
-                <div>
-                  <p className="font-semibold text-gray-900">Custom Proposal (Within 1 week)</p>
-                  <p className="text-gray-600">Tailored AI transformation roadmap</p>
-                </div>
-              </div>
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg mb-8">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <Calendar className="w-6 h-6 text-blue-600" />
+              <h3 className="font-serif text-xl font-bold text-gray-900">Book Your Strategic Consultation</h3>
+            </div>
+            <p className="text-gray-700 mb-4">
+              Select a time that works best for you. Our AI transformation experts are ready to discuss:
+            </p>
+            <div className="flex flex-wrap justify-center gap-2 text-sm">
+              <span className="bg-white px-3 py-1 rounded-full text-gray-700">
+                ✓ Your specific {formData.industry.toLowerCase()} challenges
+              </span>
+              <span className="bg-white px-3 py-1 rounded-full text-gray-700">
+                ✓ ROI projections for your {formData.investmentRange} budget
+              </span>
+              <span className="bg-white px-3 py-1 rounded-full text-gray-700">
+                ✓ Implementation timeline: {formData.timeline}
+              </span>
             </div>
           </div>
           
-          <p className="text-gray-600 mb-6">
-            You'll hear from our senior consultant within 24 hours to schedule your complimentary strategic consultation.
+          {/* Calendly Widget */}
+          <div className="bg-gray-50 rounded-lg p-4 shadow-inner">
+            <CalendlyWidget 
+              height="600px"
+              className="rounded-lg overflow-hidden"
+            />
+          </div>
+          
+          <p className="text-gray-500 text-sm mt-6">
+            Can't find a time that works? We'll reach out within 24 hours to find a convenient slot for you.
           </p>
           
           {onClose && (
