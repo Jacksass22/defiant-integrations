@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { CalendlyWidget } from '@/components/calendly-widget';
-import { DefiantLogo } from '@/components/defiant-logo';
 
 interface FormData {
   // Contact Information
@@ -246,9 +245,8 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
           
           {/* Company Logo + Name */}
           <div className="flex items-center justify-center mb-4">
-            <DefiantLogo size={36} className="mr-1" />
             <h1 className="font-serif text-2xl font-bold text-gray-900">
-              efiant Integrations
+              Defiant Integrations
             </h1>
           </div>
           
