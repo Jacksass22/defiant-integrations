@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronRight, ChevronLeft, CheckCircle, AlertCircle, Calendar } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -236,86 +236,100 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
 
   if (isSubmitted) {
     return (
-      <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-2xl relative overflow-hidden">
+      <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-xl relative">
         {/* Success Header */}
-        <div className="text-center mb-6">
-          <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4 animate-bounce" />
-          <h2 className="font-serif text-3xl font-bold text-gray-900 mb-2">
-            Perfect! One More Step...
+        <div className="text-center mb-8">
+          <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+            <CheckCircle className="w-12 h-12 text-white" />
+          </div>
+          <h2 className="font-serif text-4xl font-bold text-gray-900 mb-3">
+            Excellent. Let's Finalize Your Strategy Session.
           </h2>
-          <p className="text-lg text-gray-600">
-            Thank you {formData.fullName}! Your information is saved.
+          <p className="text-lg text-gray-600 font-light">
+            Thank you for your time, {formData.fullName}. Your assessment has been processed.
           </p>
         </div>
         
-        {/* Animated Call-to-Action Section */}
-        <div className="relative mb-8">
-          {/* Pulsing Background Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl animate-pulse opacity-20"></div>
+        {/* Elegant Call-to-Action Section */}
+        <div className="relative mb-10">
+          {/* Subtle gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl opacity-50"></div>
           
           {/* Main CTA Container */}
-          <div className="relative bg-gradient-to-r from-blue-600 to-cyan-600 p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-            {/* Animated Badge */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <span className="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-bold animate-bounce shadow-lg">
-                🔥 LIMITED SLOTS AVAILABLE
+          <div className="relative bg-gradient-to-r from-slate-800 to-slate-900 p-10 rounded-xl shadow-2xl transform hover:shadow-3xl transition-all duration-500">
+            {/* Premium Badge */}
+            <div className="absolute -top-3 left-8">
+              <span className="bg-white text-slate-900 px-5 py-1.5 rounded text-xs font-semibold tracking-wider uppercase shadow-md">
+                Executive Consultation
               </span>
             </div>
             
             {/* Main CTA Content */}
-            <div className="text-center text-white">
-              <h3 className="text-4xl font-bold mb-3 animate-pulse">
-                ⬇️ BOOK YOUR FREE CONSULTATION NOW ⬇️
+            <div className="text-center">
+              <h3 className="text-3xl font-serif text-white mb-4 tracking-wide">
+                Schedule Your Strategic Consultation
               </h3>
-              <p className="text-xl mb-4 font-semibold">
-                Lock in your transformation strategy session while spots last!
+              <p className="text-gray-300 mb-6 font-light text-lg">
+                Select your preferred time to discuss your transformation roadmap
               </p>
               
-              {/* Benefits Pills */}
-              <div className="flex flex-wrap justify-center gap-3 mb-6">
-                <span className="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-white font-medium">
-                  💎 {formData.investmentRange} Investment Plan
-                </span>
-                <span className="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-white font-medium">
-                  🚀 {formData.timeline} Implementation
-                </span>
-                <span className="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-white font-medium">
-                  📈 Custom {formData.industry} Strategy
-                </span>
+              {/* Elegant Benefits Display */}
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-lg border border-white/20">
+                  <span className="text-white font-medium">Investment Range: {formData.investmentRange}</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-lg border border-white/20">
+                  <span className="text-white font-medium">Timeline: {formData.timeline}</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-lg border border-white/20">
+                  <span className="text-white font-medium">Focus: {formData.industry}</span>
+                </div>
               </div>
               
-              {/* Animated Arrow */}
-              <div className="animate-bounce text-5xl mb-2">
-                ⬇️
+              {/* Subtle Direction Indicator */}
+              <div className="flex justify-center items-center space-x-2 text-white/60">
+                <div className="w-12 h-px bg-white/30"></div>
+                <ChevronRight className="w-5 h-5 animate-pulse" />
+                <span className="text-sm uppercase tracking-wider">Select Time Below</span>
+                <ChevronLeft className="w-5 h-5 animate-pulse" />
+                <div className="w-12 h-px bg-white/30"></div>
               </div>
             </div>
           </div>
         </div>
         
-        {/* Calendly Widget with Enhanced Styling */}
+        {/* Calendly Widget with Professional Styling */}
         <div className="relative">
-          {/* Glowing Border Effect */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 rounded-lg opacity-75 blur animate-pulse"></div>
+          {/* Subtle shadow frame */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg transform translate-x-1 translate-y-1 -z-10"></div>
           
           {/* Widget Container */}
-          <div className="relative bg-white rounded-lg p-6 shadow-2xl">
-            <div className="absolute top-2 right-2">
-              <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
-                LIVE CALENDAR
-              </span>
+          <div className="relative bg-white rounded-lg border border-gray-200 shadow-xl overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-3 border-b border-gray-200">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-medium">Available Time Slots</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider">Live Calendar</span>
+              </div>
             </div>
             
-            <CalendlyWidget 
-              height="650px"
-              className="rounded-lg overflow-hidden"
-            />
+            <div className="p-4">
+              <CalendlyWidget 
+                height="600px"
+                className="rounded overflow-hidden"
+              />
+            </div>
           </div>
         </div>
         
-        {/* Bottom Note */}
-        <p className="text-gray-500 text-sm mt-6 text-center">
-          Can't find a time? We'll call you within 24 hours at {formData.phone || 'your provided number'}.
-        </p>
+        {/* Professional Footer Note */}
+        <div className="mt-8 text-center">
+          <p className="text-gray-600 text-sm">
+            Alternative scheduling available via direct contact
+          </p>
+          <p className="text-gray-500 text-xs mt-2">
+            {formData.phone ? `We'll reach you at ${formData.phone} within 24 hours if needed` : 'Our team will contact you within 24 hours if needed'}
+          </p>
+        </div>
         
         {onClose && (
           <div className="text-center mt-6">
