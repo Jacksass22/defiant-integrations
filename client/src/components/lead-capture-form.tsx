@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { CalendlyWidget } from '@/components/calendly-widget';
+import defiantLogo from '@assets/image_1754442532961.png';
 
 interface FormData {
   // Contact Information
@@ -242,6 +243,15 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
           <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
+          
+          {/* Company Logo + Name */}
+          <div className="flex items-center justify-center mb-4">
+            <img src={defiantLogo} alt="Defiant" className="w-8 h-8 mr-2" />
+            <h1 className="font-serif text-2xl font-bold text-gray-900">
+              efiant Integrations
+            </h1>
+          </div>
+          
           <h2 className="font-serif text-4xl font-bold text-gray-900 mb-3">
             Excellent. Let's Finalize Your Strategy Session.
           </h2>
