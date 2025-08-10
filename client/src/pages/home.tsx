@@ -226,9 +226,7 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <h4 className="font-serif text-2xl font-bold text-white mb-4">
-                      McKinsey-Level Execution
-                    </h4>
+                    <h4 className="font-serif text-2xl font-bold text-white mb-4">We make life easier.</h4>
                     <p className="text-blue-100 leading-relaxed">
                       Strategic thinking meets technical excellence. We don't just implement AI—we architect intelligent transformations that scale.
                     </p>
@@ -604,7 +602,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Thought Leadership Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -766,12 +763,10 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      
       <SubscriptionModal 
         isOpen={showSubscriptionModal}
         onClose={() => setShowSubscriptionModal(false)}
       />
-      
       <LeadCaptureModal
         open={showLeadCaptureModal}
         onOpenChange={setShowLeadCaptureModal}
