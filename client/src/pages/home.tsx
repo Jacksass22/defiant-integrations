@@ -134,173 +134,122 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-20">
-            {/* Smart AI Solutions */}
-            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                
-                <h3 className="font-serif text-2xl font-normal text-gray-900 mb-6">Smart AI Solutions</h3>
-                
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Custom AI assistants that handle real business tasks</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">AI voice agents and intelligent receptionists</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Automated workflows that save time and reduce errors</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Industry-specific AI tools trained for your business</span>
-                  </li>
-
-                </ul>
-              </div>
+          {/* Creative Capability Showcase */}
+          <div className="relative mb-20">
+            {/* Background elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-20 left-20 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl"></div>
             </div>
-
-            {/* Web & Digital Tools */}
-            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                  </svg>
+            
+            <div className="relative grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Side - Interactive Capability Matrix */}
+              <div className="space-y-8">
+                <div className="text-left">
+                  <h3 className="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Comprehensive AI Integration
+                  </h3>
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    From strategic planning to technical implementation, we deliver end-to-end solutions that transform how businesses operate.
+                  </p>
                 </div>
                 
-                <h3 className="font-serif text-2xl font-normal text-gray-900 mb-6">Web & Digital Tools</h3>
-                
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-emerald-600 rounded-full" />
+                {/* Capability Grid */}
+                <div className="grid grid-cols-2 gap-6">
+                  {[
+                    {
+                      area: "Intelligence",
+                      description: "AI assistants, voice agents, automated workflows",
+                      color: "blue",
+                      pattern: "circuit"
+                    },
+                    {
+                      area: "Digital",
+                      description: "Custom platforms, chatbots, intelligent search",
+                      color: "emerald",
+                      pattern: "network"
+                    },
+                    {
+                      area: "Analytics",
+                      description: "Data insights, performance tracking, predictions",
+                      color: "violet",
+                      pattern: "data"
+                    },
+                    {
+                      area: "Strategy",
+                      description: "Consulting, development, ongoing optimization",
+                      color: "amber",
+                      pattern: "growth"
+                    }
+                  ].map((capability, index) => (
+                    <div key={index} className="group relative">
+                      <div className={`relative bg-gradient-to-br from-${capability.color}-50 to-${capability.color}-100 p-6 rounded-2xl border border-${capability.color}-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}>
+                        <div className={`absolute top-3 right-3 w-8 h-8 bg-${capability.color}-200 rounded-lg opacity-60`}></div>
+                        <h4 className={`font-serif text-xl font-bold text-${capability.color}-900 mb-2`}>
+                          {capability.area}
+                        </h4>
+                        <p className={`text-sm text-${capability.color}-700 leading-relaxed`}>
+                          {capability.description}
+                        </p>
+                        <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-${capability.color}-400 to-${capability.color}-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                      </div>
                     </div>
-                    <span className="text-gray-600 leading-relaxed">Custom websites and web applications</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-emerald-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">AI-powered chatbots and customer service tools</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-emerald-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Intelligent website search and recommendations</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-emerald-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">SEO automation and lead generation systems</span>
-                  </li>
-                </ul>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* Data & Analytics */}
-            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-600 to-violet-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               
+              {/* Right Side - Dynamic Visual */}
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-violet-50 to-violet-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-8 h-8 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
+                <div className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-3xl p-12 overflow-hidden">
+                  {/* Animated background pattern */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-8 left-8 w-4 h-4 bg-white rounded-full animate-pulse"></div>
+                    <div className="absolute top-16 right-12 w-2 h-2 bg-blue-300 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="absolute bottom-20 left-16 w-3 h-3 bg-white rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    <div className="absolute bottom-8 right-8 w-2 h-2 bg-blue-200 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                    
+                    {/* Connecting lines */}
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 400">
+                      <line x1="32" y1="32" x2="240" y2="64" stroke="rgba(255,255,255,0.2)" strokeWidth="1" className="animate-pulse" />
+                      <line x1="240" y1="64" x2="64" y2="320" stroke="rgba(255,255,255,0.2)" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '0.7s' }} />
+                      <line x1="64" y1="320" x2="240" y2="320" stroke="rgba(255,255,255,0.2)" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '1.2s' }} />
+                    </svg>
+                  </div>
+                  
+                  {/* Central content */}
+                  <div className="relative text-center">
+                    <div className="mb-8">
+                      <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl mx-auto mb-6 flex items-center justify-center transform rotate-12">
+                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transform -rotate-12">
+                          <div className="w-6 h-6 bg-gradient-to-br from-blue-600 to-purple-600 rounded"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <h4 className="font-serif text-2xl font-bold text-white mb-4">
+                      McKinsey-Level Execution
+                    </h4>
+                    <p className="text-blue-100 leading-relaxed">
+                      Strategic thinking meets technical excellence. We don't just implement AI—we architect intelligent transformations that scale.
+                    </p>
+                    
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/20">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-white">27+</div>
+                        <div className="text-xs text-blue-200">Industries</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-white">90%</div>
+                        <div className="text-xs text-blue-200">Efficiency</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-white">24/7</div>
+                        <div className="text-xs text-blue-200">Operation</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                
-                <h3 className="font-serif text-2xl font-normal text-gray-900 mb-6">Data & Analytics</h3>
-                
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Turn your business data into actionable insights</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Automated inventory tracking and management</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Performance dashboards and reporting</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-violet-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Predictive analytics for better decision-making</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Strategy & Development */}
-            <div className="group relative bg-gray-100 p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:shadow-[0_16px_40px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-600 to-amber-400 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                
-                <h3 className="font-serif text-2xl font-normal text-gray-900 mb-6">Strategy & Development</h3>
-                
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-amber-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Full-service strategy consulting</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-amber-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Custom app development from concept to launch</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-amber-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Secure, professional development using Python and modern frameworks</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                      <div className="w-2 h-2 bg-amber-600 rounded-full" />
-                    </div>
-                    <span className="text-gray-600 leading-relaxed">Ongoing support and optimization</span>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
