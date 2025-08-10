@@ -138,6 +138,7 @@ export default function Plumbing() {
                   <ul className="space-y-2 text-gray-600">
                     <li>• AI answers calls 24/7, even when you're under a sink</li>
                     <li>• Emergency calls get prioritized and you're notified immediately</li>
+                    <li>• Service calls can be booked directly, messages taken for complex issues, quotes provided for standard jobs</li>
                     <li>• Routine questions (hours, pricing, services) get answered instantly</li>
                     <li>• Only calls that need human attention get transferred to you</li>
                     <li>• Customer information gets captured automatically for follow-up</li>
