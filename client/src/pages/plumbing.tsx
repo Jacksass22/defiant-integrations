@@ -13,7 +13,6 @@ export default function Plumbing() {
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
-      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
         <div className="absolute inset-0 bg-black/20"></div>
@@ -39,7 +38,6 @@ export default function Plumbing() {
           </div>
         </div>
       </section>
-
       {/* Problem Statement */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +101,6 @@ export default function Plumbing() {
           </div>
         </div>
       </section>
-
       {/* Solutions Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,7 +137,7 @@ export default function Plumbing() {
                     <li>• Emergency calls get prioritized and you're notified immediately</li>
                     <li>• Service calls can be booked directly, messages taken for complex issues, quotes provided for standard jobs</li>
                     <li>• Routine questions (hours, pricing, services) get answered instantly</li>
-                    <li>• Only calls that need human attention get transferred to you</li>
+                    <li>• Only calls that need human attention get transferred. You decide. </li>
                     <li>• Customer information gets captured automatically for follow-up</li>
                   </ul>
                 </div>
@@ -265,7 +262,6 @@ export default function Plumbing() {
           </div>
         </div>
       </section>
-
       {/* Implementation Timeline */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -338,7 +334,6 @@ export default function Plumbing() {
           </div>
         </div>
       </section>
-
       {/* ROI Section */}
       <section className="py-20 bg-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -384,7 +379,6 @@ export default function Plumbing() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -409,7 +403,6 @@ export default function Plumbing() {
           </button>
         </div>
       </section>
-
       {/* Lead Capture Modal */}
       <LeadCaptureModal
         open={showLeadCaptureModal}
@@ -417,7 +410,6 @@ export default function Plumbing() {
         title="Transform Your Plumbing Business"
         subtitle="Get a customized assessment for your plumbing company"
       />
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
