@@ -156,45 +156,61 @@ export default function Home() {
                 
                 {/* Capability Grid */}
                 <div className="grid grid-cols-2 gap-6">
-                  {[
-                    {
-                      area: "Intelligence",
-                      description: "AI assistants, voice agents, automated workflows",
-                      color: "blue",
-                      pattern: "circuit"
-                    },
-                    {
-                      area: "Digital",
-                      description: "Custom platforms, chatbots, intelligent search",
-                      color: "emerald",
-                      pattern: "network"
-                    },
-                    {
-                      area: "Analytics",
-                      description: "Data insights, performance tracking, predictions",
-                      color: "violet",
-                      pattern: "data"
-                    },
-                    {
-                      area: "Strategy",
-                      description: "Consulting, development, ongoing optimization",
-                      color: "amber",
-                      pattern: "growth"
-                    }
-                  ].map((capability, index) => (
-                    <div key={index} className="group relative">
-                      <div className={`relative bg-gradient-to-br from-${capability.color}-50 to-${capability.color}-100 p-6 rounded-2xl border border-${capability.color}-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}>
-                        <div className={`absolute top-3 right-3 w-8 h-8 bg-${capability.color}-200 rounded-lg opacity-60`}></div>
-                        <h4 className={`font-serif text-xl font-bold text-${capability.color}-900 mb-2`}>
-                          {capability.area}
-                        </h4>
-                        <p className={`text-sm text-${capability.color}-700 leading-relaxed`}>
-                          {capability.description}
-                        </p>
-                        <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-${capability.color}-400 to-${capability.color}-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                      </div>
+                  {/* Intelligence */}
+                  <div className="group relative">
+                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute top-3 right-3 w-8 h-8 bg-blue-200 rounded-lg opacity-60"></div>
+                      <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                        Intelligence
+                      </h4>
+                      <p className="text-sm text-blue-700 leading-relaxed">
+                        AI assistants, voice agents, automated workflows
+                      </p>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  ))}
+                  </div>
+                  
+                  {/* Digital */}
+                  <div className="group relative">
+                    <div className="relative bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-2xl border border-emerald-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute top-3 right-3 w-8 h-8 bg-emerald-200 rounded-lg opacity-60"></div>
+                      <h4 className="font-serif text-xl font-bold text-emerald-900 mb-2">
+                        Digital
+                      </h4>
+                      <p className="text-sm text-emerald-700 leading-relaxed">
+                        Custom platforms, chatbots, intelligent search
+                      </p>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Analytics */}
+                  <div className="group relative">
+                    <div className="relative bg-gradient-to-br from-violet-50 to-violet-100 p-6 rounded-2xl border border-violet-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute top-3 right-3 w-8 h-8 bg-violet-200 rounded-lg opacity-60"></div>
+                      <h4 className="font-serif text-xl font-bold text-violet-900 mb-2">
+                        Analytics
+                      </h4>
+                      <p className="text-sm text-violet-700 leading-relaxed">
+                        Data insights, performance tracking, predictions
+                      </p>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-violet-400 to-violet-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Strategy */}
+                  <div className="group relative">
+                    <div className="relative bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl border border-amber-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute top-3 right-3 w-8 h-8 bg-amber-200 rounded-lg opacity-60"></div>
+                      <h4 className="font-serif text-xl font-bold text-amber-900 mb-2">
+                        Strategy
+                      </h4>
+                      <p className="text-sm text-amber-700 leading-relaxed">
+                        Consulting, development, ongoing optimization
+                      </p>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
