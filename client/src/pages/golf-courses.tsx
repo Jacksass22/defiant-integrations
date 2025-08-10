@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Tar
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
+import TrueFocus from '@/components/TrueFocus';
 
 import { motion } from 'framer-motion';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
@@ -151,10 +152,14 @@ export default function GolfCourses() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-white to-green-50 relative overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-20 left-20 w-32 h-32 border border-green-300 rounded-full"></div>
-            <div className="absolute top-40 right-16 w-24 h-24 border border-green-200 rounded-full"></div>
-            <div className="absolute bottom-32 left-16 w-20 h-20 border border-green-100 rounded-full"></div>
-            <div className="absolute bottom-20 right-20 w-28 h-28 border border-green-200 rounded-full"></div>
+            <TrueFocus 
+              sentence="GOLF AUTOMATION"
+              manualMode={false}
+              blurAmount={8}
+              borderColor="#22c55e"
+              animationDuration={3}
+              pauseBetweenAnimations={2}
+            />
           </div>
           
           <div className="max-w-7xl mx-auto relative z-10">
