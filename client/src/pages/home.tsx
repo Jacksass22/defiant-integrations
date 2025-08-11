@@ -52,6 +52,19 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Listen for chat widget booking events
+  useEffect(() => {
+    const handleOpenLeadCapture = () => {
+      setShowLeadCaptureModal(true);
+    };
+
+    window.addEventListener('openLeadCapture', handleOpenLeadCapture);
+    
+    return () => {
+      window.removeEventListener('openLeadCapture', handleOpenLeadCapture);
+    };
+  }, []);
+
   const scrollToBlog = (e: React.MouseEvent) => {
     e.preventDefault();
     const blogElement = document.getElementById('blog');
