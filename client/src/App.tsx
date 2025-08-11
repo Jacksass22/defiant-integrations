@@ -132,7 +132,7 @@ function App() {
         <Toaster />
         <Router />
         <ChatWidget 
-          n8nWebhookUrl={import.meta.env.VITE_N8N_WEBHOOK_URL || ""}
+          n8nWebhookUrl="https://adk.defiantintegration.com/webhook/03f9b6f3-07c9-48ca-88dc-af90d374c164"
           primaryColor="#2563eb"
         />
       </TooltipProvider>
