@@ -6,6 +6,7 @@ import BlurText from '@/components/BlurText';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
 import workflowImage from '@assets/image_1754933392703.png';
+import schedulerImage from '@assets/image_1754933715216.png';
 
 export default function HVAC() {
   useScrollToTop();
@@ -138,8 +139,12 @@ export default function HVAC() {
 
             {/* Solution 2 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-green-600 to-green-800 h-96 rounded-lg flex items-center justify-center">
-                <Calendar className="w-32 h-32 text-white/20" />
+              <div className="order-2 lg:order-1 h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={schedulerImage}
+                  alt="Smart scheduler workflow diagram showing calendar, user management, and notification system"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-lg mb-6">
