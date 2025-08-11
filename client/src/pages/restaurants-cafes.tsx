@@ -5,6 +5,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
+import restaurantImage from '@assets/pexels-msuatgunerli-3252051_1754953667092.jpg';
 
 export default function RestaurantsCafes() {
   useScrollToTop();
@@ -151,7 +152,7 @@ export default function RestaurantsCafes() {
               </div>
               <div className="h-96 rounded-lg overflow-hidden">
                 <img 
-                  src="/attached_assets/pexels-msuatgunerli-3252051_1754953667092.jpg" 
+                  src={restaurantImage} 
                   alt="Modern restaurant interior with industrial design, warm lighting, and customers dining"
                   className="w-full h-full object-cover"
                 />
