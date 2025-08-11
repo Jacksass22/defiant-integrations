@@ -50,7 +50,7 @@ export default function Electrical() {
             See how smart automation can streamline your operations and grow your revenue.
           </p>
           <button 
-            onClick={() => window.open('https://defiantintegrations.typeform.com/to/electrical', '_blank')}
+            onClick={() => window.open('https://calendly.com/defiant-integrations/strategy-session', '_blank')}
             className="inline-flex items-center space-x-2 bg-orange-600 text-white px-8 py-4 font-medium hover:bg-orange-700 transition-colors shadow-lg text-lg"
           >
             <span>Start Your Free Assessment</span>
@@ -414,7 +414,7 @@ export default function Electrical() {
             Ready to see what this looks like for your business?
           </p>
           <button 
-            onClick={() => window.open('https://defiantintegrations.typeform.com/to/electrical', '_blank')}
+            onClick={() => window.open('https://calendly.com/defiant-integrations/strategy-session', '_blank')}
             className="inline-flex items-center space-x-2 bg-orange-600 text-white px-8 py-4 font-medium hover:bg-orange-700 transition-colors text-lg"
           >
             <span>Start Your Free Assessment</span>
