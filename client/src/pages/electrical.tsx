@@ -77,7 +77,7 @@ export default function Electrical() {
               <div className="bg-white p-8 shadow-lg">
                 <div className="text-5xl font-bold text-orange-600 mb-4">85%</div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Missed Follow-ups</h3>
-                <p className="text-gray-600">Large project estimates that never get proper follow-up contact</p>
+                <p className="text-gray-600">of leads that never get proper follow-up contact are lost. </p>
               </div>
               <div className="bg-white p-8 shadow-lg">
                 <div className="text-5xl font-bold text-orange-600 mb-4">40%</div>
