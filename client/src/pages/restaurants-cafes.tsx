@@ -149,8 +149,12 @@ export default function RestaurantsCafes() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-orange-600 to-red-800 h-96 rounded-lg flex items-center justify-center">
-                <Coffee className="w-32 h-32 text-white/20" />
+              <div className="h-96 rounded-lg overflow-hidden">
+                <img 
+                  src="/attached_assets/pexels-msuatgunerli-3252051_1754953667092.jpg" 
+                  alt="Modern restaurant interior with industrial design, warm lighting, and customers dining"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
