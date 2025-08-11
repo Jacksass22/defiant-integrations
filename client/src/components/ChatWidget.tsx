@@ -79,9 +79,17 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
 
       const data = await response.json();
       
+      let responseText = "I'm sorry, I couldn't process your request right now. Please try again.";
+      
+      if (data.response) {
+        responseText = data.response;
+      } else if (data.message && data.message.includes("Workflow could not be started")) {
+        responseText = "I'm currently being updated to serve you better. Please try again in a moment or contact us directly for immediate assistance.";
+      }
+      
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.response || "I'm sorry, I couldn't process your request right now. Please try again.",
+        text: responseText,
         sender: 'bot',
         timestamp: new Date()
       };
