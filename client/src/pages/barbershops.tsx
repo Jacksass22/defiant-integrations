@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import SilkBackground from '@/components/SilkBackground';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import TiltedCard from '@/components/TiltedCard';
 import { useState } from 'react';
 import barbershopPhoto from '@assets/Galleryphoto6_1754168857307.jpg';
 import scissorsPhoto from '@assets/pexels-nickoloui-1319458_1754168994778.jpg';
@@ -256,6 +257,34 @@ export default function Barbershops() {
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Everything automated, custom-branded, and built specifically for your barbershop
             </p>
+          </div>
+
+          {/* Visual Showcase */}
+          <div className="flex justify-center mb-16">
+            <TiltedCard
+              imageSrc={barbershopPhoto}
+              altText="Modern barbershop interior with smart technology"
+              captionText="Smart Barbershop Technology"
+              containerHeight="400px"
+              containerWidth="350px"
+              imageHeight="400px"
+              imageWidth="350px"
+              rotateAmplitude={15}
+              scaleOnHover={1.15}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={true}
+              overlayContent={
+                <div className="p-6 h-full flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent rounded-xl">
+                  <h3 className="text-white font-serif text-2xl font-bold mb-2">
+                    Smart Technology
+                  </h3>
+                  <p className="text-gray-200">
+                    Modern barbershop solutions
+                  </p>
+                </div>
+              }
+            />
           </div>
 
           {/* Main Features Grid */}
