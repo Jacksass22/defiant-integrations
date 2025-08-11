@@ -41,17 +41,26 @@ export default function Electrical() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Handle more projects, stay compliant, and grow your electrical business without the administrative headaches.
             </p>
-            <button 
-              onClick={() => setShowLeadCaptureModal(true)}
-              className="inline-flex items-center space-x-2 bg-black text-white px-8 py-4 font-medium hover:bg-gray-900 transition-colors shadow-lg"
-              style={{
-                textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)'
-              }}
-            >
-              <span>Start Your Free Assessment</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            Ready to Transform Your Electrical Business?
+          </h2>
+          <p className="text-lg text-gray-600 mb-8">
+            See how smart automation can streamline your operations and grow your revenue.
+          </p>
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="inline-flex items-center space-x-2 bg-orange-600 text-white px-8 py-4 font-medium hover:bg-orange-700 transition-colors shadow-lg text-lg"
+          >
+            <span>Start Your Free Assessment</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       </section>
 
