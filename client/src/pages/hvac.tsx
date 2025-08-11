@@ -5,6 +5,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
+import workflowImage from '@assets/image_1754933392703.png';
 
 export default function HVAC() {
   useScrollToTop();
@@ -128,7 +129,7 @@ export default function HVAC() {
               </div>
               <div className="h-96 rounded-lg overflow-hidden">
                 <img 
-                  src="/attached_assets/image_1754933392703.png"
+                  src={workflowImage}
                   alt="Automated workflow diagram showing email to customer retention process"
                   className="w-full h-full object-cover"
                 />
