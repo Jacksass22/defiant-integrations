@@ -246,7 +246,12 @@ export default function Home() {
               
               {/* Right Side - Dynamic Visual */}
               <div className="relative">
-                <div className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-3xl p-12 overflow-hidden">
+                <TiltedCard
+                  scaleOnHover={1.05}
+                  rotateAmplitude={10}
+                  className="relative"
+                >
+                  <div className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-3xl p-12 overflow-hidden">
                   {/* Animated background pattern */}
                   <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-8 left-8 w-4 h-4 bg-white rounded-full animate-pulse"></div>
@@ -294,6 +299,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                </TiltedCard>
               </div>
             </div>
           </div>
