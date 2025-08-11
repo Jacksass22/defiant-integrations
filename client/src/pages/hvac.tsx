@@ -362,7 +362,10 @@ export default function HVAC() {
           <p className="text-2xl font-semibold mb-12">
             Ready to see what this looks like for your business?
           </p>
-          <button className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors text-lg">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors text-lg"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
