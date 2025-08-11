@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface Message {
@@ -7,6 +7,7 @@ interface Message {
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  showBookingButton?: boolean;
 }
 
 interface ChatWidgetProps {
@@ -29,6 +30,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -82,19 +84,26 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       let responseText = "I'm sorry, I couldn't process your request right now. Please try again.";
       
       // Handle both 'response' and 'output' fields from n8n
+      let rawResponse = '';
       if (data.response) {
+        rawResponse = data.response;
         responseText = formatChatResponse(data.response);
       } else if (data.output) {
+        rawResponse = data.output;
         responseText = formatChatResponse(data.output);
       } else if (data.message && data.message.includes("Workflow could not be started")) {
         responseText = "I'm currently being updated to serve you better. Please try again in a moment or contact us directly for immediate assistance.";
       }
       
+      // Check if response suggests booking a call
+      const shouldShowBookingButton = checkForBookingKeywords(rawResponse);
+      
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: responseText,
         sender: 'bot',
-        timestamp: new Date()
+        timestamp: new Date(),
+        showBookingButton: shouldShowBookingButton
       };
 
       setMessages(prev => [...prev, botMessage]);
@@ -122,6 +131,17 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
     } finally {
       setIsTyping(false);
     }
+  };
+
+  const checkForBookingKeywords = (text: string) => {
+    const bookingKeywords = [
+      'book', 'schedule', 'consultation', 'call', 'meeting', 'appointment', 
+      'strategy session', 'discuss your needs', 'talk about', 'consultation call',
+      'free consultation', 'discovery call', 'initial consultation'
+    ];
+    
+    const lowerText = text.toLowerCase();
+    return bookingKeywords.some(keyword => lowerText.includes(keyword));
   };
 
   const formatChatResponse = (text: string) => {
@@ -279,6 +299,20 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                     }}
                   >
                     <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.text}</p>
+                    
+                    {/* Show booking button for bot messages with booking keywords */}
+                    {message.sender === 'bot' && message.showBookingButton && (
+                      <motion.button
+                        onClick={() => setShowBookingModal(true)}
+                        className="mt-3 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:shadow-md"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Calendar className="w-4 h-4" />
+                        Book Strategy Call
+                      </motion.button>
+                    )}
+                    
                     <p className={`text-xs mt-1 ${
                       message.sender === 'user' ? 'text-white/70' : 'text-gray-500'
                     }`}>
@@ -336,6 +370,55 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                 </button>
               </div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {/* Booking Modal */}
+      <AnimatePresence>
+        {showBookingModal && (
+          <motion.div
+            className="fixed inset-0 z-[9999] flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Dark overlay */}
+            <div 
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setShowBookingModal(false)}
+            />
+            
+            {/* Modal content */}
+            <motion.div
+              className="relative w-[90vw] max-w-4xl h-[80vh] bg-white rounded-xl shadow-2xl z-10 overflow-hidden"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {/* Modal header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+                <h2 className="text-lg font-semibold">Book Your Strategy Call</h2>
+                <button
+                  onClick={() => setShowBookingModal(false)}
+                  className="w-8 h-8 rounded-full hover:bg-white/10 transition-colors duration-200 flex items-center justify-center"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              
+              {/* Calendly iframe */}
+              <div className="flex-1 h-full">
+                <iframe
+                  src="https://calendly.com/your-calendly-link/strategy-call"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  title="Schedule a Strategy Call"
+                  className="w-full h-full"
+                />
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
