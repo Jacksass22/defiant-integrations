@@ -174,6 +174,20 @@ export default function Services() {
         'Customer notification systems',
         'Emergency communication protocols'
       ]
+    },
+    {
+      id: 'sms-text-automation',
+      icon: MessageSquare,
+      title: 'SMS & Text Automation',
+      description: 'Intelligent text messaging systems for instant customer engagement',
+      services: [
+        'Automated SMS marketing campaigns',
+        'Two-way text conversation management',
+        'Appointment reminders and confirmations',
+        'Lead nurturing via text sequences',
+        'Customer support via SMS chatbots',
+        'Bulk messaging with personalization'
+      ]
     }
   ];
 
