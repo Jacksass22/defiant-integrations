@@ -236,24 +236,24 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
 
   if (isSubmitted) {
     return (
-      <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-xl relative">
-        {/* Success Header */}
+      <div className="max-w-5xl mx-auto p-8 bg-gray-900 rounded-2xl shadow-2xl relative border border-gray-700">
+        {/* Success Header - Dark Theme */}
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+          <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
           
           {/* Company Logo + Name */}
           <div className="flex items-center justify-center mb-4">
-            <h1 className="font-serif text-2xl font-bold text-gray-900">
+            <h1 className="font-serif text-2xl font-bold text-gray-100">
               Defiant Integrations
             </h1>
           </div>
           
-          <h2 className="font-serif text-4xl font-bold text-gray-900 mb-3">
+          <h2 className="font-serif text-4xl font-bold text-white mb-3">
             Excellent. Let's Finalize Your Strategy Session.
           </h2>
-          <p className="text-lg text-gray-600 font-light">
+          <p className="text-lg text-gray-300 font-light">
             Thank you for your time, {formData.fullName}. Your assessment has been processed.
           </p>
         </div>
