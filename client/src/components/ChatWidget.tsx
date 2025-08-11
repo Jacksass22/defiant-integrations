@@ -208,10 +208,10 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 rounded-2xl shadow-2xl hover:shadow-emerald-500/25 transition-all duration-500 flex items-center justify-center text-white relative overflow-hidden group bg-gradient-to-br from-emerald-600 to-emerald-800 border border-emerald-500/30 backdrop-blur-sm"
+          className="w-16 h-16 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 flex items-center justify-center text-white relative overflow-hidden group bg-gradient-to-br from-blue-600 to-purple-800 border border-blue-500/30 backdrop-blur-sm"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute inset-0 bg-emerald-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
+          <div className="absolute inset-0 bg-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div
@@ -247,9 +247,10 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-24 right-6 w-96 h-[500px] bg-gradient-to-br from-gray-950 via-gray-900 to-black rounded-3xl z-50 flex flex-col overflow-hidden border border-gray-700/30 backdrop-blur-xl"
+            className="fixed bottom-24 right-6 w-96 h-[500px] bg-gradient-to-br from-blue-950 via-purple-950 to-indigo-950 rounded-3xl z-50 flex flex-col overflow-hidden border border-blue-800/40 backdrop-blur-xl"
             style={{
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              boxShadow: '0 25px 50px -12px rgba(30, 41, 59, 0.8), 0 0 0 1px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(147, 197, 253, 0.1)',
+              background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(76, 29, 149, 0.95) 50%, rgba(67, 56, 202, 0.95) 100%)'
             }}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -257,38 +258,38 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {/* Premium Header */}
-            <div className="relative px-6 py-5 bg-gradient-to-r from-gray-800/90 via-gray-700/90 to-gray-800/90 backdrop-blur-sm border-b border-gray-600/30">
+            <div className="relative px-6 py-5 bg-gradient-to-r from-blue-900/90 via-purple-900/90 to-indigo-900/90 backdrop-blur-sm border-b border-blue-700/30">
               {/* Animated background particles */}
               <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-0 left-1/4 w-2 h-2 bg-emerald-400/30 rounded-full animate-pulse"></div>
-                <div className="absolute top-3 right-1/3 w-1 h-1 bg-cyan-400/40 rounded-full animate-pulse delay-300"></div>
-                <div className="absolute bottom-2 left-2/3 w-1.5 h-1.5 bg-blue-400/20 rounded-full animate-pulse delay-700"></div>
+                <div className="absolute top-0 left-1/4 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse"></div>
+                <div className="absolute top-3 right-1/3 w-1 h-1 bg-purple-400/40 rounded-full animate-pulse delay-300"></div>
+                <div className="absolute bottom-2 left-2/3 w-1.5 h-1.5 bg-indigo-400/20 rounded-full animate-pulse delay-700"></div>
               </div>
               
               <div className="relative flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
                       <Bot className="w-5 h-5 text-white" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-sm"></div>
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-400 rounded-full animate-pulse shadow-sm"></div>
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm tracking-wide">Executive AI Assistant</h3>
-                    <p className="text-gray-300 text-xs font-medium">Defiant Integrations</p>
+                    <p className="text-blue-200 text-xs font-medium">Defiant Integrations</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-9 h-9 rounded-xl hover:bg-gray-600/40 transition-all duration-300 flex items-center justify-center border border-gray-600/20 hover:border-gray-500/40 group"
+                  className="w-9 h-9 rounded-xl hover:bg-blue-600/40 transition-all duration-300 flex items-center justify-center border border-blue-600/20 hover:border-blue-500/40 group"
                 >
-                  <X className="w-4 h-4 text-gray-300 group-hover:text-white transition-colors" />
+                  <X className="w-4 h-4 text-blue-200 group-hover:text-white transition-colors" />
                 </button>
               </div>
             </div>
 
             {/* Premium Messages Area */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-gray-900/50 to-gray-950/80">
+            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-blue-950/40 to-purple-950/60">
               {messages.map((message, index) => (
                 <motion.div
                   key={message.id}
@@ -298,16 +299,16 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                   className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   {message.sender === 'bot' && (
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-600/20 border border-emerald-400/30 flex items-center justify-center flex-shrink-0 mt-1 backdrop-blur-sm">
-                      <Bot className="w-4 h-4 text-emerald-400" />
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-blue-400/30 flex items-center justify-center flex-shrink-0 mt-1 backdrop-blur-sm">
+                      <Bot className="w-4 h-4 text-blue-400" />
                     </div>
                   )}
                   
                   <div
                     className={`max-w-[80%] px-4 py-3 rounded-2xl shadow-lg ${
                       message.sender === 'user'
-                        ? 'bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-br-lg border border-emerald-500/30'
-                        : 'bg-gray-800/80 text-gray-100 rounded-bl-lg border border-gray-600/30 backdrop-blur-sm'
+                        ? 'bg-gradient-to-br from-blue-600 to-purple-700 text-white rounded-br-lg border border-blue-500/30'
+                        : 'bg-blue-900/60 text-blue-50 rounded-bl-lg border border-blue-700/30 backdrop-blur-sm'
                     }`}
                   >
                     <p className="text-sm leading-relaxed whitespace-pre-wrap font-medium">{message.text}</p>
@@ -330,15 +331,15 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                     )}
                     
                     <p className={`text-xs mt-1 ${
-                      message.sender === 'user' ? 'text-white/70' : 'text-gray-500'
+                      message.sender === 'user' ? 'text-blue-100/70' : 'text-blue-300/60'
                     }`}>
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </p>
                   </div>
 
                   {message.sender === 'user' && (
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-gray-600 to-gray-700 border border-gray-500/30 flex items-center justify-center flex-shrink-0 mt-1 backdrop-blur-sm">
-                      <User className="w-4 h-4 text-gray-200" />
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-600 to-purple-700 border border-blue-500/30 flex items-center justify-center flex-shrink-0 mt-1 backdrop-blur-sm">
+                      <User className="w-4 h-4 text-blue-100" />
                     </div>
                   )}
                 </motion.div>
@@ -351,14 +352,14 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   className="flex gap-3 justify-start"
                 >
-                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-600/20 border border-emerald-400/30 flex items-center justify-center flex-shrink-0 backdrop-blur-sm">
-                    <Bot className="w-4 h-4 text-emerald-400" />
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-blue-400/30 flex items-center justify-center flex-shrink-0 backdrop-blur-sm">
+                    <Bot className="w-4 h-4 text-blue-400" />
                   </div>
-                  <div className="bg-gray-800/80 border border-gray-600/30 backdrop-blur-sm px-4 py-3 rounded-2xl rounded-bl-lg shadow-lg">
+                  <div className="bg-blue-900/60 border border-blue-700/30 backdrop-blur-sm px-4 py-3 rounded-2xl rounded-bl-lg shadow-lg">
                     <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                     </div>
                   </div>
                 </motion.div>
@@ -368,7 +369,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
             </div>
 
             {/* Premium Input Area */}
-            <div className="relative p-4 bg-gradient-to-r from-gray-800/90 via-gray-700/90 to-gray-800/90 backdrop-blur-sm border-t border-gray-600/30">
+            <div className="relative p-4 bg-gradient-to-r from-blue-900/90 via-purple-900/90 to-indigo-900/90 backdrop-blur-sm border-t border-blue-700/30">
               <div className="flex gap-3 items-end">
                 <div className="flex-1 relative">
                   <input
@@ -378,7 +379,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Ask about AI strategy, pricing, or book a consultation..."
-                    className="w-full px-4 py-3 bg-gray-900/80 border border-gray-600/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 text-sm text-gray-100 placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
+                    className="w-full px-4 py-3 bg-blue-950/80 border border-blue-700/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 text-sm text-blue-50 placeholder-blue-300/60 backdrop-blur-sm transition-all duration-300"
                     disabled={isTyping}
                   />
                 </div>
@@ -387,7 +388,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                   disabled={!inputValue.trim() || isTyping}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-3 bg-gradient-to-br from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 disabled:from-gray-600 disabled:to-gray-700 text-white rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50 disabled:cursor-not-allowed border border-emerald-500/30"
+                  className="px-4 py-3 bg-gradient-to-br from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 disabled:from-gray-600 disabled:to-gray-700 text-white rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed border border-blue-500/30"
                 >
                   <Send className="w-4 h-4" />
                 </motion.button>
