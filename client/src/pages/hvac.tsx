@@ -7,6 +7,7 @@ import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
 import workflowImage from '@assets/image_1754933392703.png';
 import schedulerImage from '@assets/image_1754933715216.png';
+import aiFrontDeskImage from '@assets/image_1754933965818.png';
 
 export default function HVAC() {
   useScrollToTop();
@@ -198,8 +199,12 @@ export default function HVAC() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-purple-600 to-purple-800 h-96 rounded-lg flex items-center justify-center">
-                <MessageSquare className="w-32 h-32 text-white/20" />
+              <div className="h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={aiFrontDeskImage}
+                  alt="AI Front Desk system workflow showing phone calls, chat interface, headset support, and help system"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
