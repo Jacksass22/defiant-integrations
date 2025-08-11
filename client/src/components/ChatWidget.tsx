@@ -303,7 +303,11 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                     {/* Show booking button for bot messages with booking keywords */}
                     {message.sender === 'bot' && message.showBookingButton && (
                       <motion.button
-                        onClick={() => setShowBookingModal(true)}
+                        onClick={() => {
+                          setIsOpen(false);
+                          // Trigger the lead capture modal from parent component
+                          window.dispatchEvent(new CustomEvent('openLeadCapture'));
+                        }}
                         className="mt-3 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:shadow-md"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -373,55 +377,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
           </motion.div>
         )}
       </AnimatePresence>
-      {/* Booking Modal */}
-      <AnimatePresence>
-        {showBookingModal && (
-          <motion.div
-            className="fixed inset-0 z-[9999] flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {/* Dark overlay */}
-            <div 
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-              onClick={() => setShowBookingModal(false)}
-            />
-            
-            {/* Modal content */}
-            <motion.div
-              className="relative w-[90vw] max-w-4xl h-[80vh] bg-white rounded-xl shadow-2xl z-10 overflow-hidden"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {/* Modal header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-                <h2 className="text-lg font-semibold">Book Your Strategy Call</h2>
-                <button
-                  onClick={() => setShowBookingModal(false)}
-                  className="w-8 h-8 rounded-full hover:bg-white/10 transition-colors duration-200 flex items-center justify-center"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              
-              {/* Calendly iframe */}
-              <div className="flex-1 h-full">
-                <iframe
-                  src="https://calendly.com/your-calendly-link/strategy-call"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  title="Schedule a Strategy Call"
-                  className="w-full h-full"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
     </>
   );
 };
