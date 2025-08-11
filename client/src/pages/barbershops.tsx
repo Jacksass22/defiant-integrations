@@ -4,11 +4,7 @@ import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import SilkBackground from '@/components/SilkBackground';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
-import TiltedCard from '@/components/TiltedCard';
 import { useState } from 'react';
-import barbershopPhoto from '@assets/Galleryphoto6_1754168857307.jpg';
-import scissorsPhoto from '@assets/pexels-nickoloui-1319458_1754168994778.jpg';
-import schedulingPhoto from '@assets/pexels-picjumbo-com-55570-196650_1754169061015.jpg';
 
 
 export default function Barbershops() {
@@ -153,23 +149,15 @@ export default function Barbershops() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-gray-700 to-black h-96 rounded-lg overflow-hidden">
-                <img 
-                  src={scissorsPhoto}
-                  alt="Professional barbershop tools showcasing traditional craftsmanship"
-                  className="w-full h-full object-cover"
-                />
+              <div className="bg-gradient-to-br from-gray-700 to-black h-96 rounded-lg overflow-hidden flex items-center justify-center">
+                <Scissors className="w-32 h-32 text-gray-300 opacity-50" />
               </div>
             </div>
 
             {/* Solution 2 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-600 to-gray-800 h-96 rounded-lg overflow-hidden">
-                <img 
-                  src={barbershopPhoto}
-                  alt="Professional barbershop haircut showcasing classic craftsmanship and modern style"
-                  className="w-full h-full object-cover"
-                />
+              <div className="order-2 lg:order-1 bg-gradient-to-br from-gray-600 to-gray-800 h-96 rounded-lg overflow-hidden flex items-center justify-center">
+                <Camera className="w-32 h-32 text-gray-400 opacity-50" />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-lg mb-6">
@@ -233,12 +221,8 @@ export default function Barbershops() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-green-600 to-green-800 h-96 rounded-lg overflow-hidden">
-                <img 
-                  src={schedulingPhoto}
-                  alt="Smart scheduling system with calendar and technology for modern barbershop management"
-                  className="w-full h-full object-cover"
-                />
+              <div className="bg-gradient-to-br from-green-600 to-green-800 h-96 rounded-lg overflow-hidden flex items-center justify-center">
+                <Calendar className="w-32 h-32 text-green-300 opacity-50" />
               </div>
             </div>
 
