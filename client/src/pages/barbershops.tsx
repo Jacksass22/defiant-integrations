@@ -265,23 +265,7 @@ export default function Barbershops() {
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* Booking Software - 3D Tilted Card */}
             <div 
-              className="bg-gray-800/50 p-8 rounded-lg transition-transform duration-300 ease-out cursor-pointer"
-              style={{ perspective: '1000px' }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const mouseX = e.clientX - centerX;
-                const mouseY = e.clientY - centerY;
-                
-                const rotateY = (mouseX / rect.width) * 10;
-                const rotateX = -(mouseY / rect.height) * 10;
-                
-                e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-              }}
+              className="bg-gray-800/50 p-8 rounded-lg transition-all duration-300 ease-out cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-2xl"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 text-blue-400 rounded-lg mb-6">
                 <Calendar className="w-8 h-8" />
@@ -325,23 +309,7 @@ export default function Barbershops() {
 
             {/* Web Design - 3D Tilted Card */}
             <div 
-              className="bg-gray-800/50 p-8 rounded-lg transition-transform duration-300 ease-out cursor-pointer"
-              style={{ perspective: '1000px' }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const mouseX = e.clientX - centerX;
-                const mouseY = e.clientY - centerY;
-                
-                const rotateY = (mouseX / rect.width) * 10;
-                const rotateX = -(mouseY / rect.height) * 10;
-                
-                e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-              }}
+              className="bg-gray-800/50 p-8 rounded-lg transition-all duration-300 ease-out cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-2xl"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 text-purple-400 rounded-lg mb-6">
                 <Globe className="w-8 h-8" />
