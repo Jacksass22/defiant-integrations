@@ -336,7 +336,7 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
             Alternative scheduling available via direct contact
           </p>
           <p className="text-gray-400 text-xs mt-2">
-            {formData.phone ? `We'll reach you at ${formData.phone} within 24 hours if needed` : 'Our team will contact you within 24 hours if needed'}
+            Our team will reach you at team@defiantintegration.com within 24 hours if needed
           </p>
         </div>
         
