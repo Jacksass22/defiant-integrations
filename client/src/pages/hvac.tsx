@@ -126,8 +126,12 @@ export default function HVAC() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-96 rounded-lg flex items-center justify-center">
-                <MessageSquare className="w-32 h-32 text-white/20" />
+              <div className="h-96 rounded-lg overflow-hidden">
+                <img 
+                  src="/attached_assets/image_1754933392703.png"
+                  alt="Automated workflow diagram showing email to customer retention process"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
