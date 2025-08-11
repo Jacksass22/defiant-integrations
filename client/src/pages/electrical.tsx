@@ -483,7 +483,7 @@ export default function Electrical() {
 
       {/* Lead Capture Modal */}
       <LeadCaptureModal 
-        isOpen={showLeadCaptureModal}
+        open={showLeadCaptureModal}
         onClose={() => setShowLeadCaptureModal(false)}
       />
 
