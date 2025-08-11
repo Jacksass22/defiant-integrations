@@ -7,6 +7,7 @@ import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
 import petGroomingImage from '@assets/pexels-goochie-poochie-19145877_1754955100849.jpg';
 import puppyImage from '@assets/pexels-alexander-dummer-37646-132676_1754955265248.jpg';
+import smartDogImage from '@assets/image_1754955666531.png';
 
 export default function PetGroomingBoarding() {
   useScrollToTop();
@@ -227,8 +228,12 @@ export default function PetGroomingBoarding() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-600 to-purple-800 h-96 rounded-lg flex items-center justify-center">
-                <Phone className="w-32 h-32 text-white/20" />
+              <div className="h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={smartDogImage} 
+                  alt="Intelligent dog wearing glasses and holding phone representing AI phone assistant technology"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
