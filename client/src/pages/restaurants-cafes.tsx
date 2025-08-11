@@ -7,6 +7,7 @@ import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
 import restaurantImage from '@assets/pexels-msuatgunerli-3252051_1754953667092.jpg';
 import barImage from '@assets/pexels-evonics-1058277_1754954441482.jpg';
+import bookingImage from '@assets/pexels-cottonbro-5077049_1754954770352.jpg';
 
 export default function RestaurantsCafes() {
   useScrollToTop();
@@ -231,8 +232,12 @@ export default function RestaurantsCafes() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-96 rounded-lg flex items-center justify-center">
-                <MessageSquare className="w-32 h-32 text-white/20" />
+              <div className="h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={bookingImage} 
+                  alt="Person using laptop for restaurant reservation and booking management system"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
