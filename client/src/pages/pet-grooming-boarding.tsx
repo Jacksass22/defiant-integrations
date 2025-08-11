@@ -5,6 +5,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
+import petGroomingImage from '@assets/pexels-goochie-poochie-19145877_1754955100849.jpg';
 
 export default function PetGroomingBoarding() {
   useScrollToTop();
@@ -145,8 +146,12 @@ export default function PetGroomingBoarding() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-purple-600 to-pink-800 h-96 rounded-lg flex items-center justify-center">
-                <Heart className="w-32 h-32 text-white/20" />
+              <div className="h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={petGroomingImage} 
+                  alt="Professional pet groomer carefully trimming a Yorkshire Terrier in a clean, modern grooming facility"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
