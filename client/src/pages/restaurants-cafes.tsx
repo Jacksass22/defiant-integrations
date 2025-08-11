@@ -161,8 +161,12 @@ export default function RestaurantsCafes() {
 
             {/* Solution 2 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-red-600 to-pink-700 h-96 rounded-lg flex items-center justify-center">
-                <Camera className="w-32 h-32 text-white/20" />
+              <div className="order-2 lg:order-1 h-96 rounded-lg overflow-hidden">
+                <img 
+                  src={restaurantImage} 
+                  alt="Professional food photography and restaurant atmosphere showcasing dining experience"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-lg mb-6">
