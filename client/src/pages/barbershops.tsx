@@ -259,69 +259,30 @@ export default function Barbershops() {
             </p>
           </div>
 
-          {/* Visual Showcase - 3D Tilted Card */}
-          <div className="flex justify-center mb-16">
-            <div 
-              className="relative w-80 h-96 cursor-pointer"
-              style={{ perspective: '1000px' }}
-            >
-              <div 
-                className="w-full h-full transition-transform duration-300 ease-out transform-gpu"
-                style={{ 
-                  transformStyle: 'preserve-3d',
-                  transform: 'rotateX(0deg) rotateY(0deg) scale(1)'
-                }}
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const centerX = rect.left + rect.width / 2;
-                  const centerY = rect.top + rect.height / 2;
-                  const mouseX = e.clientX - centerX;
-                  const mouseY = e.clientY - centerY;
-                  
-                  const rotateY = (mouseX / rect.width) * 20;
-                  const rotateX = -(mouseY / rect.height) * 20;
-                  
-                  e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-                }}
-              >
-                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl shadow-2xl overflow-hidden relative">
-                  <img 
-                    src={barbershopPhoto}
-                    alt="Modern barbershop interior with smart technology"
-                    className="w-full h-full object-cover"
-                    onLoad={() => console.log('Image loaded successfully')}
-                    onError={(e) => {
-                      console.log('Image failed to load, showing gradient background');
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                  {/* Fallback content if image doesn't load */}
-                  <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold bg-gradient-to-br from-blue-600 to-purple-600">
-                    <div className="text-center">
-                      <Scissors className="w-16 h-16 mx-auto mb-4" />
-                      <div>Smart Barbershop Tech</div>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 z-10">
-                    <h3 className="text-white font-serif text-2xl font-bold mb-2">
-                      Smart Technology
-                    </h3>
-                    <p className="text-gray-200 text-sm">
-                      Interactive 3D showcase - Move your mouse over me!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Main Features Grid */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Booking Software */}
-            <div className="bg-gray-800/50 p-8 rounded-lg">
+            {/* Booking Software - 3D Tilted Card */}
+            <div 
+              className="bg-gray-800/50 p-8 rounded-lg transition-transform duration-300 ease-out cursor-pointer"
+              style={{ perspective: '1000px' }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                const rotateY = (mouseX / rect.width) * 10;
+                const rotateX = -(mouseY / rect.height) * 10;
+                
+                e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+              }}
+            >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 text-blue-400 rounded-lg mb-6">
                 <Calendar className="w-8 h-8" />
               </div>
@@ -362,8 +323,26 @@ export default function Barbershops() {
               </div>
             </div>
 
-            {/* Web Design */}
-            <div className="bg-gray-800/50 p-8 rounded-lg">
+            {/* Web Design - 3D Tilted Card */}
+            <div 
+              className="bg-gray-800/50 p-8 rounded-lg transition-transform duration-300 ease-out cursor-pointer"
+              style={{ perspective: '1000px' }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                const rotateY = (mouseX / rect.width) * 10;
+                const rotateX = -(mouseY / rect.height) * 10;
+                
+                e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+              }}
+            >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 text-purple-400 rounded-lg mb-6">
                 <Globe className="w-8 h-8" />
               </div>
