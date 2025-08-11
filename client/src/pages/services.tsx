@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navigation } from '@/components/navigation';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -303,75 +304,123 @@ export default function Services() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const Icon = service.icon;
             const isExpanded = expandedSections[service.id];
             
             return (
-              <div 
+              <motion.div
                 key={service.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -8,
+                  rotateX: 5,
+                  rotateY: 5,
+                  transition: { duration: 0.3 }
+                }}
+                className="group relative bg-gradient-to-br from-white via-white to-blue-50/30 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100/50 overflow-hidden flex flex-col h-full backdrop-blur-sm"
+                style={{
+                  transformStyle: 'preserve-3d',
+                }}
               >
-                <div className="p-8 flex-1 flex flex-col">
+                {/* Animated gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                
+                <div className="relative p-8 flex-1 flex flex-col z-10">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <motion.div 
+                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="font-serif text-xl font-bold text-gray-900">
+                    </motion.div>
+                    <h3 className="font-serif text-xl font-bold text-gray-900 group-hover:text-blue-900 transition-colors duration-300">
                       {service.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {service.description}
                   </p>
                   
                   {/* Desktop: Always show services */}
                   <div className="hidden md:block flex-1">
                     <ul className="space-y-3">
-                      {service.services.map((item: string, index: number) => (
-                        <li key={index} className="flex items-start">
-                          <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
-                        </li>
+                      {service.services.map((item: string, serviceIndex: number) => (
+                        <motion.li 
+                          key={serviceIndex} 
+                          className="flex items-start"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: serviceIndex * 0.05 }}
+                        >
+                          <motion.div
+                            whileHover={{ scale: 1.2, rotate: 180 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-3 flex-shrink-0 group-hover:text-blue-600 transition-colors duration-300" />
+                          </motion.div>
+                          <span className="text-gray-700 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">{item}</span>
+                        </motion.li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Mobile: Expandable sections */}
                   <div className="md:hidden">
-                    <button
+                    <motion.button
                       onClick={() => toggleSection(service.id)}
                       className="flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors mb-4"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      {isExpanded ? (
-                        <>
-                          <ChevronDown className="w-4 h-4 mr-1" />
-                          Hide Details
-                        </>
-                      ) : (
-                        <>
-                          <ChevronRight className="w-4 h-4 mr-1" />
-                          View Services
-                        </>
-                      )}
-                    </button>
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 90 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ChevronRight className="w-4 h-4 mr-1" />
+                      </motion.div>
+                      {isExpanded ? "Hide Details" : "View Services"}
+                    </motion.button>
                     
-                    {isExpanded && (
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: isExpanded ? "auto" : 0,
+                        opacity: isExpanded ? 1 : 0
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
                       <div className="border-t border-gray-100 pt-4">
                         <ul className="space-y-2">
-                          {service.services.map((item: string, index: number) => (
-                            <li key={index} className="flex items-start">
+                          {service.services.map((item: string, serviceIndex: number) => (
+                            <motion.li 
+                              key={serviceIndex} 
+                              className="flex items-start"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: serviceIndex * 0.05 }}
+                            >
                               <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
                               <span className="text-gray-700 text-sm">{item}</span>
-                            </li>
+                            </motion.li>
                           ))}
                         </ul>
                       </div>
-                    )}
+                    </motion.div>
                   </div>
                 </div>
-              </div>
+
+                {/* Bottom glow effect */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
             );
           })}
         </div>
@@ -592,29 +641,48 @@ export default function Services() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Done-for-You</h3>
-              <p className="text-gray-600">Complete hands-off implementation with full project management</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Done-with-You</h3>
-              <p className="text-gray-600">Collaborative implementation with comprehensive training</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Do-It-Yourself</h3>
-              <p className="text-gray-600">Guided self-implementation with ongoing support</p>
-            </div>
+            {[
+              {
+                icon: Award,
+                title: "Done-for-You",
+                description: "Complete hands-off implementation with full project management",
+                gradient: "from-blue-500 to-blue-600"
+              },
+              {
+                icon: Users,
+                title: "Done-with-You", 
+                description: "Collaborative implementation with comprehensive training",
+                gradient: "from-green-500 to-green-600"
+              },
+              {
+                icon: Lightbulb,
+                title: "Do-It-Yourself",
+                description: "Guided self-implementation with ongoing support", 
+                gradient: "from-purple-500 to-purple-600"
+              }
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div 
+                  key={index}
+                  className="text-center group"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <motion.div 
+                    className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Icon className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <h3 className="font-serif text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition-colors duration-300">{item.title}</h3>
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{item.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
 
           <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
