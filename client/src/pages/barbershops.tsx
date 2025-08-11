@@ -259,38 +259,58 @@ export default function Barbershops() {
             </p>
           </div>
 
-          {/* Visual Showcase */}
+          {/* Visual Showcase - 3D Tilted Card */}
           <div className="flex justify-center mb-16">
-            <div className="relative group" style={{ perspective: '1000px' }}>
-              <div className="w-80 h-96 relative transition-all duration-500 group-hover:scale-110 transform-gpu" 
-                   style={{ 
-                     transformStyle: 'preserve-3d',
-                     transform: 'rotateX(0deg) rotateY(0deg)',
-                     transition: 'transform 0.5s ease-out, scale 0.5s ease-out'
-                   }}
-                   onMouseMove={(e) => {
-                     const rect = e.currentTarget.getBoundingClientRect();
-                     const x = e.clientX - rect.left - rect.width / 2;
-                     const y = e.clientY - rect.top - rect.height / 2;
-                     const rotateY = (x / rect.width) * 20;
-                     const rotateX = (y / rect.height) * -20;
-                     e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-                   }}
-                   onMouseLeave={(e) => {
-                     e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-                   }}>
-                <div className="absolute inset-0 rounded-xl overflow-hidden shadow-2xl">
+            <div 
+              className="relative w-80 h-96 cursor-pointer"
+              style={{ perspective: '1000px' }}
+            >
+              <div 
+                className="w-full h-full transition-transform duration-300 ease-out transform-gpu"
+                style={{ 
+                  transformStyle: 'preserve-3d',
+                  transform: 'rotateX(0deg) rotateY(0deg) scale(1)'
+                }}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const centerX = rect.left + rect.width / 2;
+                  const centerY = rect.top + rect.height / 2;
+                  const mouseX = e.clientX - centerX;
+                  const mouseY = e.clientY - centerY;
+                  
+                  const rotateY = (mouseX / rect.width) * 20;
+                  const rotateX = -(mouseY / rect.height) * 20;
+                  
+                  e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                }}
+              >
+                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl shadow-2xl overflow-hidden relative">
                   <img 
                     src={barbershopPhoto}
                     alt="Modern barbershop interior with smart technology"
                     className="w-full h-full object-cover"
+                    onLoad={() => console.log('Image loaded successfully')}
+                    onError={(e) => {
+                      console.log('Image failed to load, showing gradient background');
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-6">
+                  {/* Fallback content if image doesn't load */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold bg-gradient-to-br from-blue-600 to-purple-600">
+                    <div className="text-center">
+                      <Scissors className="w-16 h-16 mx-auto mb-4" />
+                      <div>Smart Barbershop Tech</div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 z-10">
                     <h3 className="text-white font-serif text-2xl font-bold mb-2">
                       Smart Technology
                     </h3>
-                    <p className="text-gray-200">
-                      Modern barbershop solutions
+                    <p className="text-gray-200 text-sm">
+                      Interactive 3D showcase - Move your mouse over me!
                     </p>
                   </div>
                 </div>
