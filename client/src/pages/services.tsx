@@ -310,9 +310,9 @@ export default function Services() {
             return (
               <div 
                 key={service.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full"
               >
-                <div className="p-8">
+                <div className="p-8 flex-1 flex flex-col">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4">
                       <Icon className="w-6 h-6 text-white" />
@@ -326,35 +326,50 @@ export default function Services() {
                     {service.description}
                   </p>
                   
-                  <button
-                    onClick={() => toggleSection(service.id)}
-                    className="flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors mb-4"
-                  >
-                    {isExpanded ? (
-                      <>
-                        <ChevronDown className="w-4 h-4 mr-1" />
-                        Hide Details
-                      </>
-                    ) : (
-                      <>
-                        <ChevronRight className="w-4 h-4 mr-1" />
-                        View Services
-                      </>
+                  {/* Desktop: Always show services */}
+                  <div className="hidden md:block flex-1">
+                    <ul className="space-y-3">
+                      {service.services.map((item: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
+                          <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Mobile: Expandable sections */}
+                  <div className="md:hidden">
+                    <button
+                      onClick={() => toggleSection(service.id)}
+                      className="flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors mb-4"
+                    >
+                      {isExpanded ? (
+                        <>
+                          <ChevronDown className="w-4 h-4 mr-1" />
+                          Hide Details
+                        </>
+                      ) : (
+                        <>
+                          <ChevronRight className="w-4 h-4 mr-1" />
+                          View Services
+                        </>
+                      )}
+                    </button>
+                    
+                    {isExpanded && (
+                      <div className="border-t border-gray-100 pt-4">
+                        <ul className="space-y-2">
+                          {service.services.map((item: string, index: number) => (
+                            <li key={index} className="flex items-start">
+                              <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
+                              <span className="text-gray-700 text-sm">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
-                  </button>
-                  
-                  {isExpanded && (
-                    <div className="border-t border-gray-100 pt-4">
-                      <ul className="space-y-2">
-                        {service.services.map((item: string, index: number) => (
-                          <li key={index} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                  </div>
                 </div>
               </div>
             );
