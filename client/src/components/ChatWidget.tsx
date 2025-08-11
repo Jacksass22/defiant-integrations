@@ -208,10 +208,10 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-white relative overflow-hidden group"
-          style={{ backgroundColor: primaryColor }}
+          className="w-16 h-16 rounded-2xl shadow-2xl hover:shadow-emerald-500/25 transition-all duration-500 flex items-center justify-center text-white relative overflow-hidden group bg-gradient-to-br from-emerald-600 to-emerald-800 border border-emerald-500/30 backdrop-blur-sm"
         >
-          <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-emerald-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div
@@ -247,58 +247,70 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-24 right-6 w-96 h-[500px] bg-white rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200"
+            className="fixed bottom-24 right-6 w-96 h-[500px] bg-gradient-to-br from-gray-950 via-gray-900 to-black rounded-3xl z-50 flex flex-col overflow-hidden border border-gray-700/30 backdrop-blur-xl"
+            style={{
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+            }}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            {/* Header */}
-            <div 
-              className="px-6 py-4 text-white flex items-center justify-between"
-              style={{ backgroundColor: primaryColor }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                  <Bot className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm">AI Assistant</h3>
-                  <p className="text-xs opacity-90">Defiant Integrations</p>
-                </div>
+            {/* Premium Header */}
+            <div className="relative px-6 py-5 bg-gradient-to-r from-gray-800/90 via-gray-700/90 to-gray-800/90 backdrop-blur-sm border-b border-gray-600/30">
+              {/* Animated background particles */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-0 left-1/4 w-2 h-2 bg-emerald-400/30 rounded-full animate-pulse"></div>
+                <div className="absolute top-3 right-1/3 w-1 h-1 bg-cyan-400/40 rounded-full animate-pulse delay-300"></div>
+                <div className="absolute bottom-2 left-2/3 w-1.5 h-1.5 bg-blue-400/20 rounded-full animate-pulse delay-700"></div>
               </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="w-8 h-8 rounded-full hover:bg-white/10 transition-colors duration-200 flex items-center justify-center"
-              >
-                <X className="w-4 h-4" />
-              </button>
+              
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Bot className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-sm"></div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white text-sm tracking-wide">Executive AI Assistant</h3>
+                    <p className="text-gray-300 text-xs font-medium">Defiant Integrations</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-9 h-9 rounded-xl hover:bg-gray-600/40 transition-all duration-300 flex items-center justify-center border border-gray-600/20 hover:border-gray-500/40 group"
+                >
+                  <X className="w-4 h-4 text-gray-300 group-hover:text-white transition-colors" />
+                </button>
+              </div>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
-              {messages.map((message) => (
-                <div
+            {/* Premium Messages Area */}
+            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-gray-900/50 to-gray-950/80">
+              {messages.map((message, index) => (
+                <motion.div
                   key={message.id}
-                  className={`flex gap-2 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   {message.sender === 'bot' && (
-                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-1">
-                      <Bot className="w-4 h-4 text-gray-600" />
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-600/20 border border-emerald-400/30 flex items-center justify-center flex-shrink-0 mt-1 backdrop-blur-sm">
+                      <Bot className="w-4 h-4 text-emerald-400" />
                     </div>
                   )}
                   
                   <div
-                    className={`max-w-[80%] px-4 py-2 rounded-2xl ${
+                    className={`max-w-[80%] px-4 py-3 rounded-2xl shadow-lg ${
                       message.sender === 'user'
-                        ? 'text-white rounded-br-md'
-                        : 'bg-gray-100 text-gray-800 rounded-bl-md'
+                        ? 'bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-br-lg border border-emerald-500/30'
+                        : 'bg-gray-800/80 text-gray-100 rounded-bl-lg border border-gray-600/30 backdrop-blur-sm'
                     }`}
-                    style={{
-                      backgroundColor: message.sender === 'user' ? primaryColor : undefined
-                    }}
                   >
-                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.text}</p>
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap font-medium">{message.text}</p>
                     
                     {/* Show booking button for bot messages with booking keywords */}
                     {message.sender === 'bot' && message.showBookingButton && (
@@ -325,53 +337,60 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                   </div>
 
                   {message.sender === 'user' && (
-                    <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center flex-shrink-0 mt-1">
-                      <User className="w-4 h-4 text-gray-600" />
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-gray-600 to-gray-700 border border-gray-500/30 flex items-center justify-center flex-shrink-0 mt-1 backdrop-blur-sm">
+                      <User className="w-4 h-4 text-gray-200" />
                     </div>
                   )}
-                </div>
+                </motion.div>
               ))}
 
-              {/* Typing indicator */}
+              {/* Premium Typing indicator */}
               {isTyping && (
-                <div className="flex gap-2 justify-start">
-                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                    <Bot className="w-4 h-4 text-gray-600" />
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex gap-3 justify-start"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-600/20 border border-emerald-400/30 flex items-center justify-center flex-shrink-0 backdrop-blur-sm">
+                    <Bot className="w-4 h-4 text-emerald-400" />
                   </div>
-                  <div className="bg-gray-100 px-4 py-2 rounded-2xl rounded-bl-md">
+                  <div className="bg-gray-800/80 border border-gray-600/30 backdrop-blur-sm px-4 py-3 rounded-2xl rounded-bl-lg shadow-lg">
                     <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )}
               
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
-            <div className="p-4 border-t border-gray-200">
-              <div className="flex gap-2">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Type your message..."
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                  disabled={isTyping}
-                />
-                <button
+            {/* Premium Input Area */}
+            <div className="relative p-4 bg-gradient-to-r from-gray-800/90 via-gray-700/90 to-gray-800/90 backdrop-blur-sm border-t border-gray-600/30">
+              <div className="flex gap-3 items-end">
+                <div className="flex-1 relative">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Ask about AI strategy, pricing, or book a consultation..."
+                    className="w-full px-4 py-3 bg-gray-900/80 border border-gray-600/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 text-sm text-gray-100 placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
+                    disabled={isTyping}
+                  />
+                </div>
+                <motion.button
                   onClick={sendMessage}
                   disabled={!inputValue.trim() || isTyping}
-                  className="px-4 py-2 text-white rounded-lg hover:opacity-90 transition-opacity duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                  style={{ backgroundColor: primaryColor }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-3 bg-gradient-to-br from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 disabled:from-gray-600 disabled:to-gray-700 text-white rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50 disabled:cursor-not-allowed border border-emerald-500/30"
                 >
                   <Send className="w-4 h-4" />
-                </button>
+                </motion.button>
               </div>
             </div>
           </motion.div>
