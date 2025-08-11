@@ -26,7 +26,7 @@ export default function Electrical() {
         
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <BlurText
               text="Electrical: Smart Technology That Actually Works for Your Business"
               delay={150}
