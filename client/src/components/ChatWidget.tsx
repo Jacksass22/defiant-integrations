@@ -83,9 +83,9 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       
       // Handle both 'response' and 'output' fields from n8n
       if (data.response) {
-        responseText = data.response;
+        responseText = formatChatResponse(data.response);
       } else if (data.output) {
-        responseText = data.output;
+        responseText = formatChatResponse(data.output);
       } else if (data.message && data.message.includes("Workflow could not be started")) {
         responseText = "I'm currently being updated to serve you better. Please try again in a moment or contact us directly for immediate assistance.";
       }
@@ -122,6 +122,31 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
     } finally {
       setIsTyping(false);
     }
+  };
+
+  const formatChatResponse = (text: string) => {
+    // Clean up numbered lists and make them more conversational
+    let formatted = text
+      // Remove markdown-style numbered lists
+      .replace(/^\d+\.\s+\*\*/gm, '')
+      .replace(/\*\*:/g, ':')
+      // Remove excessive asterisks
+      .replace(/\*\*/g, '')
+      // Replace numbered points with more natural flow
+      .replace(/(\d+)\.\s+/g, '')
+      // Clean up spacing
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+    
+    // If it's still very long, truncate and add a natural ending
+    if (formatted.length > 400) {
+      const sentences = formatted.split('. ');
+      if (sentences.length > 2) {
+        formatted = sentences.slice(0, 2).join('. ') + '. Would you like me to elaborate on any specific aspect?';
+      }
+    }
+    
+    return formatted;
   };
 
   const getSessionId = () => {
