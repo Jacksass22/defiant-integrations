@@ -320,16 +320,16 @@ export default function Services() {
                   rotateY: 5,
                   transition: { duration: 0.3 }
                 }}
-                className="group relative bg-gradient-to-br from-white via-white to-blue-50/30 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100/50 overflow-hidden flex flex-col h-full backdrop-blur-sm"
+                className="group relative bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100/50 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 overflow-hidden flex flex-col h-full backdrop-blur-sm"
                 style={{
                   transformStyle: 'preserve-3d',
                 }}
               >
                 {/* Animated gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/3 via-transparent to-cyan-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                 
                 <div className="relative p-8 flex-1 flex flex-col z-10">
                   <div className="flex items-center mb-4">
@@ -494,6 +494,7 @@ export default function Services() {
         services={coreServices}
         title="Core AI Strategy & Implementation"
         description="Strategic AI development and implementation services that transform your business operations"
+        bgColor="bg-gray-50/50"
       />
 
       {/* Web & Digital Solutions */}
@@ -501,7 +502,7 @@ export default function Services() {
         services={digitalServices}
         title="Web & Digital Solutions"
         description="Modern digital platforms and marketing systems that drive growth"
-        bgColor="bg-gray-50"
+        bgColor="bg-gray-100/30"
       />
 
       {/* Voice & Communication Systems */}
@@ -509,6 +510,7 @@ export default function Services() {
         services={voiceServices}
         title="Voice & Communication Systems"
         description="AI-powered communication solutions that never miss an opportunity"
+        bgColor="bg-gray-50/50"
       />
 
       {/* Data & Analytics Solutions */}
@@ -516,7 +518,7 @@ export default function Services() {
         services={dataServices}
         title="Data & Analytics Solutions"
         description="Comprehensive data systems that turn information into competitive advantage"
-        bgColor="bg-gray-50"
+        bgColor="bg-gray-100/30"
       />
 
       {/* Online Business Acceleration */}
@@ -524,6 +526,7 @@ export default function Services() {
         services={onlineBusinessServices}
         title="Online Business Acceleration"
         description="Revenue optimization and scaling solutions for digital businesses"
+        bgColor="bg-gray-50/50"
       />
 
       {/* Training & Support Services */}
@@ -531,11 +534,11 @@ export default function Services() {
         services={supportServices}
         title="Training & Support Services"
         description="Comprehensive support ensuring your AI transformation succeeds"
-        bgColor="bg-gray-50"
+        bgColor="bg-gray-100/30"
       />
 
       {/* Industry-Specific Solutions */}
-      <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-gray-100/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -548,7 +551,7 @@ export default function Services() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Trades & Home Services */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
               <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
                 Trades & Home Services
               </h3>
@@ -561,7 +564,7 @@ export default function Services() {
             </div>
 
             {/* Consumer & Lifestyle */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
               <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
                 Consumer & Lifestyle
               </h3>
@@ -574,7 +577,7 @@ export default function Services() {
             </div>
 
             {/* Professional Services */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
               <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
                 Professional Services
               </h3>
@@ -587,7 +590,7 @@ export default function Services() {
             </div>
 
             {/* Retail & Product */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
               <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
                 Retail & Product Businesses
               </h3>
@@ -600,7 +603,7 @@ export default function Services() {
             </div>
 
             {/* Golf & Recreation */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
               <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
                 Golf & Recreation
               </h3>
@@ -613,7 +616,7 @@ export default function Services() {
             </div>
 
             {/* Online Business */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
               <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
                 Online Business
               </h3>
@@ -629,7 +632,7 @@ export default function Services() {
       </section>
 
       {/* Service Delivery Models */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -685,7 +688,7 @@ export default function Services() {
             })}
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+          <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200/50">
             <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4 text-center">
               Key Differentiators
             </h3>
