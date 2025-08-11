@@ -547,20 +547,7 @@ export default function GolfCourses() {
                   <span>Start Your Free Discovery Call</span>
                   <ArrowRight className="w-5 h-5" />
                 </motion.button>
-                
-                <motion.button 
-                  onClick={() => setShowLeadCaptureModal(true)}
-                  whileHover={{ 
-                    scale: 1.05,
-                    backgroundColor: "rgba(255, 255, 255, 1)",
-                    color: "rgb(22 163 74)"
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 inline-flex items-center space-x-2 transform hover:-translate-y-1"
-                >
-                  <MapPin className="w-5 h-5" />
-                  <span>See Our Case Studies</span>
-                </motion.button>
+
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white/90">
