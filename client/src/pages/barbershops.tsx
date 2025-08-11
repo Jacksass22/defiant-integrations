@@ -264,92 +264,120 @@ export default function Barbershops() {
           {/* Main Features Grid */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* Booking Software - 3D Tilted Card */}
-            <div 
-              className="bg-gray-800/50 p-8 rounded-lg transition-all duration-300 ease-out cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-2xl"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 text-blue-400 rounded-lg mb-6">
-                <Calendar className="w-8 h-8" />
-              </div>
-              <h3 className="font-serif text-3xl font-bold mb-6">Smart Booking Software</h3>
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-xl text-blue-400 mb-3">Automated Scheduling</h4>
-                  <ul className="space-y-2 text-gray-200">
-                    <li>• Online appointment booking available 24/7</li>
-                    <li>• Walk-in queue management with real-time updates</li>
-                    <li>• Multiple barber scheduling with individual calendars</li>
-                    <li>• Recurring appointment automation for regular clients</li>
-                    <li>• Buffer time and break management</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-xl text-blue-400 mb-3">Automated Client Communication</h4>
-                  <ul className="space-y-2 text-gray-200">
-                    <li>• Appointment confirmations via text and email</li>
-                    <li>• Automated reminder system (24hr and 2hr before)</li>
-                    <li>• No-show and cancellation follow-ups</li>
-                    <li>• Birthday and holiday greetings</li>
-                    <li>• Promotional campaigns for slow periods</li>
-                  </ul>
-                </div>
+            <TiltedCard
+              imageSrc={barbershopPhoto}
+              altText="Smart Booking Software for Barbershops"
+              captionText="Interactive Card"
+              containerHeight="500px"
+              containerWidth="100%"
+              imageHeight="500px"
+              imageWidth="100%"
+              rotateAmplitude={10}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={true}
+              overlayContent={
+                <div className="absolute inset-0 bg-gray-800/90 p-8 rounded-lg">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 text-blue-400 rounded-lg mb-6">
+                    <Calendar className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-serif text-3xl font-bold mb-6">Smart Booking Software</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-xl text-blue-400 mb-3">Automated Scheduling</h4>
+                      <ul className="space-y-2 text-gray-200 text-sm">
+                        <li>• Online appointment booking available 24/7</li>
+                        <li>• Walk-in queue management with real-time updates</li>
+                        <li>• Multiple barber scheduling with individual calendars</li>
+                        <li>• Recurring appointment automation for regular clients</li>
+                        <li>• Buffer time and break management</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-xl text-blue-400 mb-3">Automated Client Communication</h4>
+                      <ul className="space-y-2 text-gray-200 text-sm">
+                        <li>• Appointment confirmations via text and email</li>
+                        <li>• Automated reminder system (24hr and 2hr before)</li>
+                        <li>• No-show and cancellation follow-ups</li>
+                        <li>• Birthday and holiday greetings</li>
+                        <li>• Promotional campaigns for slow periods</li>
+                      </ul>
+                    </div>
 
-                <div>
-                  <h4 className="font-semibold text-xl text-blue-400 mb-3">Smart Reminders</h4>
-                  <ul className="space-y-2 text-gray-200">
-                    <li>• Custom reminder timing based on client preferences</li>
-                    <li>• Regular cut cycle tracking (every 2-4 weeks)</li>
-                    <li>• Seasonal grooming reminders</li>
-                    <li>• Special event preparation notifications</li>
-                    <li>• "It's time for your cut" intelligent suggestions</li>
-                  </ul>
+                    <div>
+                      <h4 className="font-semibold text-xl text-blue-400 mb-3">Smart Reminders</h4>
+                      <ul className="space-y-2 text-gray-200 text-sm">
+                        <li>• Custom reminder timing based on client preferences</li>
+                        <li>• Regular cut cycle tracking (every 2-4 weeks)</li>
+                        <li>• Seasonal grooming reminders</li>
+                        <li>• Special event preparation notifications</li>
+                        <li>• "It's time for your cut" intelligent suggestions</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              }
+            />
 
             {/* Web Design - 3D Tilted Card */}
-            <div 
-              className="bg-gray-800/50 p-8 rounded-lg transition-all duration-300 ease-out cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-2xl"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 text-purple-400 rounded-lg mb-6">
-                <Globe className="w-8 h-8" />
-              </div>
-              <h3 className="font-serif text-3xl font-bold mb-6">Custom Web Design</h3>
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-xl text-purple-400 mb-3">Brand-Custom Design</h4>
-                  <ul className="space-y-2 text-gray-200">
-                    <li>• Unique design reflecting your barbershop's personality</li>
-                    <li>• Custom color schemes and typography</li>
-                    <li>• Professional photography integration</li>
-                    <li>• Mobile-first responsive design</li>
-                    <li>• Local SEO optimization</li>
-                  </ul>
-                </div>
+            <TiltedCard
+              imageSrc={scissorsPhoto}
+              altText="Custom Web Design for Barbershops"
+              captionText="Interactive Card"
+              containerHeight="500px"
+              containerWidth="100%"
+              imageHeight="500px"
+              imageWidth="100%"
+              rotateAmplitude={10}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={true}
+              overlayContent={
+                <div className="absolute inset-0 bg-gray-800/90 p-8 rounded-lg">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 text-purple-400 rounded-lg mb-6">
+                    <Globe className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-serif text-3xl font-bold mb-6">Custom Web Design</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-xl text-purple-400 mb-3">Brand-Custom Design</h4>
+                      <ul className="space-y-2 text-gray-200 text-sm">
+                        <li>• Unique design reflecting your barbershop's personality</li>
+                        <li>• Custom color schemes and typography</li>
+                        <li>• Professional photography integration</li>
+                        <li>• Mobile-first responsive design</li>
+                        <li>• Local SEO optimization</li>
+                      </ul>
+                    </div>
 
-                <div>
-                  <h4 className="font-semibold text-xl text-purple-400 mb-3">Advanced Features</h4>
-                  <ul className="space-y-2 text-gray-200">
-                    <li>• Barber profile pages with specialties</li>
-                    <li>• Service menu with pricing and descriptions</li>
-                    <li>• Photo gallery showcasing work</li>
-                    <li>• Customer testimonials and reviews</li>
-                    <li>• Contact and location information</li>
-                  </ul>
-                </div>
+                    <div>
+                      <h4 className="font-semibold text-xl text-purple-400 mb-3">Advanced Features</h4>
+                      <ul className="space-y-2 text-gray-200 text-sm">
+                        <li>• Barber profile pages with specialties</li>
+                        <li>• Service menu with pricing and descriptions</li>
+                        <li>• Photo gallery showcasing work</li>
+                        <li>• Customer testimonials and reviews</li>
+                        <li>• Contact and location information</li>
+                      </ul>
+                    </div>
 
-                <div>
-                  <h4 className="font-semibold text-xl text-purple-400 mb-3">Integration & Analytics</h4>
-                  <ul className="space-y-2 text-gray-200">
-                    <li>• Seamless booking system integration</li>
-                    <li>• Google My Business synchronization</li>
-                    <li>• Social media feed integration</li>
-                    <li>• Performance tracking and analytics</li>
-                    <li>• Customer behavior insights</li>
-                  </ul>
+                    <div>
+                      <h4 className="font-semibold text-xl text-purple-400 mb-3">Integration & Analytics</h4>
+                      <ul className="space-y-2 text-gray-200 text-sm">
+                        <li>• Seamless booking system integration</li>
+                        <li>• Google My Business synchronization</li>
+                        <li>• Social media feed integration</li>
+                        <li>• Performance tracking and analytics</li>
+                        <li>• Customer behavior insights</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              }
+            />
           </div>
 
           {/* Custom Requests Section */}
