@@ -266,6 +266,20 @@ export default function Services() {
       ]
     },
     {
+      id: 'bilingual-voice-systems',
+      icon: Globe,
+      title: 'Bilingual Software & Voice Systems',
+      description: 'Multi-language AI solutions that serve diverse customer bases',
+      services: [
+        'Bilingual voice agent setup and training',
+        'Multi-language chatbot implementation',
+        'Spanish/English customer service automation',
+        'Cross-language data processing systems',
+        'Cultural context adaptation and localization',
+        'Real-time translation and communication tools'
+      ]
+    },
+    {
       id: 'security-compliance',
       icon: Shield,
       title: 'Security & Compliance',
