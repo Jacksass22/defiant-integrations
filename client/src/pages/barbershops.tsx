@@ -261,30 +261,41 @@ export default function Barbershops() {
 
           {/* Visual Showcase */}
           <div className="flex justify-center mb-16">
-            <TiltedCard
-              imageSrc={barbershopPhoto}
-              altText="Modern barbershop interior with smart technology"
-              captionText="Smart Barbershop Technology"
-              containerHeight="400px"
-              containerWidth="350px"
-              imageHeight="400px"
-              imageWidth="350px"
-              rotateAmplitude={15}
-              scaleOnHover={1.15}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <div className="p-6 h-full flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent rounded-xl">
-                  <h3 className="text-white font-serif text-2xl font-bold mb-2">
-                    Smart Technology
-                  </h3>
-                  <p className="text-gray-200">
-                    Modern barbershop solutions
-                  </p>
+            <div className="relative group" style={{ perspective: '1000px' }}>
+              <div className="w-80 h-96 relative transition-all duration-500 group-hover:scale-110 transform-gpu" 
+                   style={{ 
+                     transformStyle: 'preserve-3d',
+                     transform: 'rotateX(0deg) rotateY(0deg)',
+                     transition: 'transform 0.5s ease-out, scale 0.5s ease-out'
+                   }}
+                   onMouseMove={(e) => {
+                     const rect = e.currentTarget.getBoundingClientRect();
+                     const x = e.clientX - rect.left - rect.width / 2;
+                     const y = e.clientY - rect.top - rect.height / 2;
+                     const rotateY = (x / rect.width) * 20;
+                     const rotateX = (y / rect.height) * -20;
+                     e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                   }}
+                   onMouseLeave={(e) => {
+                     e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                   }}>
+                <div className="absolute inset-0 rounded-xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={barbershopPhoto}
+                    alt="Modern barbershop interior with smart technology"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-6">
+                    <h3 className="text-white font-serif text-2xl font-bold mb-2">
+                      Smart Technology
+                    </h3>
+                    <p className="text-gray-200">
+                      Modern barbershop solutions
+                    </p>
+                  </div>
                 </div>
-              }
-            />
+              </div>
+            </div>
           </div>
 
           {/* Main Features Grid */}
