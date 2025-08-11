@@ -423,7 +423,10 @@ export default function Electrical() {
           <p className="text-2xl font-semibold mb-12">
             Ready to see what this looks like for your business?
           </p>
-          <button className="inline-flex items-center space-x-2 bg-orange-600 text-white px-8 py-4 font-medium hover:bg-orange-700 transition-colors text-lg">
+          <button 
+            onClick={() => setShowLeadCaptureModal(true)}
+            className="inline-flex items-center space-x-2 bg-orange-600 text-white px-8 py-4 font-medium hover:bg-orange-700 transition-colors text-lg"
+          >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -485,6 +488,11 @@ export default function Electrical() {
           </div>
         </div>
       </footer>
+
+      <LeadCaptureModal 
+        isOpen={showLeadCaptureModal} 
+        onClose={() => setShowLeadCaptureModal(false)} 
+      />
     </div>
   );
 }
