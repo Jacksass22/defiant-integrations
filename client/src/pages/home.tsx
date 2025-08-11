@@ -8,7 +8,7 @@ import Noise from '@/components/Noise';
 import ScrollVelocity from '@/components/ScrollVelocity';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
-import TiltedCard from '@/components/TiltedCard';
+
 import { SubscriptionModal } from '@/components/subscription-modal';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
@@ -171,11 +171,7 @@ export default function Home() {
                 {/* Capability Grid */}
                 <div className="grid grid-cols-2 gap-6">
                   {/* Intelligence */}
-                  <TiltedCard
-                    scaleOnHover={1.1}
-                    rotateAmplitude={15}
-                    className="group relative"
-                  >
+                  <div className="group relative">
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
@@ -189,14 +185,10 @@ export default function Home() {
                       </div>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </TiltedCard>
+                  </div>
                   
                   {/* Digital */}
-                  <TiltedCard
-                    scaleOnHover={1.1}
-                    rotateAmplitude={15}
-                    className="group relative"
-                  >
+                  <div className="group relative">
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
@@ -210,14 +202,10 @@ export default function Home() {
                       </div>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </TiltedCard>
+                  </div>
                   
                   {/* Analytics */}
-                  <TiltedCard
-                    scaleOnHover={1.1}
-                    rotateAmplitude={15}
-                    className="group relative"
-                  >
+                  <div className="group relative">
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
@@ -231,14 +219,10 @@ export default function Home() {
                       </div>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </TiltedCard>
+                  </div>
                   
                   {/* Strategy */}
-                  <TiltedCard
-                    scaleOnHover={1.1}
-                    rotateAmplitude={15}
-                    className="group relative"
-                  >
+                  <div className="group relative">
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
@@ -252,17 +236,13 @@ export default function Home() {
                       </div>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </TiltedCard>
+                  </div>
                 </div>
               </div>
               
               {/* Right Side - Dynamic Visual */}
               <div className="relative">
-                <TiltedCard
-                  scaleOnHover={1.05}
-                  rotateAmplitude={10}
-                  className="relative"
-                >
+                <div className="relative">
                   <div className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-3xl p-12 overflow-hidden">
                   {/* Animated background pattern */}
                   <div className="absolute inset-0 opacity-10">
@@ -311,7 +291,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                </TiltedCard>
+                </div>
               </div>
             </div>
           </div>
