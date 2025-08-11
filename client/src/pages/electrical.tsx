@@ -14,7 +14,6 @@ export default function Electrical() {
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
-      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-yellow-900 via-orange-800 to-yellow-900 overflow-hidden">
         {/* Lightning Background Effect */}
@@ -44,7 +43,6 @@ export default function Electrical() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -63,7 +61,6 @@ export default function Electrical() {
           </button>
         </div>
       </section>
-
       {/* Problem Statement */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +87,7 @@ export default function Electrical() {
               <div className="bg-white p-8 shadow-lg">
                 <div className="text-5xl font-bold text-orange-600 mb-4">60%</div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Lead Conversion</h3>
-                <p className="text-gray-600">Better with AI follow-up on big project estimates</p>
+                <p className="text-gray-600">Better with AI follow-up on new inquires and long term automated follow up.</p>
               </div>
               <div className="bg-white p-8 shadow-lg">
                 <div className="text-5xl font-bold text-orange-600 mb-4">24/7</div>
@@ -127,7 +124,6 @@ export default function Electrical() {
           </div>
         </div>
       </section>
-
       {/* Solutions Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -288,7 +284,6 @@ export default function Electrical() {
           </div>
         </div>
       </section>
-
       {/* Implementation Timeline */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -361,7 +356,6 @@ export default function Electrical() {
           </div>
         </div>
       </section>
-
       {/* ROI Section */}
       <section className="py-20 bg-orange-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -407,7 +401,6 @@ export default function Electrical() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -432,7 +425,6 @@ export default function Electrical() {
           </button>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -488,7 +480,6 @@ export default function Electrical() {
           </div>
         </div>
       </footer>
-
       <LeadCaptureModal 
         isOpen={showLeadCaptureModal} 
         onClose={() => setShowLeadCaptureModal(false)} 
