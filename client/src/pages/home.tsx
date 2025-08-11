@@ -176,14 +176,17 @@ export default function Home() {
                     rotateAmplitude={15}
                     className="group relative"
                   >
-                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300">
-                      <div className="absolute top-3 right-3 w-8 h-8 bg-blue-200 rounded-lg opacity-60"></div>
-                      <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
-                        Intelligence
-                      </h4>
-                      <p className="text-sm text-blue-700 leading-relaxed">
-                        AI assistants, voice agents, automated workflows
-                      </p>
+                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      {/* Deep ocean gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                      <div className="relative text-center">
+                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                          Intelligence
+                        </h4>
+                        <p className="text-sm text-blue-700 leading-relaxed">
+                          AI assistants, voice agents, automated workflows
+                        </p>
+                      </div>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </TiltedCard>
@@ -194,15 +197,18 @@ export default function Home() {
                     rotateAmplitude={15}
                     className="group relative"
                   >
-                    <div className="relative bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-2xl border border-emerald-200 hover:shadow-lg transition-all duration-300">
-                      <div className="absolute top-3 right-3 w-8 h-8 bg-emerald-200 rounded-lg opacity-60"></div>
-                      <h4 className="font-serif text-xl font-bold text-emerald-900 mb-2">
-                        Digital
-                      </h4>
-                      <p className="text-sm text-emerald-700 leading-relaxed">
-                        Custom platforms, chatbots, intelligent search
-                      </p>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      {/* Deep ocean gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                      <div className="relative text-center">
+                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                          Digital
+                        </h4>
+                        <p className="text-sm text-blue-700 leading-relaxed">
+                          Custom platforms, chatbots, intelligent search
+                        </p>
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </TiltedCard>
                   
@@ -212,15 +218,18 @@ export default function Home() {
                     rotateAmplitude={15}
                     className="group relative"
                   >
-                    <div className="relative bg-gradient-to-br from-violet-50 to-violet-100 p-6 rounded-2xl border border-violet-200 hover:shadow-lg transition-all duration-300">
-                      <div className="absolute top-3 right-3 w-8 h-8 bg-violet-200 rounded-lg opacity-60"></div>
-                      <h4 className="font-serif text-xl font-bold text-violet-900 mb-2">
-                        Analytics
-                      </h4>
-                      <p className="text-sm text-violet-700 leading-relaxed">
-                        Data insights, performance tracking, predictions
-                      </p>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-violet-400 to-violet-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      {/* Deep ocean gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                      <div className="relative text-center">
+                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                          Analytics
+                        </h4>
+                        <p className="text-sm text-blue-700 leading-relaxed">
+                          Data insights, performance tracking, predictions
+                        </p>
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </TiltedCard>
                   
@@ -230,15 +239,18 @@ export default function Home() {
                     rotateAmplitude={15}
                     className="group relative"
                   >
-                    <div className="relative bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl border border-amber-200 hover:shadow-lg transition-all duration-300">
-                      <div className="absolute top-3 right-3 w-8 h-8 bg-amber-200 rounded-lg opacity-60"></div>
-                      <h4 className="font-serif text-xl font-bold text-amber-900 mb-2">
-                        Strategy
-                      </h4>
-                      <p className="text-sm text-amber-700 leading-relaxed">
-                        Consulting, development, ongoing optimization
-                      </p>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      {/* Deep ocean gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                      <div className="relative text-center">
+                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                          Strategy
+                        </h4>
+                        <p className="text-sm text-blue-700 leading-relaxed">
+                          Consulting, development, ongoing optimization
+                        </p>
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </TiltedCard>
                 </div>
