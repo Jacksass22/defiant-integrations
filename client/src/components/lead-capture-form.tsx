@@ -268,12 +268,7 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
               <div className="absolute bottom-20 right-20 w-40 h-40 bg-violet-500/10 rounded-full blur-3xl"></div>
             </div>
             
-            {/* Premium Badge - Dark */}
-            <div className="absolute -top-3 left-8">
-              <span className="bg-gray-800 text-gray-200 px-6 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase shadow-lg border border-gray-600/50">
-                Executive Consultation
-              </span>
-            </div>
+
             
             {/* Content */}
             <div className="relative text-center">
