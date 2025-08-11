@@ -138,12 +138,24 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       .replace(/\s{2,}/g, ' ')
       .trim();
     
-    // If it's still very long, truncate and add a natural ending
-    if (formatted.length > 400) {
-      const sentences = formatted.split('. ');
-      if (sentences.length > 2) {
-        formatted = sentences.slice(0, 2).join('. ') + '. Would you like me to elaborate on any specific aspect?';
+    // Split into sentences and add double line breaks for readability
+    const sentences = formatted.split(/(?<=[.!?])\s+/);
+    
+    // Group sentences into logical paragraphs (2-3 sentences each)
+    const paragraphs = [];
+    for (let i = 0; i < sentences.length; i += 2) {
+      const paragraph = sentences.slice(i, Math.min(i + 2, sentences.length)).join(' ');
+      if (paragraph.trim()) {
+        paragraphs.push(paragraph.trim());
       }
+    }
+    
+    // Join with double line breaks for better readability
+    formatted = paragraphs.join('\n\n');
+    
+    // If response is very long, limit it and add follow-up
+    if (paragraphs.length > 3) {
+      formatted = paragraphs.slice(0, 3).join('\n\n') + '\n\nWould you like me to elaborate on any specific aspect?';
     }
     
     return formatted;
@@ -266,7 +278,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                       backgroundColor: message.sender === 'user' ? primaryColor : undefined
                     }}
                   >
-                    <p className="text-sm leading-relaxed">{message.text}</p>
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.text}</p>
                     <p className={`text-xs mt-1 ${
                       message.sender === 'user' ? 'text-white/70' : 'text-gray-500'
                     }`}>
