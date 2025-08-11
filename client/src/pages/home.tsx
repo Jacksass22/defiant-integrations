@@ -20,6 +20,41 @@ export default function Home() {
   const aiVideoRef = useRef<HTMLVideoElement>(null);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
+  
+  // Tilt card states
+  const [cardTilts, setCardTilts] = useState({
+    intelligence: { rotateX: 0, rotateY: 0 },
+    digital: { rotateX: 0, rotateY: 0 },
+    analytics: { rotateX: 0, rotateY: 0 },
+    strategy: { rotateX: 0, rotateY: 0 }
+  });
+
+  // Handle mouse move for tilt effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, cardName: string) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -15;
+    const rotateY = ((x - centerX) / centerX) * 15;
+    
+    setCardTilts(prev => ({
+      ...prev,
+      [cardName]: { rotateX, rotateY }
+    }));
+  };
+
+  // Handle mouse leave to reset tilt
+  const handleMouseLeave = (cardName: string) => {
+    setCardTilts(prev => ({
+      ...prev,
+      [cardName]: { rotateX: 0, rotateY: 0 }
+    }));
+  };
 
   useEffect(() => {
     const playVideo = async (videoRef: React.RefObject<HTMLVideoElement>) => {
@@ -171,7 +206,16 @@ export default function Home() {
                 {/* Capability Grid */}
                 <div className="grid grid-cols-2 gap-6">
                   {/* Intelligence */}
-                  <div className="group relative">
+                  <div 
+                    className="group relative"
+                    onMouseMove={(e) => handleMouseMove(e, 'intelligence')}
+                    onMouseLeave={() => handleMouseLeave('intelligence')}
+                    style={{
+                      transform: `perspective(1000px) rotateX(${cardTilts.intelligence.rotateX}deg) rotateY(${cardTilts.intelligence.rotateY}deg)`,
+                      transformStyle: 'preserve-3d',
+                      transition: 'transform 0.1s ease-out'
+                    }}
+                  >
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
@@ -188,7 +232,16 @@ export default function Home() {
                   </div>
                   
                   {/* Digital */}
-                  <div className="group relative">
+                  <div 
+                    className="group relative"
+                    onMouseMove={(e) => handleMouseMove(e, 'digital')}
+                    onMouseLeave={() => handleMouseLeave('digital')}
+                    style={{
+                      transform: `perspective(1000px) rotateX(${cardTilts.digital.rotateX}deg) rotateY(${cardTilts.digital.rotateY}deg)`,
+                      transformStyle: 'preserve-3d',
+                      transition: 'transform 0.1s ease-out'
+                    }}
+                  >
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
@@ -205,7 +258,16 @@ export default function Home() {
                   </div>
                   
                   {/* Analytics */}
-                  <div className="group relative">
+                  <div 
+                    className="group relative"
+                    onMouseMove={(e) => handleMouseMove(e, 'analytics')}
+                    onMouseLeave={() => handleMouseLeave('analytics')}
+                    style={{
+                      transform: `perspective(1000px) rotateX(${cardTilts.analytics.rotateX}deg) rotateY(${cardTilts.analytics.rotateY}deg)`,
+                      transformStyle: 'preserve-3d',
+                      transition: 'transform 0.1s ease-out'
+                    }}
+                  >
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
@@ -222,7 +284,16 @@ export default function Home() {
                   </div>
                   
                   {/* Strategy */}
-                  <div className="group relative">
+                  <div 
+                    className="group relative"
+                    onMouseMove={(e) => handleMouseMove(e, 'strategy')}
+                    onMouseLeave={() => handleMouseLeave('strategy')}
+                    style={{
+                      transform: `perspective(1000px) rotateX(${cardTilts.strategy.rotateX}deg) rotateY(${cardTilts.strategy.rotateY}deg)`,
+                      transformStyle: 'preserve-3d',
+                      transition: 'transform 0.1s ease-out'
+                    }}
+                  >
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       {/* Deep ocean gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
