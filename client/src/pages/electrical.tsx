@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import Lightning from '@/components/Lightning';
 import { useState } from 'react';
 
 export default function Electrical() {
@@ -16,77 +17,18 @@ export default function Electrical() {
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-yellow-900 via-orange-800 to-yellow-900 overflow-hidden">
-        {/* Electrical Network Grid Pattern */}
-        <div className="absolute inset-0 opacity-15">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <pattern id="power-grid" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
-                <path d="M0,7.5 L15,7.5 M7.5,0 L7.5,15" stroke="rgba(255,165,0,0.4)" strokeWidth="0.5" fill="none" />
-                <circle cx="7.5" cy="7.5" r="1.2" fill="rgba(255,165,0,0.6)" />
-                <circle cx="7.5" cy="7.5" r="0.6" fill="rgba(255,255,255,0.8)" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#power-grid)" />
-          </svg>
-        </div>
-
-        {/* Glowing Power Lines */}
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" viewBox="0 0 400 300">
-            {/* Horizontal power lines */}
-            <line x1="0" y1="80" x2="400" y2="80" stroke="rgba(255,165,0,0.6)" strokeWidth="2" className="animate-pulse" />
-            <line x1="0" y1="150" x2="400" y2="150" stroke="rgba(255,165,0,0.4)" strokeWidth="1.5" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-            <line x1="0" y1="220" x2="400" y2="220" stroke="rgba(255,165,0,0.5)" strokeWidth="1.8" className="animate-pulse" style={{ animationDelay: '1s' }} />
-            
-            {/* Vertical power lines */}
-            <line x1="100" y1="0" x2="100" y2="300" stroke="rgba(255,165,0,0.3)" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '0.3s' }} />
-            <line x1="200" y1="0" x2="200" y2="300" stroke="rgba(255,165,0,0.4)" strokeWidth="1.2" className="animate-pulse" style={{ animationDelay: '0.8s' }} />
-            <line x1="300" y1="0" x2="300" y2="300" stroke="rgba(255,165,0,0.3)" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '1.3s' }} />
-            
-            {/* Power transmission towers (simplified) */}
-            <g opacity="0.3">
-              <path d="M95,70 L105,70 M95,90 L105,90 M100,60 L100,100" stroke="rgba(255,165,0,0.6)" strokeWidth="2" />
-              <path d="M195,140 L205,140 M195,160 L205,160 M200,130 L200,170" stroke="rgba(255,165,0,0.6)" strokeWidth="2" />
-              <path d="M295,210 L305,210 M295,230 L305,230 M300,200 L300,240" stroke="rgba(255,165,0,0.6)" strokeWidth="2" />
-            </g>
-          </svg>
-        </div>
-
-        {/* Glowing Electrical Nodes */}
-        <div className="absolute inset-0 opacity-25">
-          {/* Primary electrical nodes */}
-          <div className="absolute top-20 left-24 w-3 h-3 bg-orange-400 rounded-full animate-pulse shadow-lg shadow-orange-400/50"></div>
-          <div className="absolute top-32 left-48 w-2 h-2 bg-yellow-300 rounded-full animate-pulse shadow-lg shadow-yellow-300/50" style={{ animationDelay: '0.4s' }}></div>
-          <div className="absolute top-48 right-32 w-2.5 h-2.5 bg-orange-300 rounded-full animate-pulse shadow-lg shadow-orange-300/50" style={{ animationDelay: '0.8s' }}></div>
-          <div className="absolute bottom-32 left-32 w-2 h-2 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50" style={{ animationDelay: '1.2s' }}></div>
-          <div className="absolute bottom-48 right-48 w-3 h-3 bg-orange-400 rounded-full animate-pulse shadow-lg shadow-orange-400/50" style={{ animationDelay: '1.6s' }}></div>
-          
-          {/* Secondary smaller nodes */}
-          <div className="absolute top-40 left-72 w-1.5 h-1.5 bg-orange-200 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-          <div className="absolute bottom-40 left-56 w-1.5 h-1.5 bg-yellow-200 rounded-full animate-pulse" style={{ animationDelay: '1.4s' }}></div>
-          <div className="absolute top-56 right-56 w-1 h-1 bg-orange-300 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-          
-          {/* Connecting electrical currents */}
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
-            <path d="M96 80 Q150 100 192 150" stroke="rgba(255,165,0,0.4)" strokeWidth="1.5" fill="none" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-            <path d="M200 150 Q250 170 320 220" stroke="rgba(255,165,0,0.3)" strokeWidth="1.2" fill="none" className="animate-pulse" style={{ animationDelay: '1s' }} />
-            <path d="M128 240 Q200 200 320 220" stroke="rgba(255,165,0,0.35)" strokeWidth="1.3" fill="none" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
-          </svg>
-        </div>
-
-        {/* Lightning Effect (Subtle) */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <pattern id="lightning-pattern" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
-                <path d="M10,5 L15,12 L12,12 L17,20 L12,13 L15,13 L10,5 Z" fill="rgba(255,255,0,0.3)" className="animate-pulse" style={{ animationDelay: '2s' }} />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#lightning-pattern)" />
-          </svg>
+        {/* Lightning Background Effect */}
+        <div className="absolute inset-0 opacity-30">
+          <Lightning
+            hue={30}
+            xOffset={0}
+            speed={0.8}
+            intensity={0.6}
+            size={2}
+          />
         </div>
         
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <BlurText
