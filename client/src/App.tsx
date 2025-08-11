@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import ChatWidget from "@/components/ChatWidget";
 import Home from "@/pages/home";
 import StrategyArticle from "@/pages/strategy-article";
 import AIAdoptionArticle from "@/pages/ai-adoption-article";
@@ -130,6 +131,10 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <ChatWidget 
+          n8nWebhookUrl={import.meta.env.VITE_N8N_WEBHOOK_URL || ""}
+          primaryColor="#2563eb"
+        />
       </TooltipProvider>
     </QueryClientProvider>
   );
