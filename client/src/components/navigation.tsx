@@ -176,6 +176,9 @@ export function Navigation() {
           <div className="hidden lg:flex items-center space-x-10">
             <MegaMenu title="Industries" sections={industriesData} />
             <MegaMenu title="Capabilities" sections={capabilitiesData} />
+            <Link href="/services" className="text-white hover:text-gray-300 transition-colors font-medium text-[14px]">
+              Services
+            </Link>
             <Link href="/careers" className="text-white hover:text-gray-300 transition-colors font-medium text-[14px]">
               Careers
             </Link>
@@ -305,6 +308,13 @@ export function Navigation() {
             <div>
               <h3 className="text-white font-semibold mb-3 text-base">More</h3>
               <div className="pl-4 space-y-2">
+                <Link 
+                  href="/services" 
+                  className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
                 <Link 
                   href="/careers" 
                   className="block text-gray-400 hover:text-white transition-colors text-sm py-1"

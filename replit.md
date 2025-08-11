@@ -36,6 +36,8 @@ Preferred communication style: Simple, everyday language.
 - **Data Flow**: RESTful API endpoints, TanStack Query for client-server communication (caching, synchronization, error states), and shared TypeScript types for end-to-end type safety.
 
 ### Recent Major Updates (January 2025)
+- **Comprehensive Services Page**: Created a complete master services catalog page featuring all 24+ core services organized by category (AI Strategy, Web Solutions, Voice Systems, Data Analytics, etc.) with expandable service details and industry-specific solutions across 27+ industries
+- **Services Navigation**: Added new "Services" section between Capabilities and Careers in both desktop and mobile navigation menus
 - **Lead Capture Rollout**: Successfully implemented lead capture modal functionality across 10+ key pages including home, ai-strategy-development, technology-evaluation, data-architecture, process-automation, books, proof-of-concepts, and ai-adoption-article
 - **EspoCRM Integration**: Full integration with EspoCRM API for automatic lead processing with proper field mapping (firstName, lastName, emailAddress, accountName, title, opportunityAmount)
 - **Footer Functionality**: Updated footer buttons across all pages to trigger appropriate modals (lead capture for Contact/Careers, subscription modal for Subscribe, proper navigation for Blog)
