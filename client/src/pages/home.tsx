@@ -8,6 +8,7 @@ import Noise from '@/components/Noise';
 import ScrollVelocity from '@/components/ScrollVelocity';
 import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
+import TiltedCard from '@/components/TiltedCard';
 import { SubscriptionModal } from '@/components/subscription-modal';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
@@ -170,8 +171,12 @@ export default function Home() {
                 {/* Capability Grid */}
                 <div className="grid grid-cols-2 gap-6">
                   {/* Intelligence */}
-                  <div className="group relative">
-                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <TiltedCard
+                    scaleOnHover={1.03}
+                    rotateAmplitude={6}
+                    className="group relative"
+                  >
+                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300">
                       <div className="absolute top-3 right-3 w-8 h-8 bg-blue-200 rounded-lg opacity-60"></div>
                       <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
                         Intelligence
@@ -181,11 +186,15 @@ export default function Home() {
                       </p>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </div>
+                  </TiltedCard>
                   
                   {/* Digital */}
-                  <div className="group relative">
-                    <div className="relative bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-2xl border border-emerald-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <TiltedCard
+                    scaleOnHover={1.03}
+                    rotateAmplitude={6}
+                    className="group relative"
+                  >
+                    <div className="relative bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-2xl border border-emerald-200 hover:shadow-lg transition-all duration-300">
                       <div className="absolute top-3 right-3 w-8 h-8 bg-emerald-200 rounded-lg opacity-60"></div>
                       <h4 className="font-serif text-xl font-bold text-emerald-900 mb-2">
                         Digital
@@ -195,11 +204,15 @@ export default function Home() {
                       </p>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </div>
+                  </TiltedCard>
                   
                   {/* Analytics */}
-                  <div className="group relative">
-                    <div className="relative bg-gradient-to-br from-violet-50 to-violet-100 p-6 rounded-2xl border border-violet-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <TiltedCard
+                    scaleOnHover={1.03}
+                    rotateAmplitude={6}
+                    className="group relative"
+                  >
+                    <div className="relative bg-gradient-to-br from-violet-50 to-violet-100 p-6 rounded-2xl border border-violet-200 hover:shadow-lg transition-all duration-300">
                       <div className="absolute top-3 right-3 w-8 h-8 bg-violet-200 rounded-lg opacity-60"></div>
                       <h4 className="font-serif text-xl font-bold text-violet-900 mb-2">
                         Analytics
@@ -209,11 +222,15 @@ export default function Home() {
                       </p>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-violet-400 to-violet-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </div>
+                  </TiltedCard>
                   
                   {/* Strategy */}
-                  <div className="group relative">
-                    <div className="relative bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl border border-amber-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <TiltedCard
+                    scaleOnHover={1.03}
+                    rotateAmplitude={6}
+                    className="group relative"
+                  >
+                    <div className="relative bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl border border-amber-200 hover:shadow-lg transition-all duration-300">
                       <div className="absolute top-3 right-3 w-8 h-8 bg-amber-200 rounded-lg opacity-60"></div>
                       <h4 className="font-serif text-xl font-bold text-amber-900 mb-2">
                         Strategy
@@ -223,7 +240,7 @@ export default function Home() {
                       </p>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                  </div>
+                  </TiltedCard>
                 </div>
               </div>
               
