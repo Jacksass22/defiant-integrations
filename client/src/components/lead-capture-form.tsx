@@ -258,90 +258,96 @@ export function LeadCaptureForm({ title = "Start Your AI Transformation", subtit
           </p>
         </div>
         
-        {/* Elegant Call-to-Action Section */}
-        <div className="relative mb-10">
-          {/* Subtle gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl opacity-50"></div>
-          
-          {/* Main CTA Container */}
-          <div className="relative bg-gradient-to-r from-slate-800 to-slate-900 p-10 rounded-xl shadow-2xl transform hover:shadow-3xl transition-all duration-500">
-            {/* Premium Badge */}
+        {/* Dark Theme Call-to-Action Section */}
+        <div className="relative mb-8">
+          <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 rounded-2xl shadow-2xl border border-gray-700/50 overflow-hidden">
+            {/* Subtle animated background */}
+            <div className="absolute inset-0">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-500/5 via-transparent to-violet-500/5"></div>
+              <div className="absolute top-20 left-20 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 right-20 w-40 h-40 bg-violet-500/10 rounded-full blur-3xl"></div>
+            </div>
+            
+            {/* Premium Badge - Dark */}
             <div className="absolute -top-3 left-8">
-              <span className="bg-white text-slate-900 px-5 py-1.5 rounded text-xs font-semibold tracking-wider uppercase shadow-md">
+              <span className="bg-gray-800 text-gray-200 px-6 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase shadow-lg border border-gray-600/50">
                 Executive Consultation
               </span>
             </div>
             
-            {/* Main CTA Content */}
-            <div className="text-center">
-              <h3 className="text-3xl font-serif text-white mb-4 tracking-wide">
+            {/* Content */}
+            <div className="relative text-center">
+              <h3 className="text-4xl font-serif text-white mb-4 tracking-tight">
                 Schedule Your Strategic Consultation
               </h3>
-              <p className="text-gray-300 mb-6 font-light text-lg">
+              <p className="text-gray-400 mb-8 font-light text-lg max-w-2xl mx-auto">
                 Select your preferred time to discuss your transformation roadmap
               </p>
               
-              {/* Elegant Benefits Display */}
+              {/* Benefits Display - Dark Theme */}
               <div className="flex flex-wrap justify-center gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-lg border border-white/20">
-                  <span className="text-white font-medium">Investment Range: {formData.investmentRange}</span>
+                <div className="bg-gray-800/60 backdrop-blur-sm px-6 py-3 rounded-xl border border-gray-600/50 shadow-lg">
+                  <span className="text-gray-200 font-medium">Investment Range: {formData.investmentRange}</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-lg border border-white/20">
-                  <span className="text-white font-medium">Timeline: {formData.timeline}</span>
+                <div className="bg-gray-800/60 backdrop-blur-sm px-6 py-3 rounded-xl border border-gray-600/50 shadow-lg">
+                  <span className="text-gray-200 font-medium">Timeline: {formData.timeline}</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm px-5 py-2.5 rounded-lg border border-white/20">
-                  <span className="text-white font-medium">Focus: {formData.industry}</span>
+                <div className="bg-gray-800/60 backdrop-blur-sm px-6 py-3 rounded-xl border border-gray-600/50 shadow-lg">
+                  <span className="text-gray-200 font-medium">Focus: {formData.industry}</span>
                 </div>
               </div>
               
-              {/* Subtle Direction Indicator */}
-              <div className="flex justify-center items-center space-x-2 text-white/60">
-                <div className="w-12 h-px bg-white/30"></div>
-                <ChevronRight className="w-5 h-5 animate-pulse" />
-                <span className="text-sm uppercase tracking-wider">Select Time Below</span>
-                <ChevronLeft className="w-5 h-5 animate-pulse" />
-                <div className="w-12 h-px bg-white/30"></div>
+              {/* Direction Indicator - Dark Theme */}
+              <div className="flex justify-center items-center space-x-3 text-gray-500 mb-4">
+                <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+                <ChevronRight className="w-5 h-5 animate-pulse text-emerald-400" />
+                <span className="text-sm uppercase tracking-wider font-medium">Select Time Below</span>
+                <ChevronLeft className="w-5 h-5 animate-pulse text-emerald-400" />
+                <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
               </div>
             </div>
           </div>
         </div>
         
-        {/* Calendly Widget with Professional Styling */}
+        {/* Calendly Widget - Dark Theme */}
         <div className="relative">
-          {/* Subtle shadow frame */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg transform translate-x-1 translate-y-1 -z-10"></div>
+          {/* Dark shadow frame */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl transform translate-x-1 translate-y-1 -z-10"></div>
           
-          {/* Widget Container */}
-          <div className="relative bg-white rounded-lg border border-gray-200 shadow-xl overflow-hidden">
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-3 border-b border-gray-200">
+          {/* Widget Container - Dark Theme */}
+          <div className="relative bg-gray-900 rounded-2xl border border-gray-700 shadow-2xl overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-4 border-b border-gray-700">
               <div className="flex items-center justify-between">
-                <span className="text-gray-700 font-medium">Available Time Slots</span>
-                <span className="text-xs text-gray-500 uppercase tracking-wider">Live Calendar</span>
+                <span className="text-gray-200 font-semibold text-lg">Available Time Slots</span>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-gray-400 uppercase tracking-wider font-medium">Live Calendar</span>
+                </div>
               </div>
             </div>
             
-            <div className="p-4">
+            <div className="p-6 bg-gray-900">
               <CalendlyWidget 
                 height="600px"
-                className="rounded overflow-hidden"
+                className="rounded-xl overflow-hidden border border-gray-700"
               />
             </div>
           </div>
         </div>
         
-        {/* Professional Footer Note */}
-        <div className="mt-8 text-center">
-          <p className="text-gray-600 text-sm">
+        {/* Dark Theme Footer Note */}
+        <div className="mt-8 text-center bg-gray-800/30 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50">
+          <p className="text-gray-300 text-sm font-medium">
             Alternative scheduling available via direct contact
           </p>
-          <p className="text-gray-500 text-xs mt-2">
+          <p className="text-gray-400 text-xs mt-2">
             {formData.phone ? `We'll reach you at ${formData.phone} within 24 hours if needed` : 'Our team will contact you within 24 hours if needed'}
           </p>
         </div>
         
         {onClose && (
           <div className="text-center mt-6">
-            <Button onClick={onClose} className="bg-blue-600 hover:bg-blue-700">
+            <Button onClick={onClose} className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-medium shadow-lg hover:shadow-emerald-500/20 transition-all duration-300">
               Continue Exploring
             </Button>
           </div>
