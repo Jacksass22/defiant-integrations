@@ -72,27 +72,27 @@ export default function Electrical() {
               Running an electrical company means balancing safety-critical work with business demands. You're dealing with everything from simple outlet installations to complex commercial projects, all while customers expect quick responses and accurate estimates. Safety regulations are getting stricter, insurance costs are rising, and finding qualified electricians is nearly impossible.
             </p>
             
-            {/* Stats Grid */}
+            {/* Electrical Industry Challenges */}
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">$50K+</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Project Range</h3>
-                <p className="text-gray-600">Jobs vary from $200 outlet repairs to complex commercial installations</p>
+                <div className="text-5xl font-bold text-orange-600 mb-4">85%</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Missed Follow-ups</h3>
+                <p className="text-gray-600">Large project estimates that never get proper follow-up contact</p>
               </div>
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">100%</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Safety Critical</h3>
-                <p className="text-gray-600">One mistake can shut down your business or hurt someone</p>
+                <div className="text-5xl font-bold text-orange-600 mb-4">40%</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Admin Time</h3>
+                <p className="text-gray-600">Of your day spent on paperwork instead of billable electrical work</p>
               </div>
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">60%</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Lead Conversion</h3>
-                <p className="text-gray-600">Better with AI follow-up on new inquires and long term automated follow up.</p>
+                <div className="text-5xl font-bold text-orange-600 mb-4">3x</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Permit Delays</h3>
+                <p className="text-gray-600">Projects delayed due to missed permit deadlines and compliance issues</p>
               </div>
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">24/7</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Code Compliance</h3>
-                <p className="text-gray-600">Regulations change constantly and violations are costly</p>
+                <div className="text-5xl font-bold text-orange-600 mb-4">72hr</div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Response Window</h3>
+                <p className="text-gray-600">Maximum time before customers call your competitors for estimates</p>
               </div>
             </div>
 
