@@ -172,8 +172,8 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Intelligence */}
                   <TiltedCard
-                    scaleOnHover={1.03}
-                    rotateAmplitude={6}
+                    scaleOnHover={1.1}
+                    rotateAmplitude={15}
                     className="group relative"
                   >
                     <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300">
@@ -190,8 +190,8 @@ export default function Home() {
                   
                   {/* Digital */}
                   <TiltedCard
-                    scaleOnHover={1.03}
-                    rotateAmplitude={6}
+                    scaleOnHover={1.1}
+                    rotateAmplitude={15}
                     className="group relative"
                   >
                     <div className="relative bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-2xl border border-emerald-200 hover:shadow-lg transition-all duration-300">
@@ -208,8 +208,8 @@ export default function Home() {
                   
                   {/* Analytics */}
                   <TiltedCard
-                    scaleOnHover={1.03}
-                    rotateAmplitude={6}
+                    scaleOnHover={1.1}
+                    rotateAmplitude={15}
                     className="group relative"
                   >
                     <div className="relative bg-gradient-to-br from-violet-50 to-violet-100 p-6 rounded-2xl border border-violet-200 hover:shadow-lg transition-all duration-300">
@@ -226,8 +226,8 @@ export default function Home() {
                   
                   {/* Strategy */}
                   <TiltedCard
-                    scaleOnHover={1.03}
-                    rotateAmplitude={6}
+                    scaleOnHover={1.1}
+                    rotateAmplitude={15}
                     className="group relative"
                   >
                     <div className="relative bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl border border-amber-200 hover:shadow-lg transition-all duration-300">
