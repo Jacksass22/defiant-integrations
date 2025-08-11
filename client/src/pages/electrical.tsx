@@ -43,7 +43,10 @@ export default function Electrical() {
             </p>
             <button 
               onClick={() => setShowLeadCaptureModal(true)}
-              className="inline-flex items-center space-x-2 bg-white text-orange-900 px-8 py-4 font-medium hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center space-x-2 bg-black text-white px-8 py-4 font-medium hover:bg-gray-900 transition-colors shadow-lg"
+              style={{
+                textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)'
+              }}
             >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
