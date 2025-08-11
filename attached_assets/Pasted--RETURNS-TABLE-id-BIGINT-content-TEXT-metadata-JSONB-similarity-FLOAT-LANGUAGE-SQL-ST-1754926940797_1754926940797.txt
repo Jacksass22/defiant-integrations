@@ -1,0 +1,173 @@
+)
+RETURNS TABLE(
+  id BIGINT,
+  content TEXT,
+  metadata JSONB,
+  similarity FLOAT
+)
+LANGUAGE SQL STABLE
+AS $$
+  SELECT
+    your_vector_table.id,
+    your_vector_table.content,
+    your_vector_table.metadata,
+    1 - (your_vector_table.embedding <=> query_embedding) AS similarity
+  FROM your_vector_table
+  WHERE (filter = '{}' OR metadata @> filter)
+  ORDER BY your_vector_table.embedding <=> query_embedding
+  LIMIT match_count;
+$$;
+Key Changes:
+
+Moved query_embedding first (required parameter)
+Made filter and match_count optional with defaults
+Fixed the parameter order to follow PostgreSQL rules
+
+Also Copy Your Data
+Since you're using your_vector_table, make sure it has data:
+sql-- Copy your documents to the correct table
+INSERT INTO your_vector_table (content, metadata, embedding)
+SELECT content, metadata, embedding 
+FROM documents
+ON CONFLICT (id) DO NOTHING;
+This should resolve the SQL syntax error and make your RAG system functional!RetryJSwe r using documents nowEditI see the issue! You're now using the documents table, but the function is still looking at your_vector_table. Let's fix this:
+Update the Function for the Documents Table
+sql-- Drop the old function
+DROP FUNCTION IF EXISTS match_documents CASCADE;
+
+-- Create the function to work with the documents table
+CREATE OR REPLACE FUNCTION match_documents(
+  query_embedding VECTOR(1024),
+  filter JSONB DEFAULT '{}',
+  match_count INT DEFAULT 10
+)
+RETURNS TABLE(
+  id BIGINT,
+  content TEXT,
+  metadata JSONB,
+  similarity FLOAT
+)
+LANGUAGE SQL STABLE
+AS $$
+  SELECT
+    documents.id,
+    documents.content,
+    documents.metadata,
+    1 - (documents.embedding <=> query_embedding) AS similarity
+  FROM documents
+  WHERE (filter = '{}' OR metadata @> filter)
+  ORDER BY documents.embedding <=> query_embedding
+  LIMIT match_count;
+$$;
+Key Change
+Changed your_vector_table to documents in the function since that's where your data actually lives.
+After running this, your RAG system should work! The function will now search in the correct documents table where you have 227 records with embeddings.
+Test it again and the "Could not find function" error should be resolved.RetryJSWOAH, whatever we just did worked. now how do we make sure it weorks up top.EditExcellent! 🎉 The RAG system is working now! Let's make sure it works in your main chatbot workflow too.
+Steps to Fix the Main Workflow:
+1. Check Your Main Workflow Configuration
+Go back to your main RAG chatbot workflow and verify:
+
+Supabase Vector Store node (the one connected to your RAG Agent):
+
+Table name: documents
+Operation mode: "Retrieve Documents"
+Same Supabase credentials
+
+
+
+2. Make Sure All Vector Stores Use the Same Settings
+All your Supabase Vector Store nodes should have:
+
+Table: documents
+Embedding dimensions: 1024
+Cohere embeddings: embed-multilingual-v3.0
+
+3. Test the Main Workflow
+
+Go to your main RAG workflow
+Send a test message through your webhook
+Check if the RAG Agent now calls the vector store tool
+
+4. If It Still Doesn't Work
+The issue might be:
+
+Wrong table name in your main vector store node
+Different embedding model
+Missing AI tool connection
+
+Quick Check
+Look at your main workflow's "Supabase Vector Store2" node - does it point to:
+
+✅ Table: documents
+✅ Same credentials
+✅ Connected to Embeddings Cohere3
+
+If those match what we just fixed, your main chatbot should work perfectly now!
+The key was creating the correct match_documents function that points to the right table with the right embedding dimensions.RetryJSwtf now it doesnt workEditI can see the issue! Looking at your workflow, you have TWO separate RAG workflows and they're configured differently:
+The Problem
+
+Bottom workflow (working): Uses "Supabase Vector Store3" pointing to documents table ✅
+Top workflow (broken): Uses "Supabase Vector Store2" pointing to your_vector_table ❌
+
+Quick Fix
+You need to update the top workflow's Vector Store node:
+
+Click on "Supabase Vector Store2" (in the top workflow)
+Change the table name from your_vector_table to documents
+Save the workflow
+
+Why This Happened
+The function we created works with the documents table, but your top workflow is still trying to query the empty your_vector_table.
+Alternative Fix (If You Want to Keep Separate Tables)
+If you want to keep them separate, run this SQL to copy data to both tables:
+sql-- Copy data to your_vector_table for the top workflow
+INSERT INTO your_vector_table (content, metadata, embedding)
+SELECT content, metadata, embedding 
+FROM documents
+ON CONFLICT (id) DO NOTHING;
+But the easiest fix is just changing the table name in "Supabase Vector Store2" to documents.
+Both workflows will then use the same data source and work perfectly! 🚀RetryJSit worked, but didnt appear to on the website. Can the website not recive the webhook back?EditLooking at your setup, the issue is likely that your website chatbot isn't properly connected to receive the webhook response from n8n.
+Here's What's Happening:
+
+✅ n8n workflow works - RAG system is functioning
+✅ Webhook receives the message from your website
+✅ RAG Agent processes and generates a response
+❌ Website doesn't receive the response back
+
+Common Issues & Fixes:
+1. Check Your Website's API Integration
+In your website code, make sure you're:
+
+Waiting for the webhook response (not just sending and forgetting)
+Handling the response properly
+Displaying the response in the chat UI
+
+2. Verify the Webhook Response
+In your n8n workflow:
+
+"Respond to Webhook" node should be properly configured
+Response format should match what your website expects
+Check the "Respond to Webhook" node's output format
+
+3. Test the Webhook Directly
+Try testing your webhook URL directly with a tool like Postman or curl to see if it returns the response properly.
+4. Check Browser Console
+Open your website's browser console (F12) and look for:
+
+Network errors when sending messages
+JavaScript errors in the chat widget
+Failed API calls to your n8n webhook
+
+5. Common Website Code Fix
+Make sure your website code looks something like this:
+javascript// Send message and wait for response
+const response = await fetch('your-webhook-url', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ message: userMessage, sessionId: sessionId })
+});
+
+const data = await response.json();
+// Display the response in chat
+displayMessage(data.response);
+What does your website's chat integration code look like? That's likely where the issue is.RetryClaude can make mistakes. Please double-check responses.

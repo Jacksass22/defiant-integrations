@@ -81,8 +81,11 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       
       let responseText = "I'm sorry, I couldn't process your request right now. Please try again.";
       
+      // Handle both 'response' and 'output' fields from n8n
       if (data.response) {
         responseText = data.response;
+      } else if (data.output) {
+        responseText = data.output;
       } else if (data.message && data.message.includes("Workflow could not be started")) {
         responseText = "I'm currently being updated to serve you better. Please try again in a moment or contact us directly for immediate assistance.";
       }
@@ -97,9 +100,21 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('Chat error:', error);
+      let errorText = "I'm experiencing technical difficulties. Please try again in a moment or contact us directly.";
+      
+      // More specific error handling
+      if (error instanceof Error) {
+        if (error.message.includes('json')) {
+          // Try to handle non-JSON responses
+          errorText = "I received an unexpected response format. Please try again.";
+        } else if (error.message.includes('network') || error.message.includes('fetch')) {
+          errorText = "Connection issue detected. Please check your internet and try again.";
+        }
+      }
+      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I'm experiencing technical difficulties. Please try again in a moment or contact us directly.",
+        text: errorText,
         sender: 'bot',
         timestamp: new Date()
       };
