@@ -247,6 +247,20 @@ export default function Services() {
         'Performance optimization',
         'Cost optimization strategies'
       ]
+    },
+    {
+      id: 'customer-retention',
+      icon: Users,
+      title: 'Customer Retention & Growth',
+      description: 'AI-driven strategies that maximize customer lifetime value',
+      services: [
+        'Predictive churn prevention systems',
+        'Personalized retention campaigns',
+        'Customer lifetime value optimization',
+        'Intelligent upselling and cross-selling',
+        'Loyalty program automation',
+        'Behavioral engagement triggers'
+      ]
     }
   ];
 
