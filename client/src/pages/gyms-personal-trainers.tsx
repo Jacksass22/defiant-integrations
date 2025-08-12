@@ -7,6 +7,7 @@ import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
 import gymImage from '@assets/pexels-runffwpu-2526883_1754956926638.jpg';
 import boxingGymImage from '@assets/pexels-cottonbro-4752856_1754957021363.jpg';
+import fitnessTrackerImage from '@assets/pexels-karolina-grabowska-4498479_1754957091325.jpg';
 
 export default function GymsPersonalTrainers() {
   useScrollToTop();
@@ -233,8 +234,13 @@ export default function GymsPersonalTrainers() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-blue-600 to-cyan-700 h-96 rounded-lg flex items-center justify-center">
-                <Calendar className="w-32 h-32 text-white/20" />
+              <div className="relative h-96 rounded-lg overflow-hidden">
+                <img
+                  src={fitnessTrackerImage}
+                  alt="Fitness tracker showing workout data"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
               </div>
             </div>
 
