@@ -1,6 +1,55 @@
-node_modules
-dist
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production builds
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS generated files
 .DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs
+*.log
+
+# Cache directories
+.cache/
+.upm/
+.local/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large asset files (keep only essential images)
+attached_assets/
+# Only keep essential images used in the website
+!attached_assets/pexels-runffwpu-2526883_1754956926638.jpg
+!attached_assets/pexels-cottonbro-4752856_1754957021363.jpg
+!attached_assets/pexels-karolina-grabowska-4498479_1754957091325.jpg
+!attached_assets/pexels-abid-udoy-2148819280-30289789_1754957205573.jpg
+!attached_assets/pexels-alexander-dummer-37646-132676_1754955265248.jpg
+!attached_assets/pexels-goochie-poochie-19145877_1754955100849.jpg
+!attached_assets/pexels-cottonbro-5077049_1754954770352.jpg
