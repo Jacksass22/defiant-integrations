@@ -5,6 +5,7 @@ import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
+import gymImage from '@assets/pexels-runffwpu-2526883_1754956926638.jpg';
 
 export default function GymsPersonalTrainers() {
   useScrollToTop();
@@ -149,8 +150,13 @@ export default function GymsPersonalTrainers() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-red-600 to-orange-700 h-96 rounded-lg flex items-center justify-center">
-                <Dumbbell className="w-32 h-32 text-white/20" />
+              <div className="relative h-96 rounded-lg overflow-hidden">
+                <img
+                  src={gymImage}
+                  alt="Fitness runners training outdoors"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
               </div>
             </div>
 
