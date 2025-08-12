@@ -6,6 +6,7 @@ import BlurText from '@/components/BlurText';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useState } from 'react';
 import gymImage from '@assets/pexels-runffwpu-2526883_1754956926638.jpg';
+import boxingGymImage from '@assets/pexels-cottonbro-4752856_1754957021363.jpg';
 
 export default function GymsPersonalTrainers() {
   useScrollToTop();
@@ -162,8 +163,13 @@ export default function GymsPersonalTrainers() {
 
             {/* Solution 2 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-orange-600 to-yellow-600 h-96 rounded-lg flex items-center justify-center">
-                <Camera className="w-32 h-32 text-white/20" />
+              <div className="order-2 lg:order-1 relative h-96 rounded-lg overflow-hidden">
+                <img
+                  src={boxingGymImage}
+                  alt="Boxing gym training environment"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
               </div>
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-600 rounded-lg mb-6">
