@@ -1,0 +1,13 @@
+{
+  "name": "defiant-crm",
+  "description": "n8n CRM for Defiant Integrations webhooks",
+  "framework": "nodejs",
+  "buildCommand": "npm install",
+  "startCommand": "npm start",
+  "environment": {
+    "N8N_PORT": "3000",
+    "N8N_HOST": "0.0.0.0",
+    "WEBHOOK_URL": "${{RAILWAY_STATIC_URL}}/webhook",
+    "N8N_BASIC_AUTH_ACTIVE": "false"
+  }
+}

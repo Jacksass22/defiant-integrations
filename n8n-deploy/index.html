@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defiant Integrations CRM</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .container { max-width: 600px; margin: 0 auto; }
+        .status { 
+            background: rgba(255,255,255,0.1); 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin: 20px 0;
+        }
+        .webhook-url { 
+            background: rgba(0,0,0,0.3); 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-family: monospace; 
+            word-break: break-all;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Defiant Integrations CRM</h1>
+        <p>Your n8n CRM system is running and ready to receive webhooks.</p>
+        
+        <div class="status">
+            <h3>Webhook Endpoints Available:</h3>
+            <div class="webhook-url">
+                https://your-subdomain.netlify.app/webhook/lead-capture
+            </div>
+            <div class="webhook-url">
+                https://your-subdomain.netlify.app/webhook/subscribe
+            </div>
+        </div>
+        
+        <p>Use these URLs as your VITE_API_URL in the main website deployment.</p>
+        
+        <div class="status">
+            <h4>Status: Active ✅</h4>
+            <p>Ready to process leads and subscriptions</p>
+        </div>
+    </div>
+</body>
+</html>
