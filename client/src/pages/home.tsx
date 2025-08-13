@@ -373,9 +373,7 @@ export default function Home() {
       <section className="py-16 bg-slate-100 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight">
-              Online Business Acceleration
-            </h3>
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight">Systems at work</h3>
             <div className="w-16 h-0.5 bg-blue-600 mx-auto mb-6" />
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Specialized solutions for digital businesses ready to scale smarter through intelligent automation and optimization
