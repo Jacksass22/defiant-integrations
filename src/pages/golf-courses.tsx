@@ -189,7 +189,8 @@ export default function GolfCourses() {
                     "Smart call routing to staff when needed"
                   ],
                   color: "green",
-                  delay: 0
+                  delay: 0,
+                  hasVoiceDemo: true
                 },
                 {
                   icon: BarChart3,
@@ -236,7 +237,7 @@ export default function GolfCourses() {
                   <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 mb-6 leading-relaxed">
                     {solution.description}
                   </p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 mb-6">
                     {solution.features.map((feature, featureIndex) => (
                       <motion.li 
                         key={featureIndex}
@@ -250,6 +251,32 @@ export default function GolfCourses() {
                       </motion.li>
                     ))}
                   </ul>
+                  
+                  {/* AI Voice Demo Widget for Phone Reception */}
+                  {solution.hasVoiceDemo && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: solution.delay + 0.5 }}
+                      className="border-t border-gray-100 pt-6 mt-6"
+                    >
+                      <div className="text-center">
+                        <p className="text-sm font-medium text-gray-700 mb-4">
+                          🎯 Try Our AI Receptionist Demo
+                        </p>
+                        <div className="flex justify-center">
+                          <div 
+                            dangerouslySetInnerHTML={{
+                              __html: `<vapi-widget assistant-id="1fa0e900-ab80-449a-b8c7-02e55c371cc5" public-key="daf87472-30a2-44a9-96bb-1b832815c8d1"></vapi-widget>`
+                            }}
+                          />
+                        </div>
+                        <p className="text-xs text-gray-500 mt-3 leading-relaxed">
+                          Click the button above to experience how our AI handles golf course inquiries—tee times, rates, weather updates, and more!
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
                 </motion.div>
               ))}
             </div>
