@@ -8,22 +8,53 @@ import { motion } from 'framer-motion';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function GolfCourses() {
   useScrollToTop();
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
+  // Ensure Vapi widget is properly initialized
+  useEffect(() => {
+    const initVapi = () => {
+      // Check if Vapi widget script is loaded
+      if (typeof window !== 'undefined') {
+        console.log('Vapi widget initializing...');
+        // Force widget to render
+        const event = new CustomEvent('vapi-widget-ready');
+        window.dispatchEvent(event);
+      }
+    };
+    
+    // Wait for script to load
+    const timer = setTimeout(initVapi, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
       
-      {/* Vapi AI Voice Widget */}
+      {/* Vapi AI Voice Widget - positioned on left side to complement existing RAG chat widget on right */}
       <div 
-        dangerouslySetInnerHTML={{
-          __html: `<vapi-widget assistant-id="1fa0e900-ab80-449a-b8c7-02e55c371cc5" public-key="daf87472-30a2-44a9-96bb-1b832815c8d1"></vapi-widget>`
+        className="fixed bottom-6 left-6 z-40"
+        style={{ 
+          position: 'fixed',
+          bottom: '24px',
+          left: '24px',
+          zIndex: 40
         }}
-      />
+      >
+        <div 
+          dangerouslySetInnerHTML={{
+            __html: `<vapi-widget 
+              assistant-id="1fa0e900-ab80-449a-b8c7-02e55c371cc5" 
+              public-key="daf87472-30a2-44a9-96bb-1b832815c8d1"
+              style="position: fixed; bottom: 24px; left: 24px; z-index: 40;"
+            ></vapi-widget>`
+          }}
+        />
+      </div>
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">
