@@ -14,47 +14,47 @@ export default function GolfCourses() {
   useScrollToTop();
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
-  // Ensure Vapi widget is properly initialized
+  // Load and initialize Vapi widget manually
   useEffect(() => {
-    const initVapi = () => {
-      // Check if Vapi widget script is loaded
-      if (typeof window !== 'undefined') {
-        console.log('Vapi widget initializing...');
-        // Force widget to render
-        const event = new CustomEvent('vapi-widget-ready');
-        window.dispatchEvent(event);
+    const loadVapiWidget = async () => {
+      try {
+        // Check if script is already loaded
+        if (!document.querySelector('script[src*="vapi-ai"]')) {
+          const script = document.createElement('script');
+          script.src = 'https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js';
+          script.async = true;
+          script.onload = () => {
+            console.log('Vapi script loaded successfully');
+            // Create widget element
+            const widget = document.createElement('vapi-widget');
+            widget.setAttribute('assistant-id', '1fa0e900-ab80-449a-b8c7-02e55c371cc5');
+            widget.setAttribute('public-key', 'daf87472-30a2-44a9-96bb-1b832815c8d1');
+            widget.style.position = 'fixed';
+            widget.style.bottom = '24px';
+            widget.style.left = '24px';
+            widget.style.zIndex = '50';
+            
+            // Add to body
+            document.body.appendChild(widget);
+          };
+          script.onerror = () => {
+            console.error('Failed to load Vapi script');
+          };
+          document.head.appendChild(script);
+        }
+      } catch (error) {
+        console.error('Error loading Vapi widget:', error);
       }
     };
     
-    // Wait for script to load
-    const timer = setTimeout(initVapi, 1000);
-    return () => clearTimeout(timer);
+    loadVapiWidget();
   }, []);
   
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
       
-      {/* Vapi AI Voice Widget - positioned on left side to complement existing RAG chat widget on right */}
-      <div 
-        className="fixed bottom-6 left-6 z-40"
-        style={{ 
-          position: 'fixed',
-          bottom: '24px',
-          left: '24px',
-          zIndex: 40
-        }}
-      >
-        <div 
-          dangerouslySetInnerHTML={{
-            __html: `<vapi-widget 
-              assistant-id="1fa0e900-ab80-449a-b8c7-02e55c371cc5" 
-              public-key="daf87472-30a2-44a9-96bb-1b832815c8d1"
-              style="position: fixed; bottom: 24px; left: 24px; z-index: 40;"
-            ></vapi-widget>`
-          }}
-        />
-      </div>
+      {/* Vapi widget will be loaded dynamically via useEffect */}
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">
@@ -302,8 +302,16 @@ export default function GolfCourses() {
                         <p className="text-sm font-medium text-gray-700 mb-4">
                           🎯 Try Our AI Receptionist Demo
                         </p>
+                        <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-3">
+                          <p className="text-xs text-green-700 font-medium">
+                            Voice Widget Loading...
+                          </p>
+                          <p className="text-xs text-green-600 mt-1">
+                            The AI voice assistant should appear as a floating button on the bottom-left corner of your screen.
+                          </p>
+                        </div>
                         <p className="text-xs text-gray-500 leading-relaxed">
-                          The AI voice assistant will appear as a floating chat widget on this page. Click it to test golf course inquiries—tee times, rates, weather updates, and more!
+                          Click the voice widget to test real golf course inquiries—tee times, rates, weather updates, and more!
                         </p>
                       </div>
                     </motion.div>
