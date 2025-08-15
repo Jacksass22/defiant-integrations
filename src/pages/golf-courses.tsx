@@ -14,47 +14,50 @@ export default function GolfCourses() {
   useScrollToTop();
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
-  // Load and initialize Vapi widget manually
-  useEffect(() => {
-    const loadVapiWidget = async () => {
-      try {
-        // Check if script is already loaded
-        if (!document.querySelector('script[src*="vapi-ai"]')) {
-          const script = document.createElement('script');
-          script.src = 'https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js';
-          script.async = true;
-          script.onload = () => {
-            console.log('Vapi script loaded successfully');
-            // Create widget element
-            const widget = document.createElement('vapi-widget');
-            widget.setAttribute('assistant-id', '1fa0e900-ab80-449a-b8c7-02e55c371cc5');
-            widget.setAttribute('public-key', 'daf87472-30a2-44a9-96bb-1b832815c8d1');
-            widget.style.position = 'fixed';
-            widget.style.bottom = '24px';
-            widget.style.left = '24px';
-            widget.style.zIndex = '50';
-            
-            // Add to body
-            document.body.appendChild(widget);
-          };
-          script.onerror = () => {
-            console.error('Failed to load Vapi script');
-          };
-          document.head.appendChild(script);
-        }
-      } catch (error) {
-        console.error('Error loading Vapi widget:', error);
-      }
-    };
-    
-    loadVapiWidget();
-  }, []);
+  // State for showing voice widget
+  const [showVoiceWidget, setShowVoiceWidget] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
       
-      {/* Vapi widget will be loaded dynamically via useEffect */}
+      {/* Vapi Voice Assistant Button - Bottom Left */}
+      <div 
+        className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-2"
+      >
+        {/* Voice Assistant Button */}
+        <button
+          onClick={() => setShowVoiceWidget(!showVoiceWidget)}
+          className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center gap-3"
+          title="Talk to our AI Voice Assistant"
+        >
+          <Phone className="w-6 h-6" />
+          <span className="pr-2 font-medium">AI Voice Assistant</span>
+        </button>
+        
+        {/* Voice Widget Container */}
+        {showVoiceWidget && (
+          <div className="bg-white rounded-lg shadow-2xl p-4 mb-2 w-80">
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="font-semibold text-gray-800">Golf Course Assistant</h3>
+              <button 
+                onClick={() => setShowVoiceWidget(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                ✕
+              </button>
+            </div>
+            <iframe
+              src={`https://vapi.ai/embed?publicKey=daf87472-30a2-44a9-96bb-1b832815c8d1&assistantId=1fa0e900-ab80-449a-b8c7-02e55c371cc5`}
+              width="100%"
+              height="400"
+              frameBorder="0"
+              allow="microphone"
+              className="rounded-lg"
+            />
+          </div>
+        )}
+      </div>
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">
