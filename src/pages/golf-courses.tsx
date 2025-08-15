@@ -17,6 +17,13 @@ export default function GolfCourses() {
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
+      
+      {/* Vapi AI Voice Widget */}
+      <div 
+        dangerouslySetInnerHTML={{
+          __html: `<vapi-widget assistant-id="1fa0e900-ab80-449a-b8c7-02e55c371cc5" public-key="daf87472-30a2-44a9-96bb-1b832815c8d1"></vapi-widget>`
+        }}
+      />
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">
@@ -252,7 +259,7 @@ export default function GolfCourses() {
                     ))}
                   </ul>
                   
-                  {/* AI Voice Demo Widget for Phone Reception */}
+                  {/* AI Voice Demo Call-to-Action */}
                   {solution.hasVoiceDemo && (
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -264,15 +271,8 @@ export default function GolfCourses() {
                         <p className="text-sm font-medium text-gray-700 mb-4">
                           🎯 Try Our AI Receptionist Demo
                         </p>
-                        <div className="flex justify-center">
-                          <div 
-                            dangerouslySetInnerHTML={{
-                              __html: `<vapi-widget assistant-id="1fa0e900-ab80-449a-b8c7-02e55c371cc5" public-key="daf87472-30a2-44a9-96bb-1b832815c8d1"></vapi-widget>`
-                            }}
-                          />
-                        </div>
-                        <p className="text-xs text-gray-500 mt-3 leading-relaxed">
-                          Click the button above to experience how our AI handles golf course inquiries—tee times, rates, weather updates, and more!
+                        <p className="text-xs text-gray-500 leading-relaxed">
+                          The AI voice assistant will appear as a floating chat widget on this page. Click it to test golf course inquiries—tee times, rates, weather updates, and more!
                         </p>
                       </div>
                     </motion.div>
