@@ -1,13 +1,13 @@
 import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target, Zap, Clock, TrendingUp, Shield, Star, MapPin, Mic } from 'lucide-react';
-import { Navigation } from '@/components/navigation';
+import { Navigation } from '../components/navigation';
 import { Link } from 'wouter';
-import BlurText from '@/components/BlurText';
-import TrueFocus from '@/components/TrueFocus';
+import BlurText from '../components/BlurText';
+import TrueFocus from '../components/TrueFocus';
 
 import { motion } from 'framer-motion';
-import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import golfCourseImage from '../../attached_assets/pexels-cottonbro-6256829_1753397088903.jpg';
+import { useScrollToTop } from '../hooks/useScrollToTop';
+import { LeadCaptureModal } from '../components/lead-capture-modal';
 import { useState } from 'react';
 
 export default function GolfCourses() {
