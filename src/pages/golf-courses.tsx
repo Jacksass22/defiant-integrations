@@ -1,9 +1,8 @@
-import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target, Zap, Clock, TrendingUp, Shield, Star, MapPin } from 'lucide-react';
+import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target, Zap, Clock, TrendingUp, Shield, Star, MapPin, Mic } from 'lucide-react';
 import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
-import { VoiceAssistantWidget } from '@/components/VoiceAssistantWidget';
 
 import { motion } from 'framer-motion';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
@@ -14,13 +13,59 @@ import { useState } from 'react';
 export default function GolfCourses() {
   useScrollToTop();
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
+  const [showVoiceWidget, setShowVoiceWidget] = useState(false);
   
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
       
-      {/* Voice Assistant Widget - Always Visible */}
-      <VoiceAssistantWidget />
+      {/* Voice Assistant Button - Always Visible */}
+      <button
+        onClick={() => setShowVoiceWidget(true)}
+        className="fixed bottom-6 left-6 z-50 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 flex items-center gap-2"
+        style={{ zIndex: 9999 }}
+      >
+        <Mic className="w-6 h-6" />
+        <span className="pr-2 font-semibold">AI Voice Demo</span>
+      </button>
+      
+      {/* Voice Assistant Modal */}
+      {showVoiceWidget && (
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
+            <div className="bg-gradient-to-r from-purple-600 to-purple-500 p-4 text-white">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <Phone className="w-6 h-6" />
+                  <div>
+                    <h2 className="text-lg font-bold">Golf Course AI Assistant</h2>
+                    <p className="text-sm opacity-90">Powered by Vapi</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowVoiceWidget(false)}
+                  className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            <div className="p-4 bg-gray-50">
+              <iframe
+                src="https://vapi.ai/embed?publicKey=daf87472-30a2-44a9-96bb-1b832815c8d1&assistantId=1fa0e900-ab80-449a-b8c7-02e55c371cc5"
+                width="100%"
+                height="450"
+                frameBorder="0"
+                allow="microphone"
+                className="rounded-lg shadow-inner bg-white"
+              />
+              <p className="text-center text-sm text-gray-600 mt-3">
+                Click the microphone to start talking
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">
