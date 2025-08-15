@@ -3,61 +3,24 @@ import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
+import { VoiceAssistantWidget } from '@/components/VoiceAssistantWidget';
 
 import { motion } from 'framer-motion';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function GolfCourses() {
   useScrollToTop();
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   
-  // State for showing voice widget
-  const [showVoiceWidget, setShowVoiceWidget] = useState(false);
-  
   return (
     <div className="bg-white text-charcoal font-sans">
       <Navigation />
       
-      {/* Vapi Voice Assistant Button - Bottom Left */}
-      <div 
-        className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-2"
-      >
-        {/* Voice Assistant Button */}
-        <button
-          onClick={() => setShowVoiceWidget(!showVoiceWidget)}
-          className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center gap-3"
-          title="Talk to our AI Voice Assistant"
-        >
-          <Phone className="w-6 h-6" />
-          <span className="pr-2 font-medium">AI Voice Assistant</span>
-        </button>
-        
-        {/* Voice Widget Container */}
-        {showVoiceWidget && (
-          <div className="bg-white rounded-lg shadow-2xl p-4 mb-2 w-80">
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="font-semibold text-gray-800">Golf Course Assistant</h3>
-              <button 
-                onClick={() => setShowVoiceWidget(false)}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                ✕
-              </button>
-            </div>
-            <iframe
-              src={`https://vapi.ai/embed?publicKey=daf87472-30a2-44a9-96bb-1b832815c8d1&assistantId=1fa0e900-ab80-449a-b8c7-02e55c371cc5`}
-              width="100%"
-              height="400"
-              frameBorder="0"
-              allow="microphone"
-              className="rounded-lg"
-            />
-          </div>
-        )}
-      </div>
+      {/* Voice Assistant Widget - Always Visible */}
+      <VoiceAssistantWidget />
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">
