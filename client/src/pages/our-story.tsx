@@ -145,7 +145,7 @@ export default function OurStory() {
                 color: "blue"
               },
               {
-                year: "2024",
+                year: "2025",
                 title: "First $10M Delivered",
                 description: "Client transformations delivered",
                 milestone: "Validation",
