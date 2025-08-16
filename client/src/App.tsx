@@ -36,6 +36,7 @@ import InsuranceBrokers from "@/pages/insurance-brokers";
 import HRRecruitingFirms from "@/pages/hr-recruiting-firms";
 import BusinessConsultants from "@/pages/business-consultants";
 import GolfCourses from "@/pages/golf-courses";
+import StorageCompanies from "@/pages/storage-companies";
 import AIStrategyDevelopment from "@/pages/ai-strategy-development";
 import DigitalTransformation from "@/pages/digital-transformation";
 import TechnologyRoadmapping from "@/pages/technology-roadmapping";
@@ -100,6 +101,7 @@ function Router() {
       <Route path="/hr-recruiting-firms" component={HRRecruitingFirms} />
       <Route path="/business-consultants" component={BusinessConsultants} />
       <Route path="/golf-courses" component={GolfCourses} />
+      <Route path="/storage-companies" component={StorageCompanies} />
       <Route path="/ai-strategy-development" component={AIStrategyDevelopment} />
       <Route path="/digital-transformation" component={DigitalTransformation} />
       <Route path="/technology-roadmapping" component={TechnologyRoadmapping} />
