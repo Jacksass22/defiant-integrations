@@ -42,6 +42,7 @@ import TechnologyRoadmapping from "@/pages/technology-roadmapping";
 import ROIAssessment from "@/pages/roi-assessment";
 import ChangeManagement from "@/pages/change-management";
 import TeamTraining from "@/pages/team-training";
+import VoiceAgentsDemo from "@/pages/voice-agents-demo";
 import GovernanceFrameworks from "@/pages/governance-frameworks";
 import ContinuousImprovement from "@/pages/continuous-improvement";
 import SystemIntegration from "@/pages/system-integration";
@@ -105,6 +106,7 @@ function Router() {
       <Route path="/roi-assessment" component={ROIAssessment} />
       <Route path="/change-management" component={ChangeManagement} />
       <Route path="/team-training" component={TeamTraining} />
+      <Route path="/voice-agents-demo" component={VoiceAgentsDemo} />
       <Route path="/governance-frameworks" component={GovernanceFrameworks} />
       <Route path="/continuous-improvement" component={ContinuousImprovement} />
       <Route path="/system-integration" component={SystemIntegration} />
