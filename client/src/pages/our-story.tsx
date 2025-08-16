@@ -153,7 +153,7 @@ export default function OurStory() {
               },
               {
                 year: "2025",
-                title: "500+ Implementations",
+                title: "200+ implementations",
                 description: "Successful AI implementations across 27 industries",
                 milestone: "Scale",
                 color: "green"
@@ -366,7 +366,7 @@ export default function OurStory() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: "500+", label: "Successful AI Implementations", color: "white" },
+              { number: "200+", label: "Successful AI Implementations", color: "white" },
               { number: "27", label: "Industry Verticals Served", color: "yellow" },
               { number: "$50M+", label: "Client Value Generated", color: "green" },
               { number: "95%", label: "Client Satisfaction Rate", color: "blue" }
