@@ -92,7 +92,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
                 headers: {
                   'Content-Type': 'application/json',
                   ...auth.headers
-                } as HeadersInit
+                }
               });
               
               const contentType = response.headers.get('content-type') || '';
@@ -118,7 +118,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
                   headers: {
                     'Content-Type': 'application/json',
                     ...auth.headers
-                  } as HeadersInit,
+                  },
                   body: JSON.stringify({
                     name: 'Test Lead',
                     firstName: 'Test',
@@ -377,7 +377,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             headers: {
               'Content-Type': 'application/json',
               'X-Api-Key': espoCrmApiKey
-            } as HeadersInit,
+            },
             body: JSON.stringify(crmLeadData)
           });
           
@@ -451,7 +451,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
     } catch (error) {
-      res.json({ error: 'Failed to connect to EspoCRM', details: error.message });
+      res.json({ error: 'Failed to connect to EspoCRM', details: (error as Error).message });
     }
   });
 
