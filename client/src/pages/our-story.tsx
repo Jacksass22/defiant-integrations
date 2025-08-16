@@ -272,7 +272,7 @@ export default function OurStory() {
               },
               {
                 title: "Self-Hosted Solutions",
-                description: "Clients own and control their AI infrastructure",
+                description: "clients can own and control their ai infasructure",
                 features: ["Complete data ownership", "Security control", "Custom modifications", "No vendor lock-in"],
                 icon: <Shield className="w-6 h-6" />,
                 color: "yellow"
