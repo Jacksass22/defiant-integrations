@@ -662,9 +662,6 @@ export default function TeamTraining() {
               <button className="bg-green-500 text-black px-8 py-4 rounded-xl font-semibold hover:bg-green-400 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 shadow-lg shadow-green-500/30">
                 Schedule Your Training Assessment
               </button>
-              <button className="border-2 border-green-500 text-green-400 px-8 py-4 rounded-xl font-semibold hover:bg-green-500/10 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300">
-                Download Sample Curriculum
-              </button>
             </div>
             
             <div className="flex flex-wrap justify-center gap-8 text-gray-300">
