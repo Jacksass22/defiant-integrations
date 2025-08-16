@@ -341,9 +341,7 @@ export default function Home() {
                     </div>
                     
                     <h4 className="font-serif text-2xl font-bold text-white mb-4">We make life easier.</h4>
-                    <p className="text-blue-100 leading-relaxed">
-                      Strategic thinking meets technical excellence. We don't just implement AI—we architect intelligent transformations that scale.
-                    </p>
+                    <p className="text-blue-100 leading-relaxed">Strategic thinking meets technical excellence. We don't just implement AI—we architect intelligent AI Agents that work for you.</p>
                     
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/20">
@@ -599,7 +597,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Voice Agents Demo CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -660,7 +657,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Authority & Research Hook Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
