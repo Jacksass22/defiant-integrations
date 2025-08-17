@@ -1,8 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export function VapiVoiceButton() {
-  const widgetRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Load the VAPI widget script
     const script = document.createElement('script');
@@ -16,71 +14,39 @@ export function VapiVoiceButton() {
       document.head.appendChild(script);
     }
 
-    // Create the VAPI widget element after script loads
-    script.onload = () => {
-      if (widgetRef.current) {
-        const vapiWidget = document.createElement('vapi-widget');
-        vapiWidget.setAttribute('public-key', 'daf87472-30a2-44a9-96bb-1b832815c8d1');
-        vapiWidget.setAttribute('assistant-id', '1fa0e900-ab80-449a-b8c7-02e55c371cc5');
-        vapiWidget.setAttribute('mode', 'voice');
-        vapiWidget.setAttribute('theme', 'dark');
-        vapiWidget.setAttribute('base-bg-color', '#000000');
-        vapiWidget.setAttribute('accent-color', '#14B8A6');
-        vapiWidget.setAttribute('cta-button-color', '#000000');
-        vapiWidget.setAttribute('cta-button-text-color', '#ffffff');
-        vapiWidget.setAttribute('border-radius', 'large');
-        vapiWidget.setAttribute('size', 'full');
-        vapiWidget.setAttribute('position', 'bottom-right');
-        vapiWidget.setAttribute('title', 'Talk with an AI receptionist! ');
-        vapiWidget.setAttribute('start-button-text', 'Start');
-        vapiWidget.setAttribute('end-button-text', 'End Call');
-        vapiWidget.setAttribute('chat-first-message', 'Hey, How can I help you today?');
-        vapiWidget.setAttribute('chat-placeholder', 'Type your message...');
-        vapiWidget.setAttribute('voice-show-transcript', 'true');
-        vapiWidget.setAttribute('consent-required', 'true');
-        vapiWidget.setAttribute('consent-title', 'Terms and conditions');
-        vapiWidget.setAttribute('consent-content', 'By clicking "Agree," and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service.');
-        vapiWidget.setAttribute('consent-storage-key', 'vapi_widget_consent');
-        
-        widgetRef.current.appendChild(vapiWidget);
-      }
-    };
-
-    // If script is already loaded, create widget immediately
-    if (existingScript && widgetRef.current) {
-      const vapiWidget = document.createElement('vapi-widget');
-      vapiWidget.setAttribute('public-key', 'daf87472-30a2-44a9-96bb-1b832815c8d1');
-      vapiWidget.setAttribute('assistant-id', '1fa0e900-ab80-449a-b8c7-02e55c371cc5');
-      vapiWidget.setAttribute('mode', 'voice');
-      vapiWidget.setAttribute('theme', 'dark');
-      vapiWidget.setAttribute('base-bg-color', '#000000');
-      vapiWidget.setAttribute('accent-color', '#14B8A6');
-      vapiWidget.setAttribute('cta-button-color', '#000000');
-      vapiWidget.setAttribute('cta-button-text-color', '#ffffff');
-      vapiWidget.setAttribute('border-radius', 'large');
-      vapiWidget.setAttribute('size', 'full');
-      vapiWidget.setAttribute('position', 'bottom-right');
-      vapiWidget.setAttribute('title', 'Talk with an AI receptionist! ');
-      vapiWidget.setAttribute('start-button-text', 'Start');
-      vapiWidget.setAttribute('end-button-text', 'End Call');
-      vapiWidget.setAttribute('chat-first-message', 'Hey, How can I help you today?');
-      vapiWidget.setAttribute('chat-placeholder', 'Type your message...');
-      vapiWidget.setAttribute('voice-show-transcript', 'true');
-      vapiWidget.setAttribute('consent-required', 'true');
-      vapiWidget.setAttribute('consent-title', 'Terms and conditions');
-      vapiWidget.setAttribute('consent-content', 'By clicking "Agree," and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service.');
-      vapiWidget.setAttribute('consent-storage-key', 'vapi_widget_consent');
-      
-      widgetRef.current.appendChild(vapiWidget);
-    }
-
     return () => {
-      // Cleanup
-      if (widgetRef.current) {
-        widgetRef.current.innerHTML = '';
+      // Cleanup on unmount
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
       }
     };
   }, []);
 
-  return <div ref={widgetRef} />;
+  const vapiWidgetHTML = `
+    <vapi-widget
+      public-key="daf87472-30a2-44a9-96bb-1b832815c8d1"
+      assistant-id="1fa0e900-ab80-449a-b8c7-02e55c371cc5"
+      mode="voice"
+      theme="dark"
+      base-bg-color="#000000"
+      accent-color="#14B8A6"
+      cta-button-color="#000000"
+      cta-button-text-color="#ffffff"
+      border-radius="large"
+      size="full"
+      position="bottom-right"
+      title="Talk with an AI receptionist! "
+      start-button-text="Start"
+      end-button-text="End Call"
+      chat-first-message="Hey, How can I help you today?"
+      chat-placeholder="Type your message..."
+      voice-show-transcript="true"
+      consent-required="true"
+      consent-title="Terms and conditions"
+      consent-content="By clicking 'Agree,' and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service."
+      consent-storage-key="vapi_widget_consent"
+    ></vapi-widget>
+  `;
+
+  return <div dangerouslySetInnerHTML={{ __html: vapiWidgetHTML }} />;
 }
