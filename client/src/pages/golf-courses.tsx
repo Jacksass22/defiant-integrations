@@ -35,10 +35,7 @@ export default function GolfCourses() {
           {/* Content */}
           <div className="relative z-10 max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center space-x-2 bg-green-100/90 backdrop-blur-sm px-4 py-2 rounded-full text-green-800 text-sm font-medium mb-6">
-                <Trophy className="w-4 h-4" />
-                <span>Golf Courses</span>
-              </div>
+              
               
               <BlurText
                 text="Elevate the Guest Experience, Streamline Operations"
