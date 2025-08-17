@@ -34,7 +34,7 @@ export function VapiVoiceButton() {
       cta-button-text-color="#ffffff"
       border-radius="large"
       size="full"
-      position="bottom-right"
+      position="bottom-left"
       title="Talk with an AI receptionist! "
       start-button-text="Start"
       end-button-text="End Call"
