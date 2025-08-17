@@ -152,7 +152,7 @@ export function Navigation() {
   };
 
   return (
-    <nav className="bg-gray-900/70 backdrop-blur-md fixed w-full top-0 z-[9999] shadow-lg border-b border-gray-700/50">
+    <nav className="bg-gradient-to-b from-gray-900/95 via-gray-900/70 to-transparent backdrop-blur-sm fixed w-full top-0 z-[9999] pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 py-2">
           {/* Menu Icon and Logo */}
