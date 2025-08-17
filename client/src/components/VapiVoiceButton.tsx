@@ -34,7 +34,7 @@ export function VapiVoiceButton() {
       cta-button-text-color="#ffffff"
       border-radius="large"
       size="full"
-      position="bottom-right"
+      position="bottom-left"
       title="Try a Golf Course AI Assistant Now"
       start-button-text="Start"
       end-button-text="End Call"
