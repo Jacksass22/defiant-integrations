@@ -18,22 +18,22 @@ export default function VoiceAgentsDemo() {
     {
       id: 'virtual-receptionist',
       title: 'Virtual Receptionist',
-      industry: 'General Contracting',
-      description: 'Professional call handling and appointment scheduling',
-      waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
-    },
-    {
-      id: 'lead-qualification',
-      title: 'Lead Qualification', 
-      industry: 'Cannabis Retail',
-      description: 'Smart customer screening and information capture',
+      industry: 'Golf Courses',
+      description: 'Professional call handling and tee time booking',
       waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
     },
     {
       id: 'appointment-booking',
       title: 'Appointment Booking',
-      industry: 'Beauty Salons',
+      industry: 'Nail Salons',
       description: 'Automated scheduling with calendar integration',
+      waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
+    },
+    {
+      id: 'customer-support',
+      title: '24/7 Customer Support',
+      industry: 'Electrical Services',
+      description: 'Round-the-clock technical assistance and issue resolution',
       waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
     }
   ];
