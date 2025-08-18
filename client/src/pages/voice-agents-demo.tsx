@@ -35,27 +35,6 @@ export default function VoiceAgentsDemo() {
       industry: 'Beauty Salons',
       description: 'Automated scheduling with calendar integration',
       waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
-    },
-    {
-      id: 'customer-support',
-      title: 'Customer Support',
-      industry: 'Electrical Services',
-      description: '24/7 technical assistance and issue resolution',
-      waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
-    },
-    {
-      id: 'order-processing',
-      title: 'Order Processing',
-      industry: 'Ecommerce',
-      description: 'Intelligent order management and status updates',
-      waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
-    },
-    {
-      id: 'consultation-booking',
-      title: 'Consultation Booking',
-      industry: 'Accounting Firms',
-      description: 'Professional consultation scheduling and preparation',
-      waveform: Array.from({ length: 15 }, (_, i) => Math.random() * 40 + 10)
     }
   ];
 
