@@ -617,7 +617,10 @@ export default function Home() {
                       <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                         <div className="w-0 h-0 border-l-[6px] border-l-white border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent ml-1"></div>
                       </div>
-                      <span className="text-lg">Hear AI Voice Agents in Action</span>
+                      <div className="flex flex-col items-start">
+                        <span className="text-lg">Hear AI Voice Agents in Action</span>
+                        <span className="text-xs text-blue-500 font-normal">Coming Soon</span>
+                      </div>
                     </div>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
