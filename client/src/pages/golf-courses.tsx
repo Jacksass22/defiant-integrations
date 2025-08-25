@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import golfCourseImage from '@assets/pexels-cottonbro-6256829_1753397088903.jpg';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
-import { VapiVoiceButton } from '@/components/VapiVoiceButton';
+// import { VapiVoiceButton } from '@/components/VapiVoiceButton';
 import { useState } from 'react';
 
 export default function GolfCourses() {
@@ -643,7 +643,7 @@ export default function GolfCourses() {
         subtitle="Let's discuss how intelligent automation can transform your course operations"
       />
       
-      <VapiVoiceButton />
+      {/* <VapiVoiceButton /> */}
     </div>
   );
 }
