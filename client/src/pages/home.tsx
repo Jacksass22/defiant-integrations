@@ -273,10 +273,10 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
                       <div className="relative text-center">
                         <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
-                          Analytics
+                          Web Development
                         </h4>
                         <p className="text-sm text-blue-700 leading-relaxed">
-                          Data insights, performance tracking, predictions
+                          Custom websites, e-commerce platforms, web applications
                         </p>
                       </div>
                       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
