@@ -152,7 +152,7 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed w-full top-0 z-[9999]" style={{ background: 'linear-gradient(to bottom, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 30%, rgba(17, 24, 39, 0.6) 60%, rgba(17, 24, 39, 0.3) 80%, transparent 100%)', paddingBottom: '2rem' }}>
+    <nav className="fixed w-full top-0 z-[10000]" style={{ background: 'linear-gradient(to bottom, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 30%, rgba(17, 24, 39, 0.6) 60%, rgba(17, 24, 39, 0.3) 80%, transparent 100%)', paddingBottom: '2rem' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 py-2">
           {/* Menu Icon and Logo */}
