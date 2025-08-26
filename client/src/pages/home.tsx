@@ -597,69 +597,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Voice Agents Demo CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="max-w-4xl mx-auto mb-12">
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Experience AI Voice Agents in Action
-              </h2>
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                Hear how our intelligent voice agents transform customer interactions across industries. 
-                Listen to real conversations that drive results and streamline operations.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <Link href="/voice-agents-demo">
-                  <button className="group relative bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                        <div className="w-0 h-0 border-l-[6px] border-l-white border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent ml-1"></div>
-                      </div>
-                      <div className="flex flex-col items-start">
-                        <span className="text-lg">Hear AI Voice Agents in Action</span>
-                        <span className="text-xs text-blue-500 font-normal">Coming Soon</span>
-                      </div>
-                    </div>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-                </Link>
-              </div>
-              
-              <div className="flex flex-wrap justify-center gap-8 text-blue-100">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span>Live Demos Available</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5" />
-                  <span>6 Industry Examples</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Target className="w-5 h-5" />
-                  <span>Real Customer Conversations</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Quick preview cards */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[
-                { title: "Virtual Receptionist", industry: "General Contracting", description: "Professional call handling & scheduling" },
-                { title: "Lead Qualification", industry: "Cannabis Retail", description: "Smart customer screening" },
-                { title: "Customer Support", industry: "Electrical Services", description: "24/7 technical assistance" }
-              ].map((demo, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-left hover:bg-white/15 transition-all duration-300">
-                  <h3 className="font-semibold text-white mb-2">{demo.title}</h3>
-                  <p className="text-blue-200 text-sm mb-3">{demo.industry}</p>
-                  <p className="text-blue-100 text-sm">{demo.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Authority & Research Hook Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
