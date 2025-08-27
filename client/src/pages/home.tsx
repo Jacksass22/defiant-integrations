@@ -29,6 +29,48 @@ export default function Home() {
     strategy: { rotateX: 0, rotateY: 0 }
   });
 
+  // Gallery state for rotating computer display
+  const [currentProject, setCurrentProject] = useState(0);
+  
+  const projectGallery = [
+    {
+      title: "AI Voice Systems",
+      category: "Voice Technology",
+      description: "Intelligent phone systems for service businesses",
+      color: "from-blue-500 to-blue-700",
+      accent: "bg-blue-500"
+    },
+    {
+      title: "E-Commerce Platforms",
+      category: "Web Development",
+      description: "Custom online stores with AI-powered features",
+      color: "from-emerald-500 to-teal-600",
+      accent: "bg-emerald-500"
+    },
+    {
+      title: "CRM Integration",
+      category: "Business Systems",
+      description: "Automated lead capture and customer management",
+      color: "from-purple-500 to-indigo-600",
+      accent: "bg-purple-500"
+    },
+    {
+      title: "Analytics Dashboards",
+      category: "Data Solutions",
+      description: "Real-time business intelligence and reporting",
+      color: "from-amber-500 to-orange-600",
+      accent: "bg-amber-500"
+    }
+  ];
+
+  // Auto-rotate gallery every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % projectGallery.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [projectGallery.length]);
+
   // Handle mouse move for tilt effect
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, cardName: string) => {
     const card = e.currentTarget;
@@ -311,55 +353,99 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Right Side - Dynamic Visual */}
+              {/* Right Side - Rotating Computer Gallery */}
               <div className="relative">
                 <div className="relative">
-                  <div className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-3xl p-12 overflow-hidden">
-                  {/* Animated background pattern */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-8 left-8 w-4 h-4 bg-white rounded-full animate-pulse"></div>
-                    <div className="absolute top-16 right-12 w-2 h-2 bg-blue-300 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                    <div className="absolute bottom-20 left-16 w-3 h-3 bg-white rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                    <div className="absolute bottom-8 right-8 w-2 h-2 bg-blue-200 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                  {/* Computer mockup with rotating content */}
+                  <div className="relative max-w-lg mx-auto">
                     
-                    {/* Connecting lines */}
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 400">
-                      <line x1="32" y1="32" x2="240" y2="64" stroke="rgba(255,255,255,0.2)" strokeWidth="1" className="animate-pulse" />
-                      <line x1="240" y1="64" x2="64" y2="320" stroke="rgba(255,255,255,0.2)" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '0.7s' }} />
-                      <line x1="64" y1="320" x2="240" y2="320" stroke="rgba(255,255,255,0.2)" strokeWidth="1" className="animate-pulse" style={{ animationDelay: '1.2s' }} />
-                    </svg>
-                  </div>
-                  
-                  {/* Central content */}
-                  <div className="relative text-center">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl mx-auto mb-6 flex items-center justify-center transform rotate-12">
-                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transform -rotate-12">
-                          <div className="w-6 h-6 bg-gradient-to-br from-blue-600 to-purple-600 rounded"></div>
+                    {/* Computer Base */}
+                    <div className="relative">
+                      {/* Screen */}
+                      <div className="relative bg-gray-900 rounded-t-2xl p-3 shadow-2xl">
+                        {/* Camera notch */}
+                        <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-800 rounded-full"></div>
+                        
+                        {/* Screen content */}
+                        <div className="relative bg-white rounded-lg overflow-hidden" style={{ aspectRatio: '16/10' }}>
+                          {/* Dynamic project content */}
+                          <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
+                            <div className={`absolute inset-0 bg-gradient-to-br ${projectGallery[currentProject].color} opacity-90`}></div>
+                            
+                            {/* Animated background pattern */}
+                            <div className="absolute inset-0 opacity-20">
+                              <div className="absolute top-4 left-4 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                              <div className="absolute top-8 right-6 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                              <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-white rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                              <div className="absolute bottom-4 right-4 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                              
+                              {/* Grid pattern */}
+                              <div className="absolute inset-4 opacity-30">
+                                <div className="grid grid-cols-6 gap-2 h-full">
+                                  {Array.from({ length: 24 }).map((_, i) => (
+                                    <div key={i} className="bg-white/20 rounded animate-pulse" style={{ animationDelay: `${i * 0.1}s` }}></div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Project content */}
+                            <div className="relative z-10 flex flex-col justify-between h-full p-6">
+                              {/* Top section */}
+                              <div className="text-white">
+                                <div className="text-xs font-medium opacity-80 mb-1">{projectGallery[currentProject].category}</div>
+                                <h4 className="text-lg font-bold mb-2">{projectGallery[currentProject].title}</h4>
+                                <p className="text-sm opacity-90 leading-relaxed">{projectGallery[currentProject].description}</p>
+                              </div>
+                              
+                              {/* Bottom section - Mock interface elements */}
+                              <div className="space-y-2">
+                                <div className="flex space-x-2">
+                                  <div className="flex-1 h-2 bg-white/30 rounded"></div>
+                                  <div className="w-16 h-2 bg-white/50 rounded"></div>
+                                </div>
+                                <div className="flex space-x-2">
+                                  <div className="w-20 h-2 bg-white/40 rounded"></div>
+                                  <div className="flex-1 h-2 bg-white/20 rounded"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      
+                      {/* Computer stand */}
+                      <div className="flex justify-center">
+                        <div className="w-16 h-6 bg-gray-800 rounded-b-lg shadow-lg"></div>
+                      </div>
+                      <div className="flex justify-center mt-1">
+                        <div className="w-24 h-3 bg-gray-700 rounded-full shadow-lg"></div>
+                      </div>
                     </div>
                     
-                    <h4 className="font-serif text-2xl font-bold text-white mb-4">We make life easier.</h4>
-                    <p className="text-blue-100 leading-relaxed">Strategic thinking meets technical excellence. We don't just implement AI—we architect intelligent AI Agents that work for you.</p>
+                    {/* Gallery indicators */}
+                    <div className="flex justify-center mt-8 space-x-2">
+                      {projectGallery.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentProject(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            index === currentProject
+                              ? projectGallery[currentProject].accent
+                              : 'bg-gray-300 hover:bg-gray-400'
+                          }`}
+                        />
+                      ))}
+                    </div>
                     
-                    {/* Stats */}
-                    <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/20">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-white">27+</div>
-                        <div className="text-xs text-blue-200">Industries</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-white">90%</div>
-                        <div className="text-xs text-blue-200">Efficiency</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-white">24/7</div>
-                        <div className="text-xs text-blue-200">Operation</div>
-                      </div>
+                    {/* Supporting text */}
+                    <div className="text-center mt-6">
+                      <h4 className="font-serif text-2xl font-bold text-gray-900 mb-2">Real Solutions, Real Results</h4>
+                      <p className="text-gray-600 leading-relaxed max-w-md mx-auto">
+                        Every project showcases our commitment to building intelligent systems that transform businesses across industries.
+                      </p>
                     </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
