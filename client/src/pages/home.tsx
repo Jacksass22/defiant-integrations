@@ -202,46 +202,95 @@ export default function Home() {
       </section>
       
       {/* What We Do Section */}
-      <section className="relative py-32 bg-gradient-to-b from-white via-gray-50/50 to-white overflow-hidden">
-        {/* Premium background pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(226_232_240_/_0.15)_1px,_transparent_1px)] bg-[size:48px_48px]" />
+      <section className="relative py-32 bg-gradient-to-b from-white via-slate-50/30 to-white overflow-hidden">
+        {/* Luxury background elements */}
+        <div className="absolute inset-0">
+          {/* Subtle geometric pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgb(148_163_184_/_0.08)_1px,_transparent_1px)] bg-[size:64px_64px]" />
+          
+          {/* Premium marble-like texture overlay */}
+          <div className="absolute inset-0 opacity-[0.015]">
+            <svg width="100%" height="100%" className="absolute inset-0">
+              <defs>
+                <filter id="marble" x="0%" y="0%" width="100%" height="100%">
+                  <feTurbulence baseFrequency="0.04" numOctaves="3" result="noise"/>
+                  <feColorMatrix in="noise" type="saturate" values="0"/>
+                </filter>
+              </defs>
+              <rect width="100%" height="100%" filter="url(#marble)" opacity="0.6"/>
+            </svg>
+          </div>
+          
+          {/* Elegant diagonal lines */}
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-300/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-300/20 to-transparent" />
+          
+          {/* Sophisticated light rays */}
+          <div className="absolute top-20 -left-20 w-96 h-96 bg-gradient-conic from-blue-500/3 via-transparent to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-20 -right-20 w-96 h-96 bg-gradient-conic from-slate-400/3 via-transparent to-transparent rounded-full blur-3xl" />
+        </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-24">
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight">
-              <TextType 
-                text={["What We Do", "How We Transform", "What We Build"]}
-                typingSpeed={75}
-                pauseDuration={1500}
-                showCursor={true}
-                cursorCharacter="|"
-                startOnVisible={true}
-                className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight"
-                textColors={["#111827", "#1f2937", "#374151"]}
-              />
-            </h2>
-            <div className="w-24 h-0.5 bg-blue-600 mx-auto mb-8" />
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-              We build intelligent systems that transform your business operations. From strategy to implementation, our real developers create custom solutions that work.
-            </p>
+          {/* Premium header section */}
+          <div className="text-center mb-24 relative">
+            {/* Elegant backdrop */}
+            <div className="absolute inset-0 -mx-8 -my-12">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/60 to-white/40 backdrop-blur-[2px] rounded-3xl border border-white/30 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4)]" />
+            </div>
+            
+            <div className="relative z-10 py-12">
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-8 tracking-tight drop-shadow-sm">
+                <TextType 
+                  text={["What We Do", "How We Transform", "What We Build"]}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
+                  startOnVisible={true}
+                  className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight"
+                  textColors={["#111827", "#1f2937", "#374151"]}
+                />
+              </h2>
+              
+              {/* Luxury divider */}
+              <div className="flex items-center justify-center mb-8">
+                <div className="w-6 h-px bg-gradient-to-r from-transparent to-slate-300" />
+                <div className="w-3 h-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mx-4 shadow-lg" />
+                <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600" />
+                <div className="w-3 h-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mx-4 shadow-lg" />
+                <div className="w-6 h-px bg-gradient-to-l from-transparent to-slate-300" />
+              </div>
+              
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light tracking-wide">
+                We build intelligent systems that transform your business operations. From strategy to implementation, our real developers create custom solutions that work.
+              </p>
+            </div>
           </div>
 
           {/* Creative Capability Showcase */}
           <div className="relative mb-20">
-            {/* Background elements */}
+            {/* Luxury background elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-20 left-20 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl"></div>
+              <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-radial from-blue-500/8 via-blue-300/4 to-transparent rounded-full blur-3xl" />
+              <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-radial from-slate-400/6 via-purple-300/3 to-transparent rounded-full blur-3xl" />
+              
+              {/* Floating luxury elements */}
+              <div className="absolute top-40 left-1/4 w-2 h-2 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full animate-pulse opacity-30" style={{ animationDelay: '2s' }} />
+              <div className="absolute bottom-40 right-1/3 w-1.5 h-1.5 bg-gradient-to-br from-slate-400 to-slate-600 rounded-full animate-pulse opacity-20" style={{ animationDelay: '4s' }} />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-20 bg-gradient-to-b from-transparent via-blue-200/10 to-transparent" />
             </div>
             
             <div className="relative grid lg:grid-cols-2 gap-16 items-center">
               {/* Left Side - Interactive Capability Matrix */}
               <div className="space-y-8">
-                <div className="text-left">
-                  <h3 className="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                <div className="text-left relative">
+                  {/* Elegant accent line */}
+                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 via-blue-400 to-transparent opacity-30" />
+                  
+                  <h3 className="font-serif text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-6 leading-tight">
                     Comprehensive AI Integration
                   </h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed font-light tracking-wide">
                     From strategic planning to technical implementation, we deliver end-to-end solutions that transform how businesses operate.
                   </p>
                 </div>
@@ -259,18 +308,30 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      {/* Deep ocean gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                    <div className="relative bg-gradient-to-br from-white via-blue-50/30 to-white p-8 rounded-3xl border border-slate-200/60 hover:border-blue-300/40 hover:shadow-[0_20px_40px_-8px_rgba(59,130,246,0.15)] transition-all duration-500 overflow-hidden backdrop-blur-sm">
+                      {/* Luxury glass effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-blue-50/20 to-white/40 pointer-events-none rounded-3xl" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.05)_0%,_transparent_70%)] pointer-events-none" />
+                      
+                      {/* Premium corner accent */}
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-3xl" />
+                      
                       <div className="relative text-center">
-                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                        {/* Icon area with luxury styling */}
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-6 h-6 bg-white rounded opacity-90" />
+                        </div>
+                        
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3 tracking-wide">
                           Intelligence
                         </h4>
-                        <p className="text-sm text-blue-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed font-light">
                           AI assistants, voice agents, automated workflows
                         </p>
                       </div>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Elegant bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
                   
@@ -285,18 +346,30 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      {/* Deep ocean gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                    <div className="relative bg-gradient-to-br from-white via-emerald-50/30 to-white p-8 rounded-3xl border border-slate-200/60 hover:border-emerald-300/40 hover:shadow-[0_20px_40px_-8px_rgba(16,185,129,0.15)] transition-all duration-500 overflow-hidden backdrop-blur-sm">
+                      {/* Luxury glass effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-emerald-50/20 to-white/40 pointer-events-none rounded-3xl" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.05)_0%,_transparent_70%)] pointer-events-none" />
+                      
+                      {/* Premium corner accent */}
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-tr-3xl" />
+                      
                       <div className="relative text-center">
-                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                        {/* Icon area with luxury styling */}
+                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-6 h-6 bg-white rounded opacity-90" />
+                        </div>
+                        
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3 tracking-wide">
                           Digital
                         </h4>
-                        <p className="text-sm text-blue-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed font-light">
                           Custom platforms, chatbots, intelligent search
                         </p>
                       </div>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Elegant bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
                   
@@ -311,18 +384,30 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      {/* Deep ocean gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                    <div className="relative bg-gradient-to-br from-white via-purple-50/30 to-white p-8 rounded-3xl border border-slate-200/60 hover:border-purple-300/40 hover:shadow-[0_20px_40px_-8px_rgba(139,92,246,0.15)] transition-all duration-500 overflow-hidden backdrop-blur-sm">
+                      {/* Luxury glass effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-purple-50/20 to-white/40 pointer-events-none rounded-3xl" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(139,92,246,0.05)_0%,_transparent_70%)] pointer-events-none" />
+                      
+                      {/* Premium corner accent */}
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-tr-3xl" />
+                      
                       <div className="relative text-center">
-                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                        {/* Icon area with luxury styling */}
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-6 h-6 bg-white rounded opacity-90" />
+                        </div>
+                        
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3 tracking-wide">
                           Web Development
                         </h4>
-                        <p className="text-sm text-blue-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed font-light">
                           Custom websites, e-commerce platforms, web applications
                         </p>
                       </div>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Elegant bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
                   
@@ -337,18 +422,30 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                      {/* Deep ocean gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-blue-500/10 to-white/20 pointer-events-none"></div>
+                    <div className="relative bg-gradient-to-br from-white via-amber-50/30 to-white p-8 rounded-3xl border border-slate-200/60 hover:border-amber-300/40 hover:shadow-[0_20px_40px_-8px_rgba(245,158,11,0.15)] transition-all duration-500 overflow-hidden backdrop-blur-sm">
+                      {/* Luxury glass effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-amber-50/20 to-white/40 pointer-events-none rounded-3xl" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(245,158,11,0.05)_0%,_transparent_70%)] pointer-events-none" />
+                      
+                      {/* Premium corner accent */}
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-tr-3xl" />
+                      
                       <div className="relative text-center">
-                        <h4 className="font-serif text-xl font-bold text-blue-900 mb-2">
+                        {/* Icon area with luxury styling */}
+                        <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-6 h-6 bg-white rounded opacity-90" />
+                        </div>
+                        
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3 tracking-wide">
                           Strategy
                         </h4>
-                        <p className="text-sm text-blue-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed font-light">
                           Consulting, development, ongoing optimization
                         </p>
                       </div>
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Elegant bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
                 </div>
@@ -439,12 +536,17 @@ export default function Home() {
                       ))}
                     </div>
                     
-                    {/* Supporting text */}
-                    <div className="text-center mt-6">
-                      <h4 className="font-serif text-2xl font-bold text-gray-900 mb-2">Real Solutions, Real Results</h4>
-                      <p className="text-gray-600 leading-relaxed max-w-md mx-auto">
-                        Every project showcases our commitment to building intelligent systems that transform businesses across industries.
-                      </p>
+                    {/* Supporting text with luxury styling */}
+                    <div className="text-center mt-8 relative">
+                      {/* Elegant backdrop for text */}
+                      <div className="absolute inset-0 -mx-4 -my-2 bg-gradient-to-b from-white/60 via-slate-50/40 to-white/60 backdrop-blur-sm rounded-2xl border border-white/40 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3)]" />
+                      
+                      <div className="relative py-6">
+                        <h4 className="font-serif text-2xl font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent mb-3 tracking-wide">Real Solutions, Real Results</h4>
+                        <p className="text-gray-600 leading-relaxed max-w-md mx-auto font-light tracking-wide">
+                          Every project showcases our commitment to building intelligent systems that transform businesses across industries.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
