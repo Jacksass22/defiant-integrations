@@ -202,31 +202,31 @@ export default function Home() {
       </section>
       
       {/* What We Do Section */}
-      <section className="relative py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
-        {/* Premium background elements */}
+      <section className="relative py-32 bg-gradient-to-b from-white via-gray-50/40 to-white overflow-hidden">
+        {/* Premium space grey background */}
         <div className="absolute inset-0">
-          {/* Dramatic gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-100/80 via-white to-blue-50/60" />
+          {/* Subtle space grey gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-100/50 via-gray-50/30 to-slate-100/40" />
           
-          {/* Elegant geometric pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,_rgb(148_163_184_/_0.3)_2px,_transparent_2px)] bg-[size:80px_80px]" />
+          {/* Clean geometric pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,_rgb(156_163_175_/_0.15)_1px,_transparent_1px)] bg-[size:60px_60px]" />
           
-          {/* Premium shadows and depth */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-slate-300/15 rounded-full blur-3xl" />
+          {/* Subtle depth elements */}
+          <div className="absolute top-0 left-1/3 w-96 h-96 bg-gray-200/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-slate-200/10 rounded-full blur-3xl" />
           
-          {/* Luxury borders */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-300/40 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-300/40 to-transparent" />
+          {/* Clean border lines */}
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-300/30 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-300/30 to-transparent" />
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Premium header section */}
           <div className="text-center mb-24 relative">
-            {/* Dramatic luxury backdrop */}
-            <div className="absolute inset-0 -mx-12 -my-16 bg-gradient-to-b from-white via-slate-50 to-white rounded-3xl shadow-2xl border-2 border-slate-200/50">
-              {/* Inner glow effect */}
-              <div className="absolute inset-2 bg-gradient-to-b from-white/90 via-blue-50/20 to-white/90 rounded-2xl" />
+            {/* Clean luxury backdrop */}
+            <div className="absolute inset-0 -mx-12 -my-16 bg-gradient-to-b from-white via-gray-50/50 to-white rounded-3xl shadow-xl border border-gray-200/40">
+              {/* Subtle inner glow */}
+              <div className="absolute inset-1 bg-gradient-to-b from-white/80 via-gray-50/10 to-white/80 rounded-3xl" />
             </div>
             
             <div className="relative z-10 py-16 px-8">
@@ -243,13 +243,13 @@ export default function Home() {
                 />
               </h2>
               
-              {/* Premium divider with dramatic styling */}
+              {/* Clean premium divider */}
               <div className="flex items-center justify-center mb-8">
-                <div className="w-16 h-px bg-gradient-to-r from-transparent via-slate-400 to-blue-500" />
-                <div className="w-4 h-4 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mx-6 shadow-xl border-2 border-white" />
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 rounded-full shadow-lg" />
-                <div className="w-4 h-4 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mx-6 shadow-xl border-2 border-white" />
-                <div className="w-16 h-px bg-gradient-to-l from-transparent via-slate-400 to-blue-500" />
+                <div className="w-20 h-px bg-gradient-to-r from-transparent to-gray-400" />
+                <div className="w-3 h-3 bg-gradient-to-br from-gray-500 to-gray-700 rounded-full mx-4 shadow-lg" />
+                <div className="w-16 h-0.5 bg-gradient-to-r from-gray-500 to-gray-600 rounded-full" />
+                <div className="w-3 h-3 bg-gradient-to-br from-gray-500 to-gray-700 rounded-full mx-4 shadow-lg" />
+                <div className="w-20 h-px bg-gradient-to-l from-transparent to-gray-400" />
               </div>
               
               <p className="text-xl sm:text-2xl lg:text-3xl text-gray-700 max-w-5xl mx-auto leading-relaxed font-light">
@@ -274,14 +274,14 @@ export default function Home() {
             <div className="relative grid lg:grid-cols-2 gap-16 items-center">
               {/* Left Side - Interactive Capability Matrix */}
               <div className="space-y-8">
-                <div className="text-left relative p-8 bg-gradient-to-br from-white via-slate-50 to-white rounded-2xl shadow-xl border-2 border-slate-200">
-                  {/* Bold accent line */}
-                  <div className="absolute -left-2 top-0 w-2 h-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700 rounded-full shadow-lg" />
+                <div className="text-left relative p-8 bg-gradient-to-br from-white via-gray-50/30 to-white rounded-2xl shadow-lg border border-gray-200/60">
+                  {/* Subtle accent line */}
+                  <div className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-gray-400 via-gray-500 to-gray-600 rounded-full" />
                   
                   <h3 className="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                     Comprehensive AI Integration
                   </h3>
-                  <p className="text-lg text-gray-700 leading-relaxed font-medium">
+                  <p className="text-lg text-gray-600 leading-relaxed">
                     From strategic planning to technical implementation, we deliver end-to-end solutions that transform how businesses operate.
                   </p>
                 </div>
@@ -299,26 +299,26 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-white p-8 rounded-2xl shadow-2xl border-2 border-blue-200 hover:border-blue-400 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                      {/* Bold corner accent */}
-                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-500 to-blue-600 rounded-tr-2xl opacity-20" />
+                    <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-blue-400 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full min-h-[280px] flex flex-col">
+                      {/* Subtle corner accent */}
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-2xl" />
                       
-                      <div className="relative text-center">
-                        {/* Prominent icon */}
-                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-xl">
-                          <div className="w-8 h-8 bg-white rounded-lg" />
+                      <div className="relative text-center flex-1 flex flex-col justify-center">
+                        {/* Clean icon */}
+                        <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mx-auto mb-5 flex items-center justify-center shadow-lg">
+                          <div className="w-7 h-7 bg-white rounded" />
                         </div>
                         
-                        <h4 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3">
                           Intelligence
                         </h4>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed px-2">
                           AI assistants, voice agents, automated workflows
                         </p>
                       </div>
                       
-                      {/* Bold bottom accent */}
-                      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-b-2xl" />
+                      {/* Clean bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-500 rounded-b-2xl" />
                     </div>
                   </div>
                   
@@ -333,26 +333,26 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-white p-8 rounded-2xl shadow-2xl border-2 border-emerald-200 hover:border-emerald-400 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                      {/* Bold corner accent */}
-                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-emerald-500 to-emerald-600 rounded-tr-2xl opacity-20" />
+                    <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-emerald-400 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full min-h-[280px] flex flex-col">
+                      {/* Subtle corner accent */}
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-tr-2xl" />
                       
-                      <div className="relative text-center">
-                        {/* Prominent icon */}
-                        <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-xl">
-                          <div className="w-8 h-8 bg-white rounded-lg" />
+                      <div className="relative text-center flex-1 flex flex-col justify-center">
+                        {/* Clean icon */}
+                        <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl mx-auto mb-5 flex items-center justify-center shadow-lg">
+                          <div className="w-7 h-7 bg-white rounded" />
                         </div>
                         
-                        <h4 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3">
                           Digital
                         </h4>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed px-2">
                           Custom platforms, chatbots, intelligent search
                         </p>
                       </div>
                       
-                      {/* Bold bottom accent */}
-                      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 rounded-b-2xl" />
+                      {/* Clean bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-b-2xl" />
                     </div>
                   </div>
                   
@@ -367,26 +367,26 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-white p-8 rounded-2xl shadow-2xl border-2 border-purple-200 hover:border-purple-400 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                      {/* Bold corner accent */}
-                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-purple-500 to-purple-600 rounded-tr-2xl opacity-20" />
+                    <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-purple-400 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full min-h-[280px] flex flex-col">
+                      {/* Subtle corner accent */}
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-tr-2xl" />
                       
-                      <div className="relative text-center">
-                        {/* Prominent icon */}
-                        <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-xl">
-                          <div className="w-8 h-8 bg-white rounded-lg" />
+                      <div className="relative text-center flex-1 flex flex-col justify-center">
+                        {/* Clean icon */}
+                        <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl mx-auto mb-5 flex items-center justify-center shadow-lg">
+                          <div className="w-7 h-7 bg-white rounded" />
                         </div>
                         
-                        <h4 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3">
                           Web Development
                         </h4>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed px-2">
                           Custom websites, e-commerce platforms, web applications
                         </p>
                       </div>
                       
-                      {/* Bold bottom accent */}
-                      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 rounded-b-2xl" />
+                      {/* Clean bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-500 rounded-b-2xl" />
                     </div>
                   </div>
                   
@@ -401,26 +401,26 @@ export default function Home() {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="relative bg-white p-8 rounded-2xl shadow-2xl border-2 border-amber-200 hover:border-amber-400 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                      {/* Bold corner accent */}
-                      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-amber-500 to-amber-600 rounded-tr-2xl opacity-20" />
+                    <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-amber-400 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full min-h-[280px] flex flex-col">
+                      {/* Subtle corner accent */}
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-tr-2xl" />
                       
-                      <div className="relative text-center">
-                        {/* Prominent icon */}
-                        <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-xl">
-                          <div className="w-8 h-8 bg-white rounded-lg" />
+                      <div className="relative text-center flex-1 flex flex-col justify-center">
+                        {/* Clean icon */}
+                        <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl mx-auto mb-5 flex items-center justify-center shadow-lg">
+                          <div className="w-7 h-7 bg-white rounded" />
                         </div>
                         
-                        <h4 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                        <h4 className="font-serif text-xl font-bold text-gray-900 mb-3">
                           Strategy
                         </h4>
-                        <p className="text-base text-gray-700 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed px-2">
                           Consulting, development, ongoing optimization
                         </p>
                       </div>
                       
-                      {/* Bold bottom accent */}
-                      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 rounded-b-2xl" />
+                      {/* Clean bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-500 rounded-b-2xl" />
                     </div>
                   </div>
                 </div>
