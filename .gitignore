@@ -73,3 +73,6 @@ scoped_packages.txt
 source_files.txt
 src_files.txt
 used_imports.txt
+
+# Ignore large archives at repo root
+*.tar.gz
