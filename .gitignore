@@ -53,3 +53,23 @@ attached_assets/
 !attached_assets/pexels-alexander-dummer-37646-132676_1754955265248.jpg
 !attached_assets/pexels-goochie-poochie-19145877_1754955100849.jpg
 !attached_assets/pexels-cottonbro-5077049_1754954770352.jpg
+
+# Additional build outputs
+.dist/
+.vercel/
+.svelte-kit/
+coverage/
+
+# Keep recommended VS Code settings file but ignore others
+!.vscode/extensions.json
+
+# Local analysis/helper dumps
+actual_npm_packages.txt
+client_files.txt
+declared_deps.txt
+npm_imports.txt
+package_names.txt
+scoped_packages.txt
+source_files.txt
+src_files.txt
+used_imports.txt

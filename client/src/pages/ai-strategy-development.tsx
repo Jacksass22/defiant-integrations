@@ -1,4 +1,3 @@
-import { Navigation } from '@/components/navigation';
 import { ArrowRight, Target, Map, Users, TrendingUp, CheckCircle, Clock, Lightbulb } from 'lucide-react';
 import { Link } from 'wouter';
 import { useState } from 'react';
@@ -14,7 +13,6 @@ export default function AIStrategyDevelopment() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
         <div className="absolute inset-0 bg-black/20"></div>

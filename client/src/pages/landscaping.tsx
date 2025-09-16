@@ -1,4 +1,3 @@
-import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Camera, Calendar, Leaf, TrendingUp, CheckCircle, Trees } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -13,7 +12,6 @@ export default function Landscaping() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigation } from '@/components/navigation';
+
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { motion } from 'framer-motion';
@@ -472,7 +472,7 @@ export default function Services() {
 
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
+      
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center pt-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 overflow-hidden">

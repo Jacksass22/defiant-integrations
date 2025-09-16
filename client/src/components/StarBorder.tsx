@@ -1,29 +1,30 @@
 import "./StarBorder.css";
+import React from "react";
 
-interface StarBorderProps extends React.HTMLAttributes<HTMLElement> {
-  as?: keyof JSX.IntrinsicElements;
+interface StarBorderProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: string;
   speed?: string;
   thickness?: number;
   children?: React.ReactNode;
+  className?: string;
 }
 
-const StarBorder = ({
-  as: Component = "button" as keyof JSX.IntrinsicElements,
-  className = "",
-  color = "white",
-  speed = "6s",
+export default function StarBorder({
+  color = 'white',
+  speed = '6s',
   thickness = 1,
   children,
+  className = '',
+  style,
   ...rest
-}: StarBorderProps) => {
+}: StarBorderProps) {
   return (
-    <Component 
-      className={`star-border-container ${className}`} 
+    <div
+      className={`star-border-container ${className}`}
       style={{
         padding: `${thickness}px 0`,
-        ...rest.style
-      } as React.CSSProperties}
+        ...style
+      }}
       {...rest}
     >
       <div
@@ -32,17 +33,15 @@ const StarBorder = ({
           background: `radial-gradient(circle, ${color}, transparent 10%)`,
           animationDuration: speed,
         }}
-      ></div>
+      />
       <div
         className="border-gradient-top"
         style={{
           background: `radial-gradient(circle, ${color}, transparent 10%)`,
           animationDuration: speed,
         }}
-      ></div>
+      />
       <div className="inner-content">{children}</div>
-    </Component>
+    </div>
   );
-};
-
-export default StarBorder;
+}

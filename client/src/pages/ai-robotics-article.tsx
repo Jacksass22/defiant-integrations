@@ -1,5 +1,4 @@
 import { ArrowLeft, Calendar, Tag, Clock, User } from 'lucide-react';
-import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 
@@ -8,7 +7,6 @@ export default function AIRoboticsArticle() {
   
   return (
     <div className="bg-white text-charcoal font-sans min-h-screen">
-      <Navigation />
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-900 to-blue-800">
         <div className="max-w-4xl mx-auto">

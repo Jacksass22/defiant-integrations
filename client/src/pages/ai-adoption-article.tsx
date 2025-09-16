@@ -1,7 +1,6 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { useState } from 'react';
-import { Navigation } from '@/components/navigation';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler, BarElement, CategoryScale, LinearScale } from 'chart.js';
@@ -69,7 +68,6 @@ export default function AIAdoptionArticle() {
 
   return (
     <div className="bg-white text-gray-900 font-sans">
-      <Navigation />
       
       <div className="pt-16">
         {/* Header */}

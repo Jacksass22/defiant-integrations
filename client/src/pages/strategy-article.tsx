@@ -1,6 +1,6 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
-import { Navigation } from '@/components/navigation';
+
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler } from 'chart.js';
 import { Doughnut, Radar } from 'react-chartjs-2';
@@ -83,7 +83,7 @@ export default function StrategyArticle() {
 
   return (
     <div className="bg-white text-gray-900 font-sans">
-      <Navigation />
+      
       
       <div className="pt-16">
         {/* Header */}

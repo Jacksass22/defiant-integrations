@@ -1,5 +1,4 @@
 import { ArrowRight, CheckCircle, Trophy, Phone, BarChart3, Users, Calendar, Target, Zap, Clock, TrendingUp, Shield, Star, MapPin } from 'lucide-react';
-import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import BlurText from '@/components/BlurText';
 import TrueFocus from '@/components/TrueFocus';
@@ -17,7 +16,6 @@ export default function GolfCourses() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-[600px] overflow-hidden">

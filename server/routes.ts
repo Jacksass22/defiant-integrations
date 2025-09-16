@@ -47,7 +47,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Comprehensive EspoCRM diagnostic endpoint
-  app.get('/api/diagnose-espocrm', async (req, res) => {
+  app.get('/api/diagnose-espocrm', async (_req, res) => {
     try {
       const espoCrmUrl = process.env.ESPOCRM_URL;
       const espoCrmApiKey = process.env.ESPOCRM_API_KEY;
@@ -87,12 +87,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
           for (const endpoint of endpoints) {
             try {
               const testUrl = `${urlPattern}${endpoint}`;
+              const baseHeaders: Record<string, string> = { 'Content-Type': 'application/json' };
+              for (const [k, v] of Object.entries(auth.headers)) {
+                baseHeaders[k] = v as string;
+              }
               const response = await fetch(testUrl, {
                 method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json',
-                  ...auth.headers
-                }
+                headers: baseHeaders
               });
               
               const contentType = response.headers.get('content-type') || '';
@@ -113,12 +114,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
               
               // If we found a working endpoint, also test Lead creation
               if (response.ok && isJson && endpoint === '/Lead') {
+                const createHeaders: Record<string, string> = { 'Content-Type': 'application/json' };
+                for (const [k, v] of Object.entries(auth.headers)) {
+                  createHeaders[k] = v as string;
+                }
                 const createResponse = await fetch(testUrl, {
                   method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    ...auth.headers
-                  },
+                  headers: createHeaders,
                   body: JSON.stringify({
                     name: 'Test Lead',
                     firstName: 'Test',
@@ -418,7 +420,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Test endpoint to check EspoCRM field names
-  app.get('/api/test-espocrm-fields', async (req, res) => {
+  app.get('/api/test-espocrm-fields', async (_req, res) => {
     try {
       const espoCrmUrl = process.env.ESPOCRM_URL;
       const espoCrmApiKey = process.env.ESPOCRM_API_KEY;

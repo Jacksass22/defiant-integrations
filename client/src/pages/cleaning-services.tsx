@@ -1,4 +1,3 @@
-import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Sparkles, Calendar, MessageSquare, TrendingUp, CheckCircle, Users } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -12,7 +11,6 @@ export default function CleaningServices() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-800">

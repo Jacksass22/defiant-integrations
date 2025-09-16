@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Navigation } from '@/components/navigation';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -25,7 +24,6 @@ import {
 export default function MissionVision() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 via-white to-yellow-50">

@@ -1,12 +1,7 @@
-import { ArrowRight, ChevronRight, Users, TrendingUp, Target, Map, Settings, Repeat, ExternalLink } from 'lucide-react';
-import { Navigation } from '@/components/navigation';
+import { ArrowRight, Target, Settings } from 'lucide-react';
 import { Link } from 'wouter';
 import { useEffect, useRef, useState } from 'react';
 import BlurText from '@/components/BlurText';
-import TrueFocus from '@/components/TrueFocus';
-import Noise from '@/components/Noise';
-import ScrollVelocity from '@/components/ScrollVelocity';
-import ShinyText from '@/components/ShinyText';
 import TextType from '@/components/TextType';
 import ServiceShowcase from '@/components/ServiceShowcase';
 
@@ -14,23 +9,12 @@ import { SubscriptionModal } from '@/components/subscription-modal';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import videoBackground from '@assets/3866539-hd_1920_1080_25fps_1752668973005.mp4';
 import aiVideo from '@assets/3129977-uhd_3840_2160_30fps_1753396464422.mp4';
-import booksImage from '@assets/pexels-cottonbro-6344231_1753396631670.jpg';
 
 export default function Home() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const aiVideoRef = useRef<HTMLVideoElement>(null);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
-  
-  // Tilt card states
-  const [cardTilts, setCardTilts] = useState({
-    intelligence: { rotateX: 0, rotateY: 0 },
-    digital: { rotateX: 0, rotateY: 0 },
-    analytics: { rotateX: 0, rotateY: 0 },
-    strategy: { rotateX: 0, rotateY: 0 }
-  });
-
-  // Gallery state for rotating computer display
   const [currentProject, setCurrentProject] = useState(0);
   
   const projectGallery = [
@@ -72,32 +56,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [projectGallery.length]);
 
-  // Handle mouse move for tilt effect
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, cardName: string) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = ((y - centerY) / centerY) * -15;
-    const rotateY = ((x - centerX) / centerX) * 15;
-    
-    setCardTilts(prev => ({
-      ...prev,
-      [cardName]: { rotateX, rotateY }
-    }));
-  };
-
-  // Handle mouse leave to reset tilt
-  const handleMouseLeave = (cardName: string) => {
-    setCardTilts(prev => ({
-      ...prev,
-      [cardName]: { rotateX: 0, rotateY: 0 }
-    }));
-  };
 
   useEffect(() => {
     const playVideo = async (videoRef: React.RefObject<HTMLVideoElement>) => {
@@ -157,7 +115,6 @@ export default function Home() {
 
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
         {/* Video Background */}
@@ -266,237 +223,6 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Online Business Optimization Section */}
-      <section className="py-16 bg-slate-100 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight">Systems at work</h3>
-            <div className="w-16 h-0.5 bg-blue-600 mx-auto mb-6" />
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Specialized solutions for digital businesses ready to scale smarter through intelligent automation and optimization
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Revenue Optimization */}
-            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-              
-              <div className="h-40 sm:h-48 relative overflow-hidden">
-                {/* Premium gradient background with texture overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,_rgba(120,_119,_198,_0.3),_transparent_50%)]" />
-                
-                {/* Animated geometric pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                      <pattern id="revenue-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.4)" />
-                        <circle cx="12" cy="12" r="1" fill="rgba(255,255,255,0.2)" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#revenue-pattern)" />
-                  </svg>
-                </div>
-                
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">REVENUE</div>
-                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
-                  </div>
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center mr-4">
-                    <TrendingUp className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
-                    Revenue Optimization
-                  </h4>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  Transform your website visitors into paying customers with <span className="font-semibold text-gray-800">AI-powered conversion tools</span>, dynamic pricing algorithms, and intelligent sales funnels that automatically adapt to user behavior patterns and market conditions.
-                </p>
-              </div>
-            </div>
-
-            {/* Scaling Solutions */}
-            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-              
-              <div className="h-40 sm:h-48 relative overflow-hidden">
-                {/* Premium gradient background with texture overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,_rgba(16,_185,_129,_0.3),_transparent_50%)]" />
-                
-                {/* Animated circuit pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                      <pattern id="scaling-pattern" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
-                        <path d="M5,5 L20,5 M5,5 L5,20 M20,5 L20,20 M5,20 L20,20" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" fill="none" />
-                        <circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.5)" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#scaling-pattern)" />
-                  </svg>
-                </div>
-                
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">SCALING</div>
-                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
-                  </div>
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg flex items-center justify-center mr-4">
-                    <Target className="w-6 h-6 text-emerald-600" />
-                  </div>
-                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
-                    Scaling Solutions
-                  </h4>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  Build robust infrastructure that grows seamlessly with your business demands, featuring <span className="font-semibold text-gray-800">cloud-native architectures</span>, automated load balancing, and intelligent resource allocation that scales from startup to enterprise-level traffic.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Customer Retention */}
-            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-              
-              <div className="h-40 sm:h-48 relative overflow-hidden">
-                {/* Premium gradient background with particle effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500 via-purple-600 to-indigo-700" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_rgba(139,_92,_246,_0.3),_transparent_50%)]" />
-                
-                {/* Animated particle pattern */}
-                <div className="absolute inset-0 opacity-25">
-                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                      <pattern id="retention-pattern" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
-                        <circle cx="3" cy="3" r="0.8" fill="rgba(255,255,255,0.6)" />
-                        <circle cx="8" cy="8" r="0.5" fill="rgba(255,255,255,0.4)" />
-                        <circle cx="12" cy="4" r="0.6" fill="rgba(255,255,255,0.3)" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#retention-pattern)" />
-                  </svg>
-                </div>
-                
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">RETENTION</div>
-                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
-                  </div>
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-violet-50 to-violet-100 rounded-lg flex items-center justify-center mr-4">
-                    <Repeat className="w-6 h-6 text-violet-600" />
-                  </div>
-                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
-                    Customer Retention
-                  </h4>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  Keep customers engaged and coming back with <span className="font-semibold text-gray-800">intelligent engagement systems</span>, personalized communication workflows, loyalty program automation, and predictive analytics that identify at-risk customers before they churn.
-                </p>
-              </div>
-            </div>
-
-            {/* Automation-First */}
-            <div className="group relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-              
-              <div className="h-40 sm:h-48 relative overflow-hidden">
-                {/* Premium gradient background with geometric pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-600 to-orange-700" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_70%,_rgba(245,_158,_11,_0.3),_transparent_50%)]" />
-                
-                {/* Animated gear pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                      <pattern id="automation-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                        <polygon points="15,5 20,10 15,15 10,10" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.8" />
-                        <circle cx="15" cy="10" r="2" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#automation-pattern)" />
-                  </svg>
-                </div>
-                
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-white text-2xl sm:text-3xl font-bold tracking-wider">AUTOMATION</div>
-                    <div className="w-16 h-0.5 bg-white/60 mx-auto mt-2" />
-                  </div>
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg flex items-center justify-center mr-4">
-                    <Settings className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <h4 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
-                    Automation-First
-                  </h4>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  Free up your valuable time to focus on strategic growth by automating repetitive tasks, streamlining operations with <span className="font-semibold text-gray-800">intelligent workflows</span>, and implementing smart systems that handle everything from customer service to inventory management.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Online Business Solutions Scroll Animation */}
-          <div className="mt-12">
-            <h4 className="font-serif text-lg sm:text-xl font-bold text-gray-900 mb-8 text-center">
-              <ShinyText 
-                text="Online Business Solutions We Implement" 
-                speed={6}
-                className="font-serif text-lg sm:text-xl font-bold"
-              />
-            </h4>
-            <div className="relative">
-              <ScrollVelocity
-                texts={[
-                  "AI phone systems · Chatbot implementation · Customer journey mapping · Personalization engines · Feedback collection systems · Retention automation · Google Ads optimization · SEO implementation ·",
-                  "Social media automation · Content marketing systems · Email marketing automation · System performance monitoring · Health checks · Proactive maintenance · Continuous improvement protocols ·"
-                ]}
-                velocity={50}
-                className="text-gray-800"
-                scrollerClassName="flex whitespace-nowrap text-center font-sans text-base sm:text-lg lg:text-xl font-semibold tracking-wide drop-shadow-sm py-6"
-              />
-            </div>
-          </div>
-            
-          <div className="text-center mt-16">
-            <button 
-              onClick={() => setShowLeadCaptureModal(true)}
-              className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-lg font-normal text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              <span className="relative">See How We Can Help Your Business</span>
-              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              <div className="absolute inset-0 rounded-lg bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Authority & Research Hook Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -634,130 +360,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Proof of Concepts Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-0 items-center">
-            <div className="relative min-h-[400px] sm:min-h-[500px] bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-900 p-8 sm:p-12 lg:p-16 flex items-center justify-center overflow-hidden">
-              {/* Animated Code Visualization */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-8 left-8 font-mono text-xs text-white/60">
-                  <div className="animate-pulse">if (customer.intent === 'purchase') {'{'}</div>
-                  <div className="animate-pulse ml-4" style={{ animationDelay: '0.5s' }}>processPayment();</div>
-                  <div className="animate-pulse ml-4" style={{ animationDelay: '1s' }}>updateInventory();</div>
-                  <div className="animate-pulse" style={{ animationDelay: '1.5s' }}>{'}'}</div>
-                </div>
-                
-                <div className="absolute bottom-16 right-8 font-mono text-xs text-white/60">
-                  <div className="animate-pulse" style={{ animationDelay: '2s' }}>const ai = require('intelligence');</div>
-                  <div className="animate-pulse" style={{ animationDelay: '2.5s' }}>ai.optimize(business);</div>
-                </div>
-              </div>
-              
-              {/* Central Element */}
-              <div className="relative z-10 text-center">
-                <div className="mb-8">
-                  <div className="w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-xl mx-auto mb-6 flex items-center justify-center transform rotate-6 shadow-2xl">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg flex items-center justify-center transform -rotate-6">
-                      <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                        POC
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight">
-                  Proof of Concepts
-                </h3>
-                <div className="w-16 h-px bg-white/60 mx-auto mb-4"></div>
-                <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">
-                  See our intelligence in action through working prototypes and live demonstrations
-                </p>
-              </div>
-            </div>
-            <div className="bg-white p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center">
-              <div>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                  Experience Before You Invest
-                </h2>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                  Don't take our word for it. Our proof of concepts let you interact with live AI systems that demonstrate exactly how your business operations could be transformed.
-                </p>
-                <Link href="/proof-of-concepts" className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
-                  <span>Explore Interactive Demos</span>
-                  <ExternalLink className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industry Knowledge Base Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-0 items-center">
-            <div className="bg-gray-50 p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center">
-              <div>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                  Industry Knowledge at Scale
-                </h2>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                  From golf courses to cannabis retailers, our curated knowledge base contains battle-tested strategies, implementation guides, and industry-specific AI solutions that work in the real world.
-                </p>
-                <Link href="/books" className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
-                  <span>Browse Industry Guides</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-            <div className="relative min-h-[400px] sm:min-h-[500px] bg-gradient-to-br from-emerald-800 via-teal-700 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center overflow-hidden">
-              {/* Books Image */}
-              <div className="absolute inset-0 opacity-30">
-                <img
-                  src={booksImage}
-                  alt="Knowledge base"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/60 to-blue-900/80"></div>
-              
-              {/* Floating Book Icons */}
-              <div className="absolute inset-0">
-                <div className="absolute top-16 left-16 w-8 h-10 bg-white/20 rounded transform rotate-12 animate-pulse"></div>
-                <div className="absolute top-24 right-20 w-6 h-8 bg-white/15 rounded transform -rotate-6 animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute bottom-20 left-12 w-10 h-12 bg-white/25 rounded transform rotate-3 animate-pulse" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute bottom-32 right-16 w-7 h-9 bg-white/20 rounded transform -rotate-12 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-              </div>
-              
-              {/* Central Element */}
-              <div className="relative z-10 text-center">
-                <div className="mb-8">
-                  <div className="w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 rounded-2xl mx-auto mb-6 flex items-center justify-center transform -rotate-3 shadow-2xl">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg flex items-center justify-center transform rotate-3">
-                      <svg className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight">
-                  27+ Industries
-                </h3>
-                <div className="w-16 h-px bg-white/60 mx-auto mb-4"></div>
-                <p className="text-emerald-100 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">
-                  Comprehensive guides and strategies tailored to your specific industry challenges
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Section */}
+      {/* Blog Section (moved up replacing Proof of Concepts) */}
       <section id="blog" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -768,7 +371,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* Adjusted to two-column layout now that only two articles remain */}
+    <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Strategy Article Card */}
             <article className="group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1">
               <div className="h-48 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
@@ -823,35 +427,24 @@ export default function Home() {
               </div>
             </article>
 
-            {/* Subscribe Card */}
-            <article className="group bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all duration-300 transform hover:-translate-y-1">
-              <div className="p-6 h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mx-auto mb-6 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                  </div>
-                  <h3 className="font-serif text-xl font-bold text-white mb-3 text-center">
-                    Stay Updated
-                  </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed text-center mb-6">
-                    Get weekly insights on AI implementation, industry trends, and business strategy delivered to your inbox.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <button 
-                    onClick={() => setShowSubscriptionModal(true)}
-                    className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
-                  >
-                    Subscribe Now
-                  </button>
-                </div>
-              </div>
-            </article>
+            {/* Book List Link Card (replaces old Subscribe card) */}
+            {/* (Book List card removed as requested) */}
           </div>
         </div>
       </section>
+      {/* 2025 Client Book List CTA Section */}
+      <section className="py-24 bg-gradient-to-b from-white via-gray-50 to-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6">2025 Client Book List</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">The strategic & AI reading foundation we give clients. Explore the 12 core titles across strategy, execution, systems thinking, and transformation.</p>
+          <div className="flex items-center justify-center">
+            <Link href="/books" className="inline-flex items-center px-8 py-4 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors shadow">
+              View Book List & Articles <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white">

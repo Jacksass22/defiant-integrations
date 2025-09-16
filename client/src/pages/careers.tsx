@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Navigation } from '@/components/navigation';
 import { ArrowRight, ArrowLeft, Upload, Users, Code, TrendingUp, CheckCircle, User, Phone, FileText, HelpCircle } from 'lucide-react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 
@@ -484,7 +483,6 @@ export default function CareersPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navigation />
       
       {/* Header */}
       <section className="pt-32 pb-16 bg-gray-900 text-white">

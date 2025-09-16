@@ -1,4 +1,3 @@
-import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Scissors, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera, Globe, Smartphone, Bell, Palette } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -13,7 +12,6 @@ export default function Barbershops() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">

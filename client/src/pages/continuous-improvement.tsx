@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Navigation } from '@/components/navigation';
 import { 
   TrendingUp, 
   CheckCircle, 
@@ -27,7 +26,6 @@ import BlurText from '@/components/BlurText';
 export default function ContinuousImprovement() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden bg-gradient-to-br from-purple-50 via-white to-indigo-50">

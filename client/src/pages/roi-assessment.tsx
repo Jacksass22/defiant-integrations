@@ -1,5 +1,5 @@
 import { ArrowRight, TrendingUp, Clock, DollarSign, Users, BarChart3, Target, Zap, ChevronRight, Check, Building2, Calendar, Briefcase, ShoppingCart, GraduationCap, Laptop, HeadphonesIcon, Info, Store, Home, Wrench, Heart, Package, MoreHorizontal } from 'lucide-react';
-import { Navigation } from '@/components/navigation';
+
 import { Link } from 'wouter';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -253,7 +253,7 @@ export default function ROIAssessment() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      <Navigation />
+      
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">

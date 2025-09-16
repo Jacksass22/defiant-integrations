@@ -1,4 +1,3 @@
-import { Navigation } from '@/components/navigation';
 import { ArrowRight, Clock, DollarSign, Palette, Camera, MessageSquare, TrendingUp, CheckCircle, Brush } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -12,7 +11,6 @@ export default function Painting() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 pb-12 mb-8 bg-gradient-to-br from-purple-900 via-indigo-800 to-purple-900">

@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { Navigation } from "@/components/navigation";
 import ChatWidget from "@/components/ChatWidget";
 import Home from "@/pages/home";
 import StrategyArticle from "@/pages/strategy-article";
@@ -136,6 +137,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <Navigation />
         <Router />
         <ChatWidget 
           n8nWebhookUrl="https://adk.defiantintegration.com/webhook/03f9b6f3-07c9-48ca-88dc-af90d374c164"

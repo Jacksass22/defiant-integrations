@@ -1,5 +1,4 @@
 import { ArrowRight, CheckCircle, ShoppingBag, TrendingUp, Users, Zap } from 'lucide-react';
-import { Navigation } from '@/components/navigation';
 import { Link } from 'wouter';
 import { useState } from 'react';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -12,7 +11,6 @@ export default function EcommerceBrands() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
       <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">

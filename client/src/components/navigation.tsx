@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { MegaMenu } from './mega-menu';
@@ -115,6 +115,15 @@ export function Navigation() {
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
   const [location, setLocation] = useLocation();
 
+  // Ensure navigation stays visible after route changes
+  useEffect(() => {
+    const nav = document.querySelector('nav[data-navigation="main"]');
+    if (nav) {
+      (nav as HTMLElement).style.display = 'block';
+      (nav as HTMLElement).style.visibility = 'visible';
+    }
+  }, [location]);
+
   const scrollToBlog = (e: React.MouseEvent) => {
     e.preventDefault();
     
@@ -152,7 +161,17 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed w-full top-0 z-[10000]" style={{ background: 'linear-gradient(to bottom, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 30%, rgba(17, 24, 39, 0.6) 60%, rgba(17, 24, 39, 0.3) 80%, transparent 100%)', paddingBottom: '2rem' }}>
+    <nav 
+      data-navigation="main"
+      className="fixed w-full top-0 z-[10000] pointer-events-auto" 
+      style={{ 
+        background: 'linear-gradient(to bottom, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 30%, rgba(17, 24, 39, 0.6) 60%, rgba(17, 24, 39, 0.3) 80%, transparent 100%)', 
+        paddingBottom: '2rem',
+        minHeight: '4rem',
+        display: 'block',
+        visibility: 'visible'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 py-2">
           {/* Menu Icon and Logo */}

@@ -1,5 +1,5 @@
 import { ArrowRight, CheckCircle, Home, TrendingUp, Users, Calendar } from 'lucide-react';
-import { Navigation } from '@/components/navigation';
+
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import BlurText from '@/components/BlurText';
@@ -12,7 +12,7 @@ export default function RealEstateAgencies() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
+      
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">

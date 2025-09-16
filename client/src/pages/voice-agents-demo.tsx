@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Navigation } from '@/components/navigation';
+
 import { Play, Pause, User, Phone, Calendar, MessageSquare, Shield, Zap } from 'lucide-react';
 import { useState } from 'react';
 
@@ -40,7 +40,7 @@ export default function VoiceAgentsDemo() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navigation />
+      
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-white">

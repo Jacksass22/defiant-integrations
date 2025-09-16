@@ -1,4 +1,4 @@
-import { Navigation } from '@/components/navigation';
+
 import { ArrowRight, Clock, DollarSign, Heart, Calendar, MessageSquare, TrendingUp, CheckCircle, Users, Camera } from 'lucide-react';
 import { Link } from 'wouter';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
@@ -12,7 +12,7 @@ export default function WellnessLifeCoaches() {
   
   return (
     <div className="bg-white text-charcoal font-sans">
-      <Navigation />
+      
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600">

@@ -1,7 +1,6 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
 import { useState } from 'react';
-import { Navigation } from '@/components/navigation';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import goodStrategyImage from '@assets/goodbadstrat_1754163555535.jpg';
 import innovatorsDilemmaImage from '@assets/image_1754163593061.png';
@@ -66,7 +65,6 @@ export default function Books() {
 
   return (
     <div className="bg-white text-gray-900 font-sans min-h-screen">
-      <Navigation />
       
       <div className="pt-16">
         {/* Header */}

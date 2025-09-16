@@ -9,7 +9,7 @@ const springValues = {
 };
 
 interface TiltedCardProps {
-  imageSrc: string;
+  imageSrc?: string; // now optional
   altText?: string;
   captionText?: string;
   containerHeight?: string;
@@ -22,6 +22,10 @@ interface TiltedCardProps {
   showTooltip?: boolean;
   overlayContent?: React.ReactNode;
   displayOverlayContent?: boolean;
+  children?: React.ReactNode;
+  isButton?: boolean; // tolerated prop from existing usages
+  className?: string;
+  onClick?: React.MouseEventHandler; // new optional click handler
 }
 
 export default function TiltedCard({
@@ -38,6 +42,9 @@ export default function TiltedCard({
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false,
+  children,
+  className = '',
+  onClick,
 }: TiltedCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -92,7 +99,7 @@ export default function TiltedCard({
   return (
     <figure
       ref={ref}
-      className="tilted-card-figure"
+      className={`tilted-card-figure ${className}`}
       style={{
         height: containerHeight,
         width: containerWidth,
@@ -100,6 +107,7 @@ export default function TiltedCard({
       onMouseMove={handleMouse}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
     >
       {showMobileWarning && (
         <div className="tilted-card-mobile-alert">
@@ -117,21 +125,28 @@ export default function TiltedCard({
           scale,
         }}
       >
-        <motion.img
-          src={imageSrc}
-          alt={altText}
-          className="tilted-card-img"
-          style={{
-            width: imageWidth,
-            height: imageHeight,
-          }}
-        />
+        {imageSrc && (
+          <motion.img
+            src={imageSrc}
+            alt={altText}
+            className="tilted-card-img"
+            style={{
+              width: imageWidth,
+              height: imageHeight,
+            }}
+          />
+        )}
 
         {displayOverlayContent && overlayContent && (
           <motion.div
             className="tilted-card-overlay"
           >
             {overlayContent}
+          </motion.div>
+        )}
+        {children && !displayOverlayContent && (
+          <motion.div className="tilted-card-overlay static-children">
+            {children}
           </motion.div>
         )}
       </motion.div>

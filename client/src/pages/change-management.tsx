@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Target, Users, TrendingUp, Zap, CheckCircle, Clock, Shield, Award, BarChart3, UserCheck, Settings, Lightbulb, Info, Calendar, Building2 } from 'lucide-react';
-import { Navigation } from '../components/navigation';
 import BlurText from '../components/BlurText';
 
 export default function ChangeManagement() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">

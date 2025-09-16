@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Navigation } from '@/components/navigation';
 import { 
   Shield, 
   CheckCircle, 
@@ -24,7 +23,6 @@ import BlurText from '@/components/BlurText';
 export default function GovernanceFrameworks() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">

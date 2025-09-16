@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Navigation } from '@/components/navigation';
+
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { 
   ArrowRight, 
@@ -38,7 +38,7 @@ export default function TechnologyEvaluation() {
   const [showLeadCaptureModal, setShowLeadCaptureModal] = useState(false);
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
+      
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-yellow-50 via-blue-50 to-white">
