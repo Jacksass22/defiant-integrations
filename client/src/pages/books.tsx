@@ -108,8 +108,8 @@ export default function Books() {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {bookRecommendations.map((book, index) => (
-                <div key={index} className="group cursor-pointer">
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform group-hover:scale-105">
+                <div key={index} className="group cursor-pointer h-full">
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform group-hover:scale-105 h-full flex flex-col">
                     {/* Book Cover */}
                     <div className="relative h-80 bg-gray-100 flex items-center justify-center p-6">
                       {book.coverImage ? (
@@ -149,10 +149,10 @@ export default function Books() {
                     </div>
                     
                     {/* Book Details */}
-                    <div className="p-6">
+                    <div className="p-6 flex-grow flex flex-col">
                       <h3 className="font-serif text-lg font-bold text-gray-900 mb-2">{book.title}</h3>
                       <p className="text-sm text-gray-500 mb-3">by {book.author}</p>
-                      <p className="text-gray-600 text-sm leading-relaxed">{book.description}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed flex-grow">{book.description}</p>
                     </div>
                   </div>
                 </div>

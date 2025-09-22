@@ -1,18 +1,19 @@
-import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Target, 
-  Cog, 
-  Handshake, 
-  Lightbulb, 
-  TrendingUp, 
-  Shield, 
-  Users, 
-  Award, 
-  Clock, 
-  Heart, 
-  Star, 
+import { motion, useInView, useAnimation } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import {
+  ArrowRight,
+  CheckCircle,
+  Target,
+  Cog,
+  Handshake,
+  Lightbulb,
+  TrendingUp,
+  Shield,
+  Users,
+  Award,
+  Clock,
+  Heart,
+  Star,
   Zap,
   Eye,
   MessageSquare,
@@ -20,97 +21,236 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
-import { useState } from 'react';
+import GridDistortion from '@/components/GridDistortion';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export default function CompanyValues() {
+  useScrollToTop();
   const [expandedValue, setExpandedValue] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  // Track mouse movement for 3D effects
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: (e.clientX - rect.left) / rect.width,
+          y: (e.clientY - rect.top) / rect.height
+        });
+      }
+    };
+
+    const hero = heroRef.current;
+    if (hero) {
+      hero.addEventListener('mousemove', handleMouseMove);
+      return () => hero.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
 
   const toggleValue = (index: number) => {
     setExpandedValue(expandedValue === index ? null : index);
   };
 
+  const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+    const controls = useAnimation();
+
+    useEffect(() => {
+      if (isInView) {
+        controls.start("visible");
+      }
+    }, [isInView, controls]);
+
+    return (
+      <motion.div
+        ref={sectionRef}
+        initial="hidden"
+        animate={controls}
+      >
+        {children}
+      </motion.div>
+    );
+  };
+
   return (
-    <div className="min-h-screen bg-white">
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 via-white to-yellow-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-acquisition-dark text-acquisition-secondary font-sans">
+
+      {/* Hero Section with 3D Effects */}
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex items-center pt-16 overflow-hidden"
+      >
+        {/* Dark gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-acquisition-primary" />
+        <div className="absolute inset-0 bg-gradient-radial from-acquisition-primary/10 via-transparent to-transparent" />
+
+        {/* Grid Distortion Effect */}
+        <div className="absolute inset-0 opacity-20">
+          <GridDistortion
+            imageSrc="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1920&h=1080&q=80"
+            grid={10}
+            mouse={0.08}
+            strength={0.12}
+            relaxation={0.9}
+          />
+        </div>
+
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute top-20 left-10 w-80 h-80 bg-acquisition-primary/10 rounded-full blur-3xl animate-pulse"
+            style={{
+              transform: `translate(${mousePosition.x * 25}px, ${mousePosition.y * 25}px)`
+            }}
+          />
+          <div
+            className="absolute top-60 right-20 w-64 h-64 bg-acquisition-accent/15 rounded-full blur-2xl animate-pulse"
+            style={{
+              transform: `translate(${mousePosition.x * -18}px, ${mousePosition.y * 18}px)`,
+              animationDelay: '1.5s'
+            }}
+          />
+          <div
+            className="absolute bottom-40 left-1/3 w-48 h-48 bg-acquisition-primary/12 rounded-full blur-xl animate-pulse"
+            style={{
+              transform: `translate(${mousePosition.x * 30}px, ${mousePosition.y * -30}px)`,
+              animationDelay: '3s'
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12 items-center">
             {/* Left Content - 60% */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               className="lg:col-span-3"
             >
-              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Values That Drive Results: The Principles Behind Our Success
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              {/* Floating badge */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex items-center space-x-2 bg-acquisition-primary/10 backdrop-blur-sm border border-acquisition-primary/20 rounded-full px-6 py-2 mb-8"
+              >
+                <Heart className="w-4 h-4 text-acquisition-accent" />
+                <span className="text-sm text-acquisition-secondary font-medium">Our Values</span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="font-sans text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 text-acquisition-primary leading-tight"
+              >
+                Values That Drive <br />
+                <span className="gradient-text">Results</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-xl text-acquisition-secondary mb-10 leading-relaxed max-w-2xl"
+              >
                 Our core values aren't just words on a wall—they're the foundation of every client relationship, every solution we build, and every result we deliver.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
-                  Experience Our Values in Action
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="flex flex-col sm:flex-row gap-4 mb-12"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-acquisition inline-flex items-center space-x-2 text-lg"
+                >
+                  <span>Experience Our Values in Action</span>
                   <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-              
-              <div className="flex items-center gap-8 text-sm">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600" />
-                  <span className="text-gray-600">Values-Driven Results</span>
+                </motion.button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+                className="flex flex-col sm:flex-row gap-8"
+              >
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-acquisition-accent" />
+                  <span className="text-acquisition-secondary">Values-Driven Results</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600" />
-                  <span className="text-gray-600">Authentic Partnerships</span>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-acquisition-accent" />
+                  <span className="text-acquisition-secondary">Authentic Partnerships</span>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
-            
+
             {/* Right Visual - 40% */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, x: 50, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="lg:col-span-2"
             >
-              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-                <h3 className="font-semibold text-lg text-gray-900 mb-6">Company Culture</h3>
-                
+              <div className="acquisition-card p-8">
+                <h3 className="font-semibold text-xl text-acquisition-primary mb-6 flex items-center">
+                  <div className="w-8 h-8 bg-acquisition-primary/10 rounded-lg flex items-center justify-center mr-3">
+                    <Building className="w-4 h-4 text-acquisition-primary" />
+                  </div>
+                  Company Culture
+                </h3>
+
                 {/* Culture Metrics */}
                 <div className="space-y-6">
                   {[
-                    { label: "Client Success Focus", value: "100%", description: "Every decision starts here", color: "blue" },
-                    { label: "System Reliability", value: "99.9%", description: "Technical excellence", color: "green" },
-                    { label: "Transparent Communication", value: "Weekly", description: "Progress updates", color: "yellow" },
-                    { label: "Practical Innovation", value: "Purpose", description: "Technology that works", color: "purple" }
+                    { label: "Client Success Focus", value: "100%", description: "Every decision starts here", delay: 0.2 },
+                    { label: "System Reliability", value: "99.9%", description: "Technical excellence", delay: 0.4 },
+                    { label: "Transparent Communication", value: "Weekly", description: "Progress updates", delay: 0.6 },
+                    { label: "Practical Innovation", value: "Purpose", description: "Technology that works", delay: 0.8 }
                   ].map((metric, index) => (
-                    <div key={index} className="space-y-2">
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: metric.delay }}
+                      className="space-y-2"
+                    >
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-gray-700">{metric.label}</span>
-                        <span className={`text-${metric.color}-600 font-bold text-sm`}>{metric.value}</span>
+                        <span className="text-sm font-medium text-acquisition-secondary">{metric.label}</span>
+                        <span className="text-acquisition-primary font-bold text-sm">{metric.value}</span>
                       </div>
-                      <div className="text-xs text-gray-600">{metric.description}</div>
-                      
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <motion.div 
+                      <div className="text-xs text-acquisition-secondary/70">{metric.description}</div>
+
+                      <div className="w-full bg-acquisition-primary/20 rounded-full h-2">
+                        <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: "100%" }}
-                          transition={{ duration: 1, delay: index * 0.3 }}
-                          className={`bg-${metric.color}-600 h-2 rounded-full`}
+                          transition={{ duration: 1.2, delay: metric.delay + 0.2 }}
+                          className="bg-gradient-to-r from-acquisition-primary to-acquisition-accent h-2 rounded-full"
                         />
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
-                  
+
                   {/* Values Commitment */}
-                  <div className="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl p-4 mt-6">
-                    <div className="text-sm font-medium text-gray-700 mb-2">Our Commitment</div>
-                    <div className="text-xs text-gray-600">Living our values in every client interaction and business decision</div>
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                    className="bg-acquisition-primary/10 rounded-xl p-4 mt-6"
+                  >
+                    <div className="text-sm font-medium text-acquisition-primary mb-2">Our Commitment</div>
+                    <div className="text-xs text-acquisition-secondary">Living our values in every client interaction and business decision</div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -119,403 +259,579 @@ export default function CompanyValues() {
       </section>
 
       {/* Core Values - Expandable */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Our Core Values
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Four principles that guide every decision, drive every project, and define every partnership
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Client Success Above All",
-                principle: "Your success is our only metric that matters",
-                inPractice: "Every decision starts with 'How does this create measurable value for our clients?'",
-                example: "Turning down profitable projects that don't align with client goals",
-                icon: <Target className="w-6 h-6" />,
-                color: "blue",
-                details: {
-                  heading: "We Measure Success by Your Growth",
-                  points: [
-                    "ROI tracking and regular business impact assessments",
-                    "Proactive optimization to maximize your investment returns", 
-                    "Long-term partnerships focused on scaling your competitive advantages",
-                    "Success guarantees backed by performance commitments"
-                  ]
+      <AnimatedSection>
+        <section className="py-20 bg-acquisition-darker">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+              className="text-center mb-16"
+            >
+              <h2 className="font-sans text-4xl sm:text-5xl font-bold text-acquisition-primary mb-6">
+                Our <span className="gradient-text">Core Values</span>
+              </h2>
+              <p className="text-xl text-acquisition-secondary max-w-3xl mx-auto">
+                Four principles that guide every decision, drive every project, and define every partnership
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2
+                  }
                 }
-              },
-              {
-                title: "Relentless Technical Excellence",
-                principle: "Good enough isn't good enough when it comes to your business",
-                inPractice: "Continuous learning, rigorous testing, and world-class implementation standards",
-                example: "99.9% system uptime through obsessive attention to quality and reliability",
-                icon: <Cog className="w-6 h-6" />,
-                color: "green",
-                details: {
-                  heading: "Building Systems That Work, Always",
-                  points: [
-                    "Rigorous testing protocols ensuring 99.9% reliability",
-                    "Continuous performance monitoring and optimization",
-                    "Security-first architecture protecting your business data",
-                    "Future-proof technology choices that scale with your growth"
-                  ]
+              }}
+              className="grid md:grid-cols-2 gap-8"
+            >
+              {[
+                {
+                  title: "Client Success Above All",
+                  principle: "Your success is our only metric that matters",
+                  inPractice: "Every decision starts with 'How does this create measurable value for our clients?'",
+                  example: "Turning down profitable projects that don't align with client goals",
+                  icon: <Target className="w-6 h-6" />,
+                  details: {
+                    heading: "We Measure Success by Your Growth",
+                    points: [
+                      "ROI tracking and regular business impact assessments",
+                      "Proactive optimization to maximize your investment returns",
+                      "Long-term partnerships focused on scaling your competitive advantages",
+                      "Success guarantees backed by performance commitments"
+                    ]
+                  }
+                },
+                {
+                  title: "Relentless Technical Excellence",
+                  principle: "Good enough isn't good enough when it comes to your business",
+                  inPractice: "Continuous learning, rigorous testing, and world-class implementation standards",
+                  example: "99.9% system uptime through obsessive attention to quality and reliability",
+                  icon: <Cog className="w-6 h-6" />,
+                  details: {
+                    heading: "Building Systems That Work, Always",
+                    points: [
+                      "Rigorous testing protocols ensuring 99.9% reliability",
+                      "Continuous performance monitoring and optimization",
+                      "Security-first architecture protecting your business data",
+                      "Future-proof technology choices that scale with your growth"
+                    ]
+                  }
+                },
+                {
+                  title: "Transparent Partnership",
+                  principle: "Honest communication builds lasting relationships",
+                  inPractice: "Clear timelines, realistic expectations, proactive problem-solving communication",
+                  example: "Weekly progress reports with honest assessments of challenges and solutions",
+                  icon: <Handshake className="w-6 h-6" />,
+                  details: {
+                    heading: "No Surprises, Just Solutions",
+                    points: [
+                      "Weekly progress reports with honest milestone assessments",
+                      "Upfront communication about challenges and realistic timelines",
+                      "Open-book approach to project costs and resource allocation",
+                      "Proactive problem-solving before issues impact your business"
+                    ]
+                  }
+                },
+                {
+                  title: "Innovation with Purpose",
+                  principle: "Technology should solve real problems, not create new ones",
+                  inPractice: "Practical AI applications that improve business operations, not just flashy features",
+                  example: "Custom solutions that integrate seamlessly with existing workflows",
+                  icon: <Lightbulb className="w-6 h-6" />,
+                  details: {
+                    heading: "Technology That Actually Improves Your Business",
+                    points: [
+                      "Practical AI applications that solve real operational challenges",
+                      "Custom solutions designed for your specific industry and workflows",
+                      "Integration strategies that enhance rather than disrupt existing processes",
+                      "Continuous innovation that creates sustainable competitive advantages"
+                    ]
+                  }
                 }
-              },
-              {
-                title: "Transparent Partnership",
-                principle: "Honest communication builds lasting relationships",
-                inPractice: "Clear timelines, realistic expectations, proactive problem-solving communication",
-                example: "Weekly progress reports with honest assessments of challenges and solutions",
-                icon: <Handshake className="w-6 h-6" />,
-                color: "yellow",
-                details: {
-                  heading: "No Surprises, Just Solutions",
-                  points: [
-                    "Weekly progress reports with honest milestone assessments",
-                    "Upfront communication about challenges and realistic timelines",
-                    "Open-book approach to project costs and resource allocation",
-                    "Proactive problem-solving before issues impact your business"
-                  ]
-                }
-              },
-              {
-                title: "Innovation with Purpose",
-                principle: "Technology should solve real problems, not create new ones",
-                inPractice: "Practical AI applications that improve business operations, not just flashy features",
-                example: "Custom solutions that integrate seamlessly with existing workflows",
-                icon: <Lightbulb className="w-6 h-6" />,
-                color: "purple",
-                details: {
-                  heading: "Technology That Actually Improves Your Business",
-                  points: [
-                    "Practical AI applications that solve real operational challenges",
-                    "Custom solutions designed for your specific industry and workflows",
-                    "Integration strategies that enhance rather than disrupt existing processes",
-                    "Continuous innovation that creates sustainable competitive advantages"
-                  ]
-                }
-              }
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className={`w-12 h-12 bg-${value.color}-100 rounded-xl flex items-center justify-center text-${value.color}-600`}>
-                    {value.icon}
-                  </div>
-                  <button 
-                    onClick={() => toggleValue(index)}
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    {expandedValue === index ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                  </button>
-                </div>
-                
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className={`text-${value.color}-600 font-medium mb-4`}>"{value.principle}"</p>
-                <p className="text-gray-600 text-sm mb-3">
-                  <strong>In Practice:</strong> {value.inPractice}
-                </p>
-                <p className="text-gray-600 text-sm mb-4">
-                  <strong>Example:</strong> {value.example}
-                </p>
-                
-                {/* Expandable Details */}
+              ].map((value, index) => (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ 
-                    height: expandedValue === index ? "auto" : 0,
-                    opacity: expandedValue === index ? 1 : 0
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 60 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
                   }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="group relative acquisition-card overflow-hidden"
                 >
-                  {expandedValue === index && (
-                    <div className={`border-t border-${value.color}-100 pt-4 mt-4`}>
-                      <h4 className="font-semibold text-gray-900 mb-3">{value.details.heading}</h4>
-                      <ul className="space-y-2">
-                        {value.details.points.map((point, pointIndex) => (
-                          <li key={pointIndex} className="flex items-start gap-2 text-sm text-gray-600">
-                            <CheckCircle className={`w-4 h-4 text-${value.color}-600 flex-shrink-0 mt-0.5`} />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  {/* Animated gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-acquisition-primary/5 via-transparent to-acquisition-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-acquisition-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+
+                  <div className="relative p-8 z-10">
+                    <div className="flex items-start justify-between mb-6">
+                      <motion.div
+                        className="w-16 h-16 bg-acquisition-primary/10 rounded-2xl flex items-center justify-center text-acquisition-primary"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {value.icon}
+                      </motion.div>
+                      <motion.button
+                        onClick={() => toggleValue(index)}
+                        className="text-acquisition-secondary hover:text-acquisition-primary transition-colors"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        {expandedValue === index ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                      </motion.button>
                     </div>
-                  )}
+
+                    <h3 className="font-sans text-2xl font-bold text-acquisition-primary mb-4 group-hover:text-acquisition-accent transition-colors">{value.title}</h3>
+                    <p className="text-acquisition-accent font-medium mb-4">"{value.principle}"</p>
+                    <p className="text-acquisition-secondary text-sm mb-3">
+                      <strong>In Practice:</strong> {value.inPractice}
+                    </p>
+                    <p className="text-acquisition-secondary text-sm mb-4">
+                      <strong>Example:</strong> {value.example}
+                    </p>
+
+                    {/* Expandable Details */}
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{
+                        height: expandedValue === index ? "auto" : 0,
+                        opacity: expandedValue === index ? 1 : 0
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      {expandedValue === index && (
+                        <div className="border-t border-acquisition-primary/20 pt-4 mt-4">
+                          <h4 className="font-semibold text-acquisition-primary mb-3">{value.details.heading}</h4>
+                          <ul className="space-y-2">
+                            {value.details.points.map((point, pointIndex) => (
+                              <motion.li
+                                key={pointIndex}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.3, delay: pointIndex * 0.1 }}
+                                className="flex items-start gap-2 text-sm text-acquisition-secondary"
+                              >
+                                <CheckCircle className="w-4 h-4 text-acquisition-accent flex-shrink-0 mt-0.5" />
+                                <span>{point}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </motion.div>
+                  </div>
+
+                  {/* Bottom glow effect */}
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-acquisition-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Values-Driven Decision Making */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Values-Driven Decision Making
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              How our principles guide tough decisions and exceptional service delivery
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12">
+      <AnimatedSection>
+        <section className="py-20 bg-acquisition-dark">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+              className="text-center mb-16"
             >
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 mb-6">
-                <Shield className="w-8 h-8" />
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">When We Say No</h3>
-              <p className="text-lg text-red-600 font-medium mb-4">Protecting Client Interests</p>
-              
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-1" />
-                  <span>Projects that don't align with client long-term success</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-1" />
-                  <span>Technology solutions that create more complexity than value</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-1" />
-                  <span>Timelines that compromise quality or sustainability</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-1" />
-                  <span>Engagements that would stretch our ability to deliver excellence</span>
-                </li>
-              </ul>
+              <h2 className="font-sans text-4xl sm:text-5xl font-bold text-acquisition-primary mb-6">
+                Values-Driven <span className="gradient-text">Decision Making</span>
+              </h2>
+              <p className="text-xl text-acquisition-secondary max-w-3xl mx-auto">
+                How our principles guide tough decisions and exceptional service delivery
+              </p>
             </motion.div>
-            
+
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.3
+                  }
+                }
+              }}
+              className="grid md:grid-cols-2 gap-12"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-6">
-                <Star className="w-8 h-8" />
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">When We Go Above and Beyond</h3>
-              <p className="text-lg text-green-600 font-medium mb-4">Exceeding Expectations</p>
-              
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-1" />
-                  <span>Emergency support for critical business operations</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-1" />
-                  <span>Additional optimization opportunities discovered during projects</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-1" />
-                  <span>Industry insights and competitive intelligence sharing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0 mt-1" />
-                  <span>Strategic advice beyond the scope of current engagements</span>
-                </li>
-              </ul>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+                }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+                className="acquisition-card p-8"
+              >
+                <motion.div
+                  className="w-20 h-20 bg-red-500/10 rounded-3xl flex items-center justify-center text-red-400 mb-8"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Shield className="w-10 h-10" />
+                </motion.div>
+                <h3 className="font-sans text-3xl font-bold text-acquisition-primary mb-4">When We Say No</h3>
+                <p className="text-lg text-red-400 font-medium mb-6">Protecting Client Interests</p>
+
+                <ul className="space-y-4 text-acquisition-secondary">
+                  {[
+                    "Projects that don't align with client long-term success",
+                    "Technology solutions that create more complexity than value",
+                    "Timelines that compromise quality or sustainability",
+                    "Engagements that would stretch our ability to deliver excellence"
+                  ].map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <CheckCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-1" />
+                      <span>{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+                }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+                className="acquisition-card p-8"
+              >
+                <motion.div
+                  className="w-20 h-20 bg-green-500/10 rounded-3xl flex items-center justify-center text-green-400 mb-8"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Star className="w-10 h-10" />
+                </motion.div>
+                <h3 className="font-sans text-3xl font-bold text-acquisition-primary mb-4">When We Go Above and Beyond</h3>
+                <p className="text-lg text-green-400 font-medium mb-6">Exceeding Expectations</p>
+
+                <ul className="space-y-4 text-acquisition-secondary">
+                  {[
+                    "Emergency support for critical business operations",
+                    "Additional optimization opportunities discovered during projects",
+                    "Industry insights and competitive intelligence sharing",
+                    "Strategic advice beyond the scope of current engagements"
+                  ].map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-1" />
+                      <span>{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
             </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Client Testimonials */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Client Testimonials on Values
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              How our values translate into real client experiences and business outcomes
-            </p>
+      <AnimatedSection>
+        <section className="py-20 bg-acquisition-darker">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+              className="text-center mb-16"
+            >
+              <h2 className="font-sans text-4xl sm:text-5xl font-bold text-acquisition-primary mb-6">
+                Client Testimonials on <span className="gradient-text">Values</span>
+              </h2>
+              <p className="text-xl text-acquisition-secondary max-w-3xl mx-auto">
+                How our values translate into real client experiences and business outcomes
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2
+                  }
+                }
+              }}
+              className="grid md:grid-cols-3 gap-8"
+            >
+              {[
+                {
+                  title: "They Actually Care About Our Success",
+                  quote: "Unlike other consultants who just deliver and leave, Defiant Integrations stayed engaged until we saw real ROI. Their success is tied to ours.",
+                  author: "CEO, $50M E-commerce Company",
+                  value: "Client Success Above All",
+                  icon: <Target className="w-6 h-6" />
+                },
+                {
+                  title: "Transparent and Reliable",
+                  quote: "Every week we knew exactly where we stood, what was working, and what needed attention. No surprises, just steady progress.",
+                  author: "CTO, SaaS Platform",
+                  value: "Transparent Partnership",
+                  icon: <Handshake className="w-6 h-6" />
+                },
+                {
+                  title: "Innovation That Makes Sense",
+                  quote: "They didn't push the latest AI buzzwords on us. They built exactly what our business needed to grow.",
+                  author: "Founder, Professional Services Firm",
+                  value: "Innovation with Purpose",
+                  icon: <Lightbulb className="w-6 h-6" />
+                }
+              ].map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 60 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                  }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="group relative acquisition-card overflow-hidden"
+                >
+                  {/* Animated gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-acquisition-primary/5 via-transparent to-acquisition-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-acquisition-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+
+                  <div className="relative p-8 z-10">
+                    <motion.div
+                      className="w-16 h-16 bg-acquisition-primary/10 rounded-2xl flex items-center justify-center text-acquisition-primary mb-6"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {testimonial.icon}
+                    </motion.div>
+
+                    <h3 className="font-sans text-xl font-bold text-acquisition-primary mb-4 group-hover:text-acquisition-accent transition-colors">{testimonial.title}</h3>
+                    <p className="text-acquisition-secondary mb-6 italic leading-relaxed">"{testimonial.quote}"</p>
+
+                    <div className="border-t border-acquisition-primary/20 pt-4">
+                      <p className="text-sm font-medium text-acquisition-primary">{testimonial.author}</p>
+                      <p className="text-xs text-acquisition-accent font-medium mt-1">{testimonial.value}</p>
+                    </div>
+                  </div>
+
+                  {/* Bottom glow effect */}
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-acquisition-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "They Actually Care About Our Success",
-                quote: "Unlike other consultants who just deliver and leave, Defiant Integrations stayed engaged until we saw real ROI. Their success is tied to ours.",
-                author: "CEO, $50M E-commerce Company",
-                value: "Client Success Above All",
-                color: "blue"
-              },
-              {
-                title: "Transparent and Reliable",
-                quote: "Every week we knew exactly where we stood, what was working, and what needed attention. No surprises, just steady progress.",
-                author: "CTO, SaaS Platform",
-                value: "Transparent Partnership",
-                color: "yellow"
-              },
-              {
-                title: "Innovation That Makes Sense",
-                quote: "They didn't push the latest AI buzzwords on us. They built exactly what our business needed to grow.",
-                author: "Founder, Professional Services Firm",
-                value: "Innovation with Purpose",
-                color: "purple"
-              }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className={`w-12 h-12 bg-${testimonial.color}-100 rounded-xl flex items-center justify-center text-${testimonial.color}-600 mb-6`}>
-                  <MessageSquare className="w-6 h-6" />
-                </div>
-                
-                <h3 className="font-serif text-lg font-bold text-gray-900 mb-3">{testimonial.title}</h3>
-                <p className="text-gray-600 mb-6 italic">"{testimonial.quote}"</p>
-                
-                <div className="border-t border-gray-100 pt-4">
-                  <p className="text-sm font-medium text-gray-900">{testimonial.author}</p>
-                  <p className={`text-xs text-${testimonial.color}-600 font-medium mt-1`}>{testimonial.value}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Culture in Action */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-6">
-              Culture in Action
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              How we live our values every day through continuous learning and results-driven collaboration
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
+      <AnimatedSection>
+        <section className="py-20 bg-gradient-to-br from-acquisition-primary via-acquisition-darker to-acquisition-dark relative overflow-hidden">
+          {/* Background effects */}
+          <div className="absolute inset-0 bg-gradient-to-br from-acquisition-primary/10 via-transparent to-acquisition-primary/5" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+              className="text-center mb-16"
             >
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white mb-6">
-                <Users className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-xl font-bold text-white mb-4">Continuous Learning</h3>
-              
-              <ul className="space-y-3 text-blue-100">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Monthly team training on emerging AI technologies</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Industry conference participation and knowledge sharing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Client feedback integration into service improvement</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Cross-industry best practice development and application</span>
-                </li>
-              </ul>
+              <h2 className="font-sans text-4xl sm:text-5xl font-bold text-white mb-6">
+                Culture in <span className="text-acquisition-accent">Action</span>
+              </h2>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+                How we live our values every day through continuous learning and results-driven collaboration
+              </p>
             </motion.div>
-            
+
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.3
+                  }
+                }
+              }}
+              className="grid md:grid-cols-2 gap-8"
             >
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white mb-6">
-                <Award className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-xl font-bold text-white mb-4">Results-Driven Collaboration</h3>
-              
-              <ul className="space-y-3 text-blue-100">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Team incentives aligned with client success metrics</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Collaborative problem-solving across all disciplines</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Knowledge sharing that benefits entire client portfolio</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-300 flex-shrink-0 mt-1" />
-                  <span>Innovation initiatives driven by real client challenges</span>
-                </li>
-              </ul>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: -50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+                }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+              >
+                <motion.div
+                  className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-8"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Users className="w-8 h-8" />
+                </motion.div>
+                <h3 className="font-sans text-2xl font-bold text-white mb-6">Continuous Learning</h3>
+
+                <ul className="space-y-4 text-blue-100">
+                  {[
+                    "Monthly team training on emerging AI technologies",
+                    "Industry conference participation and knowledge sharing",
+                    "Client feedback integration into service improvement",
+                    "Cross-industry best practice development and application"
+                  ].map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <CheckCircle className="w-4 h-4 text-acquisition-accent flex-shrink-0 mt-1" />
+                      <span>{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+                }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+              >
+                <motion.div
+                  className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-8"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Award className="w-8 h-8" />
+                </motion.div>
+                <h3 className="font-sans text-2xl font-bold text-white mb-6">Results-Driven Collaboration</h3>
+
+                <ul className="space-y-4 text-blue-100">
+                  {[
+                    "Team incentives aligned with client success metrics",
+                    "Collaborative problem-solving across all disciplines",
+                    "Knowledge sharing that benefits entire client portfolio",
+                    "Innovation initiatives driven by real client challenges"
+                  ].map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <CheckCircle className="w-4 h-4 text-acquisition-accent flex-shrink-0 mt-1" />
+                      <span>{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
             </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Call to Action */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Experience Values-Driven Results?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              See how our value-driven approach creates measurable business transformation and lasting partnerships.
-            </p>
-            
-            <div className="flex justify-center mb-8">
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Start Your Transformation
-              </button>
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-8 text-gray-600">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-blue-600" />
-                <span>Values-Driven Partnership</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-blue-600" />
-                <span>Measurable Business Impact</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-blue-600" />
-                <span>Transparent Communication</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <AnimatedSection>
+        <section className="py-20 bg-acquisition-dark">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+              }}
+            >
+              <h2 className="font-sans text-4xl sm:text-5xl font-bold text-acquisition-primary mb-6">
+                Ready to Experience <span className="gradient-text">Values-Driven</span> Results?
+              </h2>
+              <p className="text-xl text-acquisition-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
+                See how our value-driven approach creates measurable business transformation and lasting partnerships.
+              </p>
+
+              <motion.div
+                className="flex justify-center mb-12"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <button className="btn-acquisition inline-flex items-center space-x-2 text-lg">
+                  <span>Start Your Transformation</span>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.2
+                    }
+                  }
+                }}
+                className="flex flex-wrap justify-center gap-8 text-acquisition-secondary"
+              >
+                {[
+                  "Values-Driven Partnership",
+                  "Measurable Business Impact",
+                  "Transparent Communication"
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                    }}
+                    className="flex items-center gap-2"
+                  >
+                    <CheckCircle className="w-5 h-5 text-acquisition-accent" />
+                    <span>{item}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+      </AnimatedSection>
     </div>
   );
 }

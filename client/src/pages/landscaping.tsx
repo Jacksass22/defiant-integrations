@@ -37,9 +37,9 @@ export default function Landscaping() {
             <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed">
               Generate more leads, showcase your work professionally, and grow beyond just mowing lawns.
             </p>
-            <button 
+            <button
               onClick={() => setShowLeadCaptureModal(true)}
-              className="inline-flex items-center space-x-2 bg-green-600 text-white px-8 py-4 font-medium hover:bg-green-700 transition-colors"
+              className="inline-flex items-center space-x-2 bg-green-600 text-white px-8 py-4 font-medium hover:bg-green-700 transition-colors rounded-lg"
             >
               <span>Start Your Free Assessment</span>
               <ArrowRight className="w-5 h-5" />
@@ -148,7 +148,8 @@ export default function Landscaping() {
                     <li>• Before/after content that demonstrates your transformation capabilities</li>
                     <li>• Educational content about plant selection, seasonal care, and landscape investment value</li>
                     <li>• SEO-optimized website that ranks for "landscape design near me"</li>
-                    <li>• Social media campaigns featuring your best projects</li>
+                    <li>• Social media marketing campaigns (organic content and targeted ad spend)</li>
+                    <li>• Professional before/after posts featuring your best projects</li>
                   </ul>
                 </div>
                 <div className="bg-green-50 border-l-4 border-green-600 p-4">
@@ -183,11 +184,11 @@ export default function Landscaping() {
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Professional before/after posts that highlight transformations</li>
                     <li>• Seasonal content calendar with planting tips, maintenance reminders, and design ideas</li>
                     <li>• Video content showing installation process and crew expertise</li>
                     <li>• Customer testimonials and project spotlights</li>
                     <li>• Automated posting schedule that keeps you visible year-round</li>
+                    <li>• Analytics tracking to optimize content performance and engagement</li>
                   </ul>
                 </div>
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4">
@@ -407,9 +408,9 @@ export default function Landscaping() {
           <p className="text-2xl font-semibold mb-12">
             Ready to see what this looks like for your business?
           </p>
-          <button 
+          <button
             onClick={() => setShowLeadCaptureModal(true)}
-            className="inline-flex items-center space-x-2 bg-green-600 text-white px-8 py-4 font-medium hover:bg-green-700 transition-colors text-lg"
+            className="inline-flex items-center space-x-2 bg-green-600 text-white px-8 py-4 font-medium hover:bg-green-700 transition-colors text-lg rounded-lg"
           >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />

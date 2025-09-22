@@ -1,24 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function VapiVoiceButton() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    // Load the VAPI widget script
-    const script = document.createElement('script');
-    script.src = 'https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js';
-    script.async = true;
-    script.type = 'text/javascript';
-    
-    // Check if script is already loaded
-    const existingScript = document.querySelector('script[src*="vapi-ai/client-sdk-react"]');
-    if (!existingScript) {
-      document.head.appendChild(script);
-    }
+    // Delay loading to ensure navigation is fully rendered
+    const timer = setTimeout(() => {
+      // Load the VAPI widget script
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js';
+      script.async = true;
+      script.type = 'text/javascript';
+
+      // Check if script is already loaded
+      const existingScript = document.querySelector('script[src*="vapi-ai/client-sdk-react"]');
+      if (!existingScript) {
+        document.head.appendChild(script);
+        script.onload = () => setIsLoaded(true);
+      } else {
+        setIsLoaded(true);
+      }
+    }, 2000); // 2 second delay
 
     return () => {
-      // Cleanup on unmount
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+      clearTimeout(timer);
     };
   }, []);
 
@@ -48,5 +53,18 @@ export function VapiVoiceButton() {
     ></vapi-widget>
   `;
 
-  return <div dangerouslySetInnerHTML={{ __html: vapiWidgetHTML }} />;
+  // Only render the widget if it's loaded
+  if (!isLoaded) {
+    return null;
+  }
+
+  return (
+    <div
+      style={{
+        zIndex: 1000, // Lower than navigation's z-10000
+        position: 'relative'
+      }}
+      dangerouslySetInnerHTML={{ __html: vapiWidgetHTML }}
+    />
+  );
 }

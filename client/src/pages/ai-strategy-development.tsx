@@ -30,7 +30,7 @@ export default function AIStrategyDevelopment() {
             </p>
             <button 
               onClick={() => setShowLeadCaptureModal(true)}
-              className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors rounded-lg"
             >
               <span>Book Your AI Readiness Session</span>
               <ArrowRight className="w-5 h-5" />
@@ -321,21 +321,7 @@ export default function AIStrategyDevelopment() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-600 p-6 max-w-2xl mx-auto rounded-r-xl overflow-hidden group hover:shadow-lg transition-all duration-500 border-r border-t border-b border-blue-200/50">
-              {/* Shimmer overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-              
-              {/* Subtle glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-200/30 to-cyan-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <p className="text-blue-900 font-semibold text-lg group-hover:text-blue-800 transition-colors duration-300">
-                  We use AI to enhance your systems. Not replace your people.
-                </p>
-              </div>
-            </div>
-          </div>
+          {/* Callout removed per request */}
         </div>
       </section>
       {/* What You Walk Away With */}
@@ -414,6 +400,24 @@ export default function AIStrategyDevelopment() {
               </p>
             </div>
           </div>
+
+          {/* Build & Integration CTA */}
+          <div className="mt-12">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-1">
+                  We don’t just strategize—we build, too.
+                </h3>
+                <p className="text-gray-600">
+                  When you’re ready, our team can design, integrate, and operate your AI solutions.
+                </p>
+              </div>
+              <Link href="/services" className="inline-flex items-center space-x-2 rounded-lg bg-blue-600 text-white px-5 py-3 hover:bg-blue-700 transition-colors">
+                <span>See how we build</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
       {/* Why Defiant */}
@@ -438,23 +442,25 @@ export default function AIStrategyDevelopment() {
               </p>
             </div>
 
-            <div className="relative bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 p-8 rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-blue-600/30">
-              {/* Shimmer overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-              
-              {/* Subtle glow effect */}
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <h4 className="font-serif text-xl font-bold mb-4 text-white">Cross-Industry Expertise</h4>
-                <div className="grid grid-cols-2 gap-2 text-sm text-gray-200">
-                  <div className="hover:text-white transition-colors duration-200">• HVAC & Trades</div>
-                  <div className="hover:text-white transition-colors duration-200">• Legal & Professional</div>
-                  <div className="hover:text-white transition-colors duration-200">• Healthcare & Wellness</div>
-                  <div className="hover:text-white transition-colors duration-200">• Retail & eCommerce</div>
-                  <div className="hover:text-white transition-colors duration-200">• Real Estate</div>
-                  <div className="hover:text-white transition-colors duration-200">• Food & Hospitality</div>
-                  <div className="hover:text-white transition-colors duration-200">• And 21+ more industries</div>
+            {/* Clean, simplified value props card */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
+              <h4 className="font-serif text-xl font-bold mb-6 text-white">Why teams choose us</h4>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-200">Cross-industry expertise with 27+ verticals</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-200">Outcome-focused strategy tied to measurable ROI</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-200">Build-and-operate capability—yes, we implement too</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-200">Security, governance, and change management baked in</p>
                 </div>
               </div>
             </div>
@@ -475,7 +481,7 @@ export default function AIStrategyDevelopment() {
           </p>
           <button 
             onClick={() => setShowLeadCaptureModal(true)}
-            className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors text-lg"
+            className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-4 font-medium hover:bg-blue-700 transition-colors text-lg rounded-lg"
           >
             <span>Book Your AI Readiness Session</span>
             <ArrowRight className="w-5 h-5" />

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import BlurText from '@/components/BlurText';
 import TextType from '@/components/TextType';
 import ServiceShowcase from '@/components/ServiceShowcase';
+import LogoLoop from '@/components/LogoLoop';
+import MovingDotsOverlay from '@/components/MovingDotsOverlay';
 
 import { SubscriptionModal } from '@/components/subscription-modal';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
@@ -46,6 +48,25 @@ export default function Home() {
       color: "from-amber-500 to-orange-600",
       accent: "bg-amber-500"
     }
+  ];
+
+  // Technology partner logos for LogoLoop
+  const techLogos = [
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "React", title: "React" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", alt: "TypeScript", title: "TypeScript" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", alt: "Node.js", title: "Node.js" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", alt: "Python", title: "Python" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg", alt: "Google Cloud", title: "Google Cloud Platform" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", alt: "MongoDB", title: "MongoDB" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", alt: "PostgreSQL", title: "PostgreSQL" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", alt: "Docker", title: "Docker" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg", alt: "Kubernetes", title: "Kubernetes" },
+    {
+      node: <span className="px-3 py-1.5 bg-purple-500 text-white rounded-md font-bold text-sm">n8n</span>,
+      title: "n8n",
+      alt: "n8n"
+    },
+    { src: "https://python.langchain.com/img/brand/wordmark.png", alt: "LangChain", title: "LangChain" },
   ];
 
   // Auto-rotate gallery every 4 seconds
@@ -134,8 +155,8 @@ export default function Home() {
         {/* Fallback background if video doesn't load */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" style={{ zIndex: -1 }}></div>
         
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
@@ -149,7 +170,7 @@ export default function Home() {
             <div className="mt-8 sm:mt-12 lg:mt-16">
               <button 
                 onClick={() => setShowLeadCaptureModal(true)}
-                className="bg-white text-gray-900 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium hover:bg-gray-100 hover:shadow-lg hover:scale-105 transform transition-all duration-300 inline-flex items-center space-x-2"
+                className="bg-white text-gray-900 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg hover:bg-gray-100 hover:shadow-lg hover:scale-105 transform transition-all duration-300 inline-flex items-center space-x-2"
               >
                 <span>Get started</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -217,28 +238,50 @@ export default function Home() {
           </div>
 
           {/* Interactive Service Showcase */}
-          <div className="relative mb-20">
+          <div className="relative mb-10">
             <ServiceShowcase />
           </div>
         </div>
       </section>
-      
+
+
+      {/* Technology Partners Section */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 tracking-tight mb-3">
+              Powered by Industry-Leading Technologies
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              We leverage cutting-edge technology stacks to deliver robust, scalable solutions
+            </p>
+          </div>
+          <div style={{ height: '80px', position: 'relative', overflow: 'hidden' }}>
+            <LogoLoop
+              logos={techLogos}
+              speed={60}
+              direction="left"
+              logoHeight={48}
+              gap={60}
+              pauseOnHover
+              scaleOnHover
+              fadeOut
+              fadeOutColor="#ffffff"
+              ariaLabel="Technology stack and partners"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Authority & Research Hook Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-0 items-center">
-            <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative overflow-hidden">
+            <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 p-8 sm:p-12 lg:p-16 flex items-center justify-center min-h-[400px] sm:min-h-[500px] relative overflow-hidden rounded-2xl">
               {/* Animated Neural Network Visualization */}
               <div className="absolute inset-0">
-                {/* Nodes */}
-                <div className="absolute top-16 left-20 w-3 h-3 bg-white/40 rounded-full animate-pulse"></div>
-                <div className="absolute top-32 left-32 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute top-24 right-24 w-4 h-4 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-40 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-                <div className="absolute bottom-32 left-16 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute bottom-20 left-40 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute bottom-28 right-20 w-3 h-3 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1.2s' }}></div>
-                <div className="absolute bottom-16 right-32 w-2 h-2 bg-white/55 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }}></div>
+                {/* Moving dots overlay */}
+                <MovingDotsOverlay dotCount={22} color={"255,255,255"} opacity={0.18} maxRadius={3} minRadius={1} speed={0.06} />
                 
                 {/* Connecting Lines */}
                 <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 400">
@@ -280,7 +323,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center">
+            <div className="bg-gray-50 p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center rounded-2xl">
               <div>
                 <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                   Why Most Strategies Fail—And How the Best Beat the Odds
@@ -297,6 +340,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Industry Ecosystems Section removed per request */}
 
       {/* Digital Transformation Reality Section */}
       <section className="py-20 bg-white">
@@ -316,7 +361,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden">
+            <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-8 sm:p-12 lg:p-16 min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden rounded-2xl">
               {/* AI Video Background */}
               <video
                 ref={aiVideoRef}
@@ -359,6 +404,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Blog Section (moved up replacing Proof of Concepts) */}
       <section id="blog" className="py-20 bg-gray-50">

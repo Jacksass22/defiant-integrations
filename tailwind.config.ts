@@ -9,6 +9,7 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl2: "16px",
       },
       colors: {
         background: "var(--background)",
@@ -22,7 +23,13 @@ export default {
           foreground: "var(--popover-foreground)",
         },
         primary: {
-          DEFAULT: "var(--primary)",
+          DEFAULT: '#415573',
+          200: '#67778f',
+          300: '#8390a4',
+          400: '#a0aab9',
+          600: '#374861',
+          700: '#2d3b50',
+          800: '#232e3f',
           foreground: "var(--primary-foreground)",
         },
         secondary: {
@@ -41,7 +48,15 @@ export default {
           DEFAULT: "var(--destructive)",
           foreground: "var(--destructive-foreground)",
         },
-        border: "var(--border)",
+        surface: {
+          body: '#10161f',
+          elev1: '#121a24',
+          elev2: '#0f1822',
+        },
+        border: {
+          DEFAULT: "var(--border)",
+          subtle: 'rgba(161, 176, 196, 0.14)',
+        },
         input: "var(--input)",
         ring: "var(--ring)",
         chart: {
@@ -61,6 +76,9 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+      },
+      boxShadow: {
+        'elev': '0 10px 30px rgba(0, 0, 0, 0.3)',
       },
       keyframes: {
         "accordion-down": {

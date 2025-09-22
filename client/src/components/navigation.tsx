@@ -4,55 +4,21 @@ import { Menu, X } from 'lucide-react';
 import { MegaMenu } from './mega-menu';
 import { SubscriptionModal } from './subscription-modal';
 
-const industriesData = [
-  {
-    title: "Trades & Home Services",
-    items: [
-      "HVAC",
-      "Plumbing", 
-      "Electrical",
-      "Landscaping",
-      "Roofing",
-      "Painting",
-      "General Contracting",
-      "Cleaning Services",
-      "Remodeling & Renovation"
-    ]
-  },
-  {
-    title: "Consumer & Lifestyle",
-    items: [
-      "Restaurants & Cafés",
-      "Beauty Salons & Spas",
-      "Barbershops",
-      "Gyms & Personal Trainers",
-      "Wellness & Life Coaches",
-      "Pet Grooming & Boarding",
-      "Golf Courses"
-    ]
-  },
-  {
-    title: "Retail & Product",
-    items: [
-      "Brick-and-Mortar Retail",
-      "E-commerce Brands",
-      "Cannabis Retail & Growers",
-      "Specialty Food Makers",
-      "Local Boutiques"
-    ]
-  },
-  {
-    title: "Professional Services",
-    items: [
-      "Real Estate Agencies",
-      "Law Firms",
-      "Accounting & Tax",
-      "Insurance Brokers",
-      "HR & Recruiting",
-      "Business Consultants"
-    ]
-  }
-];
+// Configure which industry items should be visible in the nav. Keep others in code for later.
+// To hide an item, add its label exactly as it appears to `hiddenIndustries`.
+// Example: "Golf Courses"
+const hiddenIndustries = new Set<string>([
+  "Remodeling & Renovation",
+  "Cannabis Retail & Growers",
+  "Specialty Food Makers",
+  "Accounting & Tax",
+  "Insurance Brokers",
+  "HR & Recruiting",
+  "Business Consultants",
+]);
+
+// Simplified industries - now just a single link to the dynamic industries hub
+const industriesData = [];
 
 const capabilitiesData = [
   {
@@ -121,6 +87,8 @@ export function Navigation() {
     if (nav) {
       (nav as HTMLElement).style.display = 'block';
       (nav as HTMLElement).style.visibility = 'visible';
+      (nav as HTMLElement).style.opacity = '1';
+      (nav as HTMLElement).style.pointerEvents = 'auto';
     }
   }, [location]);
 
@@ -161,15 +129,17 @@ export function Navigation() {
   };
 
   return (
-    <nav 
+    <nav
       data-navigation="main"
-      className="fixed w-full top-0 z-[10000] pointer-events-auto" 
-      style={{ 
-        background: 'linear-gradient(to bottom, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 30%, rgba(17, 24, 39, 0.6) 60%, rgba(17, 24, 39, 0.3) 80%, transparent 100%)', 
+      className="fixed w-full top-0 z-[10000] pointer-events-auto"
+      style={{
+        background: 'linear-gradient(to bottom, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 30%, rgba(17, 24, 39, 0.6) 60%, rgba(17, 24, 39, 0.3) 80%, transparent 100%)',
         paddingBottom: '2rem',
         minHeight: '4rem',
-        display: 'block',
-        visibility: 'visible'
+        display: 'block !important',
+        visibility: 'visible !important',
+        opacity: '1 !important',
+        pointerEvents: 'auto !important'
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,7 +163,9 @@ export function Navigation() {
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-10">
-            <MegaMenu title="Industries" sections={industriesData} />
+            <Link href="/industries" className="text-white hover:text-gray-300 transition-colors font-medium text-[14px]">
+              Industries
+            </Link>
             <MegaMenu title="Capabilities" sections={capabilitiesData} />
             <Link href="/services" className="text-white hover:text-gray-300 transition-colors font-medium text-[14px]">
               Services
@@ -227,36 +199,15 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-gray-800 border-t border-gray-700">
           <div className="max-h-[80vh] overflow-y-auto px-6 py-8 space-y-6">
-            {/* Industries Section - Complete with all categories */}
+            {/* Industries Link - Simplified */}
             <div>
-              <h3 className="text-white font-semibold mb-3 text-base">Industries</h3>
-              <div className="space-y-4">
-                {industriesData.map((category, categoryIndex) => (
-                  <div key={categoryIndex}>
-                    <h4 className="text-gray-300 font-medium text-sm mb-2 pl-2">{category.title}</h4>
-                    <div className="pl-4 space-y-2">
-                      {category.items.map((item, itemIndex) => {
-                        // Convert item name to URL slug
-                        const slug = item.toLowerCase()
-                          .replace(/&/g, '')
-                          .replace(/\s+/g, '-')
-                          .replace(/[^a-z0-9-]/g, '');
-                        
-                        return (
-                          <Link 
-                            key={itemIndex}
-                            href={`/${slug}`} 
-                            className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {item}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <Link
+                href="/industries"
+                className="block text-white font-semibold text-base hover:text-gray-300 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Industries
+              </Link>
             </div>
 
             {/* Capabilities Section - Complete with all categories */}

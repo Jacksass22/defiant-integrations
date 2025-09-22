@@ -10,34 +10,8 @@ import Home from "@/pages/home";
 import StrategyArticle from "@/pages/strategy-article";
 import AIAdoptionArticle from "@/pages/ai-adoption-article";
 import Books from "@/pages/books";
-import HVAC from "@/pages/hvac";
-import Plumbing from "@/pages/plumbing";
-import Electrical from "@/pages/electrical";
-import Landscaping from "@/pages/landscaping";
-import Roofing from "@/pages/roofing";
-import Painting from "@/pages/painting";
-import GeneralContracting from "@/pages/general-contracting";
-import CleaningServices from "@/pages/cleaning-services";
-import RestaurantsCafes from "@/pages/restaurants-cafes";
-import BeautySalonsSpas from "@/pages/beauty-salons-spas";
-import Barbershops from "@/pages/barbershops";
-import GymsPersonalTrainers from "@/pages/gyms-personal-trainers";
-import WellnessLifeCoaches from "@/pages/wellness-life-coaches";
-import PetGroomingBoarding from "@/pages/pet-grooming-boarding";
-import RemodelingRenovation from "@/pages/remodeling-renovation";
-import BrickMortarRetail from "@/pages/brick-mortar-retail";
-import EcommerceBrands from "@/pages/ecommerce-brands";
-import CannabisRetail from "@/pages/cannabis-retail";
-import SpecialtyFoodMakers from "@/pages/specialty-food-makers";
-import LocalBoutiques from "@/pages/local-boutiques";
-import RealEstateAgencies from "@/pages/real-estate-agencies";
-import LawFirms from "@/pages/law-firms";
-import AccountingTaxFirms from "@/pages/accounting-tax-firms";
-import InsuranceBrokers from "@/pages/insurance-brokers";
-import HRRecruitingFirms from "@/pages/hr-recruiting-firms";
-import BusinessConsultants from "@/pages/business-consultants";
-import GolfCourses from "@/pages/golf-courses";
-import StorageCompanies from "@/pages/storage-companies";
+import Industries from "@/pages/industries";
+import { IndustryPageContainer } from "@/components/industry";
 import AIStrategyDevelopment from "@/pages/ai-strategy-development";
 import DigitalTransformation from "@/pages/digital-transformation";
 import TechnologyRoadmapping from "@/pages/technology-roadmapping";
@@ -75,34 +49,35 @@ function Router() {
       <Route path="/strategy-article" component={StrategyArticle} />
       <Route path="/ai-adoption-article" component={AIAdoptionArticle} />
       <Route path="/books" component={Books} />
-      <Route path="/hvac" component={HVAC} />
-      <Route path="/plumbing" component={Plumbing} />
-      <Route path="/electrical" component={Electrical} />
-      <Route path="/landscaping" component={Landscaping} />
-      <Route path="/roofing" component={Roofing} />
-      <Route path="/painting" component={Painting} />
-      <Route path="/general-contracting" component={GeneralContracting} />
-      <Route path="/cleaning-services" component={CleaningServices} />
-      <Route path="/restaurants-cafes" component={RestaurantsCafes} />
-      <Route path="/beauty-salons-spas" component={BeautySalonsSpas} />
-      <Route path="/barbershops" component={Barbershops} />
-      <Route path="/gyms-personal-trainers" component={GymsPersonalTrainers} />
-      <Route path="/wellness-life-coaches" component={WellnessLifeCoaches} />
-      <Route path="/pet-grooming-boarding" component={PetGroomingBoarding} />
-      <Route path="/remodeling-renovation" component={RemodelingRenovation} />
-      <Route path="/brick-mortar-retail" component={BrickMortarRetail} />
-      <Route path="/ecommerce-brands" component={EcommerceBrands} />
-      <Route path="/cannabis-retail" component={CannabisRetail} />
-      <Route path="/specialty-food-makers" component={SpecialtyFoodMakers} />
-      <Route path="/local-boutiques" component={LocalBoutiques} />
-      <Route path="/real-estate-agencies" component={RealEstateAgencies} />
-      <Route path="/law-firms" component={LawFirms} />
-      <Route path="/accounting-tax-firms" component={AccountingTaxFirms} />
-      <Route path="/insurance-brokers" component={InsuranceBrokers} />
-      <Route path="/hr-recruiting-firms" component={HRRecruitingFirms} />
-      <Route path="/business-consultants" component={BusinessConsultants} />
-      <Route path="/golf-courses" component={GolfCourses} />
-      <Route path="/storage-companies" component={StorageCompanies} />
+      <Route path="/industries" component={Industries} />
+      <Route path="/hvac">{() => <IndustryPageContainer industrySlug="hvac" />}</Route>
+      <Route path="/plumbing">{() => <IndustryPageContainer industrySlug="plumbing" />}</Route>
+      <Route path="/electrical">{() => <IndustryPageContainer industrySlug="electrical" />}</Route>
+      <Route path="/landscaping">{() => <IndustryPageContainer industrySlug="landscaping" />}</Route>
+      <Route path="/roofing">{() => <IndustryPageContainer industrySlug="roofing" />}</Route>
+      <Route path="/painting">{() => <IndustryPageContainer industrySlug="painting" />}</Route>
+      <Route path="/general-contracting">{() => <IndustryPageContainer industrySlug="general-contracting" />}</Route>
+      <Route path="/cleaning-services">{() => <IndustryPageContainer industrySlug="cleaning-services" />}</Route>
+      <Route path="/restaurants-cafes">{() => <IndustryPageContainer industrySlug="restaurants-cafes" />}</Route>
+      <Route path="/beauty-salons-spas">{() => <IndustryPageContainer industrySlug="beauty-salons-spas" />}</Route>
+      <Route path="/barbershops">{() => <IndustryPageContainer industrySlug="barbershops" />}</Route>
+      <Route path="/gyms-personal-trainers">{() => <IndustryPageContainer industrySlug="gyms-personal-trainers" />}</Route>
+      <Route path="/wellness-life-coaches">{() => <IndustryPageContainer industrySlug="wellness-life-coaches" />}</Route>
+      <Route path="/pet-grooming-boarding">{() => <IndustryPageContainer industrySlug="pet-grooming-boarding" />}</Route>
+      <Route path="/remodeling-renovation">{() => <IndustryPageContainer industrySlug="remodeling-renovation" />}</Route>
+      <Route path="/brick-mortar-retail">{() => <IndustryPageContainer industrySlug="brick-mortar-retail" />}</Route>
+      <Route path="/ecommerce-brands">{() => <IndustryPageContainer industrySlug="ecommerce-brands" />}</Route>
+      <Route path="/cannabis-retail">{() => <IndustryPageContainer industrySlug="cannabis-retail" />}</Route>
+      <Route path="/specialty-food-makers">{() => <IndustryPageContainer industrySlug="specialty-food-makers" />}</Route>
+      <Route path="/local-boutiques">{() => <IndustryPageContainer industrySlug="local-boutiques" />}</Route>
+      <Route path="/real-estate-agencies">{() => <IndustryPageContainer industrySlug="real-estate-agencies" />}</Route>
+      <Route path="/law-firms">{() => <IndustryPageContainer industrySlug="law-firms" />}</Route>
+      <Route path="/accounting-tax-firms">{() => <IndustryPageContainer industrySlug="accounting-tax-firms" />}</Route>
+      <Route path="/insurance-brokers">{() => <IndustryPageContainer industrySlug="insurance-brokers" />}</Route>
+      <Route path="/hr-recruiting-firms">{() => <IndustryPageContainer industrySlug="hr-recruiting-firms" />}</Route>
+      <Route path="/business-consultants">{() => <IndustryPageContainer industrySlug="business-consultants" />}</Route>
+      <Route path="/golf-courses">{() => <IndustryPageContainer industrySlug="golf-courses" />}</Route>
+      <Route path="/storage-companies">{() => <IndustryPageContainer industrySlug="storage-companies" />}</Route>
       <Route path="/ai-strategy-development" component={AIStrategyDevelopment} />
       <Route path="/digital-transformation" component={DigitalTransformation} />
       <Route path="/technology-roadmapping" component={TechnologyRoadmapping} />

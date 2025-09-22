@@ -276,6 +276,168 @@
   .hover\:text-cyan-accent:hover {
     color: hsl(187, 100%, 42%);
   }
+
+  /* Acquisition-style dark theme utilities */
+  .gradient-text {
+    background: linear-gradient(135deg, #5a7aa0 0%, #7b9bd1 50%, #6b8bb8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-text-light {
+    background: linear-gradient(135deg, #6b8bb8 0%, #8aa5d4 40%, #a3b5ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .acquisition-card {
+    background: rgba(13, 17, 23, 0.8);
+    border: 1px solid rgba(107, 139, 184, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  .acquisition-card:hover {
+    border-color: rgba(107, 139, 184, 0.4);
+    box-shadow: 0 12px 40px rgba(107, 139, 184, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .btn-acquisition {
+    background: #6b8bb8;
+    color: #ffffff;
+    border: 1px solid #6b8bb8;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-acquisition:hover {
+    background: #ffffff;
+    color: #6b8bb8;
+    border: 1px solid #6b8bb8;
+    box-shadow: 0 4px 16px rgba(107, 139, 184, 0.3);
+  }
+
+  .btn-acquisition:focus {
+    outline: 2px solid #6b8bb8;
+    outline-offset: 2px;
+  }
+
+  .btn-secondary-acquisition {
+    background: transparent;
+    color: #c9d1d9;
+    border: 1px solid rgba(201, 209, 217, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-secondary-acquisition:hover {
+    background: rgba(107, 139, 184, 0.1);
+    color: #ffffff;
+    border-color: #6b8bb8;
+  }
+
+  .text-acquisition-primary {
+    color: #ffffff;
+  }
+
+  .text-acquisition-secondary {
+    color: #c9d1d9;
+  }
+
+  .text-acquisition-muted {
+    color: #8b949e;
+  }
+
+  .text-acquisition-accent {
+    color: #6b8bb8;
+  }
+
+  .bg-acquisition-dark {
+    background: #0d1117;
+  }
+
+  .bg-acquisition-darker {
+    background: rgba(13, 17, 23, 0.95);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(70% 60% at 50% 0%, var(--c-glow), transparent 60%);
+    filter: blur(24px);
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 20px rgba(107, 139, 184, 0.3);
+  }
+
+  /* Curved Horizon Glow Variables and Styles */
+  :root {
+    --c-primary: #415573;
+    --c-darkA: #0d1117;
+    --c-darkB: #0f1a22;
+    --c-darkC: #182633;
+    --c-glow: rgba(159, 232, 255, 0.18);
+    --c-rim: rgba(200, 238, 247, 0.35);
+  }
+
+  #services-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #services-hero .horizon-glow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  #services-hero .top-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(70% 60% at 50% 0%, var(--c-glow), transparent 60%);
+    filter: blur(24px);
+  }
+
+  /* Intensity utility */
+  .bg-intense #services-hero .top-glow {
+    filter: blur(28px) !important;
+    opacity: 0.95 !important;
+  }
+
+  .bg-intense #services-hero svg path[fill*="bandFill"] {
+    opacity: 0.95 !important;
+  }
+
+  .bg-intense #services-hero svg path[fill="url(#bandFill)"] {
+    opacity: 0.95 !important;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    #services-hero .top-glow {
+      filter: blur(14px);
+    }
+
+    svg[aria-hidden="true"] {
+      transform: translateX(-20%) scale(0.95);
+    }
+  }
 }
 
 /* Custom animations */

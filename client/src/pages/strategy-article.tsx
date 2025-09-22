@@ -87,161 +87,212 @@ export default function StrategyArticle() {
       
       <div className="pt-16">
         {/* Header */}
-        <div className="bg-gray-50 py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6">
+        <div className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-20 overflow-hidden">
+          {/* Background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-10 w-32 h-32 border border-white/20 rounded-full"></div>
+            <div className="absolute bottom-20 right-20 w-24 h-24 border border-white/10 rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/5 rounded-full"></div>
+          </div>
+
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Link href="/" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8 transition-colors">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
-            <h1 className="font-serif text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              From Strategy Confusion to Strategy Execution: How Top Companies Win in Uncertain Times
+
+            <div className="mb-6">
+              <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 text-sm font-medium rounded-full border border-blue-400/30">
+                Strategic Insights
+              </span>
+            </div>
+
+            <h1 className="font-serif text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Why Most Strategies Fail
+              <span className="text-blue-300">and How the Best Beat the Odds</span>
             </h1>
-            <p className="text-xl text-gray-600">
-              Most business leaders believe strategy is important. But here's the uncomfortable truth...
+
+            <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl">
+              Every year, thousands of companies create strategic plans. Most will fail to execute them.
+              The few that succeed share specific habits you can learn.
             </p>
+
+            <div className="mt-8 flex items-center space-x-6 text-gray-400">
+              <span className="text-sm">8 min read</span>
+              <span className="text-sm">•</span>
+              <span className="text-sm">Strategy & Execution</span>
+            </div>
           </div>
         </div>
 
         {/* Article Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-gray-700 mb-8">
-              In today's volatile business environment—where AI capabilities evolve weekly, supply chains face constant disruption, and customer expectations shift rapidly—having a solid strategy isn't just important. It's the difference between thriving and merely surviving.
-            </p>
 
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
-              <p className="text-lg text-blue-900 font-medium italic">
-                The companies that consistently outperform their competitors haven't just gotten lucky. They've developed specific capabilities that any business can learn and implement.
+            {/* Opening section with better visual design */}
+            <div className="text-center mb-16">
+              <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-8 rounded-full"></div>
+            </div>
+
+            <div className="text-xl text-gray-700 leading-relaxed mb-12 font-light">
+              <p className="mb-6">
+                Walk into any boardroom and you'll hear the same story. Leadership spent months crafting their strategic plan.
+                They have slides, timelines, and ambitious goals. Everyone nods in agreement.
+              </p>
+              <p className="mb-6">
+                Fast forward eighteen months, and barely half of those initiatives exist. The ones that do are behind schedule,
+                over budget, or delivering disappointing results.
               </p>
             </div>
 
-            <h2 className="font-serif text-3xl font-bold text-gray-900 mb-6 mt-12">
-              What Strategy Actually Means
+            <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 mb-12 text-white overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full transform translate-x-8 -translate-y-8"></div>
+              <div className="relative z-10">
+                <p className="text-xl font-medium leading-relaxed">
+                  Companies that consistently beat their competition didn't get lucky.
+                  They mastered something most organizations never learn: how to turn strategy into reality.
+                </p>
+              </div>
+            </div>
+
+            <h2 className="font-serif text-4xl font-bold text-gray-900 mb-8 mt-16">
+              What Strategy Really Is
             </h2>
 
-            <p className="text-lg text-gray-700 mb-8">
-              Let me be clear about what strategy isn't: it's not a lengthy document that sits in a drawer. It's not a wish list of goals. And it's definitely not something you create once a year and forget about.
-            </p>
-            
-            <p className="text-lg text-gray-700 mb-8">
-              <strong>Real strategy is the discipline of making a few critical, hard-to-reverse choices under uncertainty—with the clear intention of creating sustainable competitive advantage.</strong>
-            </p>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-lg">
+                <h3 className="font-semibold text-red-800 mb-3">Strategy is NOT:</h3>
+                <ul className="text-red-700 space-y-2 list-none">
+                  <li>A 50-page document nobody reads</li>
+                  <li>Annual planning sessions</li>
+                  <li>A wish list of everything you want</li>
+                  <li>Copying what successful companies do</li>
+                </ul>
+              </div>
+              <div className="bg-green-50 border-l-4 border-green-400 p-6 rounded-r-lg">
+                <h3 className="font-semibold text-green-800 mb-3">Strategy IS:</h3>
+                <ul className="text-green-700 space-y-2 list-none">
+                  <li>Making tough choices about where to compete</li>
+                  <li>Saying no to good opportunities</li>
+                  <li>Betting on what will matter in 3-5 years</li>
+                  <li>Building capabilities others can't copy</li>
+                </ul>
+              </div>
+            </div>
 
-            <p className="text-lg text-gray-700 mb-8">
-              Effective strategy requires saying no to good opportunities so you can say yes to great ones. It means aligning every resource, every team, and every decision around those few strategic bets that will define your future.
-            </p>
+            <div className="bg-gray-100 border-l-4 border-gray-600 p-8 mb-12 rounded-r-lg">
+              <p className="text-xl text-gray-800 font-medium leading-relaxed">
+                Strategy is choosing a few critical bets under uncertainty, then aligning your entire organization
+                to win on those bets. Everything else is just planning.
+              </p>
+            </div>
 
             <h2 className="font-serif text-3xl font-bold text-gray-900 mb-6 mt-12">
               The Performance Reality Check
             </h2>
 
-            <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
-              <div className="text-center font-semibold text-gray-900 mb-4 text-lg">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-12 border border-gray-200">
+              <div className="text-center font-serif text-2xl font-bold text-gray-900 mb-6">
                 Business Performance Distribution
               </div>
-              <div className="h-64">
+              <div className="h-64 mb-6">
                 <Doughnut data={performanceChartData} options={performanceChartOptions} />
               </div>
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-8">
-              <p className="text-sm text-gray-600">
-                <strong>Industry Research Note:</strong> Multiple studies including recent McKinsey research show a consistent pattern where a small percentage of companies capture the majority of industry profits, while the middle majority struggle to create meaningful value.
-              </p>
-            </div>
-
-            <p className="text-lg text-gray-700 mb-8">
-              Research consistently shows a stark reality across industries: a small percentage of companies capture the vast majority of profits, while most companies in the middle generate modest returns at best. The gap between top performers and everyone else has been widening over the past two decades.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-gray-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-                <div className="text-3xl font-bold text-blue-600 mb-2">80%</div>
-                <p className="text-gray-600">Of industry profits typically captured by the top 20% of companies</p>
-              </div>
-              <div className="bg-gray-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-                <div className="text-3xl font-bold text-red-600 mb-2">1 in 10</div>
-                <p className="text-gray-600">Companies successfully move from middle to top performance</p>
+              <div className="text-center text-sm text-gray-600 bg-white p-4 rounded-lg">
+                <strong>Source:</strong> Analysis of S&P 500 performance data shows consistent patterns where
+                top-performing companies capture disproportionate market value and profits.
               </div>
             </div>
 
-            <p className="text-lg text-gray-700 mb-8">
-              Why do so few companies make this leap? They fail to connect strategic thinking to strategic execution. They have plans, they have ambitions, but they lack the organizational muscle to translate vision into reality.
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              Every industry tells the same story. A handful of companies dominate returns while everyone else
+              fights for scraps. The top 20% typically capture 80% of industry profits.
             </p>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-8">
-              <p className="text-sm text-gray-600">
-                <strong>Industry Research Note:</strong> Multiple studies including recent McKinsey research show a consistent pattern where a small percentage of companies capture the majority of industry profits, while the middle majority struggle to create meaningful value.
-              </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="bg-white shadow-md border-l-4 border-blue-500 p-8 rounded-r-xl">
+                <div className="text-4xl font-bold text-blue-600 mb-3">80%</div>
+                <p className="text-gray-700 font-medium">Of industry profits captured by top 20% of companies</p>
+              </div>
+              <div className="bg-white shadow-md border-l-4 border-red-500 p-8 rounded-r-xl">
+                <div className="text-4xl font-bold text-red-600 mb-3">1 in 10</div>
+                <p className="text-gray-700 font-medium">Companies successfully move from middle to top tier</p>
+              </div>
             </div>
 
-            <h2 className="font-serif text-3xl font-bold text-gray-900 mb-6 mt-12">
-              The Three Foundations of Strategic Success
+            <p className="text-xl text-gray-700 mb-12 leading-relaxed">
+              What separates the winners? They don't just create strategy—they execute it.
+              Most companies have plans and ambitions, but lack the organizational discipline
+              to turn ideas into results.
+            </p>
+
+            <h2 className="font-serif text-4xl font-bold text-gray-900 mb-8 mt-16">
+              Where Winners Separate Themselves
             </h2>
 
-            <p className="text-lg text-gray-700 mb-8">
-              Through analysis of high-performing companies, three core capabilities emerge that separate strategy champions from the rest:
+            <p className="text-xl text-gray-700 mb-12 leading-relaxed">
+              Study successful companies and you'll find they excel at three things most organizations struggle with:
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-200">
-                <div className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">1</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">Strategic Design</h3>
-                <p className="text-gray-700 mb-4">Making bold, coherent choices about how you'll win in your market.</p>
-                <ul className="text-gray-700 space-y-2">
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Solving the right problems</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Aligning on trends that matter</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Having courage to act boldly</span>
-                  </li>
-                </ul>
+            <div className="space-y-8 mb-16">
+              <div className="bg-white shadow-lg rounded-xl p-8 border-l-4 border-blue-500">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-500 text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">1</div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Smart Choices</h3>
+                    <p className="text-lg text-gray-700 mb-6">Deciding where to compete and how to win, then sticking to it.</p>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <p className="text-blue-900 font-medium">Focus on what matters</p>
+                      </div>
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <p className="text-blue-900 font-medium">Bet on future trends</p>
+                      </div>
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <p className="text-blue-900 font-medium">Make bold moves</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-200">
-                <div className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">Mobilization</h3>
-                <p className="text-gray-700 mb-4">Turning strategy into action through people, systems, and resources.</p>
-                <ul className="text-gray-700 space-y-2">
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Assigning clear owners</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Aligning incentives</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Embedding in budgets</span>
-                  </li>
-                </ul>
+              <div className="bg-white shadow-lg rounded-xl p-8 border-l-4 border-green-500">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">2</div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Getting Organized</h3>
+                    <p className="text-lg text-gray-700 mb-6">Turning ideas into action by assigning owners and allocating resources.</p>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <p className="text-green-900 font-medium">Clear ownership</p>
+                      </div>
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <p className="text-green-900 font-medium">Right incentives</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border border-gray-200">
-                <div className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">3</div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-3">Execution</h3>
-                <p className="text-gray-700 mb-4">Where strategy meets reality through results, iteration, and learning.</p>
-                <ul className="text-gray-700 space-y-2">
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Tracking right metrics</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Course-correcting quickly</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 font-bold mr-2">✓</span>
-                    <span>Adapting to reality</span>
-                  </li>
-                </ul>
+              <div className="bg-white shadow-lg rounded-xl p-8 border-l-4 border-purple-500">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-purple-500 text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">3</div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Staying Flexible</h3>
+                    <p className="text-lg text-gray-700 mb-6">Tracking results, learning fast, and adjusting when things change.</p>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <p className="text-purple-900 font-medium">Watch key metrics</p>
+                      </div>
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <p className="text-purple-900 font-medium">Learn from failures</p>
+                      </div>
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <p className="text-purple-900 font-medium">Adapt quickly</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

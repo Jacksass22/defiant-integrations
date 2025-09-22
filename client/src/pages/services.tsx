@@ -3,19 +3,19 @@ import { useState } from 'react';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Zap, 
-  Brain, 
-  Code, 
-  Database, 
-  Globe, 
-  Phone, 
-  BarChart3, 
-  Settings, 
-  Shield, 
-  Users, 
+import {
+  ArrowRight,
+  CheckCircle,
+  Zap,
+  Brain,
+  Code,
+  Database,
+  Globe,
+  Phone,
+  BarChart3,
+  Settings,
+  Shield,
+  Users,
   TrendingUp,
   Search,
   MessageSquare,
@@ -28,6 +28,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import BlurText from '@/components/BlurText';
+import GridDistortion from '@/components/GridDistortion';
 
 export default function Services() {
   useScrollToTop();
@@ -323,24 +324,165 @@ export default function Services() {
     }
   ];
 
-  const ServiceSection = ({ 
-    services, 
-    title, 
-    description, 
-    bgColor = "bg-white" 
-  }: { 
-    services: any[], 
-    title: string, 
-    description: string, 
-    bgColor?: string 
+  const employeeOnboardingServices = [
+    {
+      id: 'ai-onboarding',
+      icon: Users,
+      title: 'AI-Powered Employee Onboarding',
+      description: 'Streamline new hire training with intelligent documentation and personalized learning paths',
+      services: [
+        'Automated SOP and process documentation systems',
+        'Interactive AI training assistants for new employees',
+        'Custom knowledge bases with smart search capabilities',
+        'Personalized learning paths based on role and experience',
+        'Real-time Q&A chatbots for instant policy clarification',
+        'Progress tracking and competency assessment tools',
+        'Integration with existing HR and training platforms'
+      ]
+    },
+    {
+      id: 'process-documentation',
+      icon: Code,
+      title: 'Smart Process Documentation',
+      description: 'AI-driven documentation that keeps your processes up-to-date and accessible',
+      services: [
+        'Automated workflow documentation and mapping',
+        'Video-to-text training material conversion',
+        'Dynamic procedure updates based on process changes',
+        'Multi-format content generation (text, video, interactive)',
+        'Role-based access control for sensitive procedures',
+        'Version control and change tracking systems'
+      ]
+    },
+    {
+      id: 'custom-training-ai',
+      icon: Brain,
+      title: 'Custom AI Training Systems',
+      description: 'Build intelligent training assistants that understand your business inside and out',
+      services: [
+        'Company-specific AI trainers with your processes',
+        'Interactive simulation environments for hands-on learning',
+        'AI-powered mentoring and coaching systems',
+        'Adaptive learning that adjusts to employee progress',
+        'Integration with company tools and systems',
+        'Performance analytics and improvement recommendations'
+      ]
+    }
+  ];
+
+  const salesTrainingServices = [
+    {
+      id: 'ai-sales-training',
+      icon: Target,
+      title: 'AI Sales Training Platform',
+      description: 'Train your sales team with AI prospects that respond like real buyers',
+      services: [
+        'Custom AI prospects trained on your ideal customer profiles',
+        'Advanced objection handling practice with realistic scenarios',
+        'Full sales cycle training from intro to close',
+        'Real-time performance feedback and coaching',
+        'Multiple language support for diverse markets',
+        'Voice and text-based training environments'
+      ]
+    },
+    {
+      id: 'objection-handling',
+      icon: Shield,
+      title: 'Objection Handling Mastery',
+      description: 'AI-powered systems that prepare your team for any sales challenge',
+      services: [
+        'Industry-specific objection simulation and training',
+        'Adaptive difficulty scaling based on rep performance',
+        'Custom objection libraries for your products/services',
+        'Tone and pacing analysis for optimal delivery',
+        'Team performance tracking and benchmarking',
+        'Integration with existing CRM and sales tools'
+      ]
+    },
+    {
+      id: 'sales-coaching',
+      icon: TrendingUp,
+      title: 'AI Sales Coaching & Analytics',
+      description: 'Intelligent coaching that identifies strengths and improvement areas',
+      services: [
+        'Personalized coaching recommendations based on performance data',
+        'Call analysis and conversation intelligence',
+        'Win/loss analysis with AI-driven insights',
+        'Sales methodology reinforcement and training',
+        'Competitive intelligence and response training',
+        'ROI tracking with measurable performance improvements'
+      ]
+    }
+  ];
+
+  const coldEmailServices = [
+    {
+      id: 'ai-cold-email',
+      icon: MessageSquare,
+      title: 'AI-Powered Cold Email Systems',
+      description: 'Intelligent email outreach that generates consistent leads and responses',
+      services: [
+        'AI-written personalized email sequences at scale',
+        'Dynamic email personalization based on prospect data',
+        'Automated follow-up sequences with smart timing',
+        'A/B testing and optimization for maximum open rates',
+        'Lead scoring and qualification automation',
+        'CRM integration and pipeline management'
+      ]
+    },
+    {
+      id: 'email-automation',
+      icon: Workflow,
+      title: 'Advanced Email Automation',
+      description: 'Complete email marketing automation that nurtures leads into customers',
+      services: [
+        'Multi-stage drip campaigns with behavioral triggers',
+        'Smart send-time optimization for each recipient',
+        'Email deliverability optimization and monitoring',
+        'Reply detection and automatic response routing',
+        'Performance analytics and conversion tracking',
+        'Integration with sales and marketing tools'
+      ]
+    },
+    {
+      id: 'lead-generation',
+      icon: Search,
+      title: 'AI Lead Generation & Qualification',
+      description: 'Intelligent prospecting systems that find and qualify your ideal customers',
+      services: [
+        'AI-powered prospect research and data enrichment',
+        'Automated lead qualification and scoring',
+        'Custom audience building based on ideal customer profiles',
+        'Social media prospecting and engagement automation',
+        'Intent data analysis for optimal timing',
+        'Seamless handoff to sales teams with qualified leads'
+      ]
+    }
+  ];
+
+  const ServiceSection = ({
+    services,
+    title,
+    description,
+    bgColor = "bg-acquisition-dark"
+  }: {
+    services: any[],
+    title: string,
+    description: string,
+    bgColor?: string
   }) => (
     <section className={`py-20 ${bgColor}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            {title}
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-acquisition-primary mb-6">
+            {title.split(' ').map((word, index) => {
+              if (word.toLowerCase().includes('ai') || word.toLowerCase().includes('training') || word.toLowerCase().includes('onboarding') || word.toLowerCase().includes('sales') || word.toLowerCase().includes('email')) {
+                return <span key={index} className="text-acquisition-accent">{word} </span>
+              }
+              return <span key={index}>{word} </span>
+            })}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-acquisition-secondary max-w-3xl mx-auto leading-relaxed">
             {description}
           </p>
         </div>
@@ -356,38 +498,33 @@ export default function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ 
-                  y: -8,
-                  rotateX: 5,
-                  rotateY: 5,
+                whileHover={{
+                  y: -4,
                   transition: { duration: 0.3 }
                 }}
-                className="group relative bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100/50 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 overflow-hidden flex flex-col h-full backdrop-blur-sm"
-                style={{
-                  transformStyle: 'preserve-3d',
-                }}
+                className="group relative acquisition-card overflow-hidden flex flex-col h-full"
               >
                 {/* Animated gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/3 via-transparent to-cyan-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+                <div className="absolute inset-0 bg-gradient-to-br from-[#6b8bb8]/5 via-transparent to-[#7b9bd1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                 {/* Shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#6b8bb8]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                 
                 <div className="relative p-8 flex-1 flex flex-col z-10">
                   <div className="flex items-center mb-4">
-                    <motion.div 
-                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    <motion.div
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#6b8bb8]/20 px-3 py-2 text-[#6b8bb8] mr-4"
+                      whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Icon className="w-6 h-6 text-white" />
+                      <Icon className="w-5 h-5" />
                     </motion.div>
-                    <h3 className="font-serif text-xl font-bold text-gray-900 group-hover:text-blue-900 transition-colors duration-300">
+                    <h3 className="font-sans text-xl font-bold text-acquisition-primary group-hover:text-[#6b8bb8] transition-colors duration-300">
                       {service.title}
                     </h3>
                   </div>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+
+                  <p className="text-acquisition-secondary mb-6 leading-relaxed group-hover:text-acquisition-primary transition-colors duration-300">
                     {service.description}
                   </p>
                   
@@ -406,9 +543,9 @@ export default function Services() {
                             whileHover={{ scale: 1.2, rotate: 180 }}
                             transition={{ duration: 0.3 }}
                           >
-                            <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-3 flex-shrink-0 group-hover:text-blue-600 transition-colors duration-300" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#6b8bb8] mt-2 mr-3 flex-shrink-0 group-hover:bg-acquisition-primary transition-colors duration-300" />
                           </motion.div>
-                          <span className="text-gray-700 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">{item}</span>
+                          <span className="text-acquisition-secondary text-sm leading-relaxed group-hover:text-acquisition-primary transition-colors duration-300">{item}</span>
                         </motion.li>
                       ))}
                     </ul>
@@ -418,7 +555,7 @@ export default function Services() {
                   <div className="md:hidden">
                     <motion.button
                       onClick={() => toggleSection(service.id)}
-                      className="flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors mb-4"
+                      className="flex items-center text-[#6b8bb8] hover:text-acquisition-primary font-medium transition-colors mb-4"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -440,18 +577,18 @@ export default function Services() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="border-t border-gray-100 pt-4">
+                      <div className="border-t border-[#6b8bb8]/20 pt-4">
                         <ul className="space-y-2">
                           {service.services.map((item: string, serviceIndex: number) => (
-                            <motion.li 
-                              key={serviceIndex} 
+                            <motion.li
+                              key={serviceIndex}
                               className="flex items-start"
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ duration: 0.3, delay: serviceIndex * 0.05 }}
                             >
-                              <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
-                              <span className="text-gray-700 text-sm">{item}</span>
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#6b8bb8] mt-2 mr-2 flex-shrink-0" />
+                              <span className="text-acquisition-secondary text-sm">{item}</span>
                             </motion.li>
                           ))}
                         </ul>
@@ -461,7 +598,7 @@ export default function Services() {
                 </div>
 
                 {/* Bottom glow effect */}
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6b8bb8]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
             );
           })}
@@ -471,61 +608,76 @@ export default function Services() {
   );
 
   return (
-    <div className="bg-white text-charcoal font-sans">
+    <div className="bg-acquisition-dark text-acquisition-secondary font-sans min-h-screen">
       
       
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center pt-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 overflow-hidden">
-        {/* Animated background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-300 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
+        {/* Dark gradient background - nearly black to deep navy */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-[#6b8bb8]" />
+        <div className="absolute inset-0 bg-gradient-radial from-[#6b8bb8]/10 via-transparent to-transparent" />
+
+        {/* Grid Distortion Effect */}
+        <div className="absolute inset-0 opacity-20">
+          <GridDistortion
+            imageSrc="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1920&h=1080&q=80"
+            grid={10}
+            mouse={0.1}
+            strength={0.15}
+            relaxation={0.9}
+          />
         </div>
-        
-        <div className="absolute inset-0 bg-black/20"></div>
+
+        {/* Subtle animated background elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-[#6b8bb8] rounded-full animate-pulse blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#7b9bd1] rounded-full animate-pulse blur-3xl" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#5a7aa0] rounded-full animate-pulse blur-2xl" style={{ animationDelay: '4s' }}></div>
+        </div>
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
-            <BlurText
-              text="Complete AI Transformation Services"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white leading-tight"
-            />
-            <p className="text-xl sm:text-2xl text-gray-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-acquisition-primary leading-tight">
+              Complete <span className="gradient-text">AI Transformation</span> Services
+            </h1>
+            <p className="text-xl sm:text-2xl text-acquisition-secondary mb-12 leading-relaxed max-w-4xl mx-auto">
               From strategy development to full implementation - we deliver end-to-end AI solutions across 27+ industries with measurable results and 24/7 operation capability.
             </p>
-            <button 
-              onClick={() => setShowLeadCaptureModal(true)}
-              className="inline-flex items-center space-x-2 bg-white text-blue-900 px-8 py-4 font-medium hover:bg-gray-100 hover:shadow-lg hover:scale-105 transform transition-all duration-300"
-            >
-              <span>Explore Our Services</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+              <button
+                onClick={() => setShowLeadCaptureModal(true)}
+                className="btn-acquisition inline-flex items-center space-x-2 hover:scale-105 transform transition-all duration-300"
+              >
+                <span>Explore Our Services</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button className="btn-secondary-acquisition inline-flex items-center space-x-2 hover:scale-105 transform transition-all duration-300">
+                <span>Get in Touch</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Key Stats */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-acquisition-darker border-y border-[#6b8bb8]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">27+</div>
-              <div className="text-gray-600">Industries Served</div>
+            <div className="text-center group glow-hover">
+              <div className="text-3xl sm:text-4xl font-bold text-acquisition-primary mb-2 group-hover:text-[#6b8bb8] transition-colors duration-300">27+</div>
+              <div className="text-acquisition-muted">Industries Served</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">90%</div>
-              <div className="text-gray-600">Efficiency Improvement</div>
+            <div className="text-center group glow-hover">
+              <div className="text-3xl sm:text-4xl font-bold text-acquisition-primary mb-2 group-hover:text-[#6b8bb8] transition-colors duration-300">90%</div>
+              <div className="text-acquisition-muted">Efficiency Improvement</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">10x</div>
-              <div className="text-gray-600">Speed Increases</div>
+            <div className="text-center group glow-hover">
+              <div className="text-3xl sm:text-4xl font-bold text-acquisition-primary mb-2 group-hover:text-[#6b8bb8] transition-colors duration-300">10x</div>
+              <div className="text-acquisition-muted">Speed Increases</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-600">System Operation</div>
+            <div className="text-center group glow-hover">
+              <div className="text-3xl sm:text-4xl font-bold text-acquisition-primary mb-2 group-hover:text-[#6b8bb8] transition-colors duration-300">24/7</div>
+              <div className="text-acquisition-muted">System Operation</div>
             </div>
           </div>
         </div>
@@ -536,7 +688,7 @@ export default function Services() {
         services={coreServices}
         title="Core AI Strategy & Implementation"
         description="Strategic AI development and implementation services that transform your business operations"
-        bgColor="bg-gray-50/50"
+        bgColor="bg-acquisition-dark"
       />
 
       {/* Web & Digital Solutions */}
@@ -544,7 +696,7 @@ export default function Services() {
         services={digitalServices}
         title="Web & Digital Solutions"
         description="Modern digital platforms and marketing systems that drive growth"
-        bgColor="bg-gray-100/30"
+        bgColor="bg-acquisition-darker"
       />
 
       {/* Voice & Communication Systems */}
@@ -552,7 +704,7 @@ export default function Services() {
         services={voiceServices}
         title="Voice & Communication Systems"
         description="AI-powered communication solutions that never miss an opportunity"
-        bgColor="bg-gray-50/50"
+        bgColor="bg-acquisition-dark"
       />
 
       {/* Data & Analytics Solutions */}
@@ -560,7 +712,7 @@ export default function Services() {
         services={dataServices}
         title="Data & Analytics Solutions"
         description="Comprehensive data systems that turn information into competitive advantage"
-        bgColor="bg-gray-100/30"
+        bgColor="bg-acquisition-darker"
       />
 
       {/* Online Business Acceleration */}
@@ -568,7 +720,7 @@ export default function Services() {
         services={onlineBusinessServices}
         title="Online Business Acceleration"
         description="Revenue optimization and scaling solutions for digital businesses"
-        bgColor="bg-gray-50/50"
+        bgColor="bg-acquisition-dark"
       />
 
       {/* Training & Support Services */}
@@ -576,111 +728,42 @@ export default function Services() {
         services={supportServices}
         title="Training & Support Services"
         description="Comprehensive support ensuring your AI transformation succeeds"
-        bgColor="bg-gray-100/30"
+        bgColor="bg-acquisition-darker"
       />
 
-      {/* Industry-Specific Solutions */}
-      <section className="py-20 bg-gray-100/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Industry-Specific Solutions
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Specialized AI implementations tailored to your industry's unique challenges and opportunities
-            </p>
-          </div>
+      {/* Employee Onboarding & Training */}
+      <ServiceSection
+        services={employeeOnboardingServices}
+        title="AI-Powered Employee Onboarding"
+        description="Transform your onboarding process with intelligent documentation, custom AI trainers, and personalized learning paths that get new hires productive faster"
+        bgColor="bg-gradient-to-br from-acquisition-dark via-acquisition-darker to-[#161b22]"
+      />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Trades & Home Services */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                Trades & Home Services
-              </h3>
-              <div className="space-y-2 text-gray-600">
-                <div>• HVAC, Electrical, Plumbing</div>
-                <div>• Roofing, Painting, Landscaping</div>
-                <div>• General Contracting, Cleaning</div>
-                <div>• Remodeling & Renovation</div>
-              </div>
-            </div>
+      {/* Sales Team Training */}
+      <ServiceSection
+        services={salesTrainingServices}
+        title="AI Sales Team Training"
+        description="Train your sales team with AI prospects that respond like real buyers, master objection handling, and boost performance with measurable results"
+        bgColor="bg-gradient-to-br from-acquisition-darker via-[#161b22] to-acquisition-dark"
+      />
 
-            {/* Consumer & Lifestyle */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                Consumer & Lifestyle
-              </h3>
-              <div className="space-y-2 text-gray-600">
-                <div>• Beauty Salons, Spas, Barbershops</div>
-                <div>• Restaurants, Cafés, Food Services</div>
-                <div>• Gyms, Personal Trainers</div>
-                <div>• Wellness & Life Coaches</div>
-              </div>
-            </div>
+      {/* Cold Email Systems */}
+      <ServiceSection
+        services={coldEmailServices}
+        title="Cold Email & Lead Generation Systems"
+        description="AI-powered email outreach that generates consistent leads, personalizes at scale, and converts prospects into customers automatically"
+        bgColor="bg-gradient-to-br from-acquisition-dark via-acquisition-darker to-[#161b22]"
+      />
 
-            {/* Professional Services */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                Professional Services
-              </h3>
-              <div className="space-y-2 text-gray-600">
-                <div>• Law Firms, Accounting</div>
-                <div>• Insurance Brokers</div>
-                <div>• Real Estate Agencies</div>
-                <div>• HR & Recruiting Firms</div>
-              </div>
-            </div>
-
-            {/* Retail & Product */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                Retail & Product Businesses
-              </h3>
-              <div className="space-y-2 text-gray-600">
-                <div>• Local Boutiques</div>
-                <div>• Brick-and-Mortar Retail</div>
-                <div>• eCommerce Brands</div>
-                <div>• Cannabis Retail</div>
-              </div>
-            </div>
-
-            {/* Golf & Recreation */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                Golf & Recreation
-              </h3>
-              <div className="space-y-2 text-gray-600">
-                <div>• Golf Course Management</div>
-                <div>• Member Communication</div>
-                <div>• Event Coordination</div>
-                <div>• Operations Optimization</div>
-              </div>
-            </div>
-
-            {/* Online Business */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200/50">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">
-                Online Business
-              </h3>
-              <div className="space-y-2 text-gray-600">
-                <div>• Revenue Optimization</div>
-                <div>• Scaling Solutions</div>
-                <div>• Customer Retention</div>
-                <div>• Automation-First Approach</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Service Delivery Models */}
-      <section className="py-20 bg-gray-50/50">
+      <section className="py-20 bg-acquisition-darker">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Service Delivery Models
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-acquisition-primary mb-6">
+              Service <span className="text-acquisition-accent">Delivery</span> Models
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-acquisition-secondary max-w-3xl mx-auto leading-relaxed">
               Flexible engagement options designed to meet your specific needs and preferences
             </p>
           </div>
@@ -691,19 +774,19 @@ export default function Services() {
                 icon: Award,
                 title: "Done-for-You",
                 description: "Complete hands-off implementation with full project management",
-                gradient: "from-blue-500 to-blue-600"
+                gradient: "from-[#6b8bb8] to-[#5a7aa0]"
               },
               {
                 icon: Users,
-                title: "Done-with-You", 
+                title: "Done-with-You",
                 description: "Collaborative implementation with comprehensive training",
-                gradient: "from-green-500 to-green-600"
+                gradient: "from-[#6b8bb8] to-[#4a6a90]"
               },
               {
                 icon: Lightbulb,
                 title: "Do-It-Yourself",
-                description: "Guided self-implementation with ongoing support", 
-                gradient: "from-purple-500 to-purple-600"
+                description: "Guided self-implementation with ongoing support",
+                gradient: "from-[#6b8bb8] to-[#5a7aa0]"
               }
             ].map((item, index) => {
               const Icon = item.icon;
@@ -723,44 +806,44 @@ export default function Services() {
                   >
                     <Icon className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h3 className="font-serif text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition-colors duration-300">{item.title}</h3>
-                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{item.description}</p>
+                  <h3 className="font-sans text-xl font-bold text-acquisition-primary mb-2 group-hover:text-[#6b8bb8] transition-colors duration-300">{item.title}</h3>
+                  <p className="text-acquisition-secondary group-hover:text-acquisition-primary transition-colors duration-300">{item.description}</p>
                 </motion.div>
               );
             })}
           </div>
 
-          <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200/50">
-            <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4 text-center">
-              Key Differentiators
+          <div className="acquisition-card p-8">
+            <h3 className="font-sans text-2xl font-bold text-acquisition-primary mb-4 text-center">
+              Key <span className="text-acquisition-accent">Differentiators</span>
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700"><strong>Real Developers:</strong> Custom code and solutions, not just consultancy</span>
+                  <div className="w-2 h-2 rounded-full bg-[#6b8bb8] mr-3 flex-shrink-0" />
+                  <span className="text-acquisition-secondary"><strong className="text-acquisition-primary">Real Developers:</strong> Custom code and solutions, not just consultancy</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700"><strong>Industry-Specific:</strong> Deep expertise across 27+ industries</span>
+                  <div className="w-2 h-2 rounded-full bg-[#6b8bb8] mr-3 flex-shrink-0" />
+                  <span className="text-acquisition-secondary"><strong className="text-acquisition-primary">Industry-Specific:</strong> Deep expertise across 27+ industries</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700"><strong>End-to-End:</strong> Strategy through implementation and ongoing support</span>
+                  <div className="w-2 h-2 rounded-full bg-[#6b8bb8] mr-3 flex-shrink-0" />
+                  <span className="text-acquisition-secondary"><strong className="text-acquisition-primary">End-to-End:</strong> Strategy through implementation and ongoing support</span>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700"><strong>Measurable Results:</strong> 90% efficiency improvements, 3-10x speed increases</span>
+                  <div className="w-2 h-2 rounded-full bg-[#6b8bb8] mr-3 flex-shrink-0" />
+                  <span className="text-acquisition-secondary"><strong className="text-acquisition-primary">Measurable Results:</strong> 90% efficiency improvements, 3-10x speed increases</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700"><strong>Scalable Solutions:</strong> From small business to enterprise-level</span>
+                  <div className="w-2 h-2 rounded-full bg-[#6b8bb8] mr-3 flex-shrink-0" />
+                  <span className="text-acquisition-secondary"><strong className="text-acquisition-primary">Scalable Solutions:</strong> From small business to enterprise-level</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700"><strong>ROI-Focused:</strong> Business-first approach with clear value delivery</span>
+                  <div className="w-2 h-2 rounded-full bg-[#6b8bb8] mr-3 flex-shrink-0" />
+                  <span className="text-acquisition-secondary"><strong className="text-acquisition-primary">ROI-Focused:</strong> Business-first approach with clear value delivery</span>
                 </div>
               </div>
             </div>
@@ -769,17 +852,24 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-6">
-            Ready to Transform Your Business?
+      <section className="py-20 bg-gradient-to-br from-acquisition-darker to-acquisition-dark text-acquisition-primary relative overflow-hidden">
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6b8bb8]/10 via-transparent to-[#6b8bb8]/5" />
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 right-10 w-32 h-32 bg-[#6b8bb8] rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute bottom-10 left-10 w-48 h-48 bg-[#7b9bd1] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="font-sans text-3xl sm:text-4xl font-bold mb-6">
+            Ready to <span className="text-acquisition-accent">Transform</span> Your Business?
           </h2>
-          <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+          <p className="text-xl text-acquisition-secondary mb-8 leading-relaxed">
             Let's discuss which services are the perfect fit for your business goals and growth objectives.
           </p>
-          <button 
+          <button
             onClick={() => setShowLeadCaptureModal(true)}
-            className="inline-flex items-center space-x-2 bg-white text-gray-900 px-8 py-4 font-medium hover:bg-gray-100 hover:shadow-lg hover:scale-105 transform transition-all duration-300 text-lg"
+            className="btn-acquisition inline-flex items-center space-x-2 hover:scale-105 transform transition-all duration-300 text-lg"
           >
             <span>Get Your Custom Service Plan</span>
             <ArrowRight className="w-5 h-5" />

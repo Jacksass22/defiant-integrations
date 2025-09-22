@@ -5,6 +5,12 @@ import BlurText from '@/components/BlurText';
 import Lightning from '@/components/Lightning';
 import { useState } from 'react';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
+import electricianImage from '@assets/Electrical Image 1.jpg';
+import electricianImage2 from '@assets/Electrical Image 2.jpg';
+import electricianImagePM from '@assets/Electrical image 3 PM.jpg';
+import electricianImageSC from '@assets/Electrical image 4 SC.jpg';
+import electricianImageSMM from '@assets/Electrical image 5 SMM.jpg';
+import electricianImageOB from '@assets/Electrical image 6 OB.png';
 
 export default function Electrical() {
   useScrollToTop();
@@ -13,11 +19,11 @@ export default function Electrical() {
   return (
     <div className="bg-white text-charcoal font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-yellow-900 via-orange-800 to-yellow-900 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center pt-16 bg-gradient-to-br from-slate-900 via-teal-900 to-slate-800 overflow-hidden">
         {/* Lightning Background Effect */}
         <div className="absolute inset-0 opacity-30">
           <Lightning
-            hue={30}
+            hue={180}
             xOffset={0}
             speed={0.8}
             intensity={0.6}
@@ -41,22 +47,34 @@ export default function Electrical() {
           </div>
         </div>
       </section>
-      {/* CTA Section */}
+      {/* CTA Section with Image */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-            Ready to Transform Your Electrical Business?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            See how smart automation can streamline your operations and grow your revenue.
-          </p>
-          <button 
-            onClick={() => setShowLeadCaptureModal(true)}
-            className="inline-flex items-center space-x-2 bg-orange-600 text-white px-8 py-4 font-medium hover:bg-orange-700 transition-colors shadow-lg text-lg"
-          >
-            <span>Start Your Free Assessment</span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="text-center md:text-left">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                Ready to Transform Your Electrical Business?
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                See how smart automation can streamline your operations and grow your revenue.
+              </p>
+              <button 
+                onClick={() => setShowLeadCaptureModal(true)}
+                className="inline-flex items-center space-x-2 bg-teal-600 text-white px-8 py-4 font-medium hover:bg-teal-700 transition-colors shadow-lg text-lg rounded-lg"
+              >
+                <span>Start Your Free Assessment</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="relative">
+              <img
+                src={electricianImage}
+                alt="Electrician on-site installing wiring and inspecting panels"
+                className="w-full h-72 sm:h-80 md:h-96 object-cover rounded-2xl shadow-xl ring-1 ring-black/5"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </section>
       {/* Problem Statement */}
@@ -73,48 +91,48 @@ export default function Electrical() {
             {/* Electrical Industry Challenges */}
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">85%</div>
+                <div className="text-5xl font-bold text-teal-600 mb-4">85%</div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Missed Follow-ups</h3>
                 <p className="text-gray-600">of leads that never get proper follow-up contact are lost. </p>
               </div>
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">40%</div>
+                <div className="text-5xl font-bold text-teal-600 mb-4">40%</div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Admin Time</h3>
                 <p className="text-gray-600">Of your day spent on paperwork instead of billable electrical work</p>
               </div>
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">3x</div>
+                <div className="text-5xl font-bold text-teal-600 mb-4">3x</div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Permit Delays</h3>
                 <p className="text-gray-600">Projects delayed due to missed permit deadlines and compliance issues</p>
               </div>
               <div className="bg-white p-8 shadow-lg">
-                <div className="text-5xl font-bold text-orange-600 mb-4">72hr</div>
+                <div className="text-5xl font-bold text-teal-600 mb-4">72hr</div>
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Response Window</h3>
                 <p className="text-gray-600">Maximum time before customers call your competitors for estimates</p>
               </div>
             </div>
 
-            <div className="bg-orange-900 text-white p-8 rounded-lg">
+            <div className="bg-slate-900 text-white p-8 rounded-lg">
               <h3 className="font-serif text-2xl font-bold mb-4">What This Means for Your Business</h3>
               <ul className="space-y-3">
                 <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-orange-300 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-6 h-6 text-teal-300 flex-shrink-0 mt-0.5" />
                   <span>Big estimates sit for weeks without proper follow-up</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-orange-300 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-6 h-6 text-teal-300 flex-shrink-0 mt-0.5" />
                   <span>Scheduling gets complicated with jobs of different sizes and complexity</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-orange-300 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-6 h-6 text-teal-300 flex-shrink-0 mt-0.5" />
                   <span>Administrative work pulls you away from billable hours</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-orange-300 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-6 h-6 text-teal-300 flex-shrink-0 mt-0.5" />
                   <span>Customers comparison shop and go with faster responders</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-orange-300 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-6 h-6 text-teal-300 flex-shrink-0 mt-0.5" />
                   <span>Code updates and permit requirements slow everything down</span>
                 </li>
               </ul>
@@ -139,7 +157,7 @@ export default function Electrical() {
             {/* Solution 1 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-600 rounded-lg mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-100 text-teal-600 rounded-lg mb-6">
                   <Zap className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
@@ -161,21 +179,31 @@ export default function Electrical() {
                     <li>• Appointment confirmations and reminders for site visits</li>
                   </ul>
                 </div>
-                <div className="bg-orange-50 border-l-4 border-orange-600 p-4">
-                  <p className="text-orange-900 font-semibold">
+                <div className="bg-teal-50 border-l-4 border-teal-600 p-4">
+                  <p className="text-teal-900 font-semibold">
                     Real Results: 60% better lead conversion and 40% more large project wins
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-orange-600 to-orange-800 h-96 rounded-lg flex items-center justify-center">
-                <Zap className="w-32 h-32 text-white/20" />
+              <div className="relative">
+                <img
+                  src={electricianImage2}
+                  alt="Electrical work and project management"
+                  className="w-full h-96 object-cover rounded-lg shadow-xl ring-1 ring-black/5"
+                  loading="lazy"
+                />
               </div>
             </div>
 
             {/* Solution 2 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-blue-600 to-blue-800 h-96 rounded-lg flex items-center justify-center">
-                <Calendar className="w-32 h-32 text-white/20" />
+              <div className="order-2 lg:order-1 relative">
+                <img
+                  src={electricianImagePM}
+                  alt="Professional electrical project management and scheduling"
+                  className="w-full h-96 object-cover rounded-lg shadow-xl ring-1 ring-black/5"
+                  loading="lazy"
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-lg mb-6">
@@ -239,123 +267,105 @@ export default function Electrical() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-green-600 to-green-800 h-96 rounded-lg flex items-center justify-center">
-                <Shield className="w-32 h-32 text-white/20" />
+              <div className="relative">
+                <img
+                  src={electricianImageSC}
+                  alt="Electrical safety compliance and documentation"
+                  className="w-full h-96 object-cover rounded-lg shadow-xl ring-1 ring-black/5"
+                  loading="lazy"
+                />
               </div>
             </div>
 
             {/* Solution 4 */}
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 bg-gradient-to-br from-purple-600 to-purple-800 h-96 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-32 h-32 text-white/20" />
+              <div className="order-2 lg:order-1 relative">
+                <img
+                  src={electricianImageSMM}
+                  alt="Social media marketing and AI content creation for electrical contractors"
+                  className="w-full h-96 object-cover rounded-lg shadow-xl ring-1 ring-black/5"
+                  loading="lazy"
+                />
               </div>
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 text-purple-600 rounded-lg mb-6">
                   <TrendingUp className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                  Turn Service Calls Into Bigger Projects
+                  AI-Powered Social Media Marketing
                 </h3>
                 <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Problem:</strong> Customers call for small repairs but don't think about larger electrical needs
+                  <strong>The Problem:</strong> Electrical contractors struggle to maintain consistent social media presence while running their business
                 </p>
                 <p className="text-lg text-gray-600 mb-6">
-                  <strong>The Solution:</strong> CRM systems that identify upgrade opportunities and nurture long-term relationships
+                  <strong>The Solution:</strong> AI-powered marketing automation that creates engaging content and nurtures customer relationships
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Service history tracking reveals upgrade opportunities (old panels, insufficient capacity)</li>
-                    <li>• Automated educational emails about electrical safety and efficiency</li>
-                    <li>• Seasonal reminders for generator maintenance, holiday lighting, HVAC electrical prep</li>
-                    <li>• Follow-up campaigns for customers who received estimates but didn't buy</li>
-                    <li>• Professional maintenance agreements for commercial clients</li>
+                    <li>• AI-generated before/after project images and professional job photos</li>
+                    <li>• Automated seasonal marketing campaigns (holiday lighting, generator prep, safety inspections)</li>
+                    <li>• Smart email sequences with electrical tips, maintenance reminders, and safety updates</li>
+                    <li>• Social media posts showcasing completed projects with AI-enhanced visuals</li>
+                    <li>• Targeted discount campaigns for past customers and referral programs</li>
+                    <li>• Educational content about electrical codes, energy efficiency, and safety</li>
                   </ul>
                 </div>
                 <div className="bg-purple-50 border-l-4 border-purple-600 p-4">
                   <p className="text-purple-900 font-semibold">
-                    Real Results: 70% increase in upsell revenue and 3x more maintenance contracts
+                    Real Results: 85% more social media engagement and 60% increase in referral business
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Solution 5 */}
+            <div className="grid lg:grid-cols-[1.05fr_1.1fr] gap-6 items-center">
+              <div>
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-600 rounded-lg mb-6">
+                  <FileCheck className="w-8 h-8" />
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  Smart Employee Onboarding & Knowledge Management System
+                </h3>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Problem:</strong> Employees constantly interrupt you with questions about procedures, policies, and company information
+                </p>
+                <p className="text-lg text-gray-600 mb-6">
+                  <strong>The Solution:</strong> AI-powered knowledge management system with your entire knowledge base, SOPs, and frequently asked questions
+                </p>
+                <div className="bg-gray-50 p-6 rounded-lg mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">What This Looks Like:</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>• Custom-trained large language model built on your company policies, procedures, and electrical standards</li>
+                    <li>• Web-based chat interface where employees can ask questions about safety protocols, code requirements, or job procedures</li>
+                    <li>• Integration with your scheduling, inventory, and project management systems</li>
+                    <li>• Automated onboarding sequences for new hires with company-specific electrical practices</li>
+                    <li>• FAQ database covering customer questions, pricing, and service offerings</li>
+                    <li>• Memory system that learns from interactions and improves over time</li>
+                    <li>• Escalation to supervisors when questions require human expertise</li>
+                  </ul>
+                </div>
+                <div className="bg-indigo-50 border-l-4 border-indigo-600 p-4">
+                  <p className="text-indigo-900 font-semibold">
+                    Real Results: 70% reduction in interruptions and 50% faster new employee productivity
+                  </p>
+                </div>
+              </div>
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={electricianImageOB}
+                  alt="Employee onboarding and knowledge management system for electrical contractors"
+                  className="w-full h-[30rem] sm:h-[32rem] lg:h-[36rem] max-h-[80vh] object-contain"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Implementation Timeline */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              How We Get You There
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A proven 90-day implementation roadmap designed for electrical contractors
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-8 shadow-lg">
-              <div className="text-orange-600 font-bold text-lg mb-2">Month 1</div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Professional Communication Setup</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>AI phone system handles inquiries and qualifies leads</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Automated estimate follow-up sequences</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Professional appointment confirmations and project updates</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-8 shadow-lg">
-              <div className="text-orange-600 font-bold text-lg mb-2">Month 2</div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Project Management Integration</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Smart scheduling for different project types</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Compliance and safety documentation workflows</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Customer communication at project milestones</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-8 shadow-lg">
-              <div className="text-orange-600 font-bold text-lg mb-2">Month 3+</div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-4">Business Growth Acceleration</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Lead nurturing converts more estimates to projects</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Professional systems attract higher-paying commercial clients</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span>Compliance automation reduces risk and administrative time</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* ROI Section */}
-      <section className="py-20 bg-orange-900 text-white">
+      <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -364,19 +374,19 @@ export default function Electrical() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-orange-800/50 p-8 rounded-lg">
-              <Clock className="w-12 h-12 text-orange-300 mb-4" />
+            <div className="bg-slate-800/80 p-8 rounded-lg">
+              <Clock className="w-12 h-12 text-teal-300 mb-4" />
               <h3 className="font-serif text-2xl font-bold mb-4">Time You'll Save</h3>
               <ul className="space-y-3 text-gray-200">
-                <li>• <strong>Lead qualification:</strong> AI pre-screens calls and captures project details</li>
+                <li>• <strong>Call routing and filtering:</strong> AI handles initial inquiries and routes qualified leads to you</li>
                 <li>• <strong>Follow-up work:</strong> Automated sequences for estimates and completed projects</li>
                 <li>• <strong>Project coordination:</strong> Automated customer updates and milestone tracking</li>
                 <li>• <strong>Compliance documentation:</strong> Streamlined safety and code compliance processes</li>
               </ul>
             </div>
 
-            <div className="bg-orange-800/50 p-8 rounded-lg">
-              <DollarSign className="w-12 h-12 text-orange-300 mb-4" />
+            <div className="bg-slate-800/80 p-8 rounded-lg">
+              <DollarSign className="w-12 h-12 text-teal-300 mb-4" />
               <h3 className="font-serif text-2xl font-bold mb-4">Money You'll Make</h3>
               <ul className="space-y-3 text-gray-200">
                 <li>• <strong>Better lead conversion:</strong> Professional response systems close more estimates</li>
@@ -386,8 +396,8 @@ export default function Electrical() {
               </ul>
             </div>
 
-            <div className="bg-orange-800/50 p-8 rounded-lg">
-              <Shield className="w-12 h-12 text-orange-300 mb-4" />
+            <div className="bg-slate-800/80 p-8 rounded-lg">
+              <Shield className="w-12 h-12 text-teal-300 mb-4" />
               <h3 className="font-serif text-2xl font-bold mb-4">Risk You'll Reduce</h3>
               <ul className="space-y-3 text-gray-200">
                 <li>• <strong>Compliance issues:</strong> Automated tracking reduces code violations</li>
@@ -416,7 +426,7 @@ export default function Electrical() {
           </p>
           <button 
             onClick={() => setShowLeadCaptureModal(true)}
-            className="inline-flex items-center space-x-2 bg-orange-600 text-white px-8 py-4 font-medium hover:bg-orange-700 transition-colors text-lg"
+            className="inline-flex items-center space-x-2 bg-teal-600 text-white px-8 py-4 font-medium hover:bg-teal-700 transition-colors text-lg rounded-lg"
           >
             <span>Start Your Free Assessment</span>
             <ArrowRight className="w-5 h-5" />
@@ -439,36 +449,36 @@ export default function Electrical() {
             <div>
               <h4 className="font-semibold mb-4">Industries</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/hvac" className="hover:text-orange-400 transition-colors">HVAC</Link></li>
-                <li><Link href="/plumbing" className="hover:text-orange-400 transition-colors">Plumbing</Link></li>
-                <li><Link href="/electrical" className="hover:text-orange-400 transition-colors">Electrical</Link></li>
-                <li><Link href="/roofing" className="hover:text-orange-400 transition-colors">Roofing</Link></li>
-                <li><Link href="/landscaping" className="hover:text-orange-400 transition-colors">Landscaping</Link></li>
+                <li><Link href="/hvac" className="hover:text-teal-400 transition-colors">HVAC</Link></li>
+                <li><Link href="/plumbing" className="hover:text-teal-400 transition-colors">Plumbing</Link></li>
+                <li><Link href="/electrical" className="hover:text-teal-400 transition-colors">Electrical</Link></li>
+                <li><Link href="/roofing" className="hover:text-teal-400 transition-colors">Roofing</Link></li>
+                <li><Link href="/landscaping" className="hover:text-teal-400 transition-colors">Landscaping</Link></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Capabilities</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/ai-strategy-development" className="hover:text-orange-400 transition-colors">AI Strategy</Link></li>
-                <li><Link href="/system-integration" className="hover:text-orange-400 transition-colors">Implementation</Link></li>
-                <li><Link href="/change-management" className="hover:text-orange-400 transition-colors">Scaling</Link></li>
+                <li><Link href="/ai-strategy-development" className="hover:text-teal-400 transition-colors">AI Strategy</Link></li>
+                <li><Link href="/system-integration" className="hover:text-teal-400 transition-colors">Implementation</Link></li>
+                <li><Link href="/change-management" className="hover:text-teal-400 transition-colors">Scaling</Link></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">About Us</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-orange-400 transition-colors">Careers</button></li>
-                <li><button className="hover:text-orange-400 transition-colors">Contact</button></li>
-                <li><button className="hover:text-orange-400 transition-colors">Blog</button></li>
+                <li><button className="hover:text-teal-400 transition-colors">Careers</button></li>
+                <li><button className="hover:text-teal-400 transition-colors">Contact</button></li>
+                <li><button className="hover:text-teal-400 transition-colors">Blog</button></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><button className="hover:text-orange-400 transition-colors">Subscribe</button></li>
+                <li><button className="hover:text-teal-400 transition-colors">Subscribe</button></li>
               </ul>
             </div>
           </div>
