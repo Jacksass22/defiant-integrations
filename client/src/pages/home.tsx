@@ -6,6 +6,8 @@ import TextType from '@/components/TextType';
 import ServiceShowcase from '@/components/ServiceShowcase';
 import LogoLoop from '@/components/LogoLoop';
 import MovingDotsOverlay from '@/components/MovingDotsOverlay';
+import SplitText from '@/components/SplitText';
+import CountUp from '@/components/CountUp';
 
 import { SubscriptionModal } from '@/components/subscription-modal';
 import { LeadCaptureModal } from '@/components/lead-capture-modal';
@@ -179,7 +181,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* What We Do Section */}
       <section className="relative py-32 bg-gradient-to-b from-white via-gray-50/40 to-white overflow-hidden">
         {/* Premium space grey background */}
@@ -210,15 +212,14 @@ export default function Home() {
             
             <div className="relative z-10 py-16 px-8">
               <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
-                <TextType 
-                  text={["What We Do", "How We Transform", "What We Build"]}
-                  typingSpeed={75}
-                  pauseDuration={1500}
-                  showCursor={true}
-                  cursorCharacter="|"
-                  startOnVisible={true}
+                <SplitText 
+                  text="What We Do & How We Transform"
                   className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight"
-                  textColors={["#111827", "#1f2937", "#374151"]}
+                  delay={50}
+                  duration={0.8}
+                  splitType="words, chars"
+                  ease="power3.out"
+                  tag="span"
                 />
               </h2>
               
@@ -329,7 +330,18 @@ export default function Home() {
                   Why Most Strategies Fail—And How the Best Beat the Odds
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                  Only one in five companies believe they meet the bar for high-quality strategy. What do these strategy champions have in common? They excel at designing bold strategies—and are even better at mobilizing their organizations to execute them.
+                  Only <CountUp
+                    from={0}
+                    to={1}
+                    duration={1.5}
+                    className="font-bold text-blue-600"
+                  /> in <CountUp
+                    from={0}
+                    to={5}
+                    duration={2}
+                    delay={0.5}
+                    className="font-bold text-blue-600"
+                  /> companies believe they meet the bar for high-quality strategy. What do these strategy champions have in common? They excel at designing bold strategies—and are even better at mobilizing their organizations to execute them.
                 </p>
                 <Link href="/strategy-article" className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
                   <span>Build a Strategy That Actually Delivers</span>
@@ -353,7 +365,12 @@ export default function Home() {
                   The Hard Truth About Digital Transformation
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                  70% of digital transformations fail. Not because of bad technology, but because of poor execution. We built our approach around what actually works—strategic AI implementation with measurable business outcomes.
+                  <CountUp
+                    from={0}
+                    to={70}
+                    duration={2.5}
+                    className="font-bold text-red-600"
+                  />% of digital transformations fail. Not because of bad technology, but because of poor execution. We built our approach around what actually works—strategic AI implementation with measurable business outcomes.
                 </p>
                 <Link href="/ai-adoption-article" className="text-blue-600 font-medium hover:underline inline-flex items-center space-x-2">
                   <span>Read About AI Adoption That Works</span>
@@ -464,7 +481,12 @@ export default function Home() {
                   The Hard Truth About AI Adoption in Business
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  70% of AI initiatives fail. Learn what works from our real-world implementation experience across industries.
+                  <CountUp
+                    from={0}
+                    to={70}
+                    duration={2}
+                    className="font-bold text-red-600"
+                  />% of AI initiatives fail. Learn what works from our real-world implementation experience across industries.
                 </p>
                 <Link href="/ai-adoption-article" className="inline-flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors duration-200">
                   <span>Read Full Article</span>

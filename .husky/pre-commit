@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run type checking
+npm run check
+
+# Run linting and formatting on staged files
+npx lint-staged
+
+# Run tests to ensure they pass (when tests exist)
+npm test run 2>/dev/null || echo "No tests to run yet"

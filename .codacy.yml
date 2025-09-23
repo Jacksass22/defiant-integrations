@@ -1,0 +1,66 @@
+# Codacy Configuration for DefiantIntegrations
+engines:
+  # JavaScript/TypeScript linting
+  eslint:
+    enabled: true
+
+  # TypeScript-specific analysis
+  tslint:
+    enabled: true
+
+  # Code complexity and maintainability metrics
+  metrics:
+    enabled: true
+
+  # Test coverage tracking
+  coverage:
+    enabled: true
+
+  # Code duplication detection
+  duplication:
+    enabled: true
+
+  # Security vulnerability scanning
+  bundler-audit:
+    enabled: true
+
+  # Dependency vulnerability scanning
+  retire-js:
+    enabled: true
+
+# File patterns to exclude from analysis
+exclude_paths:
+  - 'node_modules/**'
+  - 'dist/**'
+  - '*.min.js'
+  - 'package-lock.json'
+  - '*.d.ts'
+
+# Coverage settings
+coverage:
+  # Minimum coverage threshold
+  threshold: 70
+
+  # Coverage report format
+  format: lcov
+
+  # Paths to include in coverage
+  include_paths:
+    - 'client/src/**'
+    - 'server/**'
+    - 'shared/**'
+
+# Quality settings
+quality:
+  # Complexity threshold
+  complexity_threshold: 15
+
+  # Duplication threshold (lines)
+  duplication_threshold: 100
+
+# Custom patterns to ignore
+ignore:
+  # Ignore specific rules
+  rules:
+    - 'react/prop-types' # Already disabled in ESLint
+    - 'no-console' # Allow console logs in development
